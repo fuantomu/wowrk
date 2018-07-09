@@ -1,0 +1,36 @@
+images {
+  image: "/assets/img/ui/cast_bar_fill.png"
+}
+images {
+  image: "/assets/img/ui/energy_bar_fill.png"
+}
+images {
+  image: "/assets/img/ui/gcd_bar_fill.png"
+}
+images {
+  image: "/assets/img/ui/health_bar.png"
+}
+images {
+  image: "/assets/img/ui/health_bar_fill.png"
+}
+images {
+  image: "/assets/img/ui/mana_bar_fill.png"
+}
+images {
+  image: "/assets/img/ui/rage_bar_fill.png"
+}
+images {
+  image: "/assets/img/icons/buttons/sprite_button_settingsExit_0.png"
+}
+images {
+  image: "/assets/img/icons/other/sprite_character_player_001_0.png"
+}
+images {
+  image: "/assets/img/icons/other/1px.png"
+}
+images {
+  image: "/assets/img/bg/bg_main_mainMenu.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

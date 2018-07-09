@@ -1,0 +1,6 @@
+1,Attack,Melee,PHY,NAT,STR,100,10,1.0,0,(0,0,0),(Ability_MeleeDamage)
+2,Punch,Melee,PHY,NAT,STR,50,5,0.5,0,(0,0,0),(Ability_GolemThunderClap)
+3,Shoot,Ranged,PHY,NAT,AGI,50,15,1.0,0,(0,0,0),(Ability_Marksmanship)
+4,Wand,Ranged,MAG,NAT,INT,50,5,0.5,0,(0,0,0),(ABILITY_SHOOTWAND)
+5,Fireball,Ranged,MAG,FIRE,INT,100,20,1.5,0,(0,0,0),(Spell_Fire_FlameBolt)
+6,Heroic Strike,Melee,PHY,NAT,STR,1,11,2.0,15,(1,0,0),(Ability_Rogue_Ambush)

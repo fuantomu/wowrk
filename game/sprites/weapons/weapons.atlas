@@ -1,0 +1,21 @@
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_15.png"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_104.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_06.PNG"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

@@ -1,0 +1,253 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.playerStats = {}
+	self.oneSecTimer = 60
+	self.maxPlayers = 5
+	self.playerAttack = {}
+	self.bossStats = {}
+	self.currentTurn = 0
+	self.alivePlayers = {}
+	self.pAddedDamage = {}
+	self.pAbilityEffects = {}
+	self.playerWeapon = {}
+	self.gameRunning = true
+	self.aTimer = ""
+	math.randomseed(os.clock() * 1000)
+	math.random()
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
+end
+
+function update(self, dt)
+	if(self.gameRunning) then
+		self.oneSecTimer = self.oneSecTimer-1
+		if(self.oneSecTimer <= 0) then
+			for i = 1, self.maxPlayers do
+				if(self.playerStats[i]["class"] == "Warrior") then
+					self.playerStats[i]["rescurr"] = self.playerStats[i]["rescurr"] + 1
+					if(self.playerStats[i]["rescurr"] > self.playerStats[i]["resmax"]) then self.playerStats[i]["rescurr"] = self.playerStats[i]["resmax"] end
+				end
+				msg.post("/GUI#gameViewGUI", hash("setRES"), {player=i, val=hash("set"), res = self.playerStats[i]["rescurr"]})
+			end
+			self.oneSecTimer = 60
+			self.currentTurn = self.currentTurn + 1
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if(message_id == hash("back")) then
+		msg.post("main:/game#loader", "gotoLobby")
+	elseif(message_id == hash("action")) then
+		local wpnDmg = getDamage(self.playerWeapon[message.player]["damage"])
+		wpnDmg["phy"] =  wpnDmg["phy"]* (1-(self.bossStats["armor"] / (self.bossStats["armor"] + 400 + 85 * self.bossStats["level"])))
+		local damageDone = wpnDmg["phy"] + wpnDmg["fire"] + wpnDmg["frost"] + wpnDmg["arcane"] + wpnDmg["nature"] + wpnDmg["shadow"] + wpnDmg["holy"]
+		if(message.type == "Attack") then
+			damageDone = damageDone + (self.playerStats[message.player]["ap"] / 14)
+			damageDone = math.floor(0.5 + damageDone)
+			msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
+			print("Player "..message.player.." hit: "..damageDone.."["..wpnDmg["phy"]..","..wpnDmg["fire"]..","..wpnDmg["frost"]..","..wpnDmg["arcane"]..","..wpnDmg["nature"]..","..wpnDmg["shadow"]..","..wpnDmg["holy"].."]")
+		elseif(message.type == "Ability") then
+			if(self.playerWeapon[message.player]["wtype"] == "2") then
+				damageDone = damageDone + (1.7 * (self.playerStats[message.player]["ap"] / 14))
+			else
+				damageDone = damageDone + (2.4 * (self.playerStats[message.player]["ap"] / 14))
+			end
+			damageDone = math.floor(0.5 + damageDone)
+			msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
+			if(self.playerAttack[message.player]["name"] == "Heroic Strike") then
+				damageDone = damageDone + self.playerAttack[message.player]["basedmg"]
+			end
+			print("Player "..message.player..","..self.playerStats[message.player][string.lower(self.playerAttack[message.player]["attr"])].." "..self.playerAttack[message.player]["name"].."["..message.id..","..self.playerAttack[message.player]["attr"]..","..self.playerAttack[message.player]["mult"].."] for "..damageDone.." damage")
+		end
+
+		
+		self.bossStats["hpcurr"] = self.bossStats["hpcurr"] - damageDone
+		local newBossHP = (self.bossStats["hpcurr"] / self.bossStats["hpmax"]) * 100
+		msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player="Boss", dmg=damageDone})
+		msg.post("/GUI#gameViewGUI", hash("setHP"), {player="boss", hp=newBossHP, val=hash("set")})
+	elseif(message_id == hash("getProperties")) then
+		if(message.type == "Weapon") then
+			print("Player "..message.player.." attacking with "..message.values["name"]..","..message.values["lore"])
+			self.playerAttack[message.player] = message.values
+			msg.post("/GUI#gameViewGUI", hash("startCast"), {player=message.player, cast=message.values["aspeed"], type="Attack"})
+		elseif(message.type == "Ability") then
+			for i = 1, 3 do
+				msg.post("main:/game#main", hash("getEffect"), {id=message.values["eids"][1]["eid"..i],player=message.player})
+			end
+			print("Player "..message.player.." using "..message.values["name"]..","..message.values["type"]..","..message.values["element"]..","..message.values["elemtype"].."  Casttime:"..message.values["cast"]..", Multiplier="..message.values["mult"]..","..message.values["attr"])
+			self.playerAttack[message.player] = message.values
+		end
+	elseif(message_id == hash("getEffect")) then
+		table.insert(self.pAbilityEffects, message.values)
+		if(#self.pAbilityEffects == 3) then
+			local cast = self.playerAttack[message.player]["cast"]
+			local addedDamage = {}
+			for i = 1, #self.pAbilityEffects do
+				if(self.pAbilityEffects[i]["func"] == "Skip") then
+				elseif(self.pAbilityEffects[i]["func"] == "SetCast") then
+					if(self.pAbilityEffects[i]["val"] == "Attackspeed") then
+						cast = self.playerWeapon[message.player]["aspeed"]
+					end
+				end
+			end
+			table.insert(self.pAddedDamage, {id=message.player,addedDamage=addedDamage})
+			msg.post("/GUI#gameViewGUI", hash("startCast"), {player=message.player, cast=cast, type="Ability"})
+			self.pAbilityEffects = {}
+		end
+	elseif(message_id == hash("getWeaponStats")) then
+		table.insert(self.playerWeapon, message.values)
+		if(#self.playerWeapon == self.maxPlayers) then
+			msg.post("/GUI#gameViewGUI", hash("getWeaponStats"), {wpn=self.playerWeapon})
+		end
+	elseif(message_id == hash("bossData")) then
+		self.bossStats = message.values
+	elseif(message_id == hash("sendGameData")) then
+		self.maxPlayers = message.players
+		for x = 1,self.maxPlayers  do
+			msg.post("main:/game#savegame", hash("loadGame"), {player=x})
+		end
+		msg.post("/game#boss", hash("loadBoss"), {id=1})
+	elseif(message_id == hash("loadDone")) then
+		table.insert(self.playerStats, message.data)
+		
+		msg.post("main:/game#main", hash("getWeaponStats"), {player=message.player, id=self.playerStats[message.player]["mhid"]})
+		if(self.playerStats[message.player]["hpcurr"] > 0) then
+			table.insert(self.alivePlayers, message.player)
+		end
+		if(#self.alivePlayers >= self.maxPlayers) then
+			local classesAltRes ={}
+			local spellIds = {}
+			for i = 1, self.maxPlayers do
+				if(self.playerStats[i]["class"] == 1) then
+					self.playerStats[i]["ap"] = (tonumber(self.playerStats[i]["str"]) * 2 + tonumber(self.playerStats[i]["level"]) * 3) - 20
+					table.insert(classesAltRes, i)
+				end
+				table.insert(spellIds, {attackid=self.playerStats[i]["mhid"],defenseid=self.playerStats[i]["ohid"],idSp1=self.playerStats[i]["sp1id"],idSp2=self.playerStats[i]["sp2id"]})
+			end
+			msg.post("/GUI#gameViewGUI", hash("maxPlayers"), {val=self.maxPlayers, altRes=classesAltRes, ids=spellIds})
+		end
+	elseif(message_id == hash("gameDataDone")) then
+		for i = 1, self.maxPlayers do
+			local php = (self.playerStats[i]["hpcurr"]/self.playerStats[i]["hpmax"])*100
+			msg.post("/GUI#gameViewGUI", hash("setHP"), {hp=php,val=hash("set"), player=i})
+		end
+	elseif(message_id == hash("death")) then
+		self.playerStats[message.player]["dead"] = true
+		print("Player "..message.player.." died")
+		for i = 1, #self.alivePlayers do
+			if(self.alivePlayers[i] == message.player) then
+				table.remove(self.alivePlayers, i)
+				break
+			end
+		end
+		msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("death") })
+	elseif(message_id == hash("animation_done")) then
+		local player = string.sub(tostring(sender), -2, -2)
+		if(message.id == hash("death")) then
+			sprite.play_flipbook("/spritePlayer#spriteP".. player, hash("dead"))
+		elseif(message.id == hash("attack")) then
+			sprite.play_flipbook("/spritePlayer#spriteP".. player, hash("idle_stand"))
+			msg.post("/GUI#gameViewGUI", hash("animDone"))
+			msg.post("/game#boss", hash("animDone"))
+		end
+	elseif(message_id == hash("calculateAttack")) then
+		if(message.type == "Attack") then
+			msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerStats[message.player]["mhid"], player=message.player})
+		elseif(message.type == "Ability") then
+			msg.post("main:/game#main", hash("getProperties"), {type=message.type, id=self.playerStats[message.player]["sp"..message.slot.."id"], player=message.player})
+		end
+	elseif(message_id == hash("bossDamage")) then
+		local i = 1
+		if(message.type == "ALL") then
+			for i = 1, #message.targets do
+				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
+				if(not self.playerStats[message.targets[i]]["dead"]) then
+					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					self.playerStats[message.targets[i]]["hpcurr"] = self.playerStats[message.targets[i]]["hpcurr"] - dmgDone
+					local newPlayerHP = (self.playerStats[message.targets[i]]["hpcurr"] / self.playerStats[message.targets[i]]["hpmax"]) * 100
+					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=message.targets[i], dmg=dmgDone})
+					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=message.targets[i], hp=newPlayerHP, val=hash("set")})
+					print("Boss hitting player "..message.targets[i].." for "..dmgDone)
+				end
+			end
+		else
+			self.aTimer = timer.repeating(0.2, function(self, id)
+				if(#self.alivePlayers <= 0) then timer.cancel(id) end
+				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
+				if(not self.playerStats[message.targets[i]]["dead"]) then
+					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					self.playerStats[message.targets[i]]["hpcurr"] = self.playerStats[message.targets[i]]["hpcurr"] - dmgDone
+					local newPlayerHP = (self.playerStats[message.targets[i]]["hpcurr"] / self.playerStats[message.targets[i]]["hpmax"]) * 100
+					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=message.targets[i], dmg=dmgDone})
+					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=message.targets[i], hp=newPlayerHP, val=hash("set")})
+					print("Boss hitting player "..message.targets[i].." for "..dmgDone)
+				else
+					player = self.alivePlayers[math.random(#self.alivePlayers)]
+					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					self.playerStats[player]["hpcurr"] = self.playerStats[player]["hpcurr"] - dmgDone
+					local newPlayerHP = (self.playerStats[player]["hpcurr"] / self.playerStats[player]["hpmax"]) * 100
+					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=player, dmg=dmgDone})
+					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=player, hp=newPlayerHP, val=hash("set")})
+					print("Boss hitting random player "..player.." for "..dmgDone)
+				end
+				i = i + 1
+				if(i > #message.targets) then
+					timer.cancel(id)
+				end
+			end)
+		end
+	elseif(message_id == hash("gameOver")) then
+		print("GAMEOVER: "..message.result)
+		timer.cancel(self.aTimer)
+		self.gameRunning = false
+	end
+end
+
+function getDamage(table)
+	local physDamage, fireDamage, frostDamage, arcaneDamage, natureDamage, shadowDamage, holyDamage = 0,0,0,0,0,0,0
+	for i = 1, #table do
+		if(table[i]["school"] == "0") then
+			physDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "1") then
+			fireDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "2") then
+			frostDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "3") then
+			arcaneDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "4") then
+			natureDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "5") then
+			shadowDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		elseif(table[i]["school"] == "6") then
+			holyDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+		end
+	end
+	return {phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}
+end
+
+
+
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	
+end

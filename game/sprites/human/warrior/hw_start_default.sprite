@@ -1,0 +1,4 @@
+tile_set: "/game/sprites/human/warrior/hw_start.atlas"
+default_animation: "hws001"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

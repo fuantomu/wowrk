@@ -1,0 +1,21 @@
+images {
+  image: "/assets/img/icons/abilities/Ability_GolemThunderClap.png"
+}
+images {
+  image: "/assets/img/icons/abilities/Ability_Marksmanship.png"
+}
+images {
+  image: "/assets/img/icons/abilities/Ability_MeleeDamage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ABILITY_SHOOTWAND.png"
+}
+images {
+  image: "/assets/img/icons/abilities/Spell_Fire_FlameBolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/Ability_Rogue_Ambush.PNG"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

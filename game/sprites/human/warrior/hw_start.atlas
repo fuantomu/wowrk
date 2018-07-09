@@ -1,0 +1,151 @@
+images {
+  image: "/assets/img/characters/human/warrior/start/hws001.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws002.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws003.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws004.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws005.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws006.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws007.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws008.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws009.png"
+}
+images {
+  image: "/assets/img/characters/human/warrior/start/hws010.png"
+}
+animations {
+  id: "walk"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws001.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws002.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 2
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "attack"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws008.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws008.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws004.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 10
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "cast"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws007.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws007.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 2
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "death"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws005.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws009.png"
+  }
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws009.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 3
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "dead"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws010.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "idle_cast"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws003.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "idle_stand"
+  images {
+    image: "/assets/img/characters/human/warrior/start/hws001.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

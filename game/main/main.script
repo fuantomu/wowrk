@@ -1,0 +1,301 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	msg.post("game#loader", hash("gotoMainMenu"))
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
+	msg.post("game#savegame", hash("saveGame"))
+end
+
+function on_message(self, message_id, message, sender)
+	if(message_id == hash("returnToMain")) then
+		msg.post("game#loader", hash("gotoMainMenu"))
+	elseif(message_id == hash("getProperties")) then
+		local result = getActionProperties(message.type, message.id)
+		if(message.player) then
+			msg.post(sender, hash("getProperties"), {values=result, player=message.player,type=message.type,id=message.id})
+		else
+			msg.post(sender, hash("getProperties"), {values=result, type=message.type,id=message.id})
+		end
+	elseif(message_id == hash("getIcon")) then
+		local result = getActionIcon(message.type, message.id)
+		if(message.player) then
+			msg.post(sender, hash("getIcon"), {values=result, player=message.player,type=message.type,id=message.id,slot=message.slot})
+		else
+			msg.post(sender, hash("getIcon"), {values=result, type=message.type,id=message.id})
+		end
+	elseif(message_id == hash("getEffect")) then
+		local result = getEffectProperties(message.id)
+		if(message.player) then
+			msg.post(sender, hash("getEffect"), {values=result,player=message.player})
+		else
+			msg.post(sender, hash("getEffect"), {values=result})
+		end
+	elseif(message_id == hash("getWeaponStats")) then
+		local result = getWeaponProperties(message.id)
+		if(message.player) then
+			msg.post(sender, hash("getWeaponStats"), {values=result,player=message.player})
+		else
+			msg.post(sender, hash("getWeaponStats"), {values=result})
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function getEffectProperties(aid)
+	local retVal = {}
+	file = "D:/Games/wowrecordkeeper/assets/database/Effects.db"
+	for line in io.lines(file) do
+		id,
+		func,
+		val
+		= line:match("(%d+),%((.-)%),%((.-)%)")
+		retVal = { id = id,
+		func = func,
+		val = val}
+		if(tonumber(aid) == tonumber(id)) then
+			break
+		end
+	end
+	return retVal
+end
+
+function getActionProperties(atype, aid)
+	local file = ""
+	local retVal = {}
+	if(atype == "Ability") then
+		file = "D:/Games/wowrecordkeeper/assets/database/Ability.db"
+		for line in io.lines(file) do
+			local 
+			id, 
+			name, 
+			type, 
+			element, 
+			elemtype, 
+			attr, 
+			mult,
+			basedmg, 
+			cast,
+			rcost,
+			eids,
+			icon 
+			= line:match("(%d+),(.-),(%a+),(%u+),(%u+),(%u+),(%d+),(%d+),(%d+.%d+),(%d+),%((.-)%),%((.-)%)")
+			local effects = {}
+			local i = 1
+			local eid1,eid2,eid3 = 0
+			for e in string.gmatch(eids, '([^,]+)') do
+				if(i == 1) then
+					eid1 = e
+				elseif(i==2) then
+					eid2=e
+				elseif(i==3) then
+					eid3=e
+				end
+				i= i+1
+			end
+			table.insert(effects, {eid1=eid1,eid2=eid2,eid3=eid3})
+			retVal = { id = id, 
+			name = name, 
+			type = type, 
+			element = element, 
+			elemtype=elemtype, 
+			attr=attr,
+			mult = mult,
+			basedmg = basedmg, 
+			cast = cast, 
+			rcost=rcost,
+			eids=effects, 
+			icon=icon}
+			if(tonumber(aid) == tonumber(id)) then
+				break
+			end
+		end
+	elseif(atype == "Weapon") then
+		file = "D:/Games/wowrecordkeeper/assets/database/Weapon.db"
+		for line in io.lines(file) do
+			local 	
+			id,			-- (%d+)
+			icon,			-- %((.-)%)
+			name,			-- %((.-)%)
+			bind,		-- (%d+)
+			rlvl,		-- (%d+)
+			ilvl,		-- (%d+)
+			unique,		-- (%d+)
+			quality,		-- (%d+)
+			rclass,		-- %((.-)%)
+			rrace,		-- %((.-)%)
+			rrank,		-- (%d+)
+			stats,		-- %((.-)%)
+			armor,		-- (%d+)
+			res,		-- %((.-)%)
+			eids,		-- %((.-)%)
+			setid,		-- (%d+)
+			lore,			-- %((.-)%)
+			value,		-- (%d+)
+			wtype,		-- (%d+)
+			slotid,		-- (%d+)
+			block,		-- (%d+)
+			damage,		-- %((.-)%)
+			aspeed,		-- (%d+.%d+)
+			durability	-- %((%d+,%d+)%)
+			= line:match("(%d+),%((.-)%),%((.-)%),(%d+),(%d+),(%d+),(%d+),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),(%d+),(%d+),(%d+),%((.-)%),(%d+.%d+),%((%d+,%d+)%)")
+			local damageSchools = {}
+			for damageSchool in string.gmatch(damage,"%[(%d+,%d+,%d+)]") do
+				local min,max,school = 0
+				local i = 1
+				for word in string.gmatch(damageSchool, '([^,]+)') do
+					if(i == 1) then
+						min = word
+					elseif(i == 2) then
+						max = word
+					elseif(i == 3) then
+						school = word
+					end
+					i = i + 1
+				end
+				table.insert(damageSchools, {min=min,max=max,school=school})
+			end
+			local classes = {}
+			local i = 1
+			local warrior,hunter,paladin,mage,warlock,priest,shaman,rogue,druid = 0
+			for r in string.gmatch(rclass, '([^,]+)') do
+				if(i == 1) then
+					warrior = r
+				elseif(i==2) then
+					hunter = r
+				elseif(i==3) then
+					paladin = r
+				elseif(i==4) then
+					mage=r
+				elseif(i==5) then
+					warlock=r
+				elseif(i==6) then
+					priest=r
+				elseif(i==7) then
+					shaman=r
+				elseif(i==8) then
+					rogue=r
+				elseif(i==9) then
+					druid = r
+				end
+				i= i+1
+			end
+			table.insert(classes, {warrior=warrior,hunter=hunter,paladin=paladin,mage=mage,warlock=warlock,priest=priest,shaman=shaman,rogue=rogue,druid=druid})
+			local races = {}
+			local i = 1
+			local human,nightelf,gnome,dwarf,orc,troll,tauren,undead = 0
+			for r in string.gmatch(rrace, '([^,]+)') do
+				if(i == 1) then
+					human = r
+				elseif(i==2) then
+					nightelf=r
+				elseif(i==3) then
+					gnome=r
+				elseif(i==4) then
+					dwarf=r
+				elseif(i==5) then
+					orc=r
+				elseif(i==6) then
+					troll=r
+				elseif(i==7) then
+					tauren=r
+				elseif(i==8) then
+					undead=r
+				end
+				i= i+1
+			end
+			table.insert(races, {human=human,nightelf=nightelf,gnome=gnome,dwarf=dwarf,orc=orc,troll=troll,tauren=tauren,undead=undead})
+			local effects = {}
+			local i = 1
+			local eid1,eid2,eid3 = 0
+			for e in string.gmatch(eids, '([^,]+)') do
+				if(i == 1) then
+					eid1 = e
+				elseif(i==2) then
+					eid2=e
+				elseif(i==3) then
+					eid3=e
+				end
+				i= i+1
+			end
+			table.insert(effects, {eid1=eid1,eid2=eid2,eid3=eid3})
+			local i = 1
+			local dmin,dmax = 0
+			for durab in string.gmatch(durability, "([^,]+)") do
+				if(i == 1) then
+					dmin = durab
+				else
+					dmax = durab
+				end
+				i = i + 1
+			end
+			durability = {min=dmin, max=dmax}
+			retVal = { id=id,
+			icon=icon,
+			name=name,
+			bind=bind,
+			rlvl=rlvl,
+			ilvl=ilvl,
+			unique=unique,
+			quality=quality,
+			rclass=classes,
+			rrace=races,
+			rrank=rrank,
+			str=str,
+			sta=sta,
+			int=int,
+			agi=agi,
+			spr=spr,
+			armor=armor,
+			res=res,
+			eids=effects,
+			setid=setid,
+			lore=lore,
+			value=value,
+			wtype=wtype,
+			slotid=slotid,
+			block=block,
+			damage=damageSchools,
+			aspeed=aspeed,
+			durability=durability}
+			if(tonumber(aid) == tonumber(id)) then
+				break
+			end
+		end
+	end
+	
+	return retVal;
+end
+
+function getActionIcon(atype, aid)
+	local result = getActionProperties(atype, aid)
+	return result["icon"]
+end
+
+function getWeaponProperties(aid)
+	local result = getActionProperties("Weapon", aid)
+	return {wtype=result["wtype"],damage=result["damage"],aspeed=result["aspeed"]}
+end
+
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
+end

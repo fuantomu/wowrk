@@ -1,0 +1,121 @@
+local save_state = save_state or {}
+local SAVE_STATE_DIR = "wowrecordkeeper"
+local SAVE_STATE_FILENAME = "save.sav"
+local SAVE_STATE_PATH = SAVE_STATE_PATH or sys.get_save_file(SAVE_STATE_DIR, SAVE_STATE_FILENAME)
+
+
+
+local function check_save_state_exists(file_path)
+	if next(sys.load(file_path)) == nil then
+		return false
+	else
+		return true
+	end
+end
+
+
+
+local function init_save_state()
+	for i = 1, 5 do
+		table.insert(save_state,{
+			player=i,
+			class=1, 
+			race=1, 
+			level=1, 
+			hpmax=20, 
+			hpcurr=20, 
+			resmax=100, 
+			rescurr=0, 
+			str=23, 
+			agi=20, 
+			sta=22, 
+			int=20, 
+			spr=21,
+			armor=0,
+			res={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
+			ap=46,
+			sp=0,
+			hp=0,
+			crit=5,
+			critdmg=50,
+			dodge=1,
+			parry=5,
+			block=5,
+			hp5=1,
+			mp5=0,
+			mhit=0,
+			sphit=0,
+			mhid=i,
+			ohid=0, 
+			rid=0,
+			sp1id=i,
+			sp2id=6
+		})
+	end
+	sys.save(SAVE_STATE_PATH, save_state)
+end
+
+local function save_save_state()
+	print("saving")
+	sys.save(SAVE_STATE_PATH,save_state)
+end
+
+function on_message(self, message_id, message, sender)
+	if(message_id == hash("saveGame")) then
+		if(message.data) then
+			table.insert(save_state,message.data)
+		end
+		msg.post("game#loader", hash("getCurrentView"))
+	elseif(message_id == hash("returnCurrentView")) then
+		if(not (message.view == "mainMenu" or message.view == "main")) then
+			msg.post("lobbyView:/GUI#lobbyViewGUI", hash("getPlayerData"))
+		else
+			msg.post("mainMenu:/mainMenu", hash("saveDone"))
+		end
+	elseif(message_id == hash("returnPlayerData")) then
+		if(message.data) then
+			for i = 1, message.players do
+				save_state[i] = message.data[i]
+			end
+			--save_state = message.data
+		end
+		save_save_state()
+		msg.post(sender, hash("saveDone"))
+	elseif(message_id == hash("loadGame")) then
+		msg.post(sender, hash("loadDone"), {data=save_state[message.player],player=message.player})
+	end
+end
+
+function init(self)
+	if check_save_state_exists(SAVE_STATE_PATH) then
+		save_state = sys.load(SAVE_STATE_PATH)
+		print("Loaded existing save state!")
+	else
+		init_save_state()
+		print("Created new save state!")
+	end
+end
+
+
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
+end
+
+
+function final(self)
+	save_save_state()
+end
