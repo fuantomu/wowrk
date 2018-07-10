@@ -1,0 +1,36 @@
+images {
+  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Misc_Ammo_Arrow_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Misc_Ammo_Arrow_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Misc_Ammo_Arrow_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Misc_Ammo_Arrow_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Misc_Ammo_Arrow_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_06.PNG"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

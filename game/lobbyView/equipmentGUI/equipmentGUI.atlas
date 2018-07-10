@@ -1,0 +1,9 @@
+images {
+  image: "/assets/img/icons/other/invEmpty.png"
+}
+images {
+  image: "/assets/img/icons/other/1px.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

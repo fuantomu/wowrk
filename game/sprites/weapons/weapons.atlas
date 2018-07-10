@@ -11,10 +11,1084 @@ images {
   image: "/assets/img/icons/items/weapons/sword/INV_Sword_04.PNG"
 }
 images {
-  image: "/assets/img/icons/items/weapons/sword/INV_Sword_104.PNG"
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_15.png"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_AXE_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_AXE_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_29.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_30.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_32.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_33.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_34.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/axe/INV_Axe_35.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_MACE_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_27.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_28.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_29.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Pick_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Pick_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Pick_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Pick_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Torch_Lit.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Spear_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_27.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Shield_28.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_27.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_28.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_29.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_30.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_31.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_32.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_33.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_34.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_35.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_36.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/staff/INV_Staff_42.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_27.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_28.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_29.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_30.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_31.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_32.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_33.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_34.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_35.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_36.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_37.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_38.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_39.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_40.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_41.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_42.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_43.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_44.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_45.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_46.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_47.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_48.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_49.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_50.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_51.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_SWORD_52.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_53.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_54.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_55.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_56.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_57.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_60.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_Sword_61.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_05.PNG"
 }
 images {
   image: "/assets/img/icons/items/weapons/wand/INV_Wand_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_Weapon_Bow_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_WEAPON_BOW_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/fistweapon/INV_Weapon_Hand_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/fistweapon/INV_Weapon_Hand_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/fistweapon/INV_Weapon_Hand_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/hunter/quiver/INV_Misc_Quiver_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Torch_Thrown.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/other/INV_Torch_Unlit.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/sword/INV_2H_Auchindoun_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingAxe_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingKnife_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingKnife_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingKnife_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingKnife_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/throwing/INV_ThrowingKnife_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_WAEPON_BOW_ZULGRUB_D_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/bow/INV_WAEPON_BOW_ZULGRUB_D_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_13.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_14.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_15.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_16.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_17.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_18.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_19.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_20.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_21.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_22.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_23.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_24.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_25.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_26.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_27.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_28.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_29.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_30.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_31.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_32.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_33.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_34.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_35.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_Shortblade_37.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Hammer_Unique_Sulfuras.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_1H_Stratholme_D_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/mace/INV_Mace_1H_Stratholme_D_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halbard_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_03.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_04.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_05.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_06.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_07.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_08.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_09.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_10.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_11.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_12.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/polearm/INV_Weapon_Halberd_AhnQiraj.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Armor_Shield_Naxxramas_D_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/shield/INV_Armor_Shield_Naxxramas_D_02.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_1H_Stratholme_D_01.PNG"
+}
+images {
+  image: "/assets/img/icons/items/weapons/wand/INV_Wand_1H_Stratholme_D_02.PNG"
 }
 margin: 0
 extrude_borders: 0
