@@ -35,7 +35,7 @@ function on_message(self, message_id, message, sender)
 			end
 		end
 	elseif(message_id == hash("equipmentStats")) then
-		table.insert(self.equipmentStats, message.stats)
+		self.equipmentStats[message.slot] = message.stats
 		tprint(self.equipmentStats)
 	end
 end
@@ -69,7 +69,7 @@ function updateTooltip(self,slot,type,x,y)
 	local leftText = gui.get_node("tooltipGUI/leftSideText")
 	local rightText = gui.get_node("tooltipGUI/rightSideText")
 
-	gui.set_text(rightText, self.playerEquipment[slot]["name"])
+	gui.set_text(rightText, self.equipmentStats[slot]["name"])
 
 	local rightBound = gui.get_text_metrics_from_node(gui.get_node("tooltipGUI/rightSideText"))["width"]
 	local lowerBound = gui.get_text_metrics_from_node(gui.get_node("tooltipGUI/leftSideText"))["height"]
