@@ -17,7 +17,7 @@ end
 
 local function init_save_state()
 	for i = 1, 5 do
-		table.insert(save_state,{
+		table.insert(save_state,{stats={
 			player=i,
 			class=1, 
 			race=1, 
@@ -45,12 +45,30 @@ local function init_save_state()
 			mp5=0,
 			mhit=0,
 			sphit=0,
-			mhid=i,
-			ohid=0, 
-			rid=0,
 			sp1id=i,
 			sp2id=6
-		})
+		},
+		equipment={
+			head={id=0,icon=""},
+			neck={id=0,icon=""},
+			shoulder={id=0,icon=""},
+			cloak={id=0,icon=""},
+			chest={id=0,icon=""},
+			shirt={id=1,icon=""},
+			tabard={id=0,icon=""},
+			wrists={id=0,icon=""},
+			hands={id=0,icon=""},
+			waist={id=0,icon=""},
+			legs={id=0,icon=""},
+			feet={id=0,icon=""},
+			ring1={id=0,icon=""},
+			ring={id=0,icon=""},
+			trinket1={id=0,icon=""},
+			trinket2={id=0,icon=""},
+			mainhand={id=i,icon=""},
+			offhand={id=1,icon=""},
+			ranged={id=0,icon=""},
+		}})
 	end
 	sys.save(SAVE_STATE_PATH, save_state)
 end

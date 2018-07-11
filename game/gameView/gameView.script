@@ -1,6 +1,7 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.playerStats = {}
+	self.playerEquipment = {}
 	self.oneSecTimer = 60
 	self.maxPlayers = 5
 	self.playerAttack = {}
@@ -111,9 +112,9 @@ function on_message(self, message_id, message, sender)
 		end
 		msg.post("/game#boss", hash("loadBoss"), {id=1})
 	elseif(message_id == hash("loadDone")) then
-		table.insert(self.playerStats, message.data)
-		
-		msg.post("main:/game#main", hash("getWeaponStats"), {player=message.player, id=self.playerStats[message.player]["mhid"]})
+		table.insert(self.playerStats, message.data["stats"])
+		table.insert(self.playerEquipment, message.data["equipment"])
+		msg.post("main:/game#main", hash("getWeaponStats"), {player=message.player, id=self.playerEquipment[message.player]["mainhand"]["id"]})
 		if(self.playerStats[message.player]["hpcurr"] > 0) then
 			table.insert(self.alivePlayers, message.player)
 		end
@@ -125,7 +126,7 @@ function on_message(self, message_id, message, sender)
 					self.playerStats[i]["ap"] = (tonumber(self.playerStats[i]["str"]) * 2 + tonumber(self.playerStats[i]["level"]) * 3) - 20
 					table.insert(classesAltRes, i)
 				end
-				table.insert(spellIds, {attackid=self.playerStats[i]["mhid"],defenseid=self.playerStats[i]["ohid"],idSp1=self.playerStats[i]["sp1id"],idSp2=self.playerStats[i]["sp2id"]})
+				table.insert(spellIds, {attackid=self.playerEquipment[i]["mainhand"]["id"],defenseid=self.playerEquipment[i]["offhand"]["id"],idSp1=self.playerStats[i]["sp1id"],idSp2=self.playerStats[i]["sp2id"]})
 			end
 			msg.post("/GUI#gameViewGUI", hash("maxPlayers"), {val=self.maxPlayers, altRes=classesAltRes, ids=spellIds})
 		end
@@ -155,7 +156,7 @@ function on_message(self, message_id, message, sender)
 		end
 	elseif(message_id == hash("calculateAttack")) then
 		if(message.type == "Attack") then
-			msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerStats[message.player]["mhid"], player=message.player})
+			msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[message.player]["mainhand"]["id"], player=message.player})
 		elseif(message.type == "Ability") then
 			msg.post("main:/game#main", hash("getProperties"), {type=message.type, id=self.playerStats[message.player]["sp"..message.slot.."id"], player=message.player})
 		end
@@ -174,8 +175,8 @@ function on_message(self, message_id, message, sender)
 				end
 			end
 		else
-			self.aTimer = timer.repeating(0.2, function(self, id)
-				if(#self.alivePlayers <= 0) then timer.cancel(id) end
+			self.aTimer = delay.repeating(0.2, function(self, id)
+				if(#self.alivePlayers <= 0) then delay.cancel(id) end
 				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
 				if(not self.playerStats[message.targets[i]]["dead"]) then
 					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
@@ -195,13 +196,13 @@ function on_message(self, message_id, message, sender)
 				end
 				i = i + 1
 				if(i > #message.targets) then
-					timer.cancel(id)
+					delay.cancel(id)
 				end
 			end)
 		end
 	elseif(message_id == hash("gameOver")) then
 		print("GAMEOVER: "..message.result)
-		timer.cancel(self.aTimer)
+		delay.cancel(self.aTimer)
 		self.gameRunning = false
 	end
 end

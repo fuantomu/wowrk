@@ -279,13 +279,13 @@ function on_message(self, message_id, message, sender)
 		if(message.player == "Boss") then
 			gui.set_text(gui.get_node("lblBoss"), tostring(message.dmg))
 			gui.set_color(gui.get_node("lblBoss"), vmath.vector4(1,1,1,1))
-			timer.seconds(1, function(self, id)
+			delay.seconds(1, function(self, id)
 				gui.set_color(gui.get_node("lblBoss"), vmath.vector4(0,0,0,0))
 			end)
 		else
 			gui.set_text(gui.get_node("lblP"..message.player), tostring(message.dmg))
 			gui.set_color(gui.get_node("lblP"..message.player), vmath.vector4(1,1,1,1))
-			timer.seconds(1, function(self, id)
+			delay.seconds(1, function(self, id)
 				gui.set_color(gui.get_node("lblP"..message.player), vmath.vector4(0,0,0,0))
 			end)
 		end	

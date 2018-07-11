@@ -1,12 +1,13 @@
-local dirtylarry = require "dirtylarry/dirtylarry"
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	gui.set_enabled(gui.get_node("textbox"), false)
-	msg.post("/GUI#equipmentGUI", hash("disable"))
+	msg.post("/equipGUI#equipmentGUI", hash("disable"))
 	self.currentStat = "None"
 	self.currentPlayer = -1
 	self.playerStats = {}
+	self.playerEquipment = {}
 	self.maxPlayers = 5
+	self.equipGUIOpen = false
 	msg.post(".", hash("updateUI"), {players=self.maxPlayers})
 	for x = 1,self.maxPlayers  do
 		msg.post("main:/game#savegame", hash("loadGame"), {player=x})
@@ -19,7 +20,8 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("loadDone")) then
-		table.insert(self.playerStats,message.data)
+		table.insert(self.playerStats,message.data["stats"])
+		table.insert(self.playerEquipment, message.data["equipment"])
 		local x = message.player
 		gui.set_text(gui.get_node("partyP"..x.."/class"), tostring(self.playerStats[x]["class"]) )
 		gui.set_text(gui.get_node("partyP"..x.."/level"), tostring(self.playerStats[x]["level"]))
@@ -32,14 +34,16 @@ function on_message(self, message_id, message, sender)
 		gui.set_text(gui.get_node("partyP"..x.."/sta"), "STA: "..tostring(self.playerStats[x]["sta"]))
 		gui.set_text(gui.get_node("partyP"..x.."/int"), "INT: "..tostring(self.playerStats[x]["int"]))
 		gui.set_text(gui.get_node("partyP"..x.."/spr"), "SPR: "..tostring(self.playerStats[x]["spr"]))
-		gui.set_text(gui.get_node("partyP"..x.."/mhid"), "MH: "..tostring(self.playerStats[x]["mhid"]))
-		gui.set_text(gui.get_node("partyP"..x.."/ohid"), "OH: "..tostring(self.playerStats[x]["ohid"]))
-		gui.set_text(gui.get_node("partyP"..x.."/rid"), "R: "..tostring(self.playerStats[x]["rid"]))
+		gui.set_text(gui.get_node("partyP"..x.."/mhid"), "MH: "..tostring(self.playerEquipment[x]["mainhand"]["id"]))
+		gui.set_text(gui.get_node("partyP"..x.."/ohid"), "OH: "..tostring(self.playerEquipment[x]["offhand"]["id"]))
+		gui.set_text(gui.get_node("partyP"..x.."/rid"), "R: "..tostring(self.playerEquipment[x]["ranged"]["id"]))
 		gui.set_text(gui.get_node("partyP"..x.."/sp1"), "R: "..tostring(self.playerStats[x]["sp1id"]))
 		gui.set_text(gui.get_node("partyP"..x.."/sp2"), "R: "..tostring(self.playerStats[x]["sp2id"]))
 		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp1id"], player=x,slot=1})
 		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp2id"], player=x,slot=2})
-		msg.post("main:/game#main", hash("getIcon"), {type="Weapon", id=self.playerStats[x]["mhid"], player=x})
+		msg.post("main:/game#main", hash("getIcon"), {type="Weapon", id=self.playerEquipment[x]["mainhand"]["id"], player=x})
+		msg.post("main:/game#main", hash("getIcon"), {type="Armor", id=self.playerEquipment[x]["shirt"], player=x})
+		--msg.post("main:/game#main", hash("getProperties"), {type="Armor" id=self.playerEquipment[x][ player=x})
 	elseif(message_id == hash("updateUI")) then
 		for i = 1, 5 do
 			if(i>message.players) then
@@ -47,6 +51,11 @@ function on_message(self, message_id, message, sender)
 				msg.post("/party#spriteP"..i, hash("disable"))
 			end
 		end
+	elseif(message_id == hash("exitEquipGUI")) then
+		self.equipGUIOpen = false
+		gui.set_position(gui.get_node("partyP2/values"), vmath.vector3(100,360,0))
+		gui.set_position(gui.get_node("partyP3/values"), vmath.vector3(100,360,0))
+		gui.set_position(gui.get_node("partyP4/values"), vmath.vector3(100,360,0))
 	elseif(message_id == hash("getIcon")) then
 		if(message.type == "Ability") then
 			gui.set_texture(gui.get_node("partyP"..message.player.."/sp"..message.slot.."icon"), "abilities")
@@ -54,6 +63,9 @@ function on_message(self, message_id, message, sender)
 		elseif(message.type == "Weapon") then
 			gui.set_texture(gui.get_node("partyP"..message.player.."/mhicon"), "weapons")
 			gui.play_flipbook(gui.get_node("partyP"..message.player.."/mhicon"), message.values)
+			self.playerEquipment[message.player]["mainhand"]["icon"] = message.values
+		elseif(message.type == "Armor") then
+			self.playerEquipment[message.player]["shirt"]["icon"]=message.values
 		end
 	end
 end
@@ -69,33 +81,18 @@ function on_input(self, action_id, action)
 		
 		end
 		for x = 1, self.maxPlayers do
-			if(gui.pick_node(gui.get_node("partyP"..x.."/hpcurr"), action.x, action.y)) then
-				print("clicked hpcurr "..x)
-				gui.set_enabled(gui.get_node("textbox"), true)
-				dirtylarry:set_input("txtbox", self.playerStats[x]["hpcurr"])
-				self.currentStat = "hpcurr"
-				self.currentPlayer = x
-			elseif(gui.pick_node(gui.get_node("partyP"..x.."/hpmax"), action.x, action.y)) then
-				print("clicked hpmax "..x)
-				gui.set_enabled(gui.get_node("textbox"), true)
-				dirtylarry:set_input("txtbox", self.playerStats[x]["hpmax"])
-				self.currentStat = "hpmax"
-				self.currentPlayer = x
-			elseif(gui.pick_node(gui.get_node("party"), action.x, action.y)) then
+			if(not self.equipGUIOpen and gui.pick_node(gui.get_node("spriteP"..x), action.x, action.y)) then
 				print("clicked "..x)
+				gui.set_position(gui.get_node("partyP2/values"), vmath.vector3(100,360,-1))
+				gui.set_position(gui.get_node("partyP3/values"), vmath.vector3(100,360,-1))
+				gui.set_position(gui.get_node("partyP4/values"), vmath.vector3(100,360,-1))
+				self.equipGUIOpen = true
+				msg.post("/equipGUI#equipmentGUI", hash("enable"))
+				msg.post("/equipGUI#equipmentGUI", hash("generateIcons"), {icon=self.playerEquipment[x]["shirt"]["icon"]})
+				break
 			end
 		end
 	end
-	local input = dirtylarry:input("txtbox", action_id, action, gui.KEYBOARD_TYPE_DEFAULT, "100")
-	dirtylarry:button("txtboxEnter", action_id, action, function ()
-		if(gui.is_enabled(gui.get_node("textbox"))) then
-			print("button was pressed with " .. tostring(input))
-			self.playerStats[self.currentPlayer][self.currentStat] = tonumber(input)
-			gui.set_text(gui.get_node("partyP"..self.currentPlayer.."/"..self.currentStat), tostring(input))
-			gui.set_enabled(gui.get_node("textbox"), false)
-			msg.post("main:/game#savegame", hash("saveGame"))
-		end
-	end)
 end
 --[[
 function dirtylarry.set_input(self, node, txt)

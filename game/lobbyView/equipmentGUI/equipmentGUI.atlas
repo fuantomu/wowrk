@@ -4,6 +4,9 @@ images {
 images {
   image: "/assets/img/icons/other/1px.png"
 }
+images {
+  image: "/assets/img/icons/buttons/sprite_button_settingsExit_0.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
