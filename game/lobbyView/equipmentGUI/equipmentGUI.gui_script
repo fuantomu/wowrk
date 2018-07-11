@@ -13,16 +13,35 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("generateIcons")) then
-		gui.set_texture(gui.get_node("slot_shirt"), "armor")
-		gui.play_flipbook(gui.get_node("slot_shirt"), message.icon)
+		for i = 1, 20 do
+			if(i == message.icons["shirt"]["slot"]) then
+				gui.set_texture(gui.get_node("slot_shirt"), "armor")
+				gui.play_flipbook(gui.get_node("slot_shirt"), message.icons["shirt"]["icon"])
+			elseif(i == message.icons["legs"]["slot"]) then
+				gui.set_texture(gui.get_node("slot_legs"), "armor")
+				gui.play_flipbook(gui.get_node("slot_legs"), message.icons["legs"]["icon"])
+			elseif(i == message.icons["feet"]["slot"]) then
+				gui.set_texture(gui.get_node("slot_feet"), "armor")
+				gui.play_flipbook(gui.get_node("slot_feet"), message.icons["feet"]["icon"])
+			elseif(i == message.icons["mainhand"]["slot"]) then
+				gui.set_texture(gui.get_node("slot_wpmh"), "weapons")
+				gui.play_flipbook(gui.get_node("slot_wpmh"), message.icons["mainhand"]["icon"])
+			elseif(i == message.icons["offhand"]["slot"]) then
+				gui.set_texture(gui.get_node("slot_wpoh"), "weapons")
+				gui.play_flipbook(gui.get_node("slot_wpoh"), message.icons["offhand"]["icon"])
+			end
+		end
+		
 	end
 end
 
 function on_input(self, action_id, action)
-	if(gui.pick_node(gui.get_node("exitButton"), action.x, action.y)) then
-		print("clicked exit")
-		msg.post("lobbyView", hash("exitEquipGUI"))
-		msg.post(".", hash("disable"))
+	if action_id == hash("click") and action.pressed then
+		if(gui.pick_node(gui.get_node("exitButton"), action.x, action.y)) then
+			print("clicked exit")
+			msg.post("GUI#lobbyViewGUI", hash("exitEquipGUI"))
+			msg.post(".", hash("disable"))
+		end
 	end
 end
 

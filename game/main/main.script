@@ -49,8 +49,9 @@ end
 
 function getEffectProperties(aid)
 	local retVal = {}
-	file = "D:/Games/wowrecordkeeper/assets/database/Effects.db"
-	for line in io.lines(file) do
+	file = sys.load_resource("/assets/database/Effects.db")
+	--for line in io.lines(file) do
+	for line in file:gmatch("(.-)\n") do
 		id,
 		func,
 		val
@@ -69,8 +70,9 @@ function getActionProperties(atype, aid)
 	local file = ""
 	local retVal = {}
 	if(atype == "Ability") then
-		file = "D:/Games/wowrecordkeeper/assets/database/Ability.db"
-		for line in io.lines(file) do
+		file = sys.load_resource("/assets/database/Ability.db")
+		--for line in io.lines(file) do
+		for line in file:gmatch("(.-)\n") do
 			local 
 			id, 
 			name, 
@@ -116,8 +118,9 @@ function getActionProperties(atype, aid)
 			end
 		end
 	elseif(atype == "Weapon") then
-		file = "D:/Games/wowrecordkeeper/assets/database/Weapon.db"
-		for line in io.lines(file) do
+		file = sys.load_resource("/assets/database/Weapon.db")
+		--for line in io.lines(file) do
+		for line in file:gmatch("(.-)\n") do
 			local 	
 			id,			-- (%d+)
 			icon,			-- %((.-)%)
@@ -268,8 +271,9 @@ function getActionProperties(atype, aid)
 			end
 		end
 	elseif(atype == "Armor") then
-		file = "D:/Games/wowrecordkeeper/assets/database/Armor.db"
-		for line in io.lines(file) do
+		file = sys.load_resource("/assets/database/Armor.db")
+		--for line in io.lines(file) do
+		for line in file:gmatch("(.-)\n") do
 			local 	
 			id,			-- (%d+)
 			icon,			-- %((.-)%)
@@ -287,12 +291,16 @@ function getActionProperties(atype, aid)
 			res,		-- %((.-)%)
 			eids,		-- %((.-)%)
 			setid,		-- (%d+)
-			lore,			-- %((.-)%)
+			lore,		-- %((.-)%)
 			value,		-- (%d+)
 			atype,		-- (%d+)
 			slotid,		-- (%d+)
 			durability	-- %((%d+,%d+)%)
-			= line:match("(%d+),%((.-)%),%((.-)%),(%d+),(%d+),(%d+),(%d+),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),(%d+),(%d+),%((%d+,%d+)%)")
+			--[[
+			id,	icon,			name,				bind,	rlvl,	ilvl,	unique,	quality,	rclass,					rrace,				rrank,	stats,			armor,	res,			eids,	setid,	lore,	value,	atype,	slotid,	durability
+			40,(INV_Boots_06),	(Recruit's Boots),	0,		1,		1,		0,		1,			(1,1,1,1,1,1,1,1,1),	(1,1,1,1,1,1,1,1),	0,		(0,0,0,0,0),	0,		(0,0,0,0,0,0),	(0,0,0),0,		(),		1,		0,		8,		(0,-1)
+			]]--
+			= line:match("(%d+),%((.-)%),%((.-)%),(%d+),(%d+),(%d+),(%d+),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),(%d+),(%d+),%((%d+,%-?%d+)%)")
 			local classes = {}
 			local i = 1
 			local warrior,hunter,paladin,mage,warlock,priest,shaman,rogue,druid = 0

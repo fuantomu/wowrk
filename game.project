@@ -1,7 +1,8 @@
 [project]
 title = wowrecordkeeper
 dependencies = https://github.com/andsve/dirtylarry/archive/master.zip,https://github.com/britzl/defold-timer/archive/master.zip
-custom_resources = /game/gameView/bossAI/
+custom_resources = /game/gameView/bossAI/,/assets/database/
+write_log = 1
 
 [bootstrap]
 main_collection = /game/main/main.collectionc
@@ -13,8 +14,7 @@ use_accelerometer = 0
 [display]
 width = 1280
 height = 720
-update_frequency = 60
-variable_dt = 0
+variable_dt = 1
 
 [script]
 shared_state = 1
