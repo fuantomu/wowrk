@@ -14,7 +14,7 @@ function on_message(self, message_id, message, sender)
 	elseif(message_id == hash("getProperties")) then
 		local result = getActionProperties(message.type, tonumber(message.id))
 		if(message.player) then
-			msg.post(sender, hash("getProperties"), {values=result, player=message.player,type=message.type,id=message.id})
+			msg.post(sender, hash("getProperties"), {values=result, player=message.player,type=message.type,id=message.id,slot=message.slot})
 		else
 			msg.post(sender, hash("getProperties"), {values=result, type=message.type,id=message.id})
 		end

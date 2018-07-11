@@ -6,6 +6,7 @@ function init(self)
 	self.currentPlayer = -1
 	self.playerStats = {}
 	self.playerEquipment = {}
+	self.playerEquipProperties = {}
 	self.maxPlayers = 5
 	self.equipGUIOpen = false
 	msg.post(".", hash("updateUI"), {players=self.maxPlayers})
@@ -22,6 +23,13 @@ function on_message(self, message_id, message, sender)
 	if(message_id == hash("loadDone")) then
 		table.insert(self.playerStats,message.data["stats"])
 		table.insert(self.playerEquipment, message.data["equipment"])
+		local equipTable = {}
+		for k, v in pairs(self.playerEquipment[message.player]) do
+			if(self.playerEquipment[message.player][tostring(k)]["id"] > 0) then
+				table.insert(equipTable, self.playerEquipment[message.player][tostring(k)]["id"])
+			end
+		end
+		table.insert(self.playerEquipProperties, equipTable)
 		local x = message.player
 		gui.set_text(gui.get_node("partyP"..x.."/class"), tostring(self.playerStats[x]["class"]) )
 		gui.set_text(gui.get_node("partyP"..x.."/level"), tostring(self.playerStats[x]["level"]))
@@ -41,7 +49,7 @@ function on_message(self, message_id, message, sender)
 		gui.set_text(gui.get_node("partyP"..x.."/sp2"), "R: "..tostring(self.playerStats[x]["sp2id"]))
 		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp1id"], player=x,slot=1})
 		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp2id"], player=x,slot=2})
-		getEquipmentIcons(self,x)
+		loadEquipment(self,x)
 		--msg.post("main:/game#main", hash("getProperties"), {type="Armor" id=self.playerEquipment[x][ player=x})
 	elseif(message_id == hash("updateUI")) then
 		for i = 1, 5 do
@@ -59,23 +67,36 @@ function on_message(self, message_id, message, sender)
 		if(message.type == "Ability") then
 			gui.set_texture(gui.get_node("partyP"..message.player.."/sp"..message.slot.."icon"), "abilities")
 			gui.play_flipbook(gui.get_node("partyP"..message.player.."/sp"..message.slot.."icon"),message.values)
-		elseif(message.type == "Weapon") then
+		end
+	elseif(message_id == hash("getProperties")) then
+		if(message.type == "Weapon") then
 			if(message.slot == 16) then
 				gui.set_texture(gui.get_node("partyP"..message.player.."/mhicon"), "weapons")
-				gui.play_flipbook(gui.get_node("partyP"..message.player.."/mhicon"), message.values)
-				self.playerEquipment[message.player]["mainhand"]["icon"] = message.values
+				gui.play_flipbook(gui.get_node("partyP"..message.player.."/mhicon"), message.values["icon"])
+				self.playerEquipment[message.player]["mainhand"]["icon"] = message.values["icon"]
 			elseif(message.slot == 17) then
 				gui.set_texture(gui.get_node("partyP"..message.player.."/ohicon"), "weapons")
-				gui.play_flipbook(gui.get_node("partyP"..message.player.."/ohicon"), message.values)
-				self.playerEquipment[message.player]["offhand"]["icon"] = message.values
+				gui.play_flipbook(gui.get_node("partyP"..message.player.."/ohicon"), message.values["icon"])
+				self.playerEquipment[message.player]["offhand"]["icon"] = message.values["icon"]
 			end
+			for i = 1, #self.playerEquipProperties do
+				if(self.playerEquipProperties[message.player][i] == tonumber(message.values["id"])) then
+					self.playerEquipProperties[message.player][i] = message.values
+				end
+			end
+			
 		elseif(message.type == "Armor") then
 			if(message.slot == 4) then
-				self.playerEquipment[message.player]["shirt"]["icon"]=message.values
+				self.playerEquipment[message.player]["shirt"]["icon"]=message.values["icon"]
 			elseif(message.slot == 7) then
-				self.playerEquipment[message.player]["legs"]["icon"]=message.values
+				self.playerEquipment[message.player]["legs"]["icon"]=message.values["icon"]
 			elseif(message.slot == 8) then
-				self.playerEquipment[message.player]["feet"]["icon"]=message.values
+				self.playerEquipment[message.player]["feet"]["icon"]=message.values["icon"]
+			end
+			for i = 1, #self.playerEquipProperties do
+				if(self.playerEquipProperties[message.player][i] == tonumber(message.values["id"])) then
+					self.playerEquipProperties[message.player][i] = message.values
+				end
 			end
 		end
 	end
@@ -99,6 +120,9 @@ function on_input(self, action_id, action)
 				gui.set_enabled(gui.get_node("partyP4/values"), false)
 				self.equipGUIOpen = true
 				msg.post("/equipGUI#equipmentGUI", hash("enable"))
+				for i = 1, #self.playerEquipProperties[x] do
+					msg.post("/equipGUI#equipmentGUI", hash("equipmentStats"), {stats=self.playerEquipProperties[x][i]})
+				end
 				msg.post("/equipGUI#equipmentGUI", hash("generateIcons"), {icons=self.playerEquipment[x]})
 				break
 			end
@@ -115,15 +139,29 @@ function dirtylarry.set_input(self, node, txt)
 end
 ]]--
 
-function getEquipmentIcons(self,player)
-	msg.post("main:/game#main", hash("getIcon"), {type="Weapon", id=self.playerEquipment[player]["mainhand"]["id"], player=player, slot=16})
-	msg.post("main:/game#main", hash("getIcon"), {type="Weapon", id=self.playerEquipment[player]["offhand"]["id"], player=player, slot=17})
-	msg.post("main:/game#main", hash("getIcon"), {type="Armor", id=self.playerEquipment[player]["shirt"]["id"], player=player, slot=4})
-	msg.post("main:/game#main", hash("getIcon"), {type="Armor", id=self.playerEquipment[player]["legs"]["id"], player=player, slot=7})
-	msg.post("main:/game#main", hash("getIcon"), {type="Armor", id=self.playerEquipment[player]["feet"]["id"], player=player, slot=8})
+function loadEquipment(self,player)
+	msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[player]["mainhand"]["id"], player=player, slot=16})
+	msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[player]["offhand"]["id"], player=player, slot=17})
+	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["shirt"]["id"], player=player, slot=4})
+	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["legs"]["id"], player=player, slot=7})
+	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["feet"]["id"], player=player, slot=8})
 end
 
-function on_reload(self)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
 end
