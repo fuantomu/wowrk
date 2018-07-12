@@ -1,4 +1,8 @@
 script: "/game/lobbyView/lobbyView.gui_script"
+fonts {
+  name: "FRIZQT"
+  font: "/game/main/fonts/FRIZQT.font"
+}
 textures {
   name: "lobbyView"
   texture: "/game/lobbyView/lobbyView.atlas"

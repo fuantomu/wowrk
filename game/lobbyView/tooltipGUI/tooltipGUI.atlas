@@ -1,0 +1,33 @@
+images {
+  image: "/assets/img/icons/other/1px.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderBot.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerBL.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerBR.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerTL.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerTR.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderLeft.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderRight.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-BorderTop.png"
+}
+images {
+  image: "/assets/img/ui/UI-Tooltip-Background.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
