@@ -1,2 +1,4 @@
-0,(Skip),(0)
-1,(SetCast),(Attackspeed)
+0,Skip,0,100
+1,SetCast,Attackspeed,100
+2,Cast,18815,3
+3,Cast,18816,1
