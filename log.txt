@@ -7,13 +7,11 @@ DEBUG:SCRIPT: Debugger connected from 127.0.0.1
 DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
-INFO:DLIB: SSDP: Started on address 192.168.56.1
-INFO:DLIB: SSDP: Started on address 192.168.178.26
+INFO:DLIB: SSDP: Started on address 192.168.0.7
 DEBUG:SCRIPT: clicked start
 DEBUG:SCRIPT: start game
 DEBUG:SCRIPT: load lobby
 DEBUG:SCRIPT: url: [main:/screens#proxy_lobbyView]	 loaded
-DEBUG:SCRIPT: clicked 2
+DEBUG:SCRIPT: clicked 3
 DEBUG:SCRIPT: saving
-INFO:DLIB: SSDP: Done on address 192.168.56.1
-INFO:DLIB: SSDP: Done on address 192.168.178.26
+INFO:DLIB: SSDP: Done on address 192.168.0.7

@@ -36,11 +36,13 @@ function on_message(self, message_id, message, sender)
 		end
 	elseif(message_id == hash("equipmentStats")) then
 		self.equipmentStats[message.slot] = message.stats
+		
 	end
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("click") and action.pressed then
+		tprint(self.equipmentStats)
 		if(gui.pick_node(gui.get_node("exitButton"), action.x, action.y)) then
 			print("clicked exit")
 			msg.post("GUI#lobbyViewGUI", hash("exitEquipGUI"))
@@ -66,9 +68,8 @@ function updateTooltip(self,slot,type,x,y)
 	gui.set_enabled(tooltip, true)
 	local ticon = gui.get_node("tooltipGUI/tticon")
 	local tbg = gui.get_node("tooltipGUI/ttblBG")
-	local tsize = gui.get_size(tooltip)
-	local tisize = gui.get_size(ticon)
 	local tbgsize = gui.get_size(tbg)
+	local tooltipText = gui.get_node("tooltipGUI/tooltiptext")
 	local tooltipLeft = gui.get_node("tooltipGUI/tooltipLeft")
 	local tooltipName = gui.get_node("tooltipGUI/tooltipName")
 	
@@ -84,7 +85,6 @@ function updateTooltip(self,slot,type,x,y)
 
 
 	local itemName = gui.get_node("tooltipGUI/itemname")
-	local leftText = gui.get_node("tooltipGUI/leftSideText")
 	gui.set_text(itemName, self.equipmentStats[slot]["name"])
 
 	local nameTextHeight = gui.get_text_metrics_from_node(itemName)["height"]
@@ -93,15 +93,17 @@ function updateTooltip(self,slot,type,x,y)
 	if(self.equipmentStats[slot]["quality"] == "0") then
 		gui.set_color(itemName, colorPoor)
 	elseif(self.equipmentStats[slot]["quality"] == "1") then
-		gui.set_color(itemName, colorUncommon)
-	elseif(self.equipmentStats[slot]["quality"] == "2") then
 		gui.set_color(itemName, colorCommon)
+	elseif(self.equipmentStats[slot]["quality"] == "2") then
+		gui.set_color(itemName, colorUncommon)
 	elseif(self.equipmentStats[slot]["quality"] == "3") then
 		gui.set_color(itemName, colorRare)
 	elseif(self.equipmentStats[slot]["quality"] == "4") then
 		gui.set_color(itemName, colorEpic)
 	elseif(self.equipmentStats[slot]["quality"] == "5") then
 		gui.set_color(itemName, colorLegendary)
+	else
+		gui.set_color(itemName, colorPoor)
 	end
 	local leftString = ""
 	if(self.equipmentStats[slot]["unique"] == "1") then
@@ -112,36 +114,37 @@ function updateTooltip(self,slot,type,x,y)
 	end
 	if(type == "weapons") then
 		if(self.equipmentStats[slot]["wtype"] == "9") then
-			leftString = leftString .. "Offhand"
-			for i = 1, (nameTextWidth/string.len(self.equipmentStats[slot]["name"])*2.5) do
-				leftString = leftString .. " "
+			leftString = leftString .. "Off hand"
+			for i = 1, tonumber(nameTextWidth)/14 do
+				leftString = leftString .. "  "
 			end
 			leftString = leftString .. "Shield\n"
 		else
 			if(self.equipmentStats[slot]["slotid"] == "16") then
 				leftString = leftString .. "Main hand"
 				if(self.equipmentStats[slot]["wtype"] == "7") then
-					for i = 1, (nameTextWidth/string.len(self.equipmentStats[slot]["name"])*2.5) do
+					for i = 1, tonumber(nameTextWidth)/5 do
 						leftString = leftString .. " "
 					end
-					leftString = leftString .. "Sword\n"
+					leftString = leftString .. "     Sword\n"
 				end
 			elseif(self.equipmentStats[slot]["slotid"] == "17") then
-				leftString = leftString .. "Offhand\n"
+				leftString = leftString .. "Off hand\n"
 			end
 			local damage = 0
 			local aspeedDone = false
-			for i = 1, #self.equipmentStats[slot]["damage"] do
-				if(tonumber(self.equipmentStats[slot]["damage"][i]["min"]) > 0) then
-					damage = damage + (self.equipmentStats[slot]["damage"][i]["min"] + self.equipmentStats[slot]["damage"][i]["max"])/2
-					if(self.equipmentStats[slot]["damage"][i]["school"] == "0") then
-						leftString = leftString .. self.equipmentStats[slot]["damage"][i]["min"] .. " - " .. self.equipmentStats[slot]["damage"][i]["max"] .. " Damage"
-					elseif(self.equipmentStats[slot]["damage"][i]["school"] == "1") then
-						leftString = leftString .. "+" ..self.equipmentStats[slot]["damage"][i]["min"] .. " - " .. self.equipmentStats[slot]["damage"][i]["max"] .. "Fire Damage\n"
+			local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
+			for i = 1, #schools do
+				if(tonumber(self.equipmentStats[slot]["damage"][schools[i]]["min"]) > 0) then
+					damage = damage + (self.equipmentStats[slot]["damage"][schools[i]]["min"] + self.equipmentStats[slot]["damage"][schools[i]]["max"])/2
+					if(schools[i] == "Physical") then
+						leftString = leftString .. self.equipmentStats[slot]["damage"][schools[i]]["min"] .. " - " .. self.equipmentStats[slot]["damage"][schools[i]]["max"] .. " Damage"
+					else
+						leftString = leftString .. "+" ..self.equipmentStats[slot]["damage"][schools[i]]["min"] .. " - " .. self.equipmentStats[slot]["damage"][schools[i]]["max"] .. schools[i].. " Damage\n"
 					end
 					if(not aspeedDone) then
 						aspeedDone = true
-						leftString = leftString .. "          Speed " .. self.equipmentStats[slot]["aspeed"] .. "0\n"
+						leftString = leftString .. "              Speed " .. self.equipmentStats[slot]["aspeed"] .. "0\n"
 					end
 				end
 			end
@@ -150,13 +153,58 @@ function updateTooltip(self,slot,type,x,y)
 		end
 	elseif(type == "armor") then
 		if(self.equipmentStats[slot]["slotid"] == "4") then
-			leftString = leftString .. "Shirt\n"
+			leftString = leftString .. "Shirt"
 		elseif(self.equipmentStats[slot]["slotid"] == "7") then
-			leftString = leftString .. "Legs\n"
+			leftString = leftString .. "Legs"
 		elseif(self.equipmentStats[slot]["slotid"] == "8") then
-			leftString = leftString .. "Feet\n"
+			leftString = leftString .. "Feet"
+		end
+		if(self.equipmentStats[slot]["atype"] == "1") then
+			for i = 1, tonumber(nameTextWidth)/8 do
+				leftString = leftString .. " "
+			end
+			leftString = leftString .. "   Cloth\n"
+		elseif(self.equipmentStats[slot]["atype"] == "2") then
+			for i = 1, tonumber(nameTextWidth)/8 do
+				leftString = leftString .. " "
+			end
+			leftString = leftString .. "   Leather\n"
+		elseif(self.equipmentStats[slot]["atype"] == "3") then
+			for i = 1, tonumber(nameTextWidth)/8 do
+				leftString = leftString .. " "
+			end
+			leftString = leftString .. "   Mail\n"
+		elseif(self.equipmentStats[slot]["atype"] == "4") then
+			for i = 1, tonumber(nameTextWidth)/8 do
+				leftString = leftString .. " "
+			end
+			leftString = leftString .. "   Plate\n"
 		end
 	end
+	if(tonumber(self.equipmentStats[slot]["armor"]) > 0) then
+		leftString = leftString ..self.equipmentStats[slot]["armor"] .. " Armor\n"
+	end
+	if(type == "weapons") then
+		if(tonumber(self.equipmentStats[slot]["block"]) > 0) then
+			leftString = leftString ..self.equipmentStats[slot]["block"] .. " Block\n"
+		end
+	end
+	if(tonumber(self.equipmentStats[slot]["stats"]["agi"]) > 0) then
+		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["agi"] .. " Agility\n"
+	end
+	if(tonumber(self.equipmentStats[slot]["stats"]["str"]) > 0) then
+		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["str"] .. " Strength\n"
+	end
+	if(tonumber(self.equipmentStats[slot]["stats"]["int"]) > 0) then
+		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["int"] .. " Intelligence\n"
+	end
+	if(tonumber(self.equipmentStats[slot]["stats"]["spr"]) > 0) then
+		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["spr"] .. " Spirit\n"
+	end
+	if(tonumber(self.equipmentStats[slot]["stats"]["sta"]) > 0) then
+		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["sta"] .. " Stamina\n"
+	end
+	
 	if(tonumber(self.equipmentStats[slot]["durability"]["max"]) > -1) then
 		leftString = leftString .. "Durability " .. self.equipmentStats[slot]["durability"]["min"] .. " / " .. self.equipmentStats[slot]["durability"]["max"]
 	end
@@ -165,43 +213,59 @@ function updateTooltip(self,slot,type,x,y)
 	local leftText = gui.get_node("tooltipGUI/leftSideText")
 	gui.set_text(leftText, leftString)
 
-	local tooltipLeftPos = gui.get_position(tooltipLeft)
-	local tooltipNamePos = gui.get_position(tooltipName)
-	local tooltipLeftScale = gui.get_scale(tooltipLeft)
-	local tooltipNameScale = gui.get_scale(tooltipName)
-
-	local leftTextHeight = gui.get_text_metrics_from_node(leftText)["height"]
+	local tooltipTextPos = gui.get_position(tooltipText)
 	local leftTextWidth = gui.get_text_metrics_from_node(leftText)["width"]
+	local leftTextHeight = gui.get_text_metrics_from_node(leftText)["height"]
 
-	local leftBound = gui.get_text_metrics_from_node(gui.get_node("tooltipGUI/leftSideText"))["width"] 
-	local lowerBound = gui.get_text_metrics_from_node(gui.get_node("tooltipGUI/leftSideText"))["height"] + gui.get_text_metrics_from_node(gui.get_node("tooltipGUI/itemname"))["height"]
-	--local namewidth = gui.get_text_metrics_from_node(itemName)["width"]
-	--gui.set_size(itemName, vmath.vector3(namewidth,gui.get_text_metrics_from_node(itemName)["height"],0))
 
-	local itemNamePos = gui.get_text_metrics_from_node(itemName)["width"]
-	local Xmax,Ymax = 0,lowerBound
-	if(leftBound > itemNamePos) then Xmax = leftBound/2 else Xmax = itemNamePos/2 end
+	gui.set_size(tooltipName, vmath.vector3(nameTextWidth,nameTextHeight,0))
+	local maxX = 0
+	if((leftTextWidth-40) > nameTextWidth) then maxX = leftTextWidth - 75 else maxX = nameTextWidth end
+	local minX,minY = maxX, nameTextHeight + 10
+	local newX,newY = 0,0
+	if(leftTextWidth < minX) then newX = minX + 25 else newX = leftTextWidth end
+	if(leftTextHeight < minY) then newY = minY+25 else newY = (leftTextHeight-leftTextHeight/2.5) + nameTextHeight + 32 end
+	gui.set_size(tooltipLeft, vmath.vector3(newX,newY,0))
+	gui.set_position(tooltipName, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-5,1))
+	gui.set_position(tooltipLeft, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-40,1))
+
+
+	local tooltipWidth = (newX + maxX)/2
+	local tooltipHeight = newY + nameTextHeight - 30
 
 	gui.set_position(tooltip, vmath.vector3(x, y, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(Xmax, 5, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(Xmax, 5, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(5, Ymax, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(5, Ymax, 0))
-	gui.set_size(tbg, vmath.vector3(Xmax,Ymax, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(Xmax-tbgsize.x, Ymax-(tbgsize.y)/2, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(Xmax-tbgsize.x, -Ymax+(tbgsize.y)/2, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(-Xmax+(tbgsize.x)/2, Ymax-(tbgsize.y), 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(Xmax-(tbgsize.x)/2, Ymax-(tbgsize.y), 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTL"), vmath.vector3(-Xmax+(tbgsize.x)/2+1, Ymax-(tbgsize.y)/2-1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTR"), vmath.vector3(Xmax-(tbgsize.x)/2-1, Ymax-(tbgsize.y)/2-1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBL"), vmath.vector3(-Xmax+(tbgsize.x)/2+1, -Ymax+(tbgsize.y)/2+1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBR"), vmath.vector3(Xmax-(tbgsize.x)/2-1, -Ymax+(tbgsize.y)/2+1, 0))
-
+	gui.set_size(tbg, vmath.vector3(tooltipWidth,tooltipHeight, 0))
+	gui.set_size(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth, 5, 0))
+	gui.set_size(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth, 5, 0))
+	gui.set_size(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(5, tooltipHeight, 0))
+	gui.set_size(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(5, tooltipHeight, 0))
+	gui.set_position(tbg, vmath.vector3((tooltipTextPos.x+tooltipWidth)/2-28,(tooltipTextPos.y-tooltipHeight)/2-29,0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth-tbgsize.x, tooltipHeight-(tbgsize.y)/2, 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth-tbgsize.x, -tooltipHeight+(tbgsize.y)/2, 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(tooltipWidth-(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, tooltipHeight-(tbgsize.y)/2-1, 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, tooltipHeight-(tbgsize.y)/2-1, 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, -tooltipHeight+(tbgsize.y)/2+1, 0))
+	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, -tooltipHeight+(tbgsize.y)/2+1, 0))
 	gui.set_texture(ticon, type)
 	gui.play_flipbook(ticon, self.playerEquipmenmt[slot]["icon"])
 end
 
-function on_reload(self)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
 end

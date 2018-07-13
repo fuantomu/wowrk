@@ -148,6 +148,8 @@ function getActionProperties(atype, aid)
 			durability	-- %((%d+,%d+)%)
 			= line:match("(%d+),%((.-)%),%((.-)%),(%d+),(%d+),(%d+),(%d+),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),%((.-)%),%((.-)%),(%d+),%((.-)%),(%d+),(%d+),(%d+),(%d+),%((.-)%),(%d+.%d+),%((%d+,%d+)%)")
 			local damageSchools = {}
+			local x = 1
+			local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
 			for damageSchool in string.gmatch(damage,"%[(%d+,%d+,%d+)]") do
 				local min,max,school = 0
 				local i = 1
@@ -161,7 +163,8 @@ function getActionProperties(atype, aid)
 					end
 					i = i + 1
 				end
-				table.insert(damageSchools, {min=min,max=max,school=school})
+				damageSchools[schools[x]] = {min=min,max=max}
+				x = x+1
 			end
 			local classes = {}
 			local i = 1
@@ -188,7 +191,15 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(classes, {warrior=warrior,hunter=hunter,paladin=paladin,mage=mage,warlock=warlock,priest=priest,shaman=shaman,rogue=rogue,druid=druid})
+			classes["warrior"]=warrior
+			classes["hunter"]=hunter
+			classes["paladin"]=paladin
+			classes["mage"]=mage
+			classes["warlock"]=warlock
+			classes["priest"]=priest
+			classes["shaman"]=shaman
+			classes["rogue"]=rogue
+			classes["druid"]=druid
 			local races = {}
 			local i = 1
 			local human,nightelf,gnome,dwarf,orc,troll,tauren,undead = 0
@@ -212,7 +223,14 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(races, {human=human,nightelf=nightelf,gnome=gnome,dwarf=dwarf,orc=orc,troll=troll,tauren=tauren,undead=undead})
+			races["human"]=human
+			races["nightelf"]=nightelf
+			races["gnome"]=gnome
+			races["dwarf"]=dwarf
+			races["orc"]=orc
+			races["troll"]=troll
+			races["tauren"]=tauren
+			races["undead"]=undead
 			local effects = {}
 			local i = 1
 			local eid1,eid2,eid3 = 0
@@ -226,7 +244,31 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(effects, {eid1=eid1,eid2=eid2,eid3=eid3})
+			effects["eid1"]=eid1
+			effects["eid2"]=eid2
+			effects["eid3"]=eid3
+			local stat = {}
+			local i = 1
+			local str,agi,sta,int,spr = 0
+			for r in string.gmatch(stats, '([^,]+)') do
+				if(i == 1) then
+					str = r
+				elseif(i==2) then
+					agi=r
+				elseif(i==3) then
+					sta=r
+				elseif(i==4) then
+					int=r
+				elseif(i==5) then
+					spr=r
+				end
+				i= i+1
+			end
+			stat["str"]=str
+			stat["agi"]=agi
+			stat["sta"]=sta
+			stat["int"]=int
+			stat["spr"]=spr
 			local i = 1
 			local dmin,dmax = 0
 			for durab in string.gmatch(durability, "([^,]+)") do
@@ -249,11 +291,7 @@ function getActionProperties(atype, aid)
 			rclass=classes,
 			rrace=races,
 			rrank=rrank,
-			str=str,
-			sta=sta,
-			int=int,
-			agi=agi,
-			spr=spr,
+			stats=stat,
 			armor=armor,
 			res=res,
 			eids=effects,
@@ -326,7 +364,15 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(classes, {warrior=warrior,hunter=hunter,paladin=paladin,mage=mage,warlock=warlock,priest=priest,shaman=shaman,rogue=rogue,druid=druid})
+			classes["warrior"]=warrior
+			classes["hunter"]=hunter
+			classes["paladin"]=paladin
+			classes["mage"]=mage
+			classes["warlock"]=warlock
+			classes["priest"]=priest
+			classes["shaman"]=shaman
+			classes["rogue"]=rogue
+			classes["druid"]=druid
 			local races = {}
 			local i = 1
 			local human,nightelf,gnome,dwarf,orc,troll,tauren,undead = 0
@@ -350,7 +396,14 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(races, {human=human,nightelf=nightelf,gnome=gnome,dwarf=dwarf,orc=orc,troll=troll,tauren=tauren,undead=undead})
+			races["human"]=human
+			races["nightelf"]=nightelf
+			races["gnome"]=gnome
+			races["dwarf"]=dwarf
+			races["orc"]=orc
+			races["troll"]=troll
+			races["tauren"]=tauren
+			races["undead"]=undead
 			local effects = {}
 			local i = 1
 			local eid1,eid2,eid3 = 0
@@ -364,7 +417,31 @@ function getActionProperties(atype, aid)
 				end
 				i= i+1
 			end
-			table.insert(effects, {eid1=eid1,eid2=eid2,eid3=eid3})
+			effects["eid1"]=eid1
+			effects["eid2"]=eid2
+			effects["eid3"]=eid3
+			local stat = {}
+			local i = 1
+			local str,agi,sta,int,spr = 0
+			for r in string.gmatch(stats, '([^,]+)') do
+				if(i == 1) then
+					str = r
+				elseif(i==2) then
+					agi=r
+				elseif(i==3) then
+					sta=r
+				elseif(i==4) then
+					int=r
+				elseif(i==5) then
+					spr=r
+				end
+				i= i+1
+			end
+			stat["str"]=str
+			stat["agi"]=agi
+			stat["sta"]=sta
+			stat["int"]=int
+			stat["spr"]=spr
 			local i = 1
 			local dmin,dmax = 0
 			for durab in string.gmatch(durability, "([^,]+)") do
@@ -387,11 +464,7 @@ function getActionProperties(atype, aid)
 			rclass=classes,
 			rrace=races,
 			rrank=rrank,
-			str=str,
-			sta=sta,
-			int=int,
-			agi=agi,
-			spr=spr,
+			stats=stat,
 			armor=armor,
 			res=res,
 			eids=effects,

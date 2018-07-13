@@ -215,9 +215,9 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.7019608
-    y: 0.101960786
-    z: 0.101960786
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
@@ -240,13 +240,13 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -97.0
+    x: -96.0
     y: 0.0
     z: 0.0
     w: 1.0
@@ -284,9 +284,9 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_W
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
@@ -334,13 +334,13 @@ nodes {
   }
   color {
     x: 0.0
-    y: 0.101960786
-    z: 0.5019608
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/1px"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -358,7 +358,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
@@ -404,15 +404,15 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
@@ -486,7 +486,7 @@ nodes {
   position {
     x: 34.0
     y: -33.0
-    z: -1.0
+    z: 0.0
     w: 1.0
   }
   rotation {
@@ -508,9 +508,9 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 0.03137255
+    y: 0.050980393
+    z: 0.12941177
     w: 1.0
   }
   type: TYPE_BOX
