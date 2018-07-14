@@ -59,7 +59,7 @@ function on_message(self, message_id, message, sender)
 			damageDone = math.floor(0.5 + damageDone)
 			msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
 			if(self.playerAttack[message.player]["name"] == "Heroic Strike") then
-				damageDone = damageDone + self.playerAttack[message.player]["basedmg"]
+				damageDone = damageDone + math.random(self.playerAttack[message.player]["basedmg"]["min"],self.playerAttack[message.player]["basedmg"]["max"])
 			end
 			print("Player "..message.player..","..self.playerStats[message.player][string.lower(self.playerAttack[message.player]["attr"])].." "..self.playerAttack[message.player]["name"].."["..message.id..","..self.playerAttack[message.player]["attr"]..","..self.playerAttack[message.player]["mult"].."] for "..damageDone.." damage")
 		end
@@ -76,7 +76,7 @@ function on_message(self, message_id, message, sender)
 			msg.post("/GUI#gameViewGUI", hash("startCast"), {player=message.player, cast=message.values["aspeed"], type="Attack"})
 		elseif(message.type == "Ability") then
 			for i = 1, 3 do
-				msg.post("main:/game#main", hash("getEffect"), {id=message.values["eids"][1]["eid"..i],player=message.player})
+				msg.post("main:/game#main", hash("getEffect"), {id=message.values["eids"]["eid"..i],player=message.player})
 			end
 			print("Player "..message.player.." using "..message.values["name"]..","..message.values["type"]..","..message.values["element"]..","..message.values["elemtype"].."  Casttime:"..message.values["cast"]..", Multiplier="..message.values["mult"]..","..message.values["attr"])
 			self.playerAttack[message.player] = message.values
@@ -122,7 +122,7 @@ function on_message(self, message_id, message, sender)
 			local classesAltRes ={}
 			local spellIds = {}
 			for i = 1, self.maxPlayers do
-				if(self.playerStats[i]["class"] == 1) then
+				if(self.playerStats[i]["class"] == "Warrior") then
 					self.playerStats[i]["ap"] = (tonumber(self.playerStats[i]["str"]) * 2 + tonumber(self.playerStats[i]["level"]) * 3) - 20
 					table.insert(classesAltRes, i)
 				end
@@ -179,6 +179,7 @@ function on_message(self, message_id, message, sender)
 				if(#self.alivePlayers <= 0) then delay.cancel(id) end
 				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
 				if(not self.playerStats[message.targets[i]]["dead"]) then
+					print(self.playerStats[message.targets[i]]["armor"])
 					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
 					self.playerStats[message.targets[i]]["hpcurr"] = self.playerStats[message.targets[i]]["hpcurr"] - dmgDone
 					local newPlayerHP = (self.playerStats[message.targets[i]]["hpcurr"] / self.playerStats[message.targets[i]]["hpmax"]) * 100
@@ -209,21 +210,22 @@ end
 
 function getDamage(table)
 	local physDamage, fireDamage, frostDamage, arcaneDamage, natureDamage, shadowDamage, holyDamage = 0,0,0,0,0,0,0
-	for i = 1, #table do
-		if(table[i]["school"] == "0") then
-			physDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "1") then
-			fireDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "2") then
-			frostDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "3") then
-			arcaneDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "4") then
-			natureDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "5") then
-			shadowDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
-		elseif(table[i]["school"] == "6") then
-			holyDamage = math.random(tonumber(table[i]["min"]) , tonumber(table[i]["max"]))
+	local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
+	for i = 1, #schools do
+		if(schools[i] == "Physical") then
+			physDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Fire") then
+			fireDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Frost") then
+			frostDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Arcane") then
+			arcaneDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Nature") then
+			natureDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Shadow") then
+			shadowDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
+		elseif(schools[i] == "Holy") then
+			holyDamage = math.random(tonumber(table[schools[i]]["min"]) , tonumber(table[schools[i]]["max"]))
 		end
 	end
 	return {phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}

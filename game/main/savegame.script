@@ -19,8 +19,8 @@ local function init_save_state()
 	for i = 1, 5 do
 		table.insert(save_state,{stats={
 			player=i,
-			class=1, 
-			race=1, 
+			class="Warrior", 
+			race="Human", 
 			level=1, 
 			hpmax=20, 
 			hpcurr=20, 
@@ -92,11 +92,9 @@ function on_message(self, message_id, message, sender)
 		end
 	elseif(message_id == hash("returnPlayerData")) then
 		if(message.data) then
-			for i = 1, message.players do
-				save_state[i] = message.data[i]
-			end
-			--save_state = message.data
+			save_state[message.player]["stats"] = message.data
 		end
+		tprint(save_state[message.player])
 		save_save_state()
 		msg.post(sender, hash("saveDone"))
 	elseif(message_id == hash("loadGame")) then

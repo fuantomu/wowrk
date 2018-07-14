@@ -23,7 +23,7 @@ function on_message(self, message_id, message, sender)
 	if(message_id == hash("loadDone")) then
 		table.insert(self.playerStats,message.data["stats"])
 		table.insert(self.playerEquipment, message.data["equipment"])
-		self.playerEquipment[message.player]["offhand"]["id"] = 1168
+		--self.playerEquipment[message.player]["offhand"]["id"] = 1168
 		local equipTable = {}
 		for k, v in pairs(self.playerEquipment[message.player]) do
 			if(self.playerEquipment[message.player][tostring(k)]["id"] > 0) then
@@ -105,6 +105,20 @@ function on_input(self, action_id, action)
 	if action_id == hash("click") and action.pressed then
 		if(gui.pick_node(gui.get_node("startButton"), action.x, action.y)) then
 			print("clicked start")
+			local slots = {"mainhand","feet","offhand","shirt","legs"}
+
+			for i = 1, self.maxPlayers do
+				local armor = 0
+				for x,slot in pairs(slots) do
+					print(x)
+					armor = armor + self.playerEquipProperties[i][slot]["armor"]
+				end
+				self.playerStats[i]["armor"] = armor
+				tprint(self.playerStats[i])
+				msg.post("main:/game#savegame", hash("returnPlayerData"), {player=i,data=self.playerStats[i]})
+			end
+			
+			
 			msg.post("lobbyView", hash("start"), {players=self.maxPlayers})
 		elseif(gui.pick_node(gui.get_node("endButton"), action.x, action.y)) then
 			print("clicked end")

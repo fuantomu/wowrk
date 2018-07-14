@@ -4,7 +4,7 @@ INFO:ENGINE: Initialised sound device 'default'
 
 DEBUG:SCRIPT: Listening for debugger on 0.0.0.0
 DEBUG:SCRIPT: Debugger connected from 127.0.0.1
-DEBUG:SCRIPT: Loaded existing save state!
+DEBUG:SCRIPT: Created new save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 INFO:DLIB: SSDP: Started on address 192.168.0.7
@@ -12,83 +12,714 @@ DEBUG:SCRIPT: clicked start
 DEBUG:SCRIPT: start game
 DEBUG:SCRIPT: load lobby
 DEBUG:SCRIPT: url: [main:/screens#proxy_lobbyView]	 loaded
-DEBUG:SCRIPT: clicked 3
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
-DEBUG:SCRIPT: test
+DEBUG:SCRIPT: clicked start
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 4
+DEBUG:SCRIPT: 5
+DEBUG:SCRIPT: table["hpcurr"] = 20
+DEBUG:SCRIPT: table["sp1id"] = 1
+DEBUG:SCRIPT: table["sp2id"] = 6
+DEBUG:SCRIPT: table["hp"] = 0
+DEBUG:SCRIPT: table["armor"] = 7
+DEBUG:SCRIPT: table["mhit"] = 0
+DEBUG:SCRIPT: table["mp5"] = 0
+DEBUG:SCRIPT: table["ap"] = 46
+DEBUG:SCRIPT: table["block"] = 5
+DEBUG:SCRIPT: table["rescurr"] = 0
+DEBUG:SCRIPT: table["player"] = 1
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["sta"] = 22
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["sphit"] = 0
+DEBUG:SCRIPT: table["critdmg"] = 50
+DEBUG:SCRIPT: table["str"] = 23
+DEBUG:SCRIPT: table["hp5"] = 1
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["sp"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["dodge"] = 1
+DEBUG:SCRIPT: table["level"] = 1
+DEBUG:SCRIPT: table["hpmax"] = 20
+DEBUG:SCRIPT: table["int"] = 20
+DEBUG:SCRIPT: table["resmax"] = 100
+DEBUG:SCRIPT: table["agi"] = 20
+DEBUG:SCRIPT: table["spr"] = 21
+DEBUG:SCRIPT: table["parry"] = 5
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 4
+DEBUG:SCRIPT: 5
+DEBUG:SCRIPT: table["hpcurr"] = 20
+DEBUG:SCRIPT: table["sp1id"] = 2
+DEBUG:SCRIPT: table["sp2id"] = 6
+DEBUG:SCRIPT: table["hp"] = 0
+DEBUG:SCRIPT: table["armor"] = 7
+DEBUG:SCRIPT: table["mhit"] = 0
+DEBUG:SCRIPT: table["mp5"] = 0
+DEBUG:SCRIPT: table["ap"] = 46
+DEBUG:SCRIPT: table["block"] = 5
+DEBUG:SCRIPT: table["rescurr"] = 0
+DEBUG:SCRIPT: table["player"] = 2
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["sta"] = 22
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["sphit"] = 0
+DEBUG:SCRIPT: table["critdmg"] = 50
+DEBUG:SCRIPT: table["str"] = 23
+DEBUG:SCRIPT: table["hp5"] = 1
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["sp"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["dodge"] = 1
+DEBUG:SCRIPT: table["level"] = 1
+DEBUG:SCRIPT: table["hpmax"] = 20
+DEBUG:SCRIPT: table["int"] = 20
+DEBUG:SCRIPT: table["resmax"] = 100
+DEBUG:SCRIPT: table["agi"] = 20
+DEBUG:SCRIPT: table["spr"] = 21
+DEBUG:SCRIPT: table["parry"] = 5
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 4
+DEBUG:SCRIPT: 5
+DEBUG:SCRIPT: table["hpcurr"] = 20
+DEBUG:SCRIPT: table["sp1id"] = 3
+DEBUG:SCRIPT: table["sp2id"] = 6
+DEBUG:SCRIPT: table["hp"] = 0
+DEBUG:SCRIPT: table["armor"] = 7
+DEBUG:SCRIPT: table["mhit"] = 0
+DEBUG:SCRIPT: table["mp5"] = 0
+DEBUG:SCRIPT: table["ap"] = 46
+DEBUG:SCRIPT: table["block"] = 5
+DEBUG:SCRIPT: table["rescurr"] = 0
+DEBUG:SCRIPT: table["player"] = 3
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["sta"] = 22
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["sphit"] = 0
+DEBUG:SCRIPT: table["critdmg"] = 50
+DEBUG:SCRIPT: table["str"] = 23
+DEBUG:SCRIPT: table["hp5"] = 1
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["sp"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["dodge"] = 1
+DEBUG:SCRIPT: table["level"] = 1
+DEBUG:SCRIPT: table["hpmax"] = 20
+DEBUG:SCRIPT: table["int"] = 20
+DEBUG:SCRIPT: table["resmax"] = 100
+DEBUG:SCRIPT: table["agi"] = 20
+DEBUG:SCRIPT: table["spr"] = 21
+DEBUG:SCRIPT: table["parry"] = 5
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 4
+DEBUG:SCRIPT: 5
+DEBUG:SCRIPT: table["hpcurr"] = 20
+DEBUG:SCRIPT: table["sp1id"] = 4
+DEBUG:SCRIPT: table["sp2id"] = 6
+DEBUG:SCRIPT: table["hp"] = 0
+DEBUG:SCRIPT: table["armor"] = 7
+DEBUG:SCRIPT: table["mhit"] = 0
+DEBUG:SCRIPT: table["mp5"] = 0
+DEBUG:SCRIPT: table["ap"] = 46
+DEBUG:SCRIPT: table["block"] = 5
+DEBUG:SCRIPT: table["rescurr"] = 0
+DEBUG:SCRIPT: table["player"] = 4
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["sta"] = 22
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["sphit"] = 0
+DEBUG:SCRIPT: table["critdmg"] = 50
+DEBUG:SCRIPT: table["str"] = 23
+DEBUG:SCRIPT: table["hp5"] = 1
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["sp"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["dodge"] = 1
+DEBUG:SCRIPT: table["level"] = 1
+DEBUG:SCRIPT: table["hpmax"] = 20
+DEBUG:SCRIPT: table["int"] = 20
+DEBUG:SCRIPT: table["resmax"] = 100
+DEBUG:SCRIPT: table["agi"] = 20
+DEBUG:SCRIPT: table["spr"] = 21
+DEBUG:SCRIPT: table["parry"] = 5
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 4
+DEBUG:SCRIPT: 5
+DEBUG:SCRIPT: table["hpcurr"] = 20
+DEBUG:SCRIPT: table["sp1id"] = 5
+DEBUG:SCRIPT: table["sp2id"] = 6
+DEBUG:SCRIPT: table["hp"] = 0
+DEBUG:SCRIPT: table["armor"] = 7
+DEBUG:SCRIPT: table["mhit"] = 0
+DEBUG:SCRIPT: table["mp5"] = 0
+DEBUG:SCRIPT: table["ap"] = 46
+DEBUG:SCRIPT: table["block"] = 5
+DEBUG:SCRIPT: table["rescurr"] = 0
+DEBUG:SCRIPT: table["player"] = 5
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["sta"] = 22
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["sphit"] = 0
+DEBUG:SCRIPT: table["critdmg"] = 50
+DEBUG:SCRIPT: table["str"] = 23
+DEBUG:SCRIPT: table["hp5"] = 1
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["sp"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["dodge"] = 1
+DEBUG:SCRIPT: table["level"] = 1
+DEBUG:SCRIPT: table["hpmax"] = 20
+DEBUG:SCRIPT: table["int"] = 20
+DEBUG:SCRIPT: table["resmax"] = 100
+DEBUG:SCRIPT: table["agi"] = 20
+DEBUG:SCRIPT: table["spr"] = 21
+DEBUG:SCRIPT: table["parry"] = 5
+DEBUG:SCRIPT: start quest
+DEBUG:SCRIPT: table["equipment"]["ranged"]["slot"] = 18
+DEBUG:SCRIPT: table["equipment"]["ranged"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ranged"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["head"]["slot"] = 1
+DEBUG:SCRIPT: table["equipment"]["head"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["head"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["feet"]["slot"] = 8
+DEBUG:SCRIPT: table["equipment"]["feet"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["feet"]["id"] = 40
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["slot"] = 14
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["tabard"]["slot"] = 19
+DEBUG:SCRIPT: table["equipment"]["tabard"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["tabard"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring1"]["slot"] = 11
+DEBUG:SCRIPT: table["equipment"]["ring1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["chest"]["slot"] = 5
+DEBUG:SCRIPT: table["equipment"]["chest"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["chest"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring"]["slot"] = 12
+DEBUG:SCRIPT: table["equipment"]["ring"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["slot"] = 13
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["offhand"]["slot"] = 17
+DEBUG:SCRIPT: table["equipment"]["offhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["offhand"]["id"] = 2362
+DEBUG:SCRIPT: table["equipment"]["waist"]["slot"] = 6
+DEBUG:SCRIPT: table["equipment"]["waist"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["waist"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["slot"] = 16
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["id"] = 25
+DEBUG:SCRIPT: table["equipment"]["neck"]["slot"] = 2
+DEBUG:SCRIPT: table["equipment"]["neck"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["neck"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["hands"]["slot"] = 10
+DEBUG:SCRIPT: table["equipment"]["hands"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["hands"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["slot"] = 3
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shirt"]["slot"] = 4
+DEBUG:SCRIPT: table["equipment"]["shirt"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shirt"]["id"] = 38
+DEBUG:SCRIPT: table["equipment"]["wrists"]["slot"] = 9
+DEBUG:SCRIPT: table["equipment"]["wrists"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["wrists"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["cloak"]["slot"] = 15
+DEBUG:SCRIPT: table["equipment"]["cloak"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["cloak"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["legs"]["slot"] = 7
+DEBUG:SCRIPT: table["equipment"]["legs"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["legs"]["id"] = 39
+DEBUG:SCRIPT: table["stats"]["hpcurr"] = 20
+DEBUG:SCRIPT: table["stats"]["ap"] = 46
+DEBUG:SCRIPT: table["stats"]["sp2id"] = 6
+DEBUG:SCRIPT: table["stats"]["hp"] = 0
+DEBUG:SCRIPT: table["stats"]["armor"] = 7
+DEBUG:SCRIPT: table["stats"]["mhit"] = 0
+DEBUG:SCRIPT: table["stats"]["mp5"] = 0
+DEBUG:SCRIPT: table["stats"]["sta"] = 22
+DEBUG:SCRIPT: table["stats"]["block"] = 5
+DEBUG:SCRIPT: table["stats"]["rescurr"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["holy"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["frost"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["fire"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["nature"] = 0
+DEBUG:SCRIPT: table["stats"]["player"] = 1
+DEBUG:SCRIPT: table["stats"]["sp1id"] = 1
+DEBUG:SCRIPT: table["stats"]["crit"] = 5
+DEBUG:SCRIPT: table["stats"]["sphit"] = 0
+DEBUG:SCRIPT: table["stats"]["critdmg"] = 50
+DEBUG:SCRIPT: table["stats"]["str"] = 23
+DEBUG:SCRIPT: table["stats"]["hp5"] = 1
+DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
+DEBUG:SCRIPT: table["stats"]["hpmax"] = 20
+DEBUG:SCRIPT: table["stats"]["race"] = "Human"
+DEBUG:SCRIPT: table["stats"]["dodge"] = 1
+DEBUG:SCRIPT: table["stats"]["level"] = 1
+DEBUG:SCRIPT: table["stats"]["sp"] = 0
+DEBUG:SCRIPT: table["stats"]["int"] = 20
+DEBUG:SCRIPT: table["stats"]["resmax"] = 100
+DEBUG:SCRIPT: table["stats"]["agi"] = 20
+DEBUG:SCRIPT: table["stats"]["spr"] = 21
+DEBUG:SCRIPT: table["stats"]["parry"] = 5
+DEBUG:SCRIPT: saving
+DEBUG:SCRIPT: table["equipment"]["ranged"]["slot"] = 18
+DEBUG:SCRIPT: table["equipment"]["ranged"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ranged"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["head"]["slot"] = 1
+DEBUG:SCRIPT: table["equipment"]["head"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["head"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["feet"]["slot"] = 8
+DEBUG:SCRIPT: table["equipment"]["feet"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["feet"]["id"] = 40
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["slot"] = 14
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["tabard"]["slot"] = 19
+DEBUG:SCRIPT: table["equipment"]["tabard"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["tabard"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring1"]["slot"] = 11
+DEBUG:SCRIPT: table["equipment"]["ring1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["chest"]["slot"] = 5
+DEBUG:SCRIPT: table["equipment"]["chest"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["chest"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring"]["slot"] = 12
+DEBUG:SCRIPT: table["equipment"]["ring"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["slot"] = 13
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["offhand"]["slot"] = 17
+DEBUG:SCRIPT: table["equipment"]["offhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["offhand"]["id"] = 2362
+DEBUG:SCRIPT: table["equipment"]["waist"]["slot"] = 6
+DEBUG:SCRIPT: table["equipment"]["waist"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["waist"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["slot"] = 16
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["id"] = 25
+DEBUG:SCRIPT: table["equipment"]["neck"]["slot"] = 2
+DEBUG:SCRIPT: table["equipment"]["neck"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["neck"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["hands"]["slot"] = 10
+DEBUG:SCRIPT: table["equipment"]["hands"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["hands"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["slot"] = 3
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shirt"]["slot"] = 4
+DEBUG:SCRIPT: table["equipment"]["shirt"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shirt"]["id"] = 38
+DEBUG:SCRIPT: table["equipment"]["wrists"]["slot"] = 9
+DEBUG:SCRIPT: table["equipment"]["wrists"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["wrists"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["cloak"]["slot"] = 15
+DEBUG:SCRIPT: table["equipment"]["cloak"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["cloak"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["legs"]["slot"] = 7
+DEBUG:SCRIPT: table["equipment"]["legs"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["legs"]["id"] = 39
+DEBUG:SCRIPT: table["stats"]["hpcurr"] = 20
+DEBUG:SCRIPT: table["stats"]["ap"] = 46
+DEBUG:SCRIPT: table["stats"]["sp2id"] = 6
+DEBUG:SCRIPT: table["stats"]["hp"] = 0
+DEBUG:SCRIPT: table["stats"]["armor"] = 7
+DEBUG:SCRIPT: table["stats"]["mhit"] = 0
+DEBUG:SCRIPT: table["stats"]["mp5"] = 0
+DEBUG:SCRIPT: table["stats"]["sta"] = 22
+DEBUG:SCRIPT: table["stats"]["block"] = 5
+DEBUG:SCRIPT: table["stats"]["rescurr"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["holy"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["frost"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["fire"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["nature"] = 0
+DEBUG:SCRIPT: table["stats"]["player"] = 2
+DEBUG:SCRIPT: table["stats"]["sp1id"] = 2
+DEBUG:SCRIPT: table["stats"]["crit"] = 5
+DEBUG:SCRIPT: table["stats"]["sphit"] = 0
+DEBUG:SCRIPT: table["stats"]["critdmg"] = 50
+DEBUG:SCRIPT: table["stats"]["str"] = 23
+DEBUG:SCRIPT: table["stats"]["hp5"] = 1
+DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
+DEBUG:SCRIPT: table["stats"]["hpmax"] = 20
+DEBUG:SCRIPT: table["stats"]["race"] = "Human"
+DEBUG:SCRIPT: table["stats"]["dodge"] = 1
+DEBUG:SCRIPT: table["stats"]["level"] = 1
+DEBUG:SCRIPT: table["stats"]["sp"] = 0
+DEBUG:SCRIPT: table["stats"]["int"] = 20
+DEBUG:SCRIPT: table["stats"]["resmax"] = 100
+DEBUG:SCRIPT: table["stats"]["agi"] = 20
+DEBUG:SCRIPT: table["stats"]["spr"] = 21
+DEBUG:SCRIPT: table["stats"]["parry"] = 5
+DEBUG:SCRIPT: saving
+DEBUG:SCRIPT: table["equipment"]["ranged"]["slot"] = 18
+DEBUG:SCRIPT: table["equipment"]["ranged"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ranged"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["head"]["slot"] = 1
+DEBUG:SCRIPT: table["equipment"]["head"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["head"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["feet"]["slot"] = 8
+DEBUG:SCRIPT: table["equipment"]["feet"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["feet"]["id"] = 40
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["slot"] = 14
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["tabard"]["slot"] = 19
+DEBUG:SCRIPT: table["equipment"]["tabard"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["tabard"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring1"]["slot"] = 11
+DEBUG:SCRIPT: table["equipment"]["ring1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["chest"]["slot"] = 5
+DEBUG:SCRIPT: table["equipment"]["chest"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["chest"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring"]["slot"] = 12
+DEBUG:SCRIPT: table["equipment"]["ring"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["slot"] = 13
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["offhand"]["slot"] = 17
+DEBUG:SCRIPT: table["equipment"]["offhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["offhand"]["id"] = 2362
+DEBUG:SCRIPT: table["equipment"]["waist"]["slot"] = 6
+DEBUG:SCRIPT: table["equipment"]["waist"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["waist"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["slot"] = 16
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["id"] = 25
+DEBUG:SCRIPT: table["equipment"]["neck"]["slot"] = 2
+DEBUG:SCRIPT: table["equipment"]["neck"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["neck"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["hands"]["slot"] = 10
+DEBUG:SCRIPT: table["equipment"]["hands"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["hands"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["slot"] = 3
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shirt"]["slot"] = 4
+DEBUG:SCRIPT: table["equipment"]["shirt"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shirt"]["id"] = 38
+DEBUG:SCRIPT: table["equipment"]["wrists"]["slot"] = 9
+DEBUG:SCRIPT: table["equipment"]["wrists"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["wrists"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["cloak"]["slot"] = 15
+DEBUG:SCRIPT: table["equipment"]["cloak"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["cloak"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["legs"]["slot"] = 7
+DEBUG:SCRIPT: table["equipment"]["legs"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["legs"]["id"] = 39
+DEBUG:SCRIPT: table["stats"]["hpcurr"] = 20
+DEBUG:SCRIPT: table["stats"]["ap"] = 46
+DEBUG:SCRIPT: table["stats"]["sp2id"] = 6
+DEBUG:SCRIPT: table["stats"]["hp"] = 0
+DEBUG:SCRIPT: table["stats"]["armor"] = 7
+DEBUG:SCRIPT: table["stats"]["mhit"] = 0
+DEBUG:SCRIPT: table["stats"]["mp5"] = 0
+DEBUG:SCRIPT: table["stats"]["sta"] = 22
+DEBUG:SCRIPT: table["stats"]["block"] = 5
+DEBUG:SCRIPT: table["stats"]["rescurr"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["holy"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["frost"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["fire"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["nature"] = 0
+DEBUG:SCRIPT: table["stats"]["player"] = 3
+DEBUG:SCRIPT: table["stats"]["sp1id"] = 3
+DEBUG:SCRIPT: table["stats"]["crit"] = 5
+DEBUG:SCRIPT: table["stats"]["sphit"] = 0
+DEBUG:SCRIPT: table["stats"]["critdmg"] = 50
+DEBUG:SCRIPT: table["stats"]["str"] = 23
+DEBUG:SCRIPT: table["stats"]["hp5"] = 1
+DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
+DEBUG:SCRIPT: table["stats"]["hpmax"] = 20
+DEBUG:SCRIPT: table["stats"]["race"] = "Human"
+DEBUG:SCRIPT: table["stats"]["dodge"] = 1
+DEBUG:SCRIPT: table["stats"]["level"] = 1
+DEBUG:SCRIPT: table["stats"]["sp"] = 0
+DEBUG:SCRIPT: table["stats"]["int"] = 20
+DEBUG:SCRIPT: table["stats"]["resmax"] = 100
+DEBUG:SCRIPT: table["stats"]["agi"] = 20
+DEBUG:SCRIPT: table["stats"]["spr"] = 21
+DEBUG:SCRIPT: table["stats"]["parry"] = 5
+DEBUG:SCRIPT: saving
+DEBUG:SCRIPT: table["equipment"]["ranged"]["slot"] = 18
+DEBUG:SCRIPT: table["equipment"]["ranged"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ranged"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["head"]["slot"] = 1
+DEBUG:SCRIPT: table["equipment"]["head"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["head"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["feet"]["slot"] = 8
+DEBUG:SCRIPT: table["equipment"]["feet"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["feet"]["id"] = 40
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["slot"] = 14
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["tabard"]["slot"] = 19
+DEBUG:SCRIPT: table["equipment"]["tabard"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["tabard"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring1"]["slot"] = 11
+DEBUG:SCRIPT: table["equipment"]["ring1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["chest"]["slot"] = 5
+DEBUG:SCRIPT: table["equipment"]["chest"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["chest"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring"]["slot"] = 12
+DEBUG:SCRIPT: table["equipment"]["ring"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["slot"] = 13
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["offhand"]["slot"] = 17
+DEBUG:SCRIPT: table["equipment"]["offhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["offhand"]["id"] = 2362
+DEBUG:SCRIPT: table["equipment"]["waist"]["slot"] = 6
+DEBUG:SCRIPT: table["equipment"]["waist"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["waist"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["slot"] = 16
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["id"] = 25
+DEBUG:SCRIPT: table["equipment"]["neck"]["slot"] = 2
+DEBUG:SCRIPT: table["equipment"]["neck"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["neck"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["hands"]["slot"] = 10
+DEBUG:SCRIPT: table["equipment"]["hands"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["hands"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["slot"] = 3
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shirt"]["slot"] = 4
+DEBUG:SCRIPT: table["equipment"]["shirt"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shirt"]["id"] = 38
+DEBUG:SCRIPT: table["equipment"]["wrists"]["slot"] = 9
+DEBUG:SCRIPT: table["equipment"]["wrists"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["wrists"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["cloak"]["slot"] = 15
+DEBUG:SCRIPT: table["equipment"]["cloak"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["cloak"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["legs"]["slot"] = 7
+DEBUG:SCRIPT: table["equipment"]["legs"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["legs"]["id"] = 39
+DEBUG:SCRIPT: table["stats"]["hpcurr"] = 20
+DEBUG:SCRIPT: table["stats"]["ap"] = 46
+DEBUG:SCRIPT: table["stats"]["sp2id"] = 6
+DEBUG:SCRIPT: table["stats"]["hp"] = 0
+DEBUG:SCRIPT: table["stats"]["armor"] = 7
+DEBUG:SCRIPT: table["stats"]["mhit"] = 0
+DEBUG:SCRIPT: table["stats"]["mp5"] = 0
+DEBUG:SCRIPT: table["stats"]["sta"] = 22
+DEBUG:SCRIPT: table["stats"]["block"] = 5
+DEBUG:SCRIPT: table["stats"]["rescurr"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["holy"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["frost"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["fire"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["nature"] = 0
+DEBUG:SCRIPT: table["stats"]["player"] = 4
+DEBUG:SCRIPT: table["stats"]["sp1id"] = 4
+DEBUG:SCRIPT: table["stats"]["crit"] = 5
+DEBUG:SCRIPT: table["stats"]["sphit"] = 0
+DEBUG:SCRIPT: table["stats"]["critdmg"] = 50
+DEBUG:SCRIPT: table["stats"]["str"] = 23
+DEBUG:SCRIPT: table["stats"]["hp5"] = 1
+DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
+DEBUG:SCRIPT: table["stats"]["hpmax"] = 20
+DEBUG:SCRIPT: table["stats"]["race"] = "Human"
+DEBUG:SCRIPT: table["stats"]["dodge"] = 1
+DEBUG:SCRIPT: table["stats"]["level"] = 1
+DEBUG:SCRIPT: table["stats"]["sp"] = 0
+DEBUG:SCRIPT: table["stats"]["int"] = 20
+DEBUG:SCRIPT: table["stats"]["resmax"] = 100
+DEBUG:SCRIPT: table["stats"]["agi"] = 20
+DEBUG:SCRIPT: table["stats"]["spr"] = 21
+DEBUG:SCRIPT: table["stats"]["parry"] = 5
+DEBUG:SCRIPT: saving
+DEBUG:SCRIPT: table["equipment"]["ranged"]["slot"] = 18
+DEBUG:SCRIPT: table["equipment"]["ranged"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ranged"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["head"]["slot"] = 1
+DEBUG:SCRIPT: table["equipment"]["head"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["head"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["feet"]["slot"] = 8
+DEBUG:SCRIPT: table["equipment"]["feet"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["feet"]["id"] = 40
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["slot"] = 14
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket2"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["tabard"]["slot"] = 19
+DEBUG:SCRIPT: table["equipment"]["tabard"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["tabard"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring1"]["slot"] = 11
+DEBUG:SCRIPT: table["equipment"]["ring1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["chest"]["slot"] = 5
+DEBUG:SCRIPT: table["equipment"]["chest"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["chest"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["ring"]["slot"] = 12
+DEBUG:SCRIPT: table["equipment"]["ring"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["ring"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["slot"] = 13
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["trinket1"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["offhand"]["slot"] = 17
+DEBUG:SCRIPT: table["equipment"]["offhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["offhand"]["id"] = 2362
+DEBUG:SCRIPT: table["equipment"]["waist"]["slot"] = 6
+DEBUG:SCRIPT: table["equipment"]["waist"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["waist"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["slot"] = 16
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["mainhand"]["id"] = 25
+DEBUG:SCRIPT: table["equipment"]["neck"]["slot"] = 2
+DEBUG:SCRIPT: table["equipment"]["neck"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["neck"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["hands"]["slot"] = 10
+DEBUG:SCRIPT: table["equipment"]["hands"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["hands"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["slot"] = 3
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shoulder"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["shirt"]["slot"] = 4
+DEBUG:SCRIPT: table["equipment"]["shirt"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["shirt"]["id"] = 38
+DEBUG:SCRIPT: table["equipment"]["wrists"]["slot"] = 9
+DEBUG:SCRIPT: table["equipment"]["wrists"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["wrists"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["cloak"]["slot"] = 15
+DEBUG:SCRIPT: table["equipment"]["cloak"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["cloak"]["id"] = 0
+DEBUG:SCRIPT: table["equipment"]["legs"]["slot"] = 7
+DEBUG:SCRIPT: table["equipment"]["legs"]["icon"] = ""
+DEBUG:SCRIPT: table["equipment"]["legs"]["id"] = 39
+DEBUG:SCRIPT: table["stats"]["hpcurr"] = 20
+DEBUG:SCRIPT: table["stats"]["ap"] = 46
+DEBUG:SCRIPT: table["stats"]["sp2id"] = 6
+DEBUG:SCRIPT: table["stats"]["hp"] = 0
+DEBUG:SCRIPT: table["stats"]["armor"] = 7
+DEBUG:SCRIPT: table["stats"]["mhit"] = 0
+DEBUG:SCRIPT: table["stats"]["mp5"] = 0
+DEBUG:SCRIPT: table["stats"]["sta"] = 22
+DEBUG:SCRIPT: table["stats"]["block"] = 5
+DEBUG:SCRIPT: table["stats"]["rescurr"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["holy"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["frost"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["fire"] = 0
+DEBUG:SCRIPT: table["stats"]["res"]["nature"] = 0
+DEBUG:SCRIPT: table["stats"]["player"] = 5
+DEBUG:SCRIPT: table["stats"]["sp1id"] = 5
+DEBUG:SCRIPT: table["stats"]["crit"] = 5
+DEBUG:SCRIPT: table["stats"]["sphit"] = 0
+DEBUG:SCRIPT: table["stats"]["critdmg"] = 50
+DEBUG:SCRIPT: table["stats"]["str"] = 23
+DEBUG:SCRIPT: table["stats"]["hp5"] = 1
+DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
+DEBUG:SCRIPT: table["stats"]["hpmax"] = 20
+DEBUG:SCRIPT: table["stats"]["race"] = "Human"
+DEBUG:SCRIPT: table["stats"]["dodge"] = 1
+DEBUG:SCRIPT: table["stats"]["level"] = 1
+DEBUG:SCRIPT: table["stats"]["sp"] = 0
+DEBUG:SCRIPT: table["stats"]["int"] = 20
+DEBUG:SCRIPT: table["stats"]["resmax"] = 100
+DEBUG:SCRIPT: table["stats"]["agi"] = 20
+DEBUG:SCRIPT: table["stats"]["spr"] = 21
+DEBUG:SCRIPT: table["stats"]["parry"] = 5
+DEBUG:SCRIPT: saving
+DEBUG:SCRIPT: load game
+DEBUG:SCRIPT: url: [main:/screens#proxy_gameView]	 loaded
+DEBUG:SCRIPT: Turn 1
+DEBUG:SCRIPT: Player 1 waiting
+DEBUG:SCRIPT: Player 2 waiting
+DEBUG:SCRIPT: Player 3 waiting
+DEBUG:SCRIPT: Player 4 waiting
+DEBUG:SCRIPT: Player 5 waiting
+DEBUG:SCRIPT: Turn Player 1
+DEBUG:SCRIPT: Turn 2
+DEBUG:SCRIPT: using ability Kick with chance 0.4 cast=4.5
+DEBUG:SCRIPT: boss cast done
+DEBUG:SCRIPT: Boss,1 did 2 damage with Kick,AGI,	200
+DEBUG:SCRIPT: Boss hitting player 1 for 2
+DEBUG:SCRIPT: Boss hitting player 2 for 2
+DEBUG:SCRIPT: Boss hitting player 3 for 2
+DEBUG:SCRIPT: Boss hitting player 4 for 2
+DEBUG:SCRIPT: Boss hitting player 5 for 2
+DEBUG:SCRIPT: Turn 3
+DEBUG:SCRIPT: using ability Kick with chance 0.4 cast=4.5
+DEBUG:SCRIPT: boss cast done
+DEBUG:SCRIPT: Boss,1 did 2 damage with Kick,AGI,	200
+DEBUG:SCRIPT: Boss hitting player 1 for 2
+DEBUG:SCRIPT: Boss hitting player 2 for 2
+DEBUG:SCRIPT: Boss hitting player 3 for 2
+DEBUG:SCRIPT: Boss hitting player 4 for 2
+DEBUG:SCRIPT: Boss hitting player 5 for 2
+DEBUG:SCRIPT: Turn 4
+DEBUG:SCRIPT: using ability Kick with chance 0.4 cast=4.5
+DEBUG:SCRIPT: boss cast done
+DEBUG:SCRIPT: Boss,1 did 2 damage with Kick,AGI,	200
+DEBUG:SCRIPT: Boss hitting player 1 for 2
+DEBUG:SCRIPT: Boss hitting player 2 for 2
+DEBUG:SCRIPT: Boss hitting player 3 for 2
+DEBUG:SCRIPT: Boss hitting player 4 for 2
+DEBUG:SCRIPT: Boss hitting player 5 for 2
+DEBUG:SCRIPT: Turn 5
+DEBUG:SCRIPT: using ability Throw with chance 0.5 cast=2.5
+DEBUG:SCRIPT: boss cast done
+DEBUG:SCRIPT: Boss,1 did 1 damage with Throw,STR,	100
+DEBUG:SCRIPT: 7
+DEBUG:SCRIPT: Boss hitting player 5 for 1
+DEBUG:SCRIPT: 7
+DEBUG:SCRIPT: Boss hitting player 5 for 1
+DEBUG:SCRIPT: 7
+DEBUG:SCRIPT: Boss hitting player 5 for 1
+DEBUG:SCRIPT: 7
+DEBUG:SCRIPT: Boss hitting player 3 for 1
+DEBUG:SCRIPT: 7
+DEBUG:SCRIPT: Boss hitting player 5 for 1
+DEBUG:SCRIPT: Turn 6
+DEBUG:SCRIPT: using ability Throw with chance 0.5 cast=2.5
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 192.168.0.7

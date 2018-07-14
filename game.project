@@ -1,6 +1,6 @@
 [project]
 title = wowrecordkeeper
-dependencies = https://github.com/andsve/dirtylarry/archive/master.zip,https://github.com/britzl/defold-timer/archive/master.zip
+dependencies = https://github.com/britzl/defold-timer/archive/master.zip,https://github.com/britzl/defold-richtext/archive/master.zip
 custom_resources = /game/gameView/bossAI/,/assets/database/
 write_log = 1
 
