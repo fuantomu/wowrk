@@ -4,17 +4,650 @@ INFO:ENGINE: Initialised sound device 'default'
 
 DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 72
-DEBUG:SCRIPT: table["crit"] = 50
-DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 1.4
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 18
-DEBUG:SCRIPT: table["glancingBlow"] = 25
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 0
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
-INFO:DLIB: SSDP: Started on address 192.168.178.26
+INFO:DLIB: SSDP: Started on address 169.254.27.165
+INFO:DLIB: SSDP: Started on address 192.168.0.2
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 13
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 8
+DEBUG:SCRIPT: table["attr"]["int"] = 28
+DEBUG:SCRIPT: table["attr"]["agi"] = 65
+DEBUG:SCRIPT: table["attr"]["spr"] = 37
+DEBUG:SCRIPT: table["attr"]["str"] = 24
+DEBUG:SCRIPT: table["level"] = 0
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 0
+DEBUG:SCRIPT: table["skill"]["defense"] = 0
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 13
+DEBUG:SCRIPT: table["avoidance"]["block"] = 38
+DEBUG:SCRIPT: table["crit"] = 13
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 0
+DEBUG:SCRIPT: table["attr"]["sta"] = 8
+DEBUG:SCRIPT: table["attr"]["int"] = 28
+DEBUG:SCRIPT: table["attr"]["agi"] = 65
+DEBUG:SCRIPT: table["attr"]["spr"] = 37
+DEBUG:SCRIPT: table["attr"]["str"] = 24
+DEBUG:SCRIPT: table["maxHp"] = 28
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 0
+DEBUG:SCRIPT: table["skill"]["defense"] = 0
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 13
+DEBUG:SCRIPT: table["avoidance"]["block"] = 38
+DEBUG:SCRIPT: 27	25	25	miss
+DEBUG:SCRIPT: 27	26	1	dodge
+DEBUG:SCRIPT: 27	26	0	parry
+DEBUG:SCRIPT: 27	100	74	glancingBlow
+DEBUG:SCRIPT: glancingBlow
+DEBUG:SCRIPT: Testing AutoAttack with 3 * 0.7 damage
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 4
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 7
+DEBUG:SCRIPT: table["attr"]["int"] = 30
+DEBUG:SCRIPT: table["attr"]["agi"] = 89
+DEBUG:SCRIPT: table["attr"]["spr"] = 99
+DEBUG:SCRIPT: table["attr"]["str"] = 5
+DEBUG:SCRIPT: table["level"] = 34
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 170
+DEBUG:SCRIPT: table["skill"]["defense"] = 170
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 0
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 1
+DEBUG:SCRIPT: table["avoidance"]["block"] = 23
+DEBUG:SCRIPT: table["crit"] = 4
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 34
+DEBUG:SCRIPT: table["attr"]["sta"] = 7
+DEBUG:SCRIPT: table["attr"]["int"] = 30
+DEBUG:SCRIPT: table["attr"]["agi"] = 89
+DEBUG:SCRIPT: table["attr"]["spr"] = 99
+DEBUG:SCRIPT: table["attr"]["str"] = 5
+DEBUG:SCRIPT: table["maxHp"] = 27
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 170
+DEBUG:SCRIPT: table["skill"]["defense"] = 170
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 0
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 1
+DEBUG:SCRIPT: table["avoidance"]["block"] = 23
+DEBUG:SCRIPT: 90	4.5	4.5	miss
+DEBUG:SCRIPT: 90	33.5	29	dodge
+DEBUG:SCRIPT: 90	48.5	15	parry
+DEBUG:SCRIPT: 90	58.5	10	glancingBlow
+DEBUG:SCRIPT: 90	73.5	15	block
+DEBUG:SCRIPT: 90	77.5	4	crit
+DEBUG:SCRIPT: 90	77.5	0	crushingBlow
+DEBUG:SCRIPT: 90	100	22.5	hit
+DEBUG:SCRIPT: hit
+DEBUG:SCRIPT: Testing AutoAttack with 1 * 1 damage
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 38
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 90
+DEBUG:SCRIPT: table["attr"]["int"] = 38
+DEBUG:SCRIPT: table["attr"]["agi"] = 24
+DEBUG:SCRIPT: table["attr"]["spr"] = 42
+DEBUG:SCRIPT: table["attr"]["str"] = 53
+DEBUG:SCRIPT: table["level"] = 14
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 70
+DEBUG:SCRIPT: table["skill"]["defense"] = 70
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 14
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 15
+DEBUG:SCRIPT: table["avoidance"]["block"] = 8
+DEBUG:SCRIPT: table["crit"] = 38
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 14
+DEBUG:SCRIPT: table["attr"]["sta"] = 90
+DEBUG:SCRIPT: table["attr"]["int"] = 38
+DEBUG:SCRIPT: table["attr"]["agi"] = 24
+DEBUG:SCRIPT: table["attr"]["spr"] = 42
+DEBUG:SCRIPT: table["attr"]["str"] = 53
+DEBUG:SCRIPT: table["maxHp"] = 740
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 70
+DEBUG:SCRIPT: table["skill"]["defense"] = 70
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 14
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 15
+DEBUG:SCRIPT: table["avoidance"]["block"] = 8
+DEBUG:SCRIPT: 66	0	0	miss
+DEBUG:SCRIPT: 66	27	27	dodge
+DEBUG:SCRIPT: 66	44	17	parry
+DEBUG:SCRIPT: 66	44	0	glancingBlow
+DEBUG:SCRIPT: 66	77	33	block
+DEBUG:SCRIPT: block
+DEBUG:SCRIPT: Testing AutoAttack: block
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 21
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 18
+DEBUG:SCRIPT: table["attr"]["int"] = 76
+DEBUG:SCRIPT: table["attr"]["agi"] = 86
+DEBUG:SCRIPT: table["attr"]["spr"] = 44
+DEBUG:SCRIPT: table["attr"]["str"] = 75
+DEBUG:SCRIPT: table["level"] = 15
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 75
+DEBUG:SCRIPT: table["skill"]["defense"] = 75
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 5
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 20
+DEBUG:SCRIPT: table["avoidance"]["block"] = 19
+DEBUG:SCRIPT: table["crit"] = 21
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 15
+DEBUG:SCRIPT: table["attr"]["sta"] = 18
+DEBUG:SCRIPT: table["attr"]["int"] = 76
+DEBUG:SCRIPT: table["attr"]["agi"] = 86
+DEBUG:SCRIPT: table["attr"]["spr"] = 44
+DEBUG:SCRIPT: table["attr"]["str"] = 75
+DEBUG:SCRIPT: table["maxHp"] = 38
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 75
+DEBUG:SCRIPT: table["skill"]["defense"] = 75
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 5
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 20
+DEBUG:SCRIPT: table["avoidance"]["block"] = 19
+DEBUG:SCRIPT: 9	35	35	miss
+DEBUG:SCRIPT: miss
+DEBUG:SCRIPT: Testing AutoAttack: miss
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 13
+DEBUG:SCRIPT: table["attr"]["int"] = 9
+DEBUG:SCRIPT: table["attr"]["agi"] = 1
+DEBUG:SCRIPT: table["attr"]["spr"] = 89
+DEBUG:SCRIPT: table["attr"]["str"] = 72
+DEBUG:SCRIPT: table["level"] = 22
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 110
+DEBUG:SCRIPT: table["skill"]["defense"] = 110
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 12
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 25
+DEBUG:SCRIPT: table["avoidance"]["block"] = 26
+DEBUG:SCRIPT: table["crit"] = 5
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 22
+DEBUG:SCRIPT: table["attr"]["sta"] = 13
+DEBUG:SCRIPT: table["attr"]["int"] = 9
+DEBUG:SCRIPT: table["attr"]["agi"] = 1
+DEBUG:SCRIPT: table["attr"]["spr"] = 89
+DEBUG:SCRIPT: table["attr"]["str"] = 72
+DEBUG:SCRIPT: table["maxHp"] = 33
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 110
+DEBUG:SCRIPT: table["skill"]["defense"] = 110
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 12
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 25
+DEBUG:SCRIPT: table["avoidance"]["block"] = 26
+DEBUG:SCRIPT: 84	21	21	miss
+DEBUG:SCRIPT: 84	53	32	dodge
+DEBUG:SCRIPT: 84	70	17	parry
+DEBUG:SCRIPT: 84	100	30	glancingBlow
+DEBUG:SCRIPT: glancingBlow
+DEBUG:SCRIPT: Testing AutoAttack with 2 * 0.7 damage
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 6
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 70
+DEBUG:SCRIPT: table["attr"]["int"] = 21
+DEBUG:SCRIPT: table["attr"]["agi"] = 46
+DEBUG:SCRIPT: table["attr"]["spr"] = 37
+DEBUG:SCRIPT: table["attr"]["str"] = 75
+DEBUG:SCRIPT: table["level"] = 23
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 115
+DEBUG:SCRIPT: table["skill"]["defense"] = 115
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 31
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 0
+DEBUG:SCRIPT: table["avoidance"]["block"] = 23
+DEBUG:SCRIPT: table["crit"] = 6
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 23
+DEBUG:SCRIPT: table["attr"]["sta"] = 70
+DEBUG:SCRIPT: table["attr"]["int"] = 21
+DEBUG:SCRIPT: table["attr"]["agi"] = 46
+DEBUG:SCRIPT: table["attr"]["spr"] = 37
+DEBUG:SCRIPT: table["attr"]["str"] = 75
+DEBUG:SCRIPT: table["maxHp"] = 540
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 115
+DEBUG:SCRIPT: table["skill"]["defense"] = 115
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 31
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 0
+DEBUG:SCRIPT: table["avoidance"]["block"] = 23
+DEBUG:SCRIPT: 45	57	57	miss
+DEBUG:SCRIPT: miss
+DEBUG:SCRIPT: Testing AutoAttack: miss
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 1
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 81
+DEBUG:SCRIPT: table["attr"]["int"] = 99
+DEBUG:SCRIPT: table["attr"]["agi"] = 90
+DEBUG:SCRIPT: table["attr"]["spr"] = 100
+DEBUG:SCRIPT: table["attr"]["str"] = 45
+DEBUG:SCRIPT: table["level"] = 47
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 235
+DEBUG:SCRIPT: table["skill"]["defense"] = 235
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 14
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 36
+DEBUG:SCRIPT: table["avoidance"]["block"] = 33
+DEBUG:SCRIPT: table["crit"] = 1
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 47
+DEBUG:SCRIPT: table["attr"]["sta"] = 81
+DEBUG:SCRIPT: table["attr"]["int"] = 99
+DEBUG:SCRIPT: table["attr"]["agi"] = 90
+DEBUG:SCRIPT: table["attr"]["spr"] = 100
+DEBUG:SCRIPT: table["attr"]["str"] = 45
+DEBUG:SCRIPT: table["maxHp"] = 650
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 235
+DEBUG:SCRIPT: table["skill"]["defense"] = 235
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 14
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 36
+DEBUG:SCRIPT: table["avoidance"]["block"] = 33
+DEBUG:SCRIPT: 28	0	0	miss
+DEBUG:SCRIPT: 28	40	40	dodge
+DEBUG:SCRIPT: dodge
+DEBUG:SCRIPT: Testing AutoAttack: dodge
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 37
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 90
+DEBUG:SCRIPT: table["attr"]["int"] = 82
+DEBUG:SCRIPT: table["attr"]["agi"] = 95
+DEBUG:SCRIPT: table["attr"]["spr"] = 44
+DEBUG:SCRIPT: table["attr"]["str"] = 43
+DEBUG:SCRIPT: table["level"] = 25
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 125
+DEBUG:SCRIPT: table["skill"]["defense"] = 125
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 1
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 11
+DEBUG:SCRIPT: table["avoidance"]["block"] = 18
+DEBUG:SCRIPT: table["crit"] = 37
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 25
+DEBUG:SCRIPT: table["attr"]["sta"] = 90
+DEBUG:SCRIPT: table["attr"]["int"] = 82
+DEBUG:SCRIPT: table["attr"]["agi"] = 95
+DEBUG:SCRIPT: table["attr"]["spr"] = 44
+DEBUG:SCRIPT: table["attr"]["str"] = 43
+DEBUG:SCRIPT: table["maxHp"] = 740
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 125
+DEBUG:SCRIPT: table["skill"]["defense"] = 125
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 1
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 11
+DEBUG:SCRIPT: table["avoidance"]["block"] = 18
+DEBUG:SCRIPT: 51	2.5	2.5	miss
+DEBUG:SCRIPT: 51	14.5	12	dodge
+DEBUG:SCRIPT: 51	15.5	1	parry
+DEBUG:SCRIPT: 51	15.5	0	glancingBlow
+DEBUG:SCRIPT: 51	35.5	20	block
+DEBUG:SCRIPT: 51	72.5	37	crit
+DEBUG:SCRIPT: crit
+DEBUG:SCRIPT: Testing AutoAttack with 2 * 2 damage
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 47
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 64
+DEBUG:SCRIPT: table["attr"]["int"] = 6
+DEBUG:SCRIPT: table["attr"]["agi"] = 27
+DEBUG:SCRIPT: table["attr"]["spr"] = 35
+DEBUG:SCRIPT: table["attr"]["str"] = 74
+DEBUG:SCRIPT: table["level"] = 5
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 25
+DEBUG:SCRIPT: table["skill"]["defense"] = 25
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 24
+DEBUG:SCRIPT: table["avoidance"]["block"] = 16
+DEBUG:SCRIPT: table["crit"] = 47
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 5
+DEBUG:SCRIPT: table["attr"]["sta"] = 64
+DEBUG:SCRIPT: table["attr"]["int"] = 6
+DEBUG:SCRIPT: table["attr"]["agi"] = 27
+DEBUG:SCRIPT: table["attr"]["spr"] = 35
+DEBUG:SCRIPT: table["attr"]["str"] = 74
+DEBUG:SCRIPT: table["maxHp"] = 480
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 25
+DEBUG:SCRIPT: table["skill"]["defense"] = 25
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 24
+DEBUG:SCRIPT: table["avoidance"]["block"] = 16
+DEBUG:SCRIPT: 27	17	17	miss
+DEBUG:SCRIPT: 27	24	7	dodge
+DEBUG:SCRIPT: 27	50	26	parry
+DEBUG:SCRIPT: parry
+DEBUG:SCRIPT: Testing AutoAttack: parry
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 41
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 80
+DEBUG:SCRIPT: table["attr"]["int"] = 19
+DEBUG:SCRIPT: table["attr"]["agi"] = 37
+DEBUG:SCRIPT: table["attr"]["spr"] = 76
+DEBUG:SCRIPT: table["attr"]["str"] = 46
+DEBUG:SCRIPT: table["level"] = 30
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 150
+DEBUG:SCRIPT: table["skill"]["defense"] = 150
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 7
+DEBUG:SCRIPT: table["avoidance"]["block"] = 37
+DEBUG:SCRIPT: table["crit"] = 41
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 30
+DEBUG:SCRIPT: table["attr"]["sta"] = 80
+DEBUG:SCRIPT: table["attr"]["int"] = 19
+DEBUG:SCRIPT: table["attr"]["agi"] = 37
+DEBUG:SCRIPT: table["attr"]["spr"] = 76
+DEBUG:SCRIPT: table["attr"]["str"] = 46
+DEBUG:SCRIPT: table["maxHp"] = 640
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 150
+DEBUG:SCRIPT: table["skill"]["defense"] = 150
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 40
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 7
+DEBUG:SCRIPT: table["avoidance"]["block"] = 37
+DEBUG:SCRIPT: 5	37	37	miss
+DEBUG:SCRIPT: miss
+DEBUG:SCRIPT: Testing AutoAttack: miss
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 46
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 83
+DEBUG:SCRIPT: table["attr"]["int"] = 49
+DEBUG:SCRIPT: table["attr"]["agi"] = 8
+DEBUG:SCRIPT: table["attr"]["spr"] = 63
+DEBUG:SCRIPT: table["attr"]["str"] = 48
+DEBUG:SCRIPT: table["level"] = 49
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 245
+DEBUG:SCRIPT: table["skill"]["defense"] = 245
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 7
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 25
+DEBUG:SCRIPT: table["avoidance"]["block"] = 2
+DEBUG:SCRIPT: table["crit"] = 46
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 49
+DEBUG:SCRIPT: table["attr"]["sta"] = 83
+DEBUG:SCRIPT: table["attr"]["int"] = 49
+DEBUG:SCRIPT: table["attr"]["agi"] = 8
+DEBUG:SCRIPT: table["attr"]["spr"] = 63
+DEBUG:SCRIPT: table["attr"]["str"] = 48
+DEBUG:SCRIPT: table["maxHp"] = 670
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 245
+DEBUG:SCRIPT: table["skill"]["defense"] = 245
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 7
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 25
+DEBUG:SCRIPT: table["avoidance"]["block"] = 2
+DEBUG:SCRIPT: 27	0	0	miss
+DEBUG:SCRIPT: 27	31	31	dodge
+DEBUG:SCRIPT: dodge
+DEBUG:SCRIPT: Testing AutoAttack: dodge
+DEBUG:SCRIPT: clicked debug
+DEBUG:SCRIPT: table["crit"] = 50
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["attr"]["sta"] = 21
+DEBUG:SCRIPT: table["attr"]["int"] = 28
+DEBUG:SCRIPT: table["attr"]["agi"] = 32
+DEBUG:SCRIPT: table["attr"]["spr"] = 38
+DEBUG:SCRIPT: table["attr"]["str"] = 18
+DEBUG:SCRIPT: table["level"] = 54
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 270
+DEBUG:SCRIPT: table["skill"]["defense"] = 270
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 13
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 23
+DEBUG:SCRIPT: table["avoidance"]["block"] = 11
+DEBUG:SCRIPT: table["crit"] = 50
+DEBUG:SCRIPT: table["ap"] = 0
+DEBUG:SCRIPT: table["basehp"] = 20
+DEBUG:SCRIPT: table["class"] = "Warrior"
+DEBUG:SCRIPT: table["res"]["holy"] = 0
+DEBUG:SCRIPT: table["res"]["frost"] = 0
+DEBUG:SCRIPT: table["res"]["nature"] = 0
+DEBUG:SCRIPT: table["res"]["arcane"] = 0
+DEBUG:SCRIPT: table["res"]["fire"] = 0
+DEBUG:SCRIPT: table["res"]["shadow"] = 0
+DEBUG:SCRIPT: table["race"] = "Human"
+DEBUG:SCRIPT: table["level"] = 54
+DEBUG:SCRIPT: table["attr"]["sta"] = 21
+DEBUG:SCRIPT: table["attr"]["int"] = 28
+DEBUG:SCRIPT: table["attr"]["agi"] = 32
+DEBUG:SCRIPT: table["attr"]["spr"] = 38
+DEBUG:SCRIPT: table["attr"]["str"] = 18
+DEBUG:SCRIPT: table["maxHp"] = 50
+DEBUG:SCRIPT: table["skill"]["OneHandedSword"] = 270
+DEBUG:SCRIPT: table["skill"]["defense"] = 270
+DEBUG:SCRIPT: table["armor"] = 0
+DEBUG:SCRIPT: table["avoidance"]["dodge"] = 13
+DEBUG:SCRIPT: table["avoidance"]["parry"] = 23
+DEBUG:SCRIPT: table["avoidance"]["block"] = 11
+DEBUG:SCRIPT: 73	17	17	miss
+DEBUG:SCRIPT: 73	53	36	dodge
+DEBUG:SCRIPT: 73	66	13	parry
+DEBUG:SCRIPT: 73	100	34	glancingBlow
+DEBUG:SCRIPT: glancingBlow
+DEBUG:SCRIPT: Testing AutoAttack with 3 * 0.7 damage
 DEBUG:SCRIPT: saving
-INFO:DLIB: SSDP: Done on address 192.168.178.26
+INFO:DLIB: SSDP: Done on address 169.254.27.165
+INFO:DLIB: SSDP: Done on address 192.168.0.2

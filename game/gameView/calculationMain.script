@@ -13,24 +13,44 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if(message_id == hash("calculateAttack")) then
-		if(message.type == "autoAttackNormal") then
+	if(message_id == hash("getAttackResult")) then
+		if(message.type == "autoAttack") then
 			local eDefSkill = message.e["level"] * 5
 			local eWpnSkill = eDefSkill
 			local pWpnSkill = message.p["stats"]["skill"][message.p["weapon"]["wtype"]]
 			local pCritChance = message.p["stats"]["crit"]
 			local eAvoidance = message.e["avoidance"]
-			print(eDefSkill, pWpnSkill)
-			local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, true)
-			print(pHitChance)
-			local pResult = calculateResult(pWpnSkill, pHitChance+10, pCritChance, eWpnSkill, eDefSkill, eAvoidance, false, false, true, false)
-			tprint(pResult)
-			--pHitChance = calculateHitChance(, )
-			--local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
-			--tprint(damageRolls)
-			--weaponSchoolsprint("Testing AutoAttack with "..message.p["dmg"][0].."-"..message.p["dmg"][1].." damage")
+			--print(eDefSkill, pWpnSkill)
+			local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, message.dw)
+			--print(pHitChance)
+			local pAttackTable = generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, message.ranged, message.front, message.gb, message.cb)
+			--tprint(pAttackTable)
+			local pAttackResult = getAttackResult(pAttackTable)
+			print(pAttackResult)
+
+			if not(pAttackResult == "block" or pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
+				local damageMult = 1
+				local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
+
+				if(pAttackResult == "glancingBlow") then
+					damageMult = math.min(math.max(0.7, 0.7 + (math.min(pWpnSkill, 310) - eDefSkill) * 0.03), 1)
+				elseif(pAttackResult == "crit") then
+					damageMult = 2
+				end
+				print("Testing AutoAttack with "..damageRolls["phy"].." * "..damageMult.." damage")
+			else
+				print("Testing AutoAttack: "..pAttackResult)
+			end
 		end
+	elseif(message_id == hash("getStats")) then
+		tprint(message.p["stats"])
+		calculateStats(message.p["stats"], message.e)
+		tprint(message.p["stats"])
 	end
+end
+
+function calculateStats(pStats, eStats)
+	pStats["maxHp"] = pStats["basehp"] + math.min(pStats["attr"]["sta"], 20) + 10 * math.max(0, (pStats["attr"]["sta"]-20))
 end
 
 function calculateHitChance(pWpnSkill, eDefSkill, dualWield)
@@ -47,27 +67,54 @@ function calculateHitChance(pWpnSkill, eDefSkill, dualWield)
 	return rHitChance
 end
 
-function calculateResult(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, ranged, attackFront, gbEnabled, cbEnabled)
+function generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, ranged, attackFront, gbEnabled, cbEnabled)
 	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
-	rollTable["miss"] = 100 - pHitChance
+	local remainingRolls = math.max(0, pHitChance)
+	local tempVar = 100
+	rollTable["miss"] = math.max(0, tempVar - remainingRolls)
+	tempVar = remainingRolls
 	if(ranged == false) then
-		rollTable["dodge"] = math.min(eAvoidance["dodge"], 100 - (rollTable["miss"] + eAvoidance["dodge"]))
+		remainingRolls = math.max(0, remainingRolls - eAvoidance["dodge"])
+		rollTable["dodge"] = tempVar - remainingRolls
+		tempVar = remainingRolls
 	end
 	if(attackFront == true and ranged == false) then
-		rollTable["parry"] = math.min(eAvoidance["parry"], 100 - (rollTable["miss"] + eAvoidance["dodge"] + eAvoidance["parry"]))
+		remainingRolls = math.max(0, remainingRolls - eAvoidance["parry"])
+		rollTable["parry"] = tempVar - remainingRolls
+		tempVar = remainingRolls
 	end
 	if(gbEnabled == true and ranged == false) then
-		rollTable["glancingBlow"] = 25--10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2
+		remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300))) * 2)
+		rollTable["glancingBlow"] = tempVar - remainingRolls
+		tempVar = remainingRolls
 	end
 	if(attackFront == true) then
-		rollTable["block"] = eAvoidance["block"]
+		remainingRolls = math.max(0, remainingRolls - eAvoidance["block"])
+		rollTable["block"] = tempVar - remainingRolls
+		tempVar = remainingRolls
 	end
-	rollTable["crit"] = math.min(100 - (rollTable["miss"] + rollTable["dodge"] + rollTable["parry"] + rollTable["glancingBlow"] + rollTable["block"]), pCritChance)
+	remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100)))
+	rollTable["crit"] = tempVar - remainingRolls
+	tempVar = remainingRolls
 	if(cbEnabled == true) then
-		rollTable["crushingBlow"] = ((eWpnSkill - pDefSkill) * 2) - 15
+		remainingRolls = math.max(0, remainingRolls - (((eWpnSkill - pDefSkill) * 2) - 15))
+		rollTable["crushingBlow"] = remainingRolls
 	end
-	rollTable["hit"] = math.min(0, 100 - (rollTable["miss"] + rollTable["dodge"] + rollTable["parry"] + rollTable["glancingBlow"] + rollTable["block"] + rollTable["crit"]))
+	rollTable["hit"] = remainingRolls
 	return rollTable
+end
+
+function getAttackResult(attackTable)
+	local rngRanges =math.floor(math.random()*100)
+	local weight = 0
+	local tableOrder = {"miss","dodge","parry","glancingBlow","block","crit","crushingBlow","hit"}
+	for i = 1, #tableOrder do
+		weight = weight + attackTable[tableOrder[i]]
+		print(rngRanges,weight,attackTable[tableOrder[i]], tableOrder[i])
+		if(rngRanges <= weight) then
+			return tableOrder[i]
+		end
+	end
 end
 
 function calculateDamage(pDmgRange, pDmgReduction)

@@ -56,9 +56,6 @@ images {
   image: "/assets/img/icons/items/weapons/axe/INV_Axe_14.PNG"
 }
 images {
-  image: "/assets/img/icons/items/weapons/axe/INV_Axe_15.png"
-}
-images {
   image: "/assets/img/icons/items/weapons/axe/INV_Axe_16.PNG"
 }
 images {
@@ -512,9 +509,6 @@ images {
   image: "/assets/img/icons/items/weapons/sword/INV_Sword_03.PNG"
 }
 images {
-  image: "/assets/img/icons/items/weapons/sword/INV_Sword_04.PNG"
-}
-images {
   image: "/assets/img/icons/items/weapons/sword/INV_Sword_05.PNG"
 }
 images {
@@ -695,9 +689,6 @@ images {
   image: "/assets/img/icons/items/weapons/wand/INV_Wand_05.PNG"
 }
 images {
-  image: "/assets/img/icons/items/weapons/wand/INV_Wand_06.PNG"
-}
-images {
   image: "/assets/img/icons/items/weapons/wand/INV_Wand_07.PNG"
 }
 images {
@@ -765,9 +756,6 @@ images {
 }
 images {
   image: "/assets/img/icons/items/weapons/fistweapon/INV_Weapon_Hand_03.PNG"
-}
-images {
-  image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_01.PNG"
 }
 images {
   image: "/assets/img/icons/items/weapons/gun/INV_Weapon_Rifle_02.PNG"
@@ -921,9 +909,6 @@ images {
 }
 images {
   image: "/assets/img/icons/items/weapons/crossbow/INV_Weapon_Crossbow_12.PNG"
-}
-images {
-  image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_01.PNG"
 }
 images {
   image: "/assets/img/icons/items/weapons/dagger/INV_Weapon_ShortBlade_02.PNG"
