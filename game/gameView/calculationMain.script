@@ -1,0 +1,136 @@
+function init(self)
+
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if(message_id == hash("calculateAttack")) then
+		if(message.type == "autoAttackNormal") then
+			local eDefSkill = message.e["level"] * 5
+			local eWpnSkill = eDefSkill
+			local pWpnSkill = message.p["stats"]["skill"][message.p["weapon"]["wtype"]]
+			local pCritChance = message.p["stats"]["crit"]
+			local eAvoidance = message.e["avoidance"]
+			print(eDefSkill, pWpnSkill)
+			local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, true)
+			print(pHitChance)
+			local pResult = calculateResult(pWpnSkill, pHitChance+10, pCritChance, eWpnSkill, eDefSkill, eAvoidance, false, false, true, false)
+			tprint(pResult)
+			--pHitChance = calculateHitChance(, )
+			--local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
+			--tprint(damageRolls)
+			--weaponSchoolsprint("Testing AutoAttack with "..message.p["dmg"][0].."-"..message.p["dmg"][1].." damage")
+		end
+	end
+end
+
+function calculateHitChance(pWpnSkill, eDefSkill, dualWield)
+	local rHitChance = 100
+	local baseMiss = 5
+	if(dualWield == true) then
+		baseMiss = 24
+	end
+	if(eDefSkill - pWpnSkill > 10) then
+		rHitChance = math.max(0,100 - ((baseMiss + 2) + (eDefSkill - pWpnSkill - 10) * 0.4))
+	else
+		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1))
+	end
+	return rHitChance
+end
+
+function calculateResult(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, ranged, attackFront, gbEnabled, cbEnabled)
+	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
+	rollTable["miss"] = 100 - pHitChance
+	if(ranged == false) then
+		rollTable["dodge"] = math.min(eAvoidance["dodge"], 100 - (rollTable["miss"] + eAvoidance["dodge"]))
+	end
+	if(attackFront == true and ranged == false) then
+		rollTable["parry"] = math.min(eAvoidance["parry"], 100 - (rollTable["miss"] + eAvoidance["dodge"] + eAvoidance["parry"]))
+	end
+	if(gbEnabled == true and ranged == false) then
+		rollTable["glancingBlow"] = 25--10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2
+	end
+	if(attackFront == true) then
+		rollTable["block"] = eAvoidance["block"]
+	end
+	rollTable["crit"] = math.min(100 - (rollTable["miss"] + rollTable["dodge"] + rollTable["parry"] + rollTable["glancingBlow"] + rollTable["block"]), pCritChance)
+	if(cbEnabled == true) then
+		rollTable["crushingBlow"] = ((eWpnSkill - pDefSkill) * 2) - 15
+	end
+	rollTable["hit"] = math.min(0, 100 - (rollTable["miss"] + rollTable["dodge"] + rollTable["parry"] + rollTable["glancingBlow"] + rollTable["block"] + rollTable["crit"]))
+	return rollTable
+end
+
+function calculateDamage(pDmgRange, pDmgReduction)
+	--local wpnDmg = getDamage(self.playerWeapon[message.player]["damage"])
+	pDmgRange["phy"] =  pDmgRange["phy"] * pDmgReduction --(1-(self.bossStats["armor"] / (self.bossStats["armor"] + 400 + 85 * self.bossStats["level"])))
+	local damageDone = wpnDmg["phy"] + wpnDmg["fire"] + wpnDmg["frost"] + wpnDmg["arcane"] + wpnDmg["nature"] + wpnDmg["shadow"] + wpnDmg["holy"]
+	if(message.type == "Attack") then
+		damageDone = damageDone + (self.playerStats[message.player]["ap"] / 14)
+		damageDone = math.floor(0.5 + damageDone)
+		msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
+		print("Player "..message.player.." hit: "..damageDone.."["..wpnDmg["phy"]..","..wpnDmg["fire"]..","..wpnDmg["frost"]..","..wpnDmg["arcane"]..","..wpnDmg["nature"]..","..wpnDmg["shadow"]..","..wpnDmg["holy"].."]")
+	end
+end
+
+function calculateDamageReduction(cLevel, cArmor, eLevel)
+	reductionPercentage = 0
+	if(cLevel < 60) then
+		reductionPercentage = min( cArmor / ( cArmor + 400 + 85 * eLevel), 75)
+	elseif(cLevel >= 60) then
+		reductionPercentage = min( cArmor / ( cArmor + 400 + 85 * ( eLevel + 4.5 * ( eLevel - 59))) , 75)
+	end
+	print("DR test: character level: "..cLevel.." ; character Armor: "..cArmor.." ; enemy level: "..eLevel.." ; DR%: "..reductionPercentage)
+	return reductionPercentage
+end
+
+
+function getRandomDamage(weapon)
+	local physDamage, fireDamage, frostDamage, arcaneDamage, natureDamage, shadowDamage, holyDamage = 0,0,0,0,0,0,0
+	local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
+	for i = 1, #schools do
+		if(schools[i] == "Physical") then
+			physDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Fire") then
+			fireDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Frost") then
+			frostDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Arcane") then
+			arcaneDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Nature") then
+			natureDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Shadow") then
+			shadowDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		elseif(schools[i] == "Holy") then
+			holyDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		end
+	end
+	return {phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}
+end
+
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
+end

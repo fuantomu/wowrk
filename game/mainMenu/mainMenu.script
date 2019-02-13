@@ -13,6 +13,8 @@ function on_message(self, message_id, message, sender)
 	elseif(message_id == hash("end")) then
 		print("end game")
 		msg.post("main:/game#savegame", hash("saveGame"))
+	elseif(message_id == hash("end")) then
+		msg.post("main:/game#loader", "gotoDebug")
 	elseif(message_id == hash("saveDone")) then
 		os.exit()
 	end

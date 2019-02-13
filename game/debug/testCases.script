@@ -1,0 +1,60 @@
+function init(self)
+	local testEnemy = {
+		level=63,
+		hpmax=100,
+		hpcurr=100,
+		resmax=0,
+		rescurr=0,
+		attr={str=1,agi=1,sta=1000,int=50,spr=50},
+		armor=100,
+		crit=5,
+		avoidance={dodge=5.6,parry=5,block=0}
+	}
+	local testCharacter = {
+	stats={
+		class="Warrior", 
+		race="Human", 
+		level=60, 
+		hpmax=20, 
+		hpcurr=20,
+		attr={str=23, agi=20, sta=22, int=20, spr=21},
+		skill={OneHandedSword=300,defense=1},
+		armor=0,
+		res={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
+		crit=50,
+		avoidance={dodge=0,parry=5,block=5}
+	}, 
+	weapon={
+		name="Worn Shortsword",
+		wtype="OneHandedSword",
+		effectId={0,0,0},
+		setid=0,
+		schools={Physical={min=1,max=3},Fire={min=0,max=0},Frost={min=0,max=0},Arcane={min=0,max=0},Nature={min=0,max=0},Shadow={min=0,max=0},Holy={min=0,max=0}}
+	}}
+	msg.post("game#calculationMain", hash("calculateAttack"), {type="autoAttackNormal", e=testEnemy, p=testCharacter})
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
