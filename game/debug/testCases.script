@@ -1,12 +1,12 @@
 function init(self)
 	testEnemy = {
-		level=60,
+		level=63,
 		basehp=150,
 		attr={str=20, agi=0, sta=100, int=0, spr= 0},
 		armor=100,
 		ap=0,
 		crit=5,
-		avoidance={dodge=6.5,parry=5,block=0}
+		avoidance={dodge=5,parry=5,block=0}
 	}
 	testCharacter = {
 	stats={
@@ -15,7 +15,7 @@ function init(self)
 		level=60, 
 		basehp=20,
 		attr={str=23, agi=20, sta=22, int=20, spr=21},
-		skill={OneHandedSword=1,defense=1},
+		skill={OneHandedSword=300,defense=300},
 		armor=0,
 		ap=0,
 		res={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
@@ -43,17 +43,19 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("startDebug")) then
-		testCharacter["stats"]["level"] = math.random(0, 60)
-		testCharacter["stats"]["attr"] = {str=math.random(1, 100), agi=math.random(1, 100), sta=math.random(1, 100), int=math.random(1, 100), spr=math.random(1, 100)}
-		testCharacter["stats"]["skill"] = {OneHandedSword=testCharacter["stats"]["level"]*5, defense=testCharacter["stats"]["level"]*5}
-		testCharacter["stats"]["crit"] = math.random(1,50)
-		testCharacter["stats"]["avoidance"] = {dodge=math.random(0,40),parry=math.random(0,40),block=math.random(0,40)}
-		testEnemy["level"] = math.random(0,63)
-		testEnemy["armor"] = math.random(0,16536)
-		testEnemy["avoidance"] = {dodge=math.random(0,40),parry=math.random(0,40),block=math.random(0,40)}
-		testEnemy["attr"]["sta"] = math.random(1,500)
+		--testCharacter["stats"]["level"] = math.random(0, 60)
+		--testCharacter["stats"]["attr"] = {str=math.random(1, 100), agi=math.random(1, 100), sta=math.random(1, 100), int=math.random(1, 100), spr=math.random(1, 100)}
+		--testCharacter["stats"]["skill"] = {OneHandedSword=testCharacter["stats"]["level"]*5, defense=testCharacter["stats"]["level"]*5}
+		--testCharacter["stats"]["crit"] = math.random(1,50)
+		--testCharacter["stats"]["avoidance"] = {dodge=math.random(0,40),parry=math.random(0,40),block=math.random(0,40)}
+		--testEnemy["level"] = math.random(0,63)
+		--testEnemy["armor"] = math.random(0,16536)
+		--testEnemy["avoidance"] = {dodge=math.random(0,40),parry=math.random(0,40),block=math.random(0,40)}
+		--testEnemy["attr"]["sta"] = math.random(1,500)
 		msg.post("game#calculationMain", hash("getStats"), {p=testCharacter, e=testEnemy})
-		msg.post("game#calculationMain", hash("getAttackResult"), {type="autoAttack", e=testEnemy, p=testCharacter, ranged=false, dw=false, front=true, gb=true, cb=false})
+	elseif(message_id == hash("returnStats")) then
+		msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=true, ranged=false, dw=false, front=true, block=false, mob=false})
+		msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=false, ranged=false, dw=true, front=true, block=false, mob=false})
 	end
 end
 

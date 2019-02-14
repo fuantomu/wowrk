@@ -14,93 +14,100 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("getAttackResult")) then
-		if(message.type == "autoAttack") then
-			local eDefSkill = message.e["level"] * 5
-			local eWpnSkill = eDefSkill
-			local pWpnSkill = message.p["stats"]["skill"][message.p["weapon"]["wtype"]]
-			local pCritChance = message.p["stats"]["crit"]
-			local eAvoidance = message.e["avoidance"]
-			--print(eDefSkill, pWpnSkill)
-			local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, message.dw)
-			--print(pHitChance)
-			local pAttackTable = generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, message.ranged, message.front, message.gb, message.cb)
-			--tprint(pAttackTable)
-			local pAttackResult = getAttackResult(pAttackTable)
-			print(pAttackResult)
+		local eDefSkill = message.e["level"] * 5
+		local eWpnSkill = eDefSkill
+		local pWpnSkill = message.p["stats"]["skill"][message.p["weapon"]["wtype"]]
+		local pCritChance = message.p["stats"]["crit"]
+		local eAvoidance = message.e["avoidance"]
+		print(eDefSkill, pWpnSkill)
+		local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, message.dw)
+		print(pHitChance)
+		local pAttackTable = generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, message.special, message.ranged, message.front,message.block, message.mob)
+		tprint(pAttackTable)
+		local pAttackResult = getAttackResult(pAttackTable)
+		print(pAttackResult)
 
-			if not(pAttackResult == "block" or pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
-				local damageMult = 1
-				local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
+		if not(pAttackResult == "block" or pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
+			local damageMult = 1
+			local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
 
-				if(pAttackResult == "glancingBlow") then
-					damageMult = math.min(math.max(0.7, 0.7 + (math.min(pWpnSkill, 310) - eDefSkill) * 0.03), 1)
-				elseif(pAttackResult == "crit") then
-					damageMult = 2
-				end
-				print("Testing AutoAttack with "..damageRolls["phy"].." * "..damageMult.." damage")
-			else
-				print("Testing AutoAttack: "..pAttackResult)
+			if(pAttackResult == "glancingBlow") then
+				damageMult =  math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
+			elseif(pAttackResult == "crit") then
+				damageMult = 2
 			end
+			print("Testing attack with "..damageRolls["phy"].." * "..damageMult.." damage")
+		else
+			print("Testing attack: "..pAttackResult)
 		end
 	elseif(message_id == hash("getStats")) then
-		tprint(message.p["stats"])
-		calculateStats(message.p["stats"], message.e)
-		tprint(message.p["stats"])
+		calculateStats(message.p["stats"], message.p["weapon"], message.e)
+		msg.post(sender, hash("returnStats"), {p=message.p, e=message.e})
 	end
 end
 
-function calculateStats(pStats, eStats)
+function calculateStats(pStats, pWpn, eStats)
 	pStats["maxHp"] = pStats["basehp"] + math.min(pStats["attr"]["sta"], 20) + 10 * math.max(0, (pStats["attr"]["sta"]-20))
+	
 end
 
 function calculateHitChance(pWpnSkill, eDefSkill, dualWield)
 	local rHitChance = 100
-	local baseMiss = 5
+	local baseMiss = 5.6
 	if(dualWield == true) then
-		baseMiss = 24
+		baseMiss = baseMiss + 19
 	end
 	if(eDefSkill - pWpnSkill > 10) then
-		rHitChance = math.max(0,100 - ((baseMiss + 2) + (eDefSkill - pWpnSkill - 10) * 0.4))
+		rHitChance = math.max(0,100 - ((baseMiss + 1) + (eDefSkill - pWpnSkill - 10) * 0.4))
 	else
 		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1))
 	end
 	return rHitChance
 end
 
-function generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, ranged, attackFront, gbEnabled, cbEnabled)
+function generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob)
 	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
+	local pSkillDifference = math.max(0,eDefSkill - pWpnSkill)
+
+	
 	local remainingRolls = math.max(0, pHitChance)
 	local tempVar = 100
 	rollTable["miss"] = math.max(0, tempVar - remainingRolls)
 	tempVar = remainingRolls
 	if(ranged == false) then
+		eAvoidance["dodge"] = eAvoidance["dodge"] + pSkillDifference * 0.04
 		remainingRolls = math.max(0, remainingRolls - eAvoidance["dodge"])
 		rollTable["dodge"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
 	if(attackFront == true and ranged == false) then
+		eAvoidance["parry"] = eAvoidance["parry"] + pSkillDifference * 0.04
 		remainingRolls = math.max(0, remainingRolls - eAvoidance["parry"])
 		rollTable["parry"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(gbEnabled == true and ranged == false) then
-		remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300))) * 2)
+	if(isMob == false and ranged == false and special == false) then
+		remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
 		rollTable["glancingBlow"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(attackFront == true) then
+	if(attackFront == true and blockEnabled == true) then
+		eAvoidance["block"] = eAvoidance["block"] + pSkillDifference * 0.04
 		remainingRolls = math.max(0, remainingRolls - eAvoidance["block"])
 		rollTable["block"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100)))
-	rollTable["crit"] = tempVar - remainingRolls
-	tempVar = remainingRolls
-	if(cbEnabled == true) then
-		remainingRolls = math.max(0, remainingRolls - (((eWpnSkill - pDefSkill) * 2) - 15))
-		rollTable["crushingBlow"] = remainingRolls
+	if(remainingRolls > 0) then
+		pCritChance = pCritChance - pSkillDifference * 0.04
+		remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100)))
+		rollTable["crit"] = tempVar - remainingRolls
+		tempVar = remainingRolls
+		if(isMob == true) then
+			remainingRolls = math.max(0, remainingRolls - (((eWpnSkill - pDefSkill) * 2) - 15))
+			rollTable["crushingBlow"] = remainingRolls
+		end
+		rollTable["hit"] = remainingRolls
 	end
-	rollTable["hit"] = remainingRolls
 	return rollTable
 end
 
@@ -110,7 +117,7 @@ function getAttackResult(attackTable)
 	local tableOrder = {"miss","dodge","parry","glancingBlow","block","crit","crushingBlow","hit"}
 	for i = 1, #tableOrder do
 		weight = weight + attackTable[tableOrder[i]]
-		print(rngRanges,weight,attackTable[tableOrder[i]], tableOrder[i])
+		--print(rngRanges,weight,attackTable[tableOrder[i]], tableOrder[i])
 		if(rngRanges <= weight) then
 			return tableOrder[i]
 		end
