@@ -7,82 +7,906 @@ DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 INFO:DLIB: SSDP: Started on address 169.254.27.165
 INFO:DLIB: SSDP: Started on address 192.168.0.2
-DEBUG:SCRIPT: clicked debug
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 91.4
-DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["crit"] = 8.4
 DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 75.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 8.6
-DEBUG:SCRIPT: table["glancingBlow"] = 0
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: miss
-DEBUG:SCRIPT: Testing AutoAttack: miss
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 72.4
-DEBUG:SCRIPT: table["crit"] = 4.4
-DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 16.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 27.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
 DEBUG:SCRIPT: table["glancingBlow"] = 40
 DEBUG:SCRIPT: table["crushingBlow"] = 0
 DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: miss
-DEBUG:SCRIPT: Testing AutoAttack: miss
-DEBUG:SCRIPT: clicked debug
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 91.4
-DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["crit"] = 8.4
 DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 75.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 8.6
-DEBUG:SCRIPT: table["glancingBlow"] = 0
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: hit
-DEBUG:SCRIPT: Testing AutoAttack with 1 * 1 damage
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 72.4
-DEBUG:SCRIPT: table["crit"] = 4.4
-DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 16.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 27.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
 DEBUG:SCRIPT: table["glancingBlow"] = 40
 DEBUG:SCRIPT: table["crushingBlow"] = 0
 DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: miss
-DEBUG:SCRIPT: Testing AutoAttack: miss
-DEBUG:SCRIPT: clicked debug
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 91.4
-DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["crit"] = 8.4
 DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 75.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 8.6
-DEBUG:SCRIPT: table["glancingBlow"] = 0
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: hit
-DEBUG:SCRIPT: Testing AutoAttack with 1 * 1 damage
-DEBUG:SCRIPT: 315	300
-DEBUG:SCRIPT: 72.4
-DEBUG:SCRIPT: table["crit"] = 4.4
-DEBUG:SCRIPT: table["dodge"] = 5.6
-DEBUG:SCRIPT: table["hit"] = 16.8
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 27.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
 DEBUG:SCRIPT: table["glancingBlow"] = 40
 DEBUG:SCRIPT: table["crushingBlow"] = 0
 DEBUG:SCRIPT: table["parry"] = 5.6
-DEBUG:SCRIPT: glancingBlow
-DEBUG:SCRIPT: -10	-15
-DEBUG:SCRIPT: Testing AutoAttack with 2 * 0.7 damage
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: block with 89 (60 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: block with 89 (60 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: dodge with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: block with 89 (60 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: block with 89 (60 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: miss with 0 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: dodge with 0 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: table["crit"] = 8.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 26.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 8.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 0 raw; 1% reduction: parry with 0 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: crit with 298 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: glancingBlow with 104.3 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
+DEBUG:SCRIPT: Result: 100 raw; 1% reduction: hit with 149 (0 blocked)
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 169.254.27.165
 INFO:DLIB: SSDP: Done on address 192.168.0.2

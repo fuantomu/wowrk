@@ -1,5 +1,5 @@
 function init(self)
-
+	math.randomseed(os.time())
 end
 
 function final(self)
@@ -13,138 +13,500 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
+	math.random()
 	if(message_id == hash("getAttackResult")) then
-		local eDefSkill = message.e["level"] * 5
+		local eDefSkill = mobData[message.e]["level"] * 5
 		local eWpnSkill = eDefSkill
-		local pWpnSkill = message.p["stats"]["skill"][message.p["weapon"]["wtype"]]
-		local pCritChance = message.p["stats"]["crit"]
-		local eAvoidance = message.e["avoidance"]
-		print(eDefSkill, pWpnSkill)
-		local pHitChance = calculateHitChance(pWpnSkill, eDefSkill, message.dw)
-		print(pHitChance)
-		local pAttackTable = generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, message.special, message.ranged, message.front,message.block, message.mob)
-		tprint(pAttackTable)
-		local pAttackResult = getAttackResult(pAttackTable)
-		print(pAttackResult)
-
-		if not(pAttackResult == "block" or pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
-			local damageMult = 1
-			local damageRolls = getRandomDamage(message.p["weapon"]["schools"])
-
-			if(pAttackResult == "glancingBlow") then
-				damageMult =  math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
-			elseif(pAttackResult == "crit") then
-				damageMult = 2
-			end
-			print("Testing attack with "..damageRolls["phy"].." * "..damageMult.." damage")
-		else
-			print("Testing attack: "..pAttackResult)
+		local eAvoidance = mobData[message.e]["avoidance"]
+		local eArmor = mobData[message.e]["armor"]
+		local pLevel = characterData[message.p]["stats"]["level"]
+		local eLevel = mobData[message.e]["level"]
+		local eResistance = mobData[message.e]["res"]
+		local eAttr = mobData[message.e]["attr"]
+		local eBlockValue = mobData[message.e]["blockValue"]
+		local pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
+		local pDefSkill = characterData[message.p]["stats"]["skill"]["defense"]
+		local pCritChance = characterData[message.p]["stats"]["crit"]
+		local pHitBonus = characterData[message.p]["stats"]["hit"]
+		local pAp = characterData[message.p]["stats"]["ap"]
+		local pAttr = characterData[message.p]["stats"]["attr"]
+		local pBlockValue = 0
+		if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
+			pBlockValue = characterData[message.p]["weaponOH"]["blockValue"]
 		end
-	elseif(message_id == hash("getStats")) then
-		calculateStats(message.p["stats"], message.p["weapon"], message.e)
-		msg.post(sender, hash("returnStats"), {p=message.p, e=message.e})
+		local isMob = false
+		if(message.attacker == "mob") then
+			pWpnSkill = eWpnSkill
+			pDefSkill = eDefSkill
+			eDefSkill = characterData[message.p]["stats"]["skill"]["defense"]
+			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
+			eAvoidance = characterData[message.p]["stats"]["avoidance"]
+			pCritChance = mobData[message.e]["crit"]
+			pLevel = eLevel
+			eLevel = characterData[message.p]["stats"]["level"]
+			pAttr = eAttr
+			eAttr = characterData[message.p]["stats"]["attr"]
+			pBlockValue = eBlockValue
+			eBlockValue = 0
+			if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
+				eBlockValue = characterData[message.p]["shield"]["blockValue"]
+			end
+			message.e["level"] = characterData[message.p]["stats"]["level"]
+			isMob = true
+		end
+		
+		--print(eDefSkill, pWpnSkill)
+		local pHitChance = calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, message.dw, message.special)
+		--print(pHitChance)
+		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, message.special, message.ranged, message.front,message.block, isMob)
+		tprint(pAttackTable)
+		local pAttackResult = getAttackResult(pAttackTable, message.special, pCritChance)
+		--print(pAttackResult)
+		local pDmgDone = 0
+
+		local damageMult = 1
+		local damageRolls = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+		if(isMob == true) then
+			damageRolls = mobData[message.e]["damage"]
+		else
+			damageRolls = getRandomDamage(characterData[message.p]["weaponMH"]["schools"])
+		end
+		if(pAttackResult == "glancingBlow") then
+			damageMult =  math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
+		elseif(pAttackResult == "crit") then
+			damageMult = 2
+		end
+		
+		if (pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
+			damageRolls["phy"] = 0
+		end
+
+		
+		local pDmgReduction = calculateDamageReduction(pLevel, eArmor, eResistance, eLevel)
+		pDmgDone = calculateDamage(damageRolls, pAp, pDmgReduction)
+
+		local blockDamage = {dmg=pDmgDone["phy"],blocked=0}
+		if (pAttackResult == "block") then
+			blockDamage = calculateBlock(pDmgDone["phy"], eAttr["str"], eBlockValue)
+			--print(blockDamage["dmg"], blockDamage["blocked"])
+			pDmgDone["phy"] = blockDamage["dmg"]
+		elseif (pAttackResult == "critBlock") then
+			blockDamage = calculateBlock(pDmgDone["phy"] * damageMult, eAttr["str"], eBlockValue)
+			--print(blockDamage["dmg"], blockDamage["blocked"])
+			pDmgDone["phy"] = blockDamage["dmg"]
+		end
+		
+		
+
+		local pDmgResult = 0
+		if(pAttackResult == "glancingBlow") then
+			pDmgResult = pDmgResult + pDmgDone["phy"] * damageMult + pDmgDone["fire"] + pDmgDone["frost"] + pDmgDone["arcane"] + pDmgDone["nature"] + pDmgDone["shadow"] + pDmgDone["holy"]
+		else
+			for k, v in pairs(pDmgDone) do
+				pDmgResult = pDmgResult + v * damageMult
+			end
+		end
+		
+		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = blockDamage, rawDamage= damageRolls, reducedDamage=pDmgReduction})
+	elseif(message_id == hash("getCombatStats")) then
+		if not(message.skip == true) then
+			calculateCombatStats(characterData[message.p])
+		end
+		msg.post(sender, hash("returnCombatStats"), {p=message.p})
 	end
 end
 
-function calculateStats(pStats, pWpn, eStats)
-	pStats["maxHp"] = pStats["basehp"] + math.min(pStats["attr"]["sta"], 20) + 10 * math.max(0, (pStats["attr"]["sta"]-20))
-	
+function calculateEquipmentStats(pStats)
+	local pEquipmentStats = {armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0}
+	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","helmet","necklace","shoulders","cloak","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
+	for i = 1, #equipmentSlots do
+		--pArmor = pArmor + pStats[equipmentSlots[i]]["armor"]
+		--pAttr["str"] = pAttr["str"] + pStats[equipmentSlots[i]]["attr"]["str"]
+		--pAttr["agi"] = pAttr["agi"] + pStats[equipmentSlots[i]]["attr"]["agi"]
+		--pAttr["sta"] = pAttr["sta"] + pStats[equipmentSlots[i]]["attr"]["sta"]
+		--pAttr["int"] = pAttr["int"] + pStats[equipmentSlots[i]]["attr"]["int"]
+		--pAttr["spr"] = pAttr["spr"] + pStats[equipmentSlots[i]]["attr"]["spr"]
+		if not (pStats[equipmentSlots[i]]["type"] == "None") then
+			pEquipmentStats["armor"] = pEquipmentStats["armor"] + pStats[equipmentSlots[i]]["armor"]
+			pEquipmentStats["attr"]["str"] = pEquipmentStats["attr"]["str"] + pStats[equipmentSlots[i]]["attr"]["str"]
+			pEquipmentStats["attr"]["agi"] = pEquipmentStats["attr"]["agi"] + pStats[equipmentSlots[i]]["attr"]["agi"]
+			pEquipmentStats["attr"]["sta"] = pEquipmentStats["attr"]["sta"] + pStats[equipmentSlots[i]]["attr"]["sta"]
+			pEquipmentStats["attr"]["int"] = pEquipmentStats["attr"]["int"] + pStats[equipmentSlots[i]]["attr"]["int"]
+			pEquipmentStats["attr"]["spr"] = pEquipmentStats["attr"]["spr"] + pStats[equipmentSlots[i]]["attr"]["spr"]
+		end
+	end
+	return pEquipmentStats
 end
 
-function calculateHitChance(pWpnSkill, eDefSkill, dualWield)
+function calculateCombatStats(pStats)
+	local pClass = pStats["stats"]["class"]
+	local pAttr = pStats["stats"]["attr"]
+	local pEquipmentStats = calculateEquipmentStats(pStats)
+
+	pAttr["str"] = pAttr["str"] + pEquipmentStats["attr"]["str"]
+	pAttr["agi"] = pAttr["agi"] + pEquipmentStats["attr"]["agi"]
+	pAttr["sta"] = pAttr["sta"] + pEquipmentStats["attr"]["sta"]
+	pAttr["int"] = pAttr["int"] + pEquipmentStats["attr"]["int"]
+	pAttr["spr"] = pAttr["spr"] + pEquipmentStats["attr"]["spr"]
+	-- Strength
+	if(pClass == "Warrior" or pClass == "Shaman" or pClass == "Paladin" or pClass == "Druid") then
+		pStats["stats"]["baseAp"] = 2 * pAttr["str"]
+		pStats["stats"]["ap"] = pStats["stats"]["baseAp"]
+	else
+		pStats["stats"]["baseAp"] = 1 * pAttr["str"]
+		pStats["stats"]["ap"] = pStats["stats"]["baseAp"]
+	end
+	
+	-- Agility
+		-- Melee Ap
+	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Druid") then
+		pStats["stats"]["baseAp"] = pStats["stats"]["baseAp"] + 1 * pAttr["agi"]
+		pStats["stats"]["ap"] = pStats["stats"]["ap"]+ pStats["stats"]["baseAp"]
+	end
+		-- Range Ap
+	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Hunter") then
+		pStats["stats"]["baseRAp"] = 1 * pAttr["agi"]
+		pStats["stats"]["rAp"] = pStats["stats"]["baseRAp"]
+	end
+		-- Crit
+	if(pClass == "Warrior" or pClass == "Paladin" or pClass == "Shaman" or pClass == "Warlock") then
+		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 20)
+	elseif(pClass == "Rogue") then
+		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 29)
+	elseif(pClass == "Hunter") then
+		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 53)
+	end
+	pStats["stats"]["crit"] = pStats["stats"]["baseCrit"] + pEquipmentStats["crit"]
+		-- Dodge
+	if(pClass == "Rogue") then
+		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 14.5)
+	elseif(pClass == "Hunter") then
+		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 26)
+	else
+		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 20)
+	end
+		-- Armor
+	pStats["stats"]["baseArmor"] = 2 * pAttr["agi"]
+	pStats["stats"]["armor"] = pStats["stats"]["baseArmor"] + pEquipmentStats["armor"]
+
+	-- Stamina
+		-- HP
+	if(pStats["stats"]["race"] == "Tauren") then
+		pStats["stats"]["hpMax"] = pStats["stats"]["basehp"] + math.min(pAttr["sta"], 20) + 10.5 * math.max(0, (pAttr["sta"]-20))
+	else
+		pStats["stats"]["hpMax"] = pStats["stats"]["basehp"] + math.min(pAttr["sta"], 20) + 10 * math.max(0, (pAttr["sta"]-20))
+	end
+
+	-- Intelligence
+		-- Mana
+	if not(pClass == "Warrior" or pClass == "Rogue") then
+		pStats["stats"]["resMax"] = pStats["stats"]["baseRes"] + 15 * pAttr["int"]
+	end
+		-- Spellcrit
+	if (pClass == "Paladin") then
+		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 54)
+	elseif (pClass == "Shaman") then
+		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 59.2)
+	elseif (pClass == "Mage" or pClass == "Priest") then
+		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 59.5)
+	elseif (pClass == "Druid") then
+		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 60)
+	elseif (pClass == "Warlock") then
+		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 60.6)
+	end
+
+	-- Spirit
+		-- HP & MP regeneration
+	if(pClass == "Druid") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.09) + 6.5
+		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 4.5) + 15
+	elseif(pClass == "Paladin" or pClass == "Hunter") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.25) + 6
+		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 15
+	elseif(pClass == "Warlock") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.07) + 6
+		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 15
+	elseif(pClass == "Shaman") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.11) + 7
+		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 17
+	elseif(pClass == "Mage" or pClass == "Priest") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.1) + 5
+		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 4) + 12.5
+	elseif(pClass == "Warrior") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.8) + 6
+	elseif(pClass == "Rogue") then
+		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.5) + 2
+	end
+
+end
+
+function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, dualWield, special)
 	local rHitChance = 100
-	local baseMiss = 5.6
-	if(dualWield == true) then
+	local baseMiss = 5
+	if (special == false) then
+		local baseMissP = math.max(0,baseMiss - (eDefSkill - pWpnSkill) * 0.04)
+		local baseMissE = math.max(0,baseMiss + (pWpnSkill - eDefSkill) * 0.02)
+		baseMiss = (baseMissP + baseMissE) / 2
+	end
+	if(dualWield == true and special == false) then
 		baseMiss = baseMiss + 19
 	end
 	if(eDefSkill - pWpnSkill > 10) then
-		rHitChance = math.max(0,100 - ((baseMiss + 1) + (eDefSkill - pWpnSkill - 10) * 0.4))
+		rHitChance = math.max(0,100 - ((baseMiss + 2) + (eDefSkill - pWpnSkill - 10) * 0.4) + pHitBonus)
 	else
-		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1))
+		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1) + pHitBonus)
 	end
 	return rHitChance
 end
 
-function generateAttackTable(pWpnSkill, pHitChance, pCritChance, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob)
+function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob)
 	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
-	local pSkillDifference = math.max(0,eDefSkill - pWpnSkill)
-
-	
+	local pSkillDifference = math.min(eDefSkill - pWpnSkill,300)
+	if(special == true) then
+		rollTable = {miss=0,dodge=0,parry=0,block=0,hit=0}
+	end
 	local remainingRolls = math.max(0, pHitChance)
 	local tempVar = 100
 	rollTable["miss"] = math.max(0, tempVar - remainingRolls)
 	tempVar = remainingRolls
 	if(ranged == false) then
-		eAvoidance["dodge"] = eAvoidance["dodge"] + pSkillDifference * 0.04
-		remainingRolls = math.max(0, remainingRolls - eAvoidance["dodge"])
+		local eDodge = eAvoidance["dodge"]
+		eDodge = math.max(0, eAvoidance["dodge"] + pSkillDifference * 0.04)
+		remainingRolls = math.max(0, remainingRolls - eDodge)
 		rollTable["dodge"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
 	if(attackFront == true and ranged == false) then
-		eAvoidance["parry"] = eAvoidance["parry"] + pSkillDifference * 0.04
-		remainingRolls = math.max(0, remainingRolls - eAvoidance["parry"])
+		local eParry = eAvoidance["parry"]
+		eParry = math.max(0, eAvoidance["parry"] + pSkillDifference * 0.04)
+		remainingRolls = math.max(0, remainingRolls - eParry)
 		rollTable["parry"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(isMob == false and ranged == false and special == false) then
-		remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
-		rollTable["glancingBlow"] = tempVar - remainingRolls
+	if(isMob == false and special == false) then 
+		if(ranged == false) then
+			remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
+		elseif(ranged == true) then
+			if(pLevel > 30) then
+				remainingRolls = math.max(0, remainingRolls - 60)
+			else
+				remainingRolls = math.max(0, remainingRolls - (pLevel - 10) * 3)
+			end
+		end
+		rollTable["glancingBlow"] = (tempVar - remainingRolls)
 		tempVar = remainingRolls
 	end
 	if(attackFront == true and blockEnabled == true) then
-		eAvoidance["block"] = eAvoidance["block"] + pSkillDifference * 0.04
-		remainingRolls = math.max(0, remainingRolls - eAvoidance["block"])
+		local eBlock = eAvoidance["block"]
+		eBlock = math.max(0, eAvoidance["block"] + pSkillDifference * 0.04)
+		remainingRolls = math.max(0, remainingRolls - eBlock)
 		rollTable["block"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
 	if(remainingRolls > 0) then
-		pCritChance = pCritChance - pSkillDifference * 0.04
-		remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100)))
-		rollTable["crit"] = tempVar - remainingRolls
-		tempVar = remainingRolls
-		if(isMob == true) then
-			remainingRolls = math.max(0, remainingRolls - (((eWpnSkill - pDefSkill) * 2) - 15))
-			rollTable["crushingBlow"] = remainingRolls
+		if(special == false) then
+			pCritChance = math.max(0, pCritChance - pSkillDifference * 0.04)
+			remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100))) 
+			rollTable["crit"] = math.max(0, tempVar - remainingRolls) 
+			tempVar = remainingRolls
 		end
-		rollTable["hit"] = remainingRolls
+		if(isMob == true and (pLevel - eLevel >= 3)) then
+			remainingRolls = math.max(0, remainingRolls - (((pWpnSkill - math.min(eDefSkill,300)) * 2) - 15))
+			rollTable["crushingBlow"] = math.max(0, tempVar - remainingRolls) 
+			tempVar = remainingRolls
+		end
+		rollTable["hit"] = math.max(0, remainingRolls)
 	end
 	return rollTable
 end
 
-function getAttackResult(attackTable)
-	local rngRanges =math.floor(math.random()*100)
+function getAttackResult(attackTable, special, pCrit)
+	local rngRanges = math.random()*100
+	local critRng = math.random()*100
 	local weight = 0
+	local critWeight = 0
+	local result = "Evaded"
 	local tableOrder = {"miss","dodge","parry","glancingBlow","block","crit","crushingBlow","hit"}
+	if(special == true) then
+		tableOrder = {"miss","dodge","parry","block","hit"}
+	end
 	for i = 1, #tableOrder do
 		weight = weight + attackTable[tableOrder[i]]
 		--print(rngRanges,weight,attackTable[tableOrder[i]], tableOrder[i])
 		if(rngRanges <= weight) then
-			return tableOrder[i]
+			result = tableOrder[i]
+			if(tableOrder[i] == "block" and special == true) then
+				critWeight = critWeight + pCrit
+				if(critRng <= critWeight) then
+					result = "critBlock"
+				end
+			elseif(tableOrder[i] == "hit" and special == true) then
+				critWeight = critWeight + pCrit
+				if(critRng <= critWeight) then
+					result = "crit"
+				end
+			end
+			return result
 		end
 	end
 end
 
-function calculateDamage(pDmgRange, pDmgReduction)
-	--local wpnDmg = getDamage(self.playerWeapon[message.player]["damage"])
-	pDmgRange["phy"] =  pDmgRange["phy"] * pDmgReduction --(1-(self.bossStats["armor"] / (self.bossStats["armor"] + 400 + 85 * self.bossStats["level"])))
-	local damageDone = wpnDmg["phy"] + wpnDmg["fire"] + wpnDmg["frost"] + wpnDmg["arcane"] + wpnDmg["nature"] + wpnDmg["shadow"] + wpnDmg["holy"]
-	if(message.type == "Attack") then
-		damageDone = damageDone + (self.playerStats[message.player]["ap"] / 14)
-		damageDone = math.floor(0.5 + damageDone)
-		msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
-		print("Player "..message.player.." hit: "..damageDone.."["..wpnDmg["phy"]..","..wpnDmg["fire"]..","..wpnDmg["frost"]..","..wpnDmg["arcane"]..","..wpnDmg["nature"]..","..wpnDmg["shadow"]..","..wpnDmg["holy"].."]")
+function calculateDamage(pDmgSchools, pAp, pDmgReduction)
+	local pDmgDone = {phy=(pAp / 14),fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+	if(pDmgSchools["phy"] > 0) then
+		pDmgDone["phy"] = (pDmgDone["phy"] + pDmgSchools["phy"]) * (1-pDmgReduction["phy"])
+	else
+		pDmgDone["phy"] = pDmgSchools["phy"] * (1-pDmgReduction["phy"])
 	end
+	pDmgDone["phy"] = math.floor(0.5 + pDmgDone["phy"] ) 
+	
+	local resistanceTable = {
+		{["0"]=100,["25"]=0,["50"]=0,["75"]=0,["100"]=0},
+		{["0"]=97,["25"]=2,["50"]=1,["75"]=0,["100"]=0},
+		{["0"]=94,["25"]=4,["50"]=2,["75"]=0,["100"]=0},
+		{["0"]=90,["25"]=8,["50"]=2,["75"]=0,["100"]=0},
+		{["0"]=87,["25"]=10,["50"]=3,["75"]=0,["100"]=0},
+		{["0"]=84,["25"]=12,["50"]=4,["75"]=0,["100"]=0}, --5%
+		{["0"]=82,["25"]=13,["50"]=4,["75"]=1,["100"]=0},
+		{["0"]=79,["25"]=15,["50"]=5,["75"]=1,["100"]=0},
+		{["0"]=76,["25"]=17,["50"]=6,["75"]=1,["100"]=0},
+		{["0"]=73,["25"]=19,["50"]=7,["75"]=1,["100"]=0},
+		{["0"]=69,["25"]=23,["50"]=7,["75"]=1,["100"]=0}, --10%
+		{["0"]=66,["25"]=25,["50"]=8,["75"]=1,["100"]=0},
+		{["0"]=63,["25"]=27,["50"]=9,["75"]=1,["100"]=0},
+		{["0"]=60,["25"]=29,["50"]=10,["75"]=1,["100"]=0},
+		{["0"]=58,["25"]=30,["50"]=10,["75"]=2,["100"]=0},
+		{["0"]=54,["25"]=33,["50"]=11,["75"]=2,["100"]=0}, --15%
+		{["0"]=51,["25"]=36,["50"]=11,["75"]=2,["100"]=0},
+		{["0"]=48,["25"]=38,["50"]=12,["75"]=2,["100"]=0},
+		{["0"]=44,["25"]=42,["50"]=12,["75"]=2,["100"]=0},
+		{["0"]=41,["25"]=44,["50"]=13,["75"]=2,["100"]=0},
+		{["0"]=37,["25"]=48,["50"]=13,["75"]=2,["100"]=0}, --20%
+		{["0"]=34,["25"]=50,["50"]=13,["75"]=2,["100"]=0},
+		{["0"]=31,["25"]=52,["50"]=14,["75"]=2,["100"]=0},
+		{["0"]=30,["25"]=52,["50"]=15,["75"]=2,["100"]=1},
+		{["0"]=28,["25"]=53,["50"]=15,["75"]=3,["100"]=1},
+		{["0"]=25,["25"]=55,["50"]=16,["75"]=3,["100"]=1}, --25%
+		{["0"]=24,["25"]=54,["50"]=17,["75"]=4,["100"]=1},
+		{["0"]=23,["25"]=53,["50"]=18,["75"]=5,["100"]=1},
+		{["0"]=22,["25"]=51,["50"]=21,["75"]=5,["100"]=1},
+		{["0"]=21,["25"]=50,["50"]=22,["75"]=6,["100"]=1},
+		{["0"]=20,["25"]=49,["50"]=24,["75"]=6,["100"]=1}, --30%
+		{["0"]=19,["25"]=47,["50"]=26,["75"]=7,["100"]=1},
+		{["0"]=18,["25"]=46,["50"]=27,["75"]=8,["100"]=1},
+		{["0"]=17,["25"]=44,["50"]=30,["75"]=8,["100"]=1},
+		{["0"]=16,["25"]=43,["50"]=31,["75"]=9,["100"]=1},
+		{["0"]=15,["25"]=42,["50"]=32,["75"]=10,["100"]=1}, --35%
+		{["0"]=14,["25"]=41,["50"]=33,["75"]=11,["100"]=1},
+		{["0"]=13,["25"]=39,["50"]=36,["75"]=11,["100"]=1},
+		{["0"]=13,["25"]=36,["50"]=38,["75"]=12,["100"]=1},
+		{["0"]=12,["25"]=35,["50"]=39,["75"]=13,["100"]=1},
+		{["0"]=11,["25"]=34,["50"]=40,["75"]=14,["100"]=1}, --40%
+		{["0"]=10,["25"]=33,["50"]=41,["75"]=15,["100"]=1},
+		{["0"]=9,["25"]=31,["50"]=44,["75"]=15,["100"]=1},
+		{["0"]=8,["25"]=30,["50"]=45,["75"]=16,["100"]=1},
+		{["0"]=8,["25"]=27,["50"]=47,["75"]=17,["100"]=1},
+		{["0"]=7,["25"]=26,["50"]=48,["75"]=18,["100"]=1}, --45%
+		{["0"]=6,["25"]=25,["50"]=49,["75"]=19,["100"]=1},
+		{["0"]=6,["25"]=23,["50"]=50,["75"]=19,["100"]=2},
+		{["0"]=5,["25"]=22,["50"]=51,["75"]=20,["100"]=2},
+		{["0"]=3,["25"]=22,["50"]=53,["75"]=20,["100"]=2},
+		{["0"]=2,["25"]=21,["50"]=54,["75"]=21,["100"]=2}, -- 50%
+		{["0"]=2,["25"]=20,["50"]=53,["75"]=22,["100"]=3},
+		{["0"]=2,["25"]=20,["50"]=51,["75"]=22,["100"]=5},
+		{["0"]=2,["25"]=19,["50"]=50,["75"]=23,["100"]=6},
+		{["0"]=1,["25"]=19,["50"]=49,["75"]=25,["100"]=6},
+		{["0"]=1,["25"]=18,["50"]=48,["75"]=26,["100"]=7}, -- 55%
+		{["0"]=1,["25"]=17,["50"]=47,["75"]=27,["100"]=8},
+		{["0"]=1,["25"]=16,["50"]=45,["75"]=30,["100"]=8},
+		{["0"]=1,["25"]=15,["50"]=44,["75"]=31,["100"]=9},
+		{["0"]=1,["25"]=15,["50"]=41,["75"]=33,["100"]=10},
+		{["0"]=1,["25"]=14,["50"]=40,["75"]=34,["100"]=11}, --60%
+		{["0"]=1,["25"]=13,["50"]=39,["75"]=35,["100"]=12},
+		{["0"]=1,["25"]=12,["50"]=38,["75"]=36,["100"]=13},
+		{["0"]=1,["25"]=11,["50"]=36,["75"]=39,["100"]=13},
+		{["0"]=1,["25"]=11,["50"]=33,["75"]=41,["100"]=14},
+		{["0"]=1,["25"]=10,["50"]=32,["75"]=42,["100"]=15}, --65%
+		{["0"]=1,["25"]=9,["50"]=31,["75"]=43,["100"]=16},
+		{["0"]=1,["25"]=8,["50"]=30,["75"]=44,["100"]=17},
+		{["0"]=1,["25"]=8,["50"]=27,["75"]=46,["100"]=18},
+		{["0"]=1,["25"]=7,["50"]=26,["75"]=47,["100"]=19},
+		{["0"]=1,["25"]=6,["50"]=24,["75"]=49,["100"]=20}, --70%
+		{["0"]=1,["25"]=6,["50"]=22,["75"]=50,["100"]=21},
+		{["0"]=1,["25"]=5,["50"]=21,["75"]=51,["100"]=22},
+		{["0"]=1,["25"]=5,["50"]=18,["75"]=53,["100"]=23},
+		{["0"]=1,["25"]=4,["50"]=17,["75"]=54,["100"]=24},
+		{["0"]=1,["25"]=3,["50"]=16,["75"]=55,["100"]=25}, --75%
+		-- Normal cap 
+		{["0"]=1,["25"]=3,["50"]=15,["75"]=53,["100"]=28},
+		{["0"]=1,["25"]=2,["50"]=15,["75"]=52,["100"]=30},
+		{["0"]=0,["25"]=2,["50"]=15,["75"]=52,["100"]=31},
+		{["0"]=0,["25"]=2,["50"]=14,["75"]=50,["100"]=34},
+		{["0"]=0,["25"]=2,["50"]=13,["75"]=48,["100"]=37}, --80%
+		{["0"]=0,["25"]=2,["50"]=13,["75"]=44,["100"]=41},
+		{["0"]=0,["25"]=2,["50"]=12,["75"]=42,["100"]=44},
+		{["0"]=0,["25"]=2,["50"]=12,["75"]=38,["100"]=48},
+		{["0"]=0,["25"]=2,["50"]=11,["75"]=36,["100"]=51},
+		{["0"]=0,["25"]=2,["50"]=11,["75"]=33,["100"]=54}, --85%
+		{["0"]=0,["25"]=2,["50"]=10,["75"]=30,["100"]=58},
+		{["0"]=0,["25"]=1,["50"]=10,["75"]=29,["100"]=60},
+		{["0"]=0,["25"]=1,["50"]=9,["75"]=27,["100"]=63},
+		{["0"]=0,["25"]=1,["50"]=8,["75"]=25,["100"]=66},
+		{["0"]=0,["25"]=1,["50"]=7,["75"]=23,["100"]=69}, --90%
+		{["0"]=0,["25"]=1,["50"]=7,["75"]=19,["100"]=73},
+		{["0"]=0,["25"]=1,["50"]=6,["75"]=17,["100"]=76},
+		{["0"]=0,["25"]=1,["50"]=5,["75"]=15,["100"]=79},
+		{["0"]=0,["25"]=1,["50"]=4,["75"]=13,["100"]=82},
+		{["0"]=0,["25"]=0,["50"]=4,["75"]=12,["100"]=84}, --95%
+		{["0"]=0,["25"]=0,["50"]=3,["75"]=10,["100"]=87},
+		{["0"]=0,["25"]=0,["50"]=2,["75"]=8,["100"]=90},
+		{["0"]=0,["25"]=0,["50"]=2,["75"]=4,["100"]=94},
+		{["0"]=0,["25"]=0,["50"]=1,["75"]=2,["100"]=97},
+		{["0"]=0,["25"]=0,["50"]=0,["75"]=0,["100"]=100} --100%
+	}
+		
+	local elementalTable = {["0"]=100,["25"]=0,["50"]=0,["75"]=0,["100"]=0}
+	local elementOrder = {"fire","frost","arcane","nature","shadow","holy"}
+	local elemRange = math.random()*100
+	local weight = 0
+	for i = 1, #elementOrder do
+		elemRange = math.random()*100
+		weight = 0
+		elemResist = math.floor(pDmgReduction[elementOrder[i]] * 100)
+		--print(elemResist)
+		resistOrder = {"0","25","50","75","100"}
+		for k = 1, #resistOrder do
+			weight = weight + resistanceTable[elemResist][resistOrder[k]]
+			--print(weight, resistanceTable[elemResist][resistOrder[k]], resistOrder[k], elementOrder[i])
+			if elemRange <= weight then
+				pDmgDone[elementOrder[i]] = pDmgSchools[elementOrder[i]] - (pDmgSchools[elementOrder[i]] * (tonumber(resistOrder[k]) / 100))
+				break
+			end
+		end
+	end
+	
+	return pDmgDone
 end
 
-function calculateDamageReduction(cLevel, cArmor, eLevel)
-	reductionPercentage = 0
-	if(cLevel < 60) then
-		reductionPercentage = min( cArmor / ( cArmor + 400 + 85 * eLevel), 75)
-	elseif(cLevel >= 60) then
-		reductionPercentage = min( cArmor / ( cArmor + 400 + 85 * ( eLevel + 4.5 * ( eLevel - 59))) , 75)
+function calculateDamageReduction(pLevel, eArmor, eRes, eLevel)
+	local reductionPercentage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+	if(pLevel < 60) then
+		reductionPercentage["phy"] = math.min( eArmor / ( eArmor + 400 + 85 * eLevel), 0.75)
+	elseif(pLevel >= 60) then
+		reductionPercentage["phy"] = math.min( eArmor / ( eArmor + 400 + 85 * ( eLevel + 4.5 * ( eLevel - 60))) , 0.75)
 	end
-	print("DR test: character level: "..cLevel.." ; character Armor: "..cArmor.." ; enemy level: "..eLevel.." ; DR%: "..reductionPercentage)
+	reductionPercentage["fire"] = math.min(0.75,(eRes["fire"] / (pLevel * 5)) * 0.75)
+	reductionPercentage["frost"] = math.min(0.75,(eRes["frost"] / (pLevel * 5)) * 0.75)
+	reductionPercentage["arcane"] = math.min(0.75,(eRes["arcane"] / (pLevel * 5)) * 0.75) 
+	reductionPercentage["nature"] = math.min(0.75,(eRes["nature"] / (pLevel * 5)) * 0.75)
+	reductionPercentage["shadow"] = math.min(0.75,(eRes["shadow"] / (pLevel * 5)) * 0.75)
+	reductionPercentage["holy"] = math.min(0.75,(eRes["holy"] / (pLevel * 5)) * 0.75)
 	return reductionPercentage
+end
+
+function calculateBlock(pDmg, eAttr, eBlockValue)
+	local blockedDmg = math.max(0, pDmg - (eBlockValue + eAttr / 2))
+	return {dmg=blockedDmg, blocked=math.min(pDmg, eBlockValue + eAttr / 2)}
 end
 
 

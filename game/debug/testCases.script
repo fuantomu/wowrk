@@ -1,34 +1,8 @@
 function init(self)
-	testEnemy = {
-		level=63,
-		basehp=150,
-		attr={str=20, agi=0, sta=100, int=0, spr= 0},
-		armor=100,
-		ap=0,
-		crit=5,
-		avoidance={dodge=5,parry=5,block=0}
-	}
-	testCharacter = {
-	stats={
-		class="Warrior", 
-		race="Human", 
-		level=60, 
-		basehp=20,
-		attr={str=23, agi=20, sta=22, int=20, spr=21},
-		skill={OneHandedSword=300,defense=300},
-		armor=0,
-		ap=0,
-		res={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
-		crit=5,
-		avoidance={dodge=0,parry=5,block=5}
-	}, 
-	weapon={
-		name="Worn Shortsword",
-		wtype="OneHandedSword",
-		effectId={0,0,0},
-		setid=0,
-		schools={Physical={min=1,max=3},Fire={min=0,max=0},Frost={min=0,max=0},Arcane={min=0,max=0},Nature={min=0,max=0},Shadow={min=0,max=0},Holy={min=0,max=0}}
-	}}
+	testResults = {hit=0,dodge=0,block=0,crit=0,parry=0,critBlock=0,glancingBlow=0,crushingBlow=0,miss=0}
+	testAmount = 10
+	testDamageResult = 0
+	testRuns = 0
 end
 
 function final(self)
@@ -37,8 +11,7 @@ function final(self)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+
 end
 
 function on_message(self, message_id, message, sender)
@@ -52,19 +25,53 @@ function on_message(self, message_id, message, sender)
 		--testEnemy["armor"] = math.random(0,16536)
 		--testEnemy["avoidance"] = {dodge=math.random(0,40),parry=math.random(0,40),block=math.random(0,40)}
 		--testEnemy["attr"]["sta"] = math.random(1,500)
-		msg.post("game#calculationMain", hash("getStats"), {p=testCharacter, e=testEnemy})
-	elseif(message_id == hash("returnStats")) then
-		msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=true, ranged=false, dw=false, front=true, block=false, mob=false})
-		msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=false, ranged=false, dw=true, front=true, block=false, mob=false})
+		testRuns = testRuns + 1
+		if( testRuns > 1) then
+			msg.post("game#calculationMain", hash("getCombatStats"), {p="testCharacter", skip=true})
+		else
+			msg.post("game#calculationMain", hash("getCombatStats"), {p="testCharacter"})
+		end
+	elseif(message_id == hash("returnCombatStats")) then
+		--tprint(message.p)
+		testResults = {hit=0,dodge=0,block=0,crit=0,parry=0,critBlock=0,glancingBlow=0,crushingBlow=0,miss=0}
+		for i = 1, testAmount do
+			msg.post("game#calculationMain", hash("getAttackResult"), {attacker="player", e="testEnemy", p="testCharacter", special=false, ranged=false, dw=false, front=true, block=true})
+		end
+		--tprint(characterData["testCharacter"])
+		--msg.post("game#testCases", hash("testDone"))
+		--msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=true, ranged=false, dw=false, front=true, block=true, mob=false})
+		--msg.post("game#calculationMain", hash("getAttackResult"), {e=message.e, p=message.p, special=false, ranged=false, dw=true, front=true, block=false, mob=false})
+	elseif(message_id == hash("returnAttackResult")) then
+		testResults[message.result] = testResults[message.result] + 1
+		testDamageResult = testDamageResult + message.damageResult
+		print("Result: "..message.rawDamage["phy"].." raw; "..math.floor(message.reducedDamage["phy"]*100).."% reduction: "..message.result.." with "..message.damageResult.." ("..message.blockedDamage["blocked"].." blocked)")
+		--tprint(message.damageTable)
+	elseif(message_id == hash("testDone")) then
+		print("Test results for "..testAmount.." runs:")
+		timer.delay(1, false, function (self, id)
+			for k, v in pairs(testResults) do
+				testResults[k] = v / ( testAmount / 100)
+			end
+			--tprint(testResults)
+			print("Actual damage done: ".. (testDamageResult / testAmount) / testRuns)
+		end)
 	end
 end
 
-function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Remove this function if not needed
+function tprint (t, s)
+	for k, v in pairs(t) do
+		local kfmt = '["' .. tostring(k) ..'"]'
+		if type(k) ~= 'string' then
+			kfmt = '[' .. k .. ']'
+		end
+		local vfmt = '"'.. tostring(v) ..'"'
+		if type(v) == 'table' then
+			tprint(v, (s or '')..kfmt)
+		else
+			if type(v) ~= 'string' then
+				vfmt = tostring(v)
+			end
+			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
 end

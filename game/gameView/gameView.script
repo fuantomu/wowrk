@@ -13,7 +13,6 @@ function init(self)
 	self.playerWeapon = {}
 	self.gameRunning = true
 	self.aTimer = ""
-	math.randomseed(os.clock() * 1000)
 	math.random()
 end
 

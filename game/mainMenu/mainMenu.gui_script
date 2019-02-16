@@ -16,7 +16,6 @@ function on_input(self, action_id, action)
 			print("clicked end")
 			msg.post("mainMenu", hash("end"))
 		elseif(gui.pick_node(gui.get_node("box3"), action.x, action.y)) then
-			print("clicked debug")
 			msg.post("main:/game#testCases", hash("startDebug"))
 		end
 	end
