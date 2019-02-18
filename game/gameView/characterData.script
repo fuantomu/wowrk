@@ -1,0 +1,231 @@
+function init(self)
+	characterData = {
+		testCharacter = {
+			stats={
+				class="Warrior", 
+				race="Human", 
+				level=60, 
+				basehp=0,
+				hpCurrent=0,
+				hpMax=0,
+				baseRes=0,
+				resCurrent=0,
+				resMax=100,
+				attr={str=0, agi=0, sta=0, int=0, spr=0},
+				skill={OneHandedSword=300,OneHandedMace=300,OneHandedAxe=300,TwoHandedAxe=300,TwoHandedSword=300,TwoHandedMace=300,Polearm=300,Dagger=300,Fistweapon=300,Unarmed=300,Bow=300,Gun=300,Throwing=300,Defense=300},
+				profession={engineering=0,herbalism=0},
+				baseArmor=0,
+				armor=0,
+				baseAp=0,
+				ap=0,
+				baseRAp=0,
+				rAp=0,
+				baseSp=0,
+				sp=0,
+				resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
+				baseCrit=0,
+				crit=0,
+				baseSCrit=0,
+				sCrit=0,
+				hit=0,
+				sHit=0,
+				avoidance={dodge=0,parry=5,block=5},
+				hpRegen=0,
+				mpRegen=0
+			},
+			buffs={
+			},
+			debuffs={
+			},
+			weaponMH={
+				type="OneHandedSword",
+				effectId={0,0,0},
+				armor=0,
+				attr={str=0,agi=0,sta=0,int=0,spr=0},
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				setid=0,
+				schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
+			},
+			weaponOH={
+				type="Shield",
+				effectId={0,0,0},
+				armor=150,
+				attr={str=0,agi=0,sta=0,int=0,spr=0},
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				setid=0,
+				blockValue=50,
+				schools={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
+			},
+			weaponRanged={
+				type="Gun",
+				effectId={0,0,0},
+				armor=0,
+				attr={str=0,agi=0,sta=0,int=0,spr=0},
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0}
+			},
+			helmet={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			necklace={
+				type="Accessory",
+				effectId={0,0,0},
+				armor=0,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			shoulder={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			cloak={
+				type="Cloth",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			chest={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			wrists={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			hands={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			waist={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			legs={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			feet={
+				type="Plate",
+				effectId={0,0,0},
+				armor=50,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			ring1={
+				type="Accessory",
+				effectId={0,0,0},
+				armor=0,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			ring2={
+				type="Accessory",
+				effectId={0,0,0},
+				armor=0,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			trinket1={
+				type="Accessory",
+				effectId={0,0,0},
+				armor=0,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			trinket2={
+				type="Accessory",
+				effectId={0,0,0},
+				armor=0,
+				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+				attr={str=0,agi=0,sta=0,int=0,spr=0}
+			},
+			battle={
+				hitRecently=false
+			}
+		}
+	}
+
+	self.oneSecTimer = 60
+end
+
+function equipItem(character, type, slot, itemid)
+	characterData[character][slot] = item[type][tostring(itemid)]
+	characterData[character][slot]["slot"] = slot
+end
+
+function applyAura(character, auraId)
+	local aEffect = effect[tostring(auraId)]
+	if(aEffect["condition"] == "Buff") then
+		table.insert(characterData[character]["buffs"], (#characterData[character]["buffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],active=false})
+	elseif(aEffect["condition"] == "Debuff") then
+		table.insert(characterData[character]["debuffs"], (#characterData[character]["debuffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],active=false})
+	end
+end
+
+function final(self)
+	
+end
+
+function update(self, dt)
+	if(testRuns >= 1) then
+		self.oneSecTimer = self.oneSecTimer-1
+		if(self.oneSecTimer <= 0) then
+			for k, v in pairs(characterData) do
+				if not( v["buffs"] == nil) then
+					for j,l in pairs(characterData[k]["buffs"]) do
+						--print(j,l,#characterData[k]["buffs"])
+						characterData[k]["buffs"][j]["duration"] = characterData[k]["buffs"][j]["duration"] - 23
+						if(characterData[k]["buffs"][j]["duration"] <= 0) then
+							print("Buff "..characterData[k]["buffs"][j]["name"].." fell off")
+							if((#characterData[k]["buffs"] < 1 or characterData[k]["buffs"] == nil) and characterData[k]["buffs"][#characterData[k]["buffs"]]["duration"] <= 0) then
+								characterData[k]["buffs"] = {}
+							else
+								table.remove(characterData[k]["buffs"], j)
+							end
+						end
+					end
+				end
+			end
+			applyAuraEffects()
+			self.oneSecTimer = 60
+		end
+		
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

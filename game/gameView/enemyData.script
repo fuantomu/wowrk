@@ -1,0 +1,52 @@
+function init(self)
+	mobData = {
+		testEnemy = {
+			name="Dummy",
+			level=63,
+			basehp=150,
+			hpCurrent=150,
+			hpMax=150,
+			baseRes=0,
+			resCurrent=0,
+			resMax=100,
+			attr={str=20, agi=0, sta=100, int=0, spr= 0},
+			resist={fire=315,frost=250,arcane=200,nature=150,holy=100,shadow=999},
+			armor=5000,
+			ap=0,
+			rAp=0,
+			sAp=0,
+			crit=5,
+			schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},
+			avoidance={dodge=5,parry=5,block=5},
+			blockValue = 50,
+			hpRegen=0,
+			mpRegen=0,
+			icon="hws010"
+		}
+	}
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

@@ -1,0 +1,40 @@
+function init(self)
+	item = {
+		weapon = {
+			["25"]={icon="INV_Sword_04",name="Worn Shortsword",bind=0,rlevel=0,ilevel=1,unique=0,quality=1,class={warrior=1,rogue=1,paladin=1,hunter=1,shaman=1,priest=1,mage=1,warlock=1},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=0,agi=0,sta=0,int=0,spr=0},armor=0,resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={0,0,0},setid=0,lore="",value=1,type="OneHandedSword",slot="Weapon",blockValue=0,schools={phy={min=1,max=3},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},aspd=1.9,durability={current=20,max=20}},
+			["9412"]={icon="inv_weapon_rifle_07",name="Galgann's Fireblaster",bind=1,rlevel=42,ilevel=47,unique=0,quality=3,class={warrior=1,rogue=1,paladin=1,hunter=1,shaman=1,priest=1,mage=1,warlock=1},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=0,agi=0,sta=0,int=0,spr=0},armor=0,resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={0,0,0},setid=0,lore="",value=16681,type="Gun",slot="Ranged",blockValue=0,schools={phy={min=44,max=84},fire={min=1,max=3},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},aspd=2.60,durability={current=75,max=75}},
+			["12583"]={icon="inv_weapon_halberd_04",name="Blackhand Doomsaw",bind=1,rlevel=58,ilevel=63,unique=0,quality=3,class={warrior=1,rogue=1,paladin=1,hunter=1,shaman=1,priest=1,mage=1,warlock=1},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=0,agi=0,sta=0,int=0,spr=0},armor=0,resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={16549,0,0},setid=0,lore="",value=74346,type="Polearm",slot="WeaponMH",blockValue=0,schools={phy={min=151,max=227},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},aspd=3.50,durability={current=100,max=100}}
+		},
+		armor = {
+			["11815"]={icon="inv_jewelry_talisman_01", name="Hand of Justice",bind=1,rlevel=53,ilevel=58,unique=1,quality=3,class={warrior=1,rogue=0,paladin=0,hunter=0,shaman=0,priest=0,mage=0,warlock=0},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=0,agi=0,sta=0,int=0,spr=0},armor=0,resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={15600,9331,0},setid=0,lore="",value=10000,type="Accessory",slot="trinket",blockValue=0,durability={current=0,max=0}},
+			["16864"]={icon="inv_belt_09", name="Belt of Might",bind=2,rlevel=60,ilevel=66,unique=0,quality=4,class={warrior=1,rogue=0,paladin=0,hunter=0,shaman=0,priest=0,mage=0,warlock=0},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=21,agi=0,sta=15,int=0,spr=0},armor=421,resist={fire=7,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={13383,13669,0},setid=209,lore="",value=17981,type="Plate",slot="Waist",blockValue=0,durability={current=55,max=55}},
+			["16863"]={icon="inv_gauntlets_10", name="Gauntlets of Might",bind=1,rlevel=60,unique=0,ilevel=66,quality=4,class={warrior=1,rogue=0,paladin=0,hunter=0,shaman=0,priest=0,mage=0,warlock=0},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=22,agi=0,sta=17,int=0,spr=0},armor=421,resist={fire=7,frost=0,arcane=0,nature=0,holy=0,shadow=0},effectId={13383,15464,0},setid=209,lore="",value=17916,type="Plate",slot="Hands",blockValue=0,durability={current=55,max=55}},
+			["16868"]={icon="inv_shoulder_15", name="Pauldrons of Might",bind=1,rlevel=60,unique=0,ilevel=66,quality=4,class={warrior=1,rogue=0,paladin=0,hunter=0,shaman=0,priest=0,mage=0,warlock=0},race={human=1,dwarf=1,nightelf=1,gnome=1,orc=1,tauren=1,undead=1,troll=1},rrank=0,attr={str=15,agi=0,sta=22,int=0,spr=0},armor=562,resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=7},effectId={13383,13675,0},setid=209,lore="",value=27364,type="Plate",slot="Shoulder",blockValue=0,durability={current=100,max=100}}	
+		}
+	}	
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
