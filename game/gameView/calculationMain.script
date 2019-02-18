@@ -21,11 +21,11 @@ function on_message(self, message_id, message, sender)
 		local eArmor = mobData[message.e]["armor"]
 		local pLevel = characterData[message.p]["stats"]["level"]
 		local eLevel = mobData[message.e]["level"]
-		local eResistance = mobData[message.e]["res"]
+		local eResistance = mobData[message.e]["resist"]
 		local eAttr = mobData[message.e]["attr"]
 		local eBlockValue = mobData[message.e]["blockValue"]
 		local pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
-		local pDefSkill = characterData[message.p]["stats"]["skill"]["defense"]
+		local pDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
 		local pCritChance = characterData[message.p]["stats"]["crit"]
 		local pHitBonus = characterData[message.p]["stats"]["hit"]
 		local pAp = characterData[message.p]["stats"]["ap"]
@@ -38,7 +38,7 @@ function on_message(self, message_id, message, sender)
 		if(message.attacker == "mob") then
 			pWpnSkill = eWpnSkill
 			pDefSkill = eDefSkill
-			eDefSkill = characterData[message.p]["stats"]["skill"]["defense"]
+			eDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
 			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
 			eAvoidance = characterData[message.p]["stats"]["avoidance"]
 			pCritChance = mobData[message.e]["crit"]
@@ -59,7 +59,7 @@ function on_message(self, message_id, message, sender)
 		local pHitChance = calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, message.dw, message.special)
 		--print(pHitChance)
 		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, message.special, message.ranged, message.front,message.block, isMob)
-		tprint(pAttackTable)
+		--tprint(pAttackTable)
 		local pAttackResult = getAttackResult(pAttackTable, message.special, pCritChance)
 		--print(pAttackResult)
 		local pDmgDone = 0
@@ -69,10 +69,10 @@ function on_message(self, message_id, message, sender)
 		if(isMob == true) then
 			damageRolls = mobData[message.e]["damage"]
 		else
-			damageRolls = getRandomDamage(characterData[message.p]["weaponMH"]["schools"])
+			damageRolls = getRandomDamage(characterData[message.p]["weaponMH"])
 		end
 		if(pAttackResult == "glancingBlow") then
-			damageMult =  math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
+			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)--math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
 		elseif(pAttackResult == "crit") then
 			damageMult = 2
 		end
@@ -81,7 +81,6 @@ function on_message(self, message_id, message, sender)
 			damageRolls["phy"] = 0
 		end
 
-		
 		local pDmgReduction = calculateDamageReduction(pLevel, eArmor, eResistance, eLevel)
 		pDmgDone = calculateDamage(damageRolls, pAp, pDmgReduction)
 
@@ -96,8 +95,6 @@ function on_message(self, message_id, message, sender)
 			pDmgDone["phy"] = blockDamage["dmg"]
 		end
 		
-		
-
 		local pDmgResult = 0
 		if(pAttackResult == "glancingBlow") then
 			pDmgResult = pDmgResult + pDmgDone["phy"] * damageMult + pDmgDone["fire"] + pDmgDone["frost"] + pDmgDone["arcane"] + pDmgDone["nature"] + pDmgDone["shadow"] + pDmgDone["holy"]
@@ -106,68 +103,238 @@ function on_message(self, message_id, message, sender)
 				pDmgResult = pDmgResult + v * damageMult
 			end
 		end
+
+		local pProcDamage = {phy=0}
+		local pProcBlocked = {phy=0}
+		if not(pAttackResult == "parry" or pAttackResult == "dodge" or pAttackResult == "miss") then
+			pProcResult = calculateProcs(characterData[message.p],pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
+			pProcDamage = pProcResult["damage"]
+			pProcBlocked["phy"] = pProcResult["blocked"]
+		end
 		
-		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = blockDamage, rawDamage= damageRolls, reducedDamage=pDmgReduction})
+		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = (blockDamage["blocked"]+pProcBlocked["phy"]), rawDamage= damageRolls, reducedDamage=pDmgReduction, procDamage=pProcDamage})
 	elseif(message_id == hash("getCombatStats")) then
 		if not(message.skip == true) then
+			equipItem(message.p, "weapon", "weaponMH", 12583)
+			equipItem(message.p, "armor", "trinket1", 11815)
+			equipItem(message.p, "armor", "shoulder", 16868)
+			equipItem(message.p, "armor", "waist", 16864)
+			equipItem(message.p, "armor", "hands", 16863)
+			calculateBaseStats(characterData[message.p])
+			--tprint(characterData[message.p]["stats"])
+			calculateEquipmentStats(characterData[message.p])
+			--tprint(characterData[message.p]["stats"])
 			calculateCombatStats(characterData[message.p])
+			--tprint(characterData[message.p]["stats"])
+			calculateRacials(characterData[message.p])
+			tprint(characterData[message.p])
 		end
 		msg.post(sender, hash("returnCombatStats"), {p=message.p})
 	end
 end
 
+function applyRegeneration(pStats, type)
+	local pHp = pStats["stats"]["hpCurrent"]
+	local pHpMax = pStats["stats"]["hpMax"]
+	local pRes = pStats["stats"]["resCurrent"]
+	local pResMax = pStats["stats"]["resMax"]
+	local pHpRegen = pStats["stats"]["hpregen"]
+	local pMpRegen = pStats["stats"]["mpregen"]
+
+	if(type == 2) then
+		if(pStats["battle"]["hitRecently"] == false) then
+			pStats["stats"]["hpCurrent"] = math.min(pHpMax, pHp + pHpRegen)
+		elseif(pStats["battle"]["hitRecently"] == true and pStats["stats"]["race"] == "Troll") then
+			pStats["stats"]["hpCurrent"] = math.min(pHpMax, pHp + (pHpRegen * 0.1))
+		elseif(pStats["stats"]["class"] == "Rogue") then
+			pStats["stats"]["resCurrent"] = math.min(pResMax, pRes + 20)
+		end
+	elseif(type == 5) then
+		if not(pStats["stats"]["class"] == "Warrior" or pStats["stats"]["class"] == "Rogue") then
+			pStats["stats"]["resCurrent"] = math.min(pResMax, pRes + pMpRegen)
+		end
+	end
+end
+
+function calculateBaseStats(pStats)
+	local pRace = pStats["stats"]["race"]
+	local pClass = pStats["stats"]["class"]
+
+	if(pRace == "Human") then
+		pStats["stats"]["attr"] = {str=20,agi=20,sta=20,int=20,spr=20}
+	elseif(pRace == "Dwarf") then
+		pStats["stats"]["attr"] = {str=22,agi=16,sta=23,int=19,spr=19}
+	elseif(pRace == "Gnome") then
+		pStats["stats"]["attr"] = {str=15,agi=23,sta=19,int=23,spr=20}
+	elseif(pRace == "Nightelf") then
+		pStats["stats"]["attr"] = {str=17,agi=25,sta=19,int=20,spr=20}
+	elseif(pRace == "Orc") then
+		pStats["stats"]["attr"] = {str=23,agi=17,sta=22,int=17,spr=23}
+	elseif(pRace == "Undead") then
+		pStats["stats"]["attr"] = {str=19,agi=18,sta=21,int=18,spr=25}
+	elseif(pRace == "Tauren") then
+		pStats["stats"]["attr"] = {str=25,agi=15,sta=22,int=15,spr=22}
+	elseif(pRace == "Troll") then
+		pStats["stats"]["attr"] = {str=21,agi=22,sta=21,int=16,spr=21}
+	end
+
+	if(pClass == "Warrior") then
+		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 3
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 2
+		pStats["stats"]["basehp"] = 20
+		pStats["stats"]["baseRes"] = 100
+	elseif(pClass == "Rogue") then
+		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
+		pStats["stats"]["attr"]["agi"] = pStats["stats"]["attr"]["agi"] + 3
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
+		pStats["stats"]["basehp"] = 25
+		pStats["stats"]["baseRes"] = 100
+	elseif(pClass == "Paladin") then
+		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 2
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 2
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 1
+		pStats["stats"]["basehp"] = 28
+		pStats["stats"]["baseRes"] = 59
+	elseif(pClass == "Shaman") then
+		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
+		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 1
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
+		pStats["stats"]["basehp"] = 29
+		pStats["stats"]["baseRes"] = 55
+	elseif(pClass == "Warlock") then
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
+		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
+		pStats["stats"]["basehp"] = 33
+		pStats["stats"]["baseRes"] = 90
+	elseif(pClass == "Hunter") then
+		pStats["stats"]["attr"]["agi"] = pStats["stats"]["attr"]["agi"] + 3
+		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 1
+		pStats["stats"]["basehp"] = 26
+		pStats["stats"]["baseRes"] = 63
+	elseif(pClass == "Druid") then
+		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
+		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
+		pStats["stats"]["basehp"] = 34
+		pStats["stats"]["baseRes"] = 50
+	elseif(pClass == "Mage") then
+		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 3
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
+		pStats["stats"]["basehp"] = 32
+		pStats["stats"]["baseRes"] = 100
+	elseif(pClass == "Priest") then
+		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
+		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 3
+		pStats["stats"]["basehp"] = 32
+		pStats["stats"]["baseRes"] = 110
+	end
+end
+
+function calculateGlancingBlowMult(pWpnSkill, eDefSkill)
+	return math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
+end
+
 function calculateEquipmentStats(pStats)
-	local pEquipmentStats = {armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0}
-	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","helmet","necklace","shoulders","cloak","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
+	local pEquipmentStats = {ap=0, armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0,hit=0, dodge=0, block=0, blockValue=0,parry=0, resist={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}, skill={Defense=0}}
+	local pAttr = pStats["stats"]["attr"]
+	local pSetPieces = {}
+	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","helmet","necklace","shoulder","cloak","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
 	for i = 1, #equipmentSlots do
-		--pArmor = pArmor + pStats[equipmentSlots[i]]["armor"]
-		--pAttr["str"] = pAttr["str"] + pStats[equipmentSlots[i]]["attr"]["str"]
-		--pAttr["agi"] = pAttr["agi"] + pStats[equipmentSlots[i]]["attr"]["agi"]
-		--pAttr["sta"] = pAttr["sta"] + pStats[equipmentSlots[i]]["attr"]["sta"]
-		--pAttr["int"] = pAttr["int"] + pStats[equipmentSlots[i]]["attr"]["int"]
-		--pAttr["spr"] = pAttr["spr"] + pStats[equipmentSlots[i]]["attr"]["spr"]
 		if not (pStats[equipmentSlots[i]]["type"] == "None") then
 			pEquipmentStats["armor"] = pEquipmentStats["armor"] + pStats[equipmentSlots[i]]["armor"]
+			
 			pEquipmentStats["attr"]["str"] = pEquipmentStats["attr"]["str"] + pStats[equipmentSlots[i]]["attr"]["str"]
 			pEquipmentStats["attr"]["agi"] = pEquipmentStats["attr"]["agi"] + pStats[equipmentSlots[i]]["attr"]["agi"]
 			pEquipmentStats["attr"]["sta"] = pEquipmentStats["attr"]["sta"] + pStats[equipmentSlots[i]]["attr"]["sta"]
 			pEquipmentStats["attr"]["int"] = pEquipmentStats["attr"]["int"] + pStats[equipmentSlots[i]]["attr"]["int"]
 			pEquipmentStats["attr"]["spr"] = pEquipmentStats["attr"]["spr"] + pStats[equipmentSlots[i]]["attr"]["spr"]
+			pEquipmentStats["resist"]["fire"] = pEquipmentStats["resist"]["fire"] + pStats[equipmentSlots[i]]["resist"]["fire"]
+			pEquipmentStats["resist"]["shadow"] = pEquipmentStats["resist"]["shadow"] + pStats[equipmentSlots[i]]["resist"]["shadow"]
+			pEquipmentStats["resist"]["frost"] = pEquipmentStats["resist"]["frost"] + pStats[equipmentSlots[i]]["resist"]["frost"]
+			pEquipmentStats["resist"]["arcane"] = pEquipmentStats["resist"]["arcane"] + pStats[equipmentSlots[i]]["resist"]["arcane"]
+			pEquipmentStats["resist"]["nature"] = pEquipmentStats["resist"]["nature"] + pStats[equipmentSlots[i]]["resist"]["nature"]
+			pEquipmentStats["resist"]["holy"] = pEquipmentStats["resist"]["holy"] + pStats[equipmentSlots[i]]["resist"]["holy"]
+			for k = 1, 3 do
+				if not(pStats[equipmentSlots[i]]["effectId"][k] == 0) then
+					local eqEffect = effect[tostring(pStats[equipmentSlots[i]]["effectId"][k])]
+					local eqStat = tostring(eqEffect["stat"])
+					if(eqEffect["type"] == "IncreaseStat" and eqEffect["condition"] == "Equip") then
+						pEquipmentStats[eqStat] = pEquipmentStats[eqStat] + eqEffect["value"]
+					elseif(eqEffect["type"] == "IncreaseSkill" and eqEffect["condition"] == "Equip") then
+						pEquipmentStats["skill"][eqStat] = pEquipmentStats["skill"][eqStat] + eqEffect["value"]
+					end	
+				end
+			end
+			if not(pStats[equipmentSlots[i]]["setid"] == 0 or pStats[equipmentSlots[i]]["setid"] == nil) then
+				local eqSet = set[tostring(pStats[equipmentSlots[i]]["setid"])]
+				if(pSetPieces[pStats[equipmentSlots[i]]["setid"]] == nil) then
+					table.insert(pSetPieces, pStats[equipmentSlots[i]]["setid"], 1)
+				end
+				pSetPieces[pStats[equipmentSlots[i]]["setid"]] = pSetPieces[pStats[equipmentSlots[i]]["setid"]] + 1
+				for k, v in pairs(eqSet["bonus"]) do
+					if(pSetPieces[pStats[equipmentSlots[i]]["setid"]] == tonumber(k)) then
+						local eqEffect = effect[tostring(v)]
+						local eqStat = tostring(eqEffect["stat"])
+						if(eqEffect["type"] == "IncreaseStat" and eqEffect["condition"] == "Equip") then
+							pEquipmentStats[eqStat] = pEquipmentStats[eqStat] + eqEffect["value"]
+						end
+					end
+				end
+			end
 		end
 	end
-	return pEquipmentStats
+	pStats["stats"]["attr"]["str"] = pAttr["str"] + pEquipmentStats["attr"]["str"]
+	pStats["stats"]["attr"]["agi"] = pAttr["agi"] + pEquipmentStats["attr"]["agi"]
+	pStats["stats"]["attr"]["sta"] = pAttr["sta"] + pEquipmentStats["attr"]["sta"]
+	pStats["stats"]["attr"]["int"] = pAttr["int"] + pEquipmentStats["attr"]["int"]
+	pStats["stats"]["attr"]["spr"] = pAttr["spr"] + pEquipmentStats["attr"]["spr"]
+	pStats["stats"]["crit"] = pStats["stats"]["crit"] + pEquipmentStats["crit"]
+	pStats["stats"]["hit"] = pStats["stats"]["hit"] + pEquipmentStats["hit"]
+	pStats["stats"]["ap"] = pStats["stats"]["ap"] + pEquipmentStats["ap"]
+	pStats["stats"]["rAp"] = pStats["stats"]["rAp"] + pEquipmentStats["ap"]
+	pStats["stats"]["resist"]["fire"] = pStats["stats"]["resist"]["fire"] + pEquipmentStats["resist"]["fire"]
+	pStats["stats"]["resist"]["frost"] = pStats["stats"]["resist"]["frost"] + pEquipmentStats["resist"]["frost"]
+	pStats["stats"]["resist"]["nature"] = pStats["stats"]["resist"]["nature"] + pEquipmentStats["resist"]["nature"]
+	pStats["stats"]["resist"]["arcane"] = pStats["stats"]["resist"]["arcane"] + pEquipmentStats["resist"]["arcane"]
+	pStats["stats"]["resist"]["holy"] = pStats["stats"]["resist"]["holy"] + pEquipmentStats["resist"]["holy"]
+	pStats["stats"]["resist"]["shadow"] = pStats["stats"]["resist"]["shadow"] + pEquipmentStats["resist"]["shadow"]
+	pStats["stats"]["skill"]["Defense"] = pStats["stats"]["skill"]["Defense"] + pEquipmentStats["skill"]["Defense"]
+	pStats["stats"]["armor"] = pStats["stats"]["armor"] + pEquipmentStats["armor"]
+	pStats["stats"]["avoidance"]["block"] = pStats["stats"]["avoidance"]["block"] + pEquipmentStats["block"]
+	pStats["stats"]["avoidance"]["dodge"] = pStats["stats"]["avoidance"]["dodge"] + pEquipmentStats["dodge"]
+	pStats["stats"]["avoidance"]["parry"] = pStats["stats"]["avoidance"]["parry"] + pEquipmentStats["parry"]
+	--tprint(pEquipmentStats)
+	pStats["weaponOH"]["blockValue"] = pStats["weaponOH"]["blockValue"] + pEquipmentStats["blockValue"]
 end
 
 function calculateCombatStats(pStats)
 	local pClass = pStats["stats"]["class"]
 	local pAttr = pStats["stats"]["attr"]
-	local pEquipmentStats = calculateEquipmentStats(pStats)
-
-	pAttr["str"] = pAttr["str"] + pEquipmentStats["attr"]["str"]
-	pAttr["agi"] = pAttr["agi"] + pEquipmentStats["attr"]["agi"]
-	pAttr["sta"] = pAttr["sta"] + pEquipmentStats["attr"]["sta"]
-	pAttr["int"] = pAttr["int"] + pEquipmentStats["attr"]["int"]
-	pAttr["spr"] = pAttr["spr"] + pEquipmentStats["attr"]["spr"]
+	local pAvoidance = pStats["stats"]["avoidance"]
 	-- Strength
 	if(pClass == "Warrior" or pClass == "Shaman" or pClass == "Paladin" or pClass == "Druid") then
 		pStats["stats"]["baseAp"] = 2 * pAttr["str"]
-		pStats["stats"]["ap"] = pStats["stats"]["baseAp"]
 	else
 		pStats["stats"]["baseAp"] = 1 * pAttr["str"]
-		pStats["stats"]["ap"] = pStats["stats"]["baseAp"]
 	end
 	
 	-- Agility
 		-- Melee Ap
 	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Druid") then
 		pStats["stats"]["baseAp"] = pStats["stats"]["baseAp"] + 1 * pAttr["agi"]
-		pStats["stats"]["ap"] = pStats["stats"]["ap"]+ pStats["stats"]["baseAp"]
+		
 	end
 		-- Range Ap
 	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Hunter") then
 		pStats["stats"]["baseRAp"] = 1 * pAttr["agi"]
-		pStats["stats"]["rAp"] = pStats["stats"]["baseRAp"]
+		
 	end
+	local currentAp = pStats["stats"]["ap"]
+	pStats["stats"]["ap"] = currentAp + pStats["stats"]["baseAp"]
+	pStats["stats"]["rAp"] = currentAp + pStats["stats"]["baseRAp"]
 		-- Crit
 	if(pClass == "Warrior" or pClass == "Paladin" or pClass == "Shaman" or pClass == "Warlock") then
 		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 20)
@@ -176,18 +343,20 @@ function calculateCombatStats(pStats)
 	elseif(pClass == "Hunter") then
 		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 53)
 	end
-	pStats["stats"]["crit"] = pStats["stats"]["baseCrit"] + pEquipmentStats["crit"]
+	local currentCrit = pStats["stats"]["crit"]
+	pStats["stats"]["crit"] = pStats["stats"]["baseCrit"] + currentCrit
 		-- Dodge
 	if(pClass == "Rogue") then
-		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 14.5)
+		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 14.5)
 	elseif(pClass == "Hunter") then
-		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 26)
+		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 26)
 	else
-		pStats["stats"]["avoidance"]["dodge"] = 1 * ( pAttr["agi"] / 20)
+		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 20)
 	end
 		-- Armor
 	pStats["stats"]["baseArmor"] = 2 * pAttr["agi"]
-	pStats["stats"]["armor"] = pStats["stats"]["baseArmor"] + pEquipmentStats["armor"]
+	local currentArmor = pStats["stats"]["armor"]
+	pStats["stats"]["armor"] = pStats["stats"]["baseArmor"] + currentArmor
 
 	-- Stamina
 		-- HP
@@ -204,15 +373,15 @@ function calculateCombatStats(pStats)
 	end
 		-- Spellcrit
 	if (pClass == "Paladin") then
-		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 54)
+		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 54)
 	elseif (pClass == "Shaman") then
-		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 59.2)
+		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 59.2)
 	elseif (pClass == "Mage" or pClass == "Priest") then
-		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 59.5)
+		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 59.5)
 	elseif (pClass == "Druid") then
-		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 60)
+		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 60)
 	elseif (pClass == "Warlock") then
-		pStats["stats"]["SCrit"] = pStats["stats"]["BaseSCrit"] + 1 * (pAttr["int"] / 60.6)
+		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 60.6)
 	end
 
 	-- Spirit
@@ -237,7 +406,43 @@ function calculateCombatStats(pStats)
 	elseif(pClass == "Rogue") then
 		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.5) + 2
 	end
+end
 
+function calculateRacials(pStats)
+	local pRace = pStats["stats"]["race"]
+	local pAttr = pStats["stats"]["attr"]
+	local pSkill = pStats["stats"]["skill"]
+	local pResistance = pStats["stats"]["resist"]
+	local pProfession = pStats["stats"]["profession"]
+	if(pRace == "Human") then
+		pStats["stats"]["attr"]["spr"] = math.floor(pAttr["spr"] + pAttr["spr"] * 0.05)
+		pStats["stats"]["skill"]["OneHandedSword"] = pSkill["OneHandedSword"] + 5
+		pStats["stats"]["skill"]["OneHandedMace"] = pSkill["OneHandedMace"] + 5
+		pStats["stats"]["skill"]["TwoHandedSword"] = pSkill["TwoHandedSword"] + 5
+		pStats["stats"]["skill"]["TwoHandedMace"] = pSkill["TwoHandedMace"] + 5
+	elseif(pRace == "Dwarf") then
+		pStats["stats"]["resist"]["frost"] = pResistance["frost"] + 10
+		pStats["stats"]["skill"]["Gun"] = pSkill["Gun"] + 5
+	elseif(pRace == "Gnome") then
+		pStats["stats"]["resist"]["arcane"] = pResistance["arcane"] + 10
+		pStats["stats"]["profession"]["engineering"] = pProfession["engineering"] + 15
+		pStats["stats"]["attr"]["int"] = math.floor(pAttr["int"] + pAttr["int"] * 0.05)
+	elseif(pRace == "Nightelf") then
+		pStats["stats"]["resist"]["nature"] = pResistance["nature"] + 10
+		pStats["stats"]["avoidance"]["dodge"] = pStats["stats"]["avoidance"]["dodge"] + 1
+	elseif(pRace == "Orc") then
+		pStats["stats"]["skill"]["OneHandedAxe"] = pSkill["OneHandedAxe"] + 5
+		pStats["stats"]["skill"]["TwoHandedAxe"] = pSkill["TwoHandedAxe"] + 5
+	elseif(pRace == "Tauren") then
+		pStats["stats"]["resist"]["nature"] = pResistance["nature"] + 10
+		pStats["stats"]["profession"]["herbalism"] = pProfession["herbalism"] + 15
+	elseif(pRace == "Undead") then
+		pStats["stats"]["resist"]["shadow"] = pResistance["shadow"] + 10
+	elseif(pRace == "Troll") then
+		pStats["stats"]["skill"]["Throwing"] = pSkill["Throwing"] + 5
+		pStats["stats"]["skill"]["Bow"] = pSkill["Bow"] + 5
+		pStats["stats"]["hpregen"] = pStats["stats"]["hpregen"] + pStats["stats"]["hpregen"] * 0.10
+	end
 end
 
 function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, dualWield, special)
@@ -257,6 +462,96 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, dualWield, special)
 		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1) + pHitBonus)
 	end
 	return rHitChance
+end
+
+function calculateProcs(pStats, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
+	local eqChance = {"weaponMH","weaponOH","weaponRanged","trinket1","trinket2"}
+	local procDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+	local procs = {}
+	local blockDamage = 0
+	for i = 1, #eqChance do
+		for k = 1, 3 do
+			if not(pStats[eqChance[i]]["effectId"][k] == 0) then
+				local eqEffect = effect[tostring(pStats[eqChance[i]]["effectId"][k])]
+				local eqStat = tostring(eqEffect["stat"])
+				if(eqEffect["type"] == "DirectDamage" and eqEffect["condition"] == "OnHit") then
+					local procChance = math.random()*100
+					if(procChance <= eqEffect["chance"]) then
+						local critChance = math.random()*100
+						local phyMult = 1
+						local eleMult = 1
+						if(critChance <= pCrit) then
+							phyMult = 2
+							eleMult = 1.5
+						end
+						table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),schools=eqEffect["schools"], phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
+						--procDamage["Physical"]["min"] = procDamage["Physical"]["min"] + eqEffect["schools"]["phy"]["min"] * phyMult
+						--procDamage["Physical"]["max"] = procDamage["Physical"]["max"] + eqEffect["schools"]["phy"]["max"] * phyMult
+						--procDamage["Fire"]["min"] = procDamage["Fire"]["min"] + eqEffect["schools"]["fire"]["min"] * eleMult
+						--procDamage["Fire"]["max"] = procDamage["Fire"]["max"] + eqEffect["schools"]["fire"]["max"] * eleMult
+						--procDamage["Frost"]["min"] = procDamage["Frost"]["min"] + eqEffect["schools"]["frost"]["min"] * eleMult
+						--procDamage["Frost"]["max"] = procDamage["Frost"]["max"] + eqEffect["schools"]["frost"]["max"] * eleMult
+						--procDamage["Nature"]["min"] = procDamage["Nature"]["min"] + eqEffect["schools"]["nature"]["min"] * eleMult
+						--procDamage["Nature"]["max"] = procDamage["Nature"]["max"] + eqEffect["schools"]["nature"]["max"] * eleMult
+						--procDamage["Arcane"]["min"] = procDamage["Arcane"]["min"] + eqEffect["schools"]["arcane"]["min"] * eleMult
+						--procDamage["Arcane"]["max"] = procDamage["Arcane"]["max"] + eqEffect["schools"]["arcane"]["max"] * eleMult
+						--procDamage["Holy"]["min"] = procDamage["Holy"]["min"] + eqEffect["schools"]["holy"]["min"] * eleMult
+						--procDamage["Holy"]["max"] = procDamage["Holy"]["max"] + eqEffect["schools"]["holy"]["max"] * eleMult
+						--procDamage["Shadow"]["min"] = procDamage["Shadow"]["min"] + eqEffect["schools"]["shadow"]["min"] * eleMult
+						--procDamage["Shadow"]["max"] = procDamage["Shadow"]["max"] + eqEffect["schools"]["shadow"]["max"] * eleMult
+					end
+				elseif(eqEffect["type"] == "ExtraAttack" and eqEffect["condition"] == "OnHit") then
+					local procChance = math.random()*100
+					if(procChance <= eqEffect["chance"]) then
+						for runs = 1, eqEffect["value"] do
+							local pExtraHit = 0
+							pExtraHit = getAttackResult(pAttackTable, false, pCrit)
+							if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
+								local pExtraHitDamage = {min=pStats["weaponMH"]["schools"]["phy"]["min"],max=pStats["weaponMH"]["schools"]["phy"]["max"],blocked=0}
+								local pExtraHitMult = 1
+								if(pExtraHit == "crit") then
+									pExtraHitMult = 2
+								elseif(pExtraHit == "glancingBlow") then
+									pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats["weaponMH"]["type"]], eDefSkill)
+								elseif(pExtraHit == "block") then
+									local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
+									local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
+									pExtraHitDamage["min"] = blockDamageMin["dmg"]
+									pExtraHitDamage["max"] = blockDamageMax["dmg"]
+									pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
+								end
+								table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),ap=pStats["stats"]["ap"],schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
+								--procDamage["Physical"]["min"] = procDamage["Physical"]["min"] + pExtraHitDamage["min"] * pExtraHitMult
+								--procDamage["Physical"]["max"] = procDamage["Physical"]["max"] + pExtraHitDamage["max"] * pExtraHitMult
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	for k, v in pairs(procs) do
+		local proc = getRandomDamage(procs[k])
+		for j, l in pairs(proc) do
+			if(j == "phy") then
+				l = l * procs[k]["phyMult"]
+			else
+				l = l * procs[k]["eleMult"]
+			end
+		end
+		local procDamageSchools = calculateDamage(proc, procs[k]["ap"], eDmgReduction)
+		print(procs[k]["source"].."["..procs[k]["id"].."] proc with "..procDamageSchools["phy"].."phy ("..procs[k]["blocked"].." blocked) and +"..procs[k]["ap"].."ap")
+		procDamage["phy"] = procDamage["phy"] + procDamageSchools["phy"]
+		procDamage["fire"] = procDamage["fire"] + procDamageSchools["fire"]
+		procDamage["frost"] = procDamage["frost"] + procDamageSchools["frost"]
+		procDamage["arcane"] = procDamage["arcane"] + procDamageSchools["arcane"]
+		procDamage["nature"] = procDamage["nature"] + procDamageSchools["nature"]
+		procDamage["shadow"] = procDamage["shadow"] + procDamageSchools["shadow"]
+		procDamage["holy"] = procDamage["holy"] + procDamageSchools["holy"]
+		blockDamage = blockDamage + procs[k]["blocked"]
+	end
+	--procDamage = calculateDamage(procDamage, procAp, eDmgReduction)
+	return {damage=procDamage,blocked=blockDamage}
 end
 
 function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob)
@@ -511,26 +806,27 @@ end
 
 
 function getRandomDamage(weapon)
-	local physDamage, fireDamage, frostDamage, arcaneDamage, natureDamage, shadowDamage, holyDamage = 0,0,0,0,0,0,0
-	local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
+	local damage={phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+	local schools = {"phy","fire","frost","arcane","holy","shadow","nature"}
 	for i = 1, #schools do
-		if(schools[i] == "Physical") then
-			physDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Fire") then
-			fireDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Frost") then
-			frostDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Arcane") then
-			arcaneDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Nature") then
-			natureDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Shadow") then
-			shadowDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		elseif(schools[i] == "Holy") then
-			holyDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		end
+		damage[schools[i]] = math.random(weapon["schools"][schools[i]]["min"] , weapon["schools"][schools[i]]["max"])
+		--if(schools[i] == "Physical") then
+		--	physDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Fire") then
+		--	fireDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Frost") then
+		--	frostDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Arcane") then
+		--	arcaneDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Nature") then
+		--	natureDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Shadow") then
+		--	shadowDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--elseif(schools[i] == "Holy") then
+		--	holyDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
+		--end
 	end
-	return {phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}
+	return damage--{phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}
 end
 
 function tprint (t, s)

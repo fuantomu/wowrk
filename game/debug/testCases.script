@@ -44,7 +44,7 @@ function on_message(self, message_id, message, sender)
 	elseif(message_id == hash("returnAttackResult")) then
 		testResults[message.result] = testResults[message.result] + 1
 		testDamageResult = testDamageResult + message.damageResult
-		print("Result: "..message.rawDamage["phy"].." raw; "..math.floor(message.reducedDamage["phy"]*100).."% reduction: "..message.result.." with "..message.damageResult.." ("..message.blockedDamage["blocked"].." blocked)")
+		print("Result: "..(message.rawDamage["phy"]+message.procDamage["phy"]).." raw; "..math.floor(message.reducedDamage["phy"]*100).."% reduction: "..message.result.." with "..message.damageResult.." ("..message.blockedDamage.." blocked), Proc: "..message.procDamage["phy"])
 		--tprint(message.damageTable)
 	elseif(message_id == hash("testDone")) then
 		print("Test results for "..testAmount.." runs:")
