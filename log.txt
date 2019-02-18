@@ -1,650 +1,227 @@
 INFO:DLIB: Writing log to: ./log.txt
-INFO:ENGINE: Loading data from: http://127.0.0.1:52253/build
+INFO:ENGINE: Loading data from: build/default
 INFO:ENGINE: Initialised sound device 'default'
 
 DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
-DEBUG:SCRIPT: table["weaponOH"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["phy"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["phy"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["setid"] = 0
-DEBUG:SCRIPT: table["weaponOH"]["type"] = "Shield"
-DEBUG:SCRIPT: table["weaponOH"]["blockValue"] = 80
-DEBUG:SCRIPT: table["weaponOH"]["armor"] = 150
-DEBUG:SCRIPT: table["weaponOH"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["weaponOH"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["weaponOH"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["feet"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["feet"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["feet"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["feet"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["feet"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["feet"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["feet"]["type"] = "Plate"
-DEBUG:SCRIPT: table["feet"]["armor"] = 50
-DEBUG:SCRIPT: table["feet"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["feet"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["feet"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["trinket2"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["trinket2"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["trinket2"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["trinket2"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["trinket2"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["trinket2"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["trinket2"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["trinket2"]["armor"] = 0
-DEBUG:SCRIPT: table["trinket2"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["trinket2"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["trinket2"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["necklace"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["necklace"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["necklace"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["necklace"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["necklace"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["necklace"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["necklace"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["necklace"]["armor"] = 0
-DEBUG:SCRIPT: table["necklace"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["necklace"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["necklace"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["ring1"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["ring1"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["ring1"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["ring1"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["ring1"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["ring1"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["ring1"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["ring1"]["armor"] = 0
-DEBUG:SCRIPT: table["ring1"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["ring1"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["ring1"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["type"] = "Gun"
-DEBUG:SCRIPT: table["weaponRanged"]["armor"] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["weaponRanged"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["chest"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["chest"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["chest"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["chest"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["chest"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["chest"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["chest"]["type"] = "Plate"
-DEBUG:SCRIPT: table["chest"]["armor"] = 50
-DEBUG:SCRIPT: table["chest"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["chest"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["chest"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["legs"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["legs"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["legs"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["legs"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["legs"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["legs"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["legs"]["type"] = "Plate"
-DEBUG:SCRIPT: table["legs"]["armor"] = 50
-DEBUG:SCRIPT: table["legs"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["legs"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["legs"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["trinket1"]["rlevel"] = 53
-DEBUG:SCRIPT: table["trinket1"]["blockValue"] = 0
-DEBUG:SCRIPT: table["trinket1"]["slot"] = "trinket1"
-DEBUG:SCRIPT: table["trinket1"]["unique"] = 1
-DEBUG:SCRIPT: table["trinket1"]["ilevel"] = 58
-DEBUG:SCRIPT: table["trinket1"]["effectId"][1] = 15600
-DEBUG:SCRIPT: table["trinket1"]["effectId"][2] = 9331
-DEBUG:SCRIPT: table["trinket1"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["trinket1"]["quality"] = 3
-DEBUG:SCRIPT: table["trinket1"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["trinket1"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["trinket1"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["trinket1"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["trinket1"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["trinket1"]["icon"] = "inv_jewelry_talisman_01"
-DEBUG:SCRIPT: table["trinket1"]["rrank"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["trinket1"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["trinket1"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["trinket1"]["durability"]["max"] = 0
-DEBUG:SCRIPT: table["trinket1"]["durability"]["current"] = 0
-DEBUG:SCRIPT: table["trinket1"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["trinket1"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["trinket1"]["armor"] = 0
-DEBUG:SCRIPT: table["trinket1"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["trinket1"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["trinket1"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["trinket1"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["trinket1"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["trinket1"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["trinket1"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["trinket1"]["setid"] = 0
-DEBUG:SCRIPT: table["trinket1"]["bind"] = 1
-DEBUG:SCRIPT: table["trinket1"]["value"] = 10000
-DEBUG:SCRIPT: table["trinket1"]["name"] = "Hand of Justice"
-DEBUG:SCRIPT: table["trinket1"]["lore"] = ""
-DEBUG:SCRIPT: table["waist"]["rlevel"] = 60
-DEBUG:SCRIPT: table["waist"]["blockValue"] = 0
-DEBUG:SCRIPT: table["waist"]["slot"] = "waist"
-DEBUG:SCRIPT: table["waist"]["unique"] = 0
-DEBUG:SCRIPT: table["waist"]["ilevel"] = 66
-DEBUG:SCRIPT: table["waist"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["waist"]["effectId"][2] = 13669
-DEBUG:SCRIPT: table["waist"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["waist"]["quality"] = 4
-DEBUG:SCRIPT: table["waist"]["attr"]["sta"] = 15
-DEBUG:SCRIPT: table["waist"]["attr"]["str"] = 21
-DEBUG:SCRIPT: table["waist"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["waist"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["waist"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["waist"]["icon"] = "inv_belt_09"
-DEBUG:SCRIPT: table["waist"]["rrank"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["waist"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["waist"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["waist"]["durability"]["max"] = 55
-DEBUG:SCRIPT: table["waist"]["durability"]["current"] = 55
-DEBUG:SCRIPT: table["waist"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["waist"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["waist"]["armor"] = 421
-DEBUG:SCRIPT: table["waist"]["type"] = "Plate"
-DEBUG:SCRIPT: table["waist"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["waist"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["waist"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["waist"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["waist"]["resist"]["fire"] = 7
-DEBUG:SCRIPT: table["waist"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["waist"]["setid"] = 209
-DEBUG:SCRIPT: table["waist"]["bind"] = 2
-DEBUG:SCRIPT: table["waist"]["value"] = 17981
-DEBUG:SCRIPT: table["waist"]["name"] = "Belt of Might"
-DEBUG:SCRIPT: table["waist"]["lore"] = ""
-DEBUG:SCRIPT: table["shoulder"]["rlevel"] = 60
-DEBUG:SCRIPT: table["shoulder"]["blockValue"] = 0
-DEBUG:SCRIPT: table["shoulder"]["slot"] = "shoulder"
-DEBUG:SCRIPT: table["shoulder"]["unique"] = 0
-DEBUG:SCRIPT: table["shoulder"]["ilevel"] = 66
-DEBUG:SCRIPT: table["shoulder"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["shoulder"]["effectId"][2] = 13675
-DEBUG:SCRIPT: table["shoulder"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["shoulder"]["quality"] = 4
-DEBUG:SCRIPT: table["shoulder"]["attr"]["sta"] = 22
-DEBUG:SCRIPT: table["shoulder"]["attr"]["str"] = 15
-DEBUG:SCRIPT: table["shoulder"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["shoulder"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["shoulder"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["shoulder"]["icon"] = "inv_shoulder_15"
-DEBUG:SCRIPT: table["shoulder"]["rrank"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["shoulder"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["shoulder"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["shoulder"]["durability"]["max"] = 100
-DEBUG:SCRIPT: table["shoulder"]["durability"]["current"] = 100
-DEBUG:SCRIPT: table["shoulder"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["shoulder"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["shoulder"]["armor"] = 562
-DEBUG:SCRIPT: table["shoulder"]["type"] = "Plate"
-DEBUG:SCRIPT: table["shoulder"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["shoulder"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["shoulder"]["resist"]["shadow"] = 7
-DEBUG:SCRIPT: table["shoulder"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["shoulder"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["shoulder"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["shoulder"]["setid"] = 209
-DEBUG:SCRIPT: table["shoulder"]["bind"] = 1
-DEBUG:SCRIPT: table["shoulder"]["value"] = 27364
-DEBUG:SCRIPT: table["shoulder"]["name"] = "Pauldrons of Might"
-DEBUG:SCRIPT: table["shoulder"]["lore"] = ""
-DEBUG:SCRIPT: table["ring2"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["ring2"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["ring2"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["ring2"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["ring2"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["ring2"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["ring2"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["ring2"]["armor"] = 0
-DEBUG:SCRIPT: table["ring2"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["ring2"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["ring2"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["hands"]["rlevel"] = 60
-DEBUG:SCRIPT: table["hands"]["blockValue"] = 0
-DEBUG:SCRIPT: table["hands"]["slot"] = "hands"
-DEBUG:SCRIPT: table["hands"]["unique"] = 0
-DEBUG:SCRIPT: table["hands"]["ilevel"] = 66
-DEBUG:SCRIPT: table["hands"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["hands"]["effectId"][2] = 15464
-DEBUG:SCRIPT: table["hands"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["hands"]["quality"] = 4
-DEBUG:SCRIPT: table["hands"]["attr"]["sta"] = 17
-DEBUG:SCRIPT: table["hands"]["attr"]["str"] = 22
-DEBUG:SCRIPT: table["hands"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["hands"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["hands"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["hands"]["icon"] = "inv_gauntlets_10"
-DEBUG:SCRIPT: table["hands"]["rrank"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["hands"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["hands"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["hands"]["durability"]["max"] = 55
-DEBUG:SCRIPT: table["hands"]["durability"]["current"] = 55
-DEBUG:SCRIPT: table["hands"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["hands"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["hands"]["armor"] = 421
-DEBUG:SCRIPT: table["hands"]["type"] = "Plate"
-DEBUG:SCRIPT: table["hands"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["hands"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["hands"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["hands"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["hands"]["resist"]["fire"] = 7
-DEBUG:SCRIPT: table["hands"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["hands"]["setid"] = 209
-DEBUG:SCRIPT: table["hands"]["bind"] = 1
-DEBUG:SCRIPT: table["hands"]["value"] = 17916
-DEBUG:SCRIPT: table["hands"]["name"] = "Gauntlets of Might"
-DEBUG:SCRIPT: table["hands"]["lore"] = ""
-DEBUG:SCRIPT: table["cloak"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["cloak"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["cloak"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["cloak"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["cloak"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["cloak"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["cloak"]["type"] = "Cloth"
-DEBUG:SCRIPT: table["cloak"]["armor"] = 50
-DEBUG:SCRIPT: table["cloak"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["cloak"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["cloak"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["helmet"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["helmet"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["helmet"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["helmet"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["helmet"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["helmet"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["helmet"]["type"] = "Plate"
-DEBUG:SCRIPT: table["helmet"]["armor"] = 50
-DEBUG:SCRIPT: table["helmet"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["helmet"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["helmet"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["wrists"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["wrists"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["wrists"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["wrists"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["wrists"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["wrists"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["wrists"]["type"] = "Plate"
-DEBUG:SCRIPT: table["wrists"]["armor"] = 50
-DEBUG:SCRIPT: table["wrists"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["wrists"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["wrists"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["weaponMH"]["rlevel"] = 58
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["phy"]["max"] = 227
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["phy"]["min"] = 151
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["blockValue"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["armor"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["unique"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["ilevel"] = 63
-DEBUG:SCRIPT: table["weaponMH"]["effectId"][1] = 16549
-DEBUG:SCRIPT: table["weaponMH"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["weaponMH"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["weaponMH"]["quality"] = 3
-DEBUG:SCRIPT: table["weaponMH"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["aspd"] = 3.5
-DEBUG:SCRIPT: table["weaponMH"]["durability"]["max"] = 100
-DEBUG:SCRIPT: table["weaponMH"]["durability"]["current"] = 100
-DEBUG:SCRIPT: table["weaponMH"]["rrank"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["lore"] = ""
-DEBUG:SCRIPT: table["weaponMH"]["icon"] = "inv_weapon_halberd_04"
-DEBUG:SCRIPT: table["weaponMH"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["mage"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["warlock"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["rogue"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["priest"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["paladin"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["shaman"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["class"]["hunter"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["type"] = "Polearm"
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["setid"] = 0
-DEBUG:SCRIPT: table["weaponMH"]["bind"] = 1
-DEBUG:SCRIPT: table["weaponMH"]["value"] = 74346
-DEBUG:SCRIPT: table["weaponMH"]["name"] = "Blackhand Doomsaw"
-DEBUG:SCRIPT: table["weaponMH"]["slot"] = "weaponMH"
-DEBUG:SCRIPT: table["stats"]["ap"] = 202
-DEBUG:SCRIPT: table["stats"]["basehp"] = 20
-DEBUG:SCRIPT: table["stats"]["baseAp"] = 182
-DEBUG:SCRIPT: table["stats"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["stats"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["stats"]["resist"]["shadow"] = 7
-DEBUG:SCRIPT: table["stats"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["stats"]["resist"]["fire"] = 14
-DEBUG:SCRIPT: table["stats"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["stats"]["armor"] = 1894
-DEBUG:SCRIPT: table["stats"]["profession"]["herbalism"] = 0
-DEBUG:SCRIPT: table["stats"]["profession"]["engineering"] = 0
-DEBUG:SCRIPT: table["stats"]["sHit"] = 0
-DEBUG:SCRIPT: table["stats"]["resMax"] = 100
-DEBUG:SCRIPT: table["stats"]["baseSp"] = 0
-DEBUG:SCRIPT: table["stats"]["baseSCrit"] = 0
-DEBUG:SCRIPT: table["stats"]["sp"] = 0
-DEBUG:SCRIPT: table["stats"]["skill"]["TwoHandedMace"] = 305
-DEBUG:SCRIPT: table["stats"]["skill"]["Defense"] = 315
-DEBUG:SCRIPT: table["stats"]["skill"]["Throwing"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["OneHandedAxe"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["Unarmed"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["Bow"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["Dagger"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["OneHandedSword"] = 305
-DEBUG:SCRIPT: table["stats"]["skill"]["Polearm"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["TwoHandedAxe"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["OneHandedMace"] = 305
-DEBUG:SCRIPT: table["stats"]["skill"]["Fistweapon"] = 300
-DEBUG:SCRIPT: table["stats"]["skill"]["TwoHandedSword"] = 305
-DEBUG:SCRIPT: table["stats"]["skill"]["Gun"] = 300
-DEBUG:SCRIPT: table["stats"]["attr"]["sta"] = 76
-DEBUG:SCRIPT: table["stats"]["attr"]["str"] = 81
-DEBUG:SCRIPT: table["stats"]["attr"]["agi"] = 20
-DEBUG:SCRIPT: table["stats"]["attr"]["spr"] = 21
-DEBUG:SCRIPT: table["stats"]["attr"]["int"] = 20
-DEBUG:SCRIPT: table["stats"]["sCrit"] = 0
-DEBUG:SCRIPT: table["stats"]["crit"] = 1
-DEBUG:SCRIPT: table["stats"]["baseRAp"] = 20
-DEBUG:SCRIPT: table["stats"]["hpRegen"] = 22
-DEBUG:SCRIPT: table["stats"]["baseCrit"] = 1
-DEBUG:SCRIPT: table["stats"]["baseArmor"] = 40
-DEBUG:SCRIPT: table["stats"]["class"] = "Warrior"
-DEBUG:SCRIPT: table["stats"]["avoidance"]["dodge"] = 2
-DEBUG:SCRIPT: table["stats"]["avoidance"]["block"] = 7
-DEBUG:SCRIPT: table["stats"]["avoidance"]["parry"] = 5
-DEBUG:SCRIPT: table["stats"]["race"] = "Human"
-DEBUG:SCRIPT: table["stats"]["rAp"] = 40
-DEBUG:SCRIPT: table["stats"]["hit"] = 1
-DEBUG:SCRIPT: table["stats"]["baseRes"] = 100
-DEBUG:SCRIPT: table["stats"]["hpCurrent"] = 0
-DEBUG:SCRIPT: table["stats"]["hpMax"] = 600
-DEBUG:SCRIPT: table["stats"]["resCurrent"] = 0
-DEBUG:SCRIPT: table["stats"]["mpRegen"] = 0
-DEBUG:SCRIPT: table["stats"]["level"] = 60
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 117phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 266phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 323 raw; 42% reduction: glancingBlow with 89.6 (0 blocked), Proc: 117
-DEBUG:SCRIPT: Result: 202 raw; 42% reduction: glancingBlow with 88.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 431 raw; 42% reduction: glancingBlow with 72.8 (0 blocked), Proc: 266
-DEBUG:SCRIPT: Result: 223 raw; 42% reduction: glancingBlow with 96.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 213 raw; 42% reduction: hit with 132 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 168 raw; 42% reduction: glancingBlow with 74.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 174 raw; 42% reduction: hit with 109 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Wound[16549] proc with 311phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Wound[16549] proc with 311phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 135phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 533 raw; 42% reduction: glancingBlow with 95.9 (0 blocked), Proc: 311
-DEBUG:SCRIPT: Result: 202 raw; 42% reduction: glancingBlow with 88.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 186 raw; 42% reduction: hit with 116 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 167 raw; 42% reduction: hit with 105 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 493 raw; 42% reduction: hit with 114 (0 blocked), Proc: 311
-DEBUG:SCRIPT: Result: 158 raw; 42% reduction: glancingBlow with 70 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 159 raw; 42% reduction: glancingBlow with 70.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 307 raw; 42% reduction: block with 48 (60 blocked), Proc: 135
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 121phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 137phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 197phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Wound[16549] proc with 201phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 335 raw; 42% reduction: hit with 132 (0 blocked), Proc: 121
-DEBUG:SCRIPT: Result: 317 raw; 42% reduction: hit with 113 (0 blocked), Proc: 137
-DEBUG:SCRIPT: Result: 366 raw; 42% reduction: hit with 106 (0 blocked), Proc: 197
-DEBUG:SCRIPT: Result: 157 raw; 42% reduction: hit with 99 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 171 raw; 42% reduction: glancingBlow with 75.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 188 raw; 42% reduction: hit with 117 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 218 raw; 42% reduction: hit with 135 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 186 raw; 42% reduction: hit with 116 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 195 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 352 raw; 42% reduction: glancingBlow with 67.2 (0 blocked), Proc: 201
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 122phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 200 raw; 42% reduction: glancingBlow with 86.8 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 210 raw; 42% reduction: glancingBlow with 91 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 334 raw; 42% reduction: glancingBlow with 91.7 (0 blocked), Proc: 122
-DEBUG:SCRIPT: Result: 222 raw; 42% reduction: glancingBlow with 95.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 162 raw; 42% reduction: glancingBlow with 71.4 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 155 raw; 42% reduction: hit with 98 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 199 raw; 42% reduction: hit with 124 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 151 raw; 42% reduction: glancingBlow with 67.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 119phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 189 raw; 42% reduction: hit with 118 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 156 raw; 42% reduction: block with 39 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 174 raw; 42% reduction: hit with 109 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 217 raw; 42% reduction: glancingBlow with 93.8 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 215 raw; 42% reduction: hit with 133 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 211 raw; 42% reduction: glancingBlow with 91.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 314 raw; 42% reduction: hit with 121 (0 blocked), Proc: 119
-DEBUG:SCRIPT: Result: 200 raw; 42% reduction: hit with 124 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 179 raw; 42% reduction: hit with 112 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 201 raw; 42% reduction: glancingBlow with 87.5 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 205 raw; 42% reduction: glancingBlow with 88.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 204 raw; 42% reduction: glancingBlow with 88.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 201 raw; 42% reduction: glancingBlow with 87.5 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 169 raw; 42% reduction: glancingBlow with 74.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 187 raw; 42% reduction: hit with 117 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 153 raw; 42% reduction: block with 37 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 137phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 202phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 115phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 208 raw; 42% reduction: glancingBlow with 90.3 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 218 raw; 42% reduction: hit with 135 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 222 raw; 42% reduction: glancingBlow with 95.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 173 raw; 42% reduction: hit with 109 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 158 raw; 42% reduction: hit with 100 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 151 raw; 42% reduction: glancingBlow with 67.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 337 raw; 42% reduction: block with 64 (60 blocked), Proc: 137
-DEBUG:SCRIPT: Result: 361 raw; 42% reduction: hit with 101 (0 blocked), Proc: 202
-DEBUG:SCRIPT: Result: 190 raw; 42% reduction: hit with 119 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 289 raw; 42% reduction: glancingBlow with 76.3 (0 blocked), Proc: 115
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 126phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 229phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 122phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 299phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 97phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 128phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 220phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 211 raw; 42% reduction: glancingBlow with 91.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 521 raw; 42% reduction: hit with 105 (0 blocked), Proc: 355
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 647 raw; 42% reduction: glancingBlow with 97.3 (0 blocked), Proc: 421
-DEBUG:SCRIPT: Result: 305 raw; 42% reduction: hit with 129 (0 blocked), Proc: 97
-DEBUG:SCRIPT: Result: 152 raw; 42% reduction: block with 37 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 153 raw; 42% reduction: glancingBlow with 67.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 216 raw; 42% reduction: hit with 134 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 528 raw; 42% reduction: hit with 113 (0 blocked), Proc: 348
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 108phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 289phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 200 raw; 42% reduction: hit with 124 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 581 raw; 42% reduction: glancingBlow with 80.5 (0 blocked), Proc: 397
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 157 raw; 42% reduction: glancingBlow with 69.3 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 181 raw; 42% reduction: glancingBlow with 79.1 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 182 raw; 42% reduction: hit with 114 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 201 raw; 42% reduction: hit with 125 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Wound[16549] proc with 264phy (0 blocked) and +0ap
+INFO:DLIB: SSDP: Started on address 169.254.27.165
+INFO:DLIB: SSDP: Started on address 192.168.0.2
+DEBUG:SCRIPT: Wound[16549] proc with 218phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 131phy (0 blocked) and +202ap
 DEBUG:SCRIPT: Hand of Justice[15600] proc with 124phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Wound[16549] proc with 190phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 109phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 472 raw; 42% reduction: hit with 129 (0 blocked), Proc: 264
-DEBUG:SCRIPT: Result: 279 raw; 42% reduction: hit with 98 (0 blocked), Proc: 124
-DEBUG:SCRIPT: Result: 166 raw; 42% reduction: block with 45 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 388 raw; 42% reduction: glancingBlow with 86.1 (0 blocked), Proc: 190
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 102phy (0 blocked) and +202ap
+DEBUG:SCRIPT: Result: 184 raw; 42% reduction: hit with 115 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 159 raw; 42% reduction: block with 41 (60 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 224 raw; 42% reduction: glancingBlow with 96.6 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 374 raw; 42% reduction: hit with 99 (0 blocked), Proc: 218
+DEBUG:SCRIPT: Result: 325 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 131
+DEBUG:SCRIPT: Result: 298 raw; 42% reduction: glancingBlow with 76.3 (0 blocked), Proc: 124
+DEBUG:SCRIPT: Result: 301 raw; 42% reduction: glancingBlow with 86.8 (0 blocked), Proc: 102
+DEBUG:SCRIPT: Result: 153 raw; 42% reduction: block with 37 (60 blocked), Proc: 0
 DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 185 raw; 42% reduction: hit with 116 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 323 raw; 42% reduction: glancingBlow with 92.4 (0 blocked), Proc: 109
-DEBUG:SCRIPT: Result: 204 raw; 42% reduction: hit with 127 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: Wound[16549] proc with 266phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Result: 204 raw; 42% reduction: glancingBlow with 88.9 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 172 raw; 42% reduction: block with 49 (60 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 197 raw; 42% reduction: block with 63 (60 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77.7 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 216 raw; 42% reduction: hit with 134 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 206 raw; 42% reduction: hit with 129 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 489 raw; 42% reduction: hit with 139 (0 blocked), Proc: 266
+DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77.7 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 153 raw; 42% reduction: hit with 98 (0 blocked), Proc: 0
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 113phy (0 blocked) and +242ap
+DEBUG:SCRIPT: Wound[16549] proc with 198phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 84phy (60 blocked) and +242ap
+DEBUG:SCRIPT: Wound[16549] proc with 246phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Result: 209 raw; 42% reduction: glancingBlow with 91.7 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 270 raw; 42% reduction: hit with 101 (0 blocked), Proc: 113
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 225 raw; 42% reduction: glancingBlow with 98.7 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 184 raw; 42% reduction: hit with 117 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 385 raw; 42% reduction: hit with 118 (0 blocked), Proc: 198
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 167 raw; 42% reduction: hit with 107 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 219 raw; 42% reduction: glancingBlow with 95.9 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 527 raw; 42% reduction: glancingBlow with 86.8 (60 blocked), Proc: 330
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 127phy (0 blocked) and +202ap
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 105phy (0 blocked) and +202ap
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 190 raw; 42% reduction: glancingBlow with 83.3 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 200 raw; 42% reduction: block with 64 (60 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 208 raw; 42% reduction: hit with 129 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 317 raw; 42% reduction: block with 59 (60 blocked), Proc: 127
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 331 raw; 42% reduction: hit with 139 (0 blocked), Proc: 105
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 214 raw; 42% reduction: glancingBlow with 92.4 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 183 raw; 42% reduction: glancingBlow with 79.8 (0 blocked), Proc: 0
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 139phy (0 blocked) and +222ap
+DEBUG:SCRIPT: Result: 179 raw; 42% reduction: glancingBlow with 79.1 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 160 raw; 42% reduction: glancingBlow with 71.4 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 306 raw; 42% reduction: hit with 106 (0 blocked), Proc: 139
+DEBUG:SCRIPT: Result: 216 raw; 42% reduction: hit with 134 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 155 raw; 42% reduction: block with 39 (60 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 222 raw; 42% reduction: glancingBlow with 96.6 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 166 raw; 42% reduction: glancingBlow with 73.5 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 81phy (60 blocked) and +222ap
+DEBUG:SCRIPT: Wound[16549] proc with 247phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 116phy (0 blocked) and +222ap
+DEBUG:SCRIPT: Result: 180 raw; 42% reduction: hit with 114 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 169 raw; 42% reduction: glancingBlow with 74.9 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 187 raw; 42% reduction: glancingBlow with 82.6 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 174 raw; 42% reduction: glancingBlow with 77 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 268 raw; 42% reduction: hit with 118 (60 blocked), Proc: 81
+DEBUG:SCRIPT: Result: 439 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 247
+DEBUG:SCRIPT: Result: 167 raw; 42% reduction: glancingBlow with 74.2 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 267 raw; 42% reduction: glancingBlow with 67.9 (0 blocked), Proc: 116
+DEBUG:SCRIPT: Result: 188 raw; 42% reduction: glancingBlow with 82.6 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 189 raw; 42% reduction: glancingBlow with 83.3 (0 blocked), Proc: 0
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: 277
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: 254
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: 231
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 208
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 185
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 162
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 139
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: 116
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 93
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 70
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 47
+DEBUG:SCRIPT: 262
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 242
+DEBUG:SCRIPT: 24
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 222
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
+DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: 202
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 169.254.27.165
 INFO:DLIB: SSDP: Done on address 192.168.0.2

@@ -24,7 +24,12 @@ function on_message(self, message_id, message, sender)
 		local eResistance = mobData[message.e]["resist"]
 		local eAttr = mobData[message.e]["attr"]
 		local eBlockValue = mobData[message.e]["blockValue"]
-		local pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
+		local pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pWeapon]["type"]]
+		local pWeapon = characterData[message.p][message.pWeapon]
+		local isRanged = false
+		if(message.pWeapon == "weaponRanged") then
+			isRanged = true
+		end
 		local pDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
 		local pCritChance = characterData[message.p]["stats"]["crit"]
 		local pHitBonus = characterData[message.p]["stats"]["hit"]
@@ -39,7 +44,7 @@ function on_message(self, message_id, message, sender)
 			pWpnSkill = eWpnSkill
 			pDefSkill = eDefSkill
 			eDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
-			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
+			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pWeapon]["type"]]
 			eAvoidance = characterData[message.p]["stats"]["avoidance"]
 			pCritChance = mobData[message.e]["crit"]
 			pLevel = eLevel
@@ -48,17 +53,18 @@ function on_message(self, message_id, message, sender)
 			eAttr = characterData[message.p]["stats"]["attr"]
 			pBlockValue = eBlockValue
 			eBlockValue = 0
+			eArmor = characterData[message.p]["stats"]["armor"]
+			eResistance = characterData[message.p]["stats"]["resist"]
 			if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
-				eBlockValue = characterData[message.p]["shield"]["blockValue"]
+				eBlockValue = characterData[message.p]["weaponOH"]["blockValue"]
 			end
-			message.e["level"] = characterData[message.p]["stats"]["level"]
 			isMob = true
 		end
 		
 		--print(eDefSkill, pWpnSkill)
 		local pHitChance = calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, message.dw, message.special)
 		--print(pHitChance)
-		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, message.special, message.ranged, message.front,message.block, isMob)
+		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, message.special, isRanged, message.front,message.block, isMob)
 		--tprint(pAttackTable)
 		local pAttackResult = getAttackResult(pAttackTable, message.special, pCritChance)
 		--print(pAttackResult)
@@ -67,18 +73,24 @@ function on_message(self, message_id, message, sender)
 		local damageMult = 1
 		local damageRolls = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 		if(isMob == true) then
-			damageRolls = mobData[message.e]["damage"]
+			damageRolls = getRandomDamage(mobData[message.e])
 		else
-			damageRolls = getRandomDamage(characterData[message.p]["weaponMH"])
+			if(message.ranged == true) then
+				damageRolls = getRandomDamage(pWeapon)
+			else
+				damageRolls = getRandomDamage(pWeapon)
+			end
 		end
 		if(pAttackResult == "glancingBlow") then
-			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)--math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
+			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)
 		elseif(pAttackResult == "crit") then
 			damageMult = 2
+		elseif(pAttackResult == "crushingBlow") then
+			damageMult = 1.5
 		end
 		
 		if (pAttackResult == "miss" or pAttackResult == "dodge" or pAttackResult == "parry") then
-			damageRolls["phy"] = 0
+			damageRolls = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 		end
 
 		local pDmgReduction = calculateDamageReduction(pLevel, eArmor, eResistance, eLevel)
@@ -107,19 +119,26 @@ function on_message(self, message_id, message, sender)
 		local pProcDamage = {phy=0}
 		local pProcBlocked = {phy=0}
 		if not(pAttackResult == "parry" or pAttackResult == "dodge" or pAttackResult == "miss") then
-			pProcResult = calculateProcs(characterData[message.p],pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
+			local slot = "weaponMH"
+			if(message.ranged == true) then
+				slot = "weaponRanged"
+			end
+			pProcResult = calculateProcs(isMob,characterData[message.p], slot, pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
 			pProcDamage = pProcResult["damage"]
 			pProcBlocked["phy"] = pProcResult["blocked"]
 		end
 		
 		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = (blockDamage["blocked"]+pProcBlocked["phy"]), rawDamage= damageRolls, reducedDamage=pDmgReduction, procDamage=pProcDamage})
 	elseif(message_id == hash("getCombatStats")) then
+		applyAura(message.p, 19740)
 		if not(message.skip == true) then
 			equipItem(message.p, "weapon", "weaponMH", 12583)
 			equipItem(message.p, "armor", "trinket1", 11815)
 			equipItem(message.p, "armor", "shoulder", 16868)
 			equipItem(message.p, "armor", "waist", 16864)
 			equipItem(message.p, "armor", "hands", 16863)
+			equipItem(message.p, "weapon", "weaponRanged", 9412)
+			
 			calculateBaseStats(characterData[message.p])
 			--tprint(characterData[message.p]["stats"])
 			calculateEquipmentStats(characterData[message.p])
@@ -127,7 +146,7 @@ function on_message(self, message_id, message, sender)
 			calculateCombatStats(characterData[message.p])
 			--tprint(characterData[message.p]["stats"])
 			calculateRacials(characterData[message.p])
-			tprint(characterData[message.p])
+			--tprint(characterData[message.p])
 		end
 		msg.post(sender, hash("returnCombatStats"), {p=message.p})
 	end
@@ -152,6 +171,37 @@ function applyRegeneration(pStats, type)
 	elseif(type == 5) then
 		if not(pStats["stats"]["class"] == "Warrior" or pStats["stats"]["class"] == "Rogue") then
 			pStats["stats"]["resCurrent"] = math.min(pResMax, pRes + pMpRegen)
+		end
+	end
+end
+
+function applyAuraEffects()
+	for k, v in pairs(characterData) do
+		print(v["stats"]["ap"])
+		if not( v["buffs"] == nil) then
+			for j,l in pairs(v["buffs"]) do
+				print(l["duration"])
+				aEffect = effect[tostring(l["id"])]
+				if(characterData[k]["buffs"][j]["active"] == false) then
+					if(aEffect["condition"] == "Buff") then
+						characterData[k]["buffs"][j]["active"] = true
+						if(aEffect["type"] == "IncreaseStat") then
+							characterData[k]["stats"][aEffect["stat"]] = v["stats"][aEffect["stat"]] + aEffect["value"]
+							print("Buff "..aEffect["name"].." on player "..k..": Increase "..aEffect["stat"].." by "..aEffect["value"])
+						end
+					end
+				else
+					if(characterData[k]["buffs"][j]["duration"] <= 1) then
+						if(aEffect["condition"] == "Buff") then
+							if(aEffect["type"] == "IncreaseStat") then
+								characterData[k]["stats"][aEffect["stat"]] = v["stats"][aEffect["stat"]] - aEffect["value"]
+								print("Buff gone "..aEffect["name"].." on player "..k..": Removed "..aEffect["stat"].." by "..aEffect["value"])
+								characterData[k]["buffs"][j]["active"] = 2
+							end
+						end
+					end
+				end
+			end
 		end
 	end
 end
@@ -464,93 +514,83 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, dualWield, special)
 	return rHitChance
 end
 
-function calculateProcs(pStats, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
+function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
 	local eqChance = {"weaponMH","weaponOH","weaponRanged","trinket1","trinket2"}
 	local procDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local procs = {}
 	local blockDamage = 0
-	for i = 1, #eqChance do
-		for k = 1, 3 do
-			if not(pStats[eqChance[i]]["effectId"][k] == 0) then
-				local eqEffect = effect[tostring(pStats[eqChance[i]]["effectId"][k])]
-				local eqStat = tostring(eqEffect["stat"])
-				if(eqEffect["type"] == "DirectDamage" and eqEffect["condition"] == "OnHit") then
-					local procChance = math.random()*100
-					if(procChance <= eqEffect["chance"]) then
-						local critChance = math.random()*100
-						local phyMult = 1
-						local eleMult = 1
-						if(critChance <= pCrit) then
-							phyMult = 2
-							eleMult = 1.5
-						end
-						table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),schools=eqEffect["schools"], phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
-						--procDamage["Physical"]["min"] = procDamage["Physical"]["min"] + eqEffect["schools"]["phy"]["min"] * phyMult
-						--procDamage["Physical"]["max"] = procDamage["Physical"]["max"] + eqEffect["schools"]["phy"]["max"] * phyMult
-						--procDamage["Fire"]["min"] = procDamage["Fire"]["min"] + eqEffect["schools"]["fire"]["min"] * eleMult
-						--procDamage["Fire"]["max"] = procDamage["Fire"]["max"] + eqEffect["schools"]["fire"]["max"] * eleMult
-						--procDamage["Frost"]["min"] = procDamage["Frost"]["min"] + eqEffect["schools"]["frost"]["min"] * eleMult
-						--procDamage["Frost"]["max"] = procDamage["Frost"]["max"] + eqEffect["schools"]["frost"]["max"] * eleMult
-						--procDamage["Nature"]["min"] = procDamage["Nature"]["min"] + eqEffect["schools"]["nature"]["min"] * eleMult
-						--procDamage["Nature"]["max"] = procDamage["Nature"]["max"] + eqEffect["schools"]["nature"]["max"] * eleMult
-						--procDamage["Arcane"]["min"] = procDamage["Arcane"]["min"] + eqEffect["schools"]["arcane"]["min"] * eleMult
-						--procDamage["Arcane"]["max"] = procDamage["Arcane"]["max"] + eqEffect["schools"]["arcane"]["max"] * eleMult
-						--procDamage["Holy"]["min"] = procDamage["Holy"]["min"] + eqEffect["schools"]["holy"]["min"] * eleMult
-						--procDamage["Holy"]["max"] = procDamage["Holy"]["max"] + eqEffect["schools"]["holy"]["max"] * eleMult
-						--procDamage["Shadow"]["min"] = procDamage["Shadow"]["min"] + eqEffect["schools"]["shadow"]["min"] * eleMult
-						--procDamage["Shadow"]["max"] = procDamage["Shadow"]["max"] + eqEffect["schools"]["shadow"]["max"] * eleMult
-					end
-				elseif(eqEffect["type"] == "ExtraAttack" and eqEffect["condition"] == "OnHit") then
-					local procChance = math.random()*100
-					if(procChance <= eqEffect["chance"]) then
-						for runs = 1, eqEffect["value"] do
-							local pExtraHit = 0
-							pExtraHit = getAttackResult(pAttackTable, false, pCrit)
-							if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
-								local pExtraHitDamage = {min=pStats["weaponMH"]["schools"]["phy"]["min"],max=pStats["weaponMH"]["schools"]["phy"]["max"],blocked=0}
-								local pExtraHitMult = 1
-								if(pExtraHit == "crit") then
-									pExtraHitMult = 2
-								elseif(pExtraHit == "glancingBlow") then
-									pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats["weaponMH"]["type"]], eDefSkill)
-								elseif(pExtraHit == "block") then
-									local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
-									local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
-									pExtraHitDamage["min"] = blockDamageMin["dmg"]
-									pExtraHitDamage["max"] = blockDamageMax["dmg"]
-									pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
+	if not (pAttacked == true) then
+		for i = 1, #eqChance do
+			for k = 1, 3 do
+				if not(pStats[eqChance[i]]["effectId"][k] == 0) then
+					local eqEffect = effect[tostring(pStats[eqChance[i]]["effectId"][k])]
+					local eqStat = tostring(eqEffect["stat"])
+					if((eqChance[i] == "trinket1" or eqChance[i] == "trinket2") or eqChance[i] == pWeapon) then
+						--print(eqChance[i],eqEffect["stat"],eqEffect["condition"])
+						if(eqEffect["type"] == "DirectDamage" and eqEffect["condition"] == "OnHit") then
+							local procChance = math.random()*100
+							if(procChance <= eqEffect["chance"]) then
+								local critChance = math.random()*100
+								local phyMult = 1
+								local eleMult = 1
+								if(critChance <= pCrit) then
+									phyMult = 2
+									eleMult = 1.5
 								end
-								table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),ap=pStats["stats"]["ap"],schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
-								--procDamage["Physical"]["min"] = procDamage["Physical"]["min"] + pExtraHitDamage["min"] * pExtraHitMult
-								--procDamage["Physical"]["max"] = procDamage["Physical"]["max"] + pExtraHitDamage["max"] * pExtraHitMult
+								table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),schools=eqEffect["schools"], phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
+							end
+						elseif(eqEffect["type"] == "ExtraAttack" and eqEffect["condition"] == "OnHit") then
+							if(eqEffect["stat"] == "Melee" and not (pWeapon == "weaponRanged")) then 
+								local procChance = math.random()*100
+								if(procChance <= eqEffect["chance"]) then
+									for runs = 1, eqEffect["value"] do
+										local pExtraHit = 0
+										pExtraHit = getAttackResult(pAttackTable, false, pCrit)
+										if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
+											local pExtraHitDamage = {min=pStats["weaponMH"]["schools"]["phy"]["min"],max=pStats["weaponMH"]["schools"]["phy"]["max"],blocked=0}
+											local pExtraHitMult = 1
+											if(pExtraHit == "crit") then
+												pExtraHitMult = 2
+											elseif(pExtraHit == "glancingBlow") then
+												pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats["weaponMH"]["type"]], eDefSkill)
+											elseif(pExtraHit == "block") then
+												local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
+												local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
+												pExtraHitDamage["min"] = blockDamageMin["dmg"]
+												pExtraHitDamage["max"] = blockDamageMax["dmg"]
+												pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
+											end
+											table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),ap=pStats["stats"]["ap"],schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
+										end
+									end
+								end
 							end
 						end
 					end
 				end
 			end
 		end
-	end
-	for k, v in pairs(procs) do
-		local proc = getRandomDamage(procs[k])
-		for j, l in pairs(proc) do
-			if(j == "phy") then
-				l = l * procs[k]["phyMult"]
-			else
-				l = l * procs[k]["eleMult"]
+		for k, v in pairs(procs) do
+			local proc = getRandomDamage(procs[k])
+			for j, l in pairs(proc) do
+				if(j == "phy") then
+					l = l * procs[k]["phyMult"]
+				else
+					l = l * procs[k]["eleMult"]
+				end
 			end
+			local procDamageSchools = calculateDamage(proc, procs[k]["ap"], eDmgReduction)
+			print(procs[k]["source"].."["..procs[k]["id"].."] proc with "..procDamageSchools["phy"].."phy ("..procs[k]["blocked"].." blocked) and +"..procs[k]["ap"].."ap")
+			procDamage["phy"] = procDamage["phy"] + procDamageSchools["phy"]
+			procDamage["fire"] = procDamage["fire"] + procDamageSchools["fire"]
+			procDamage["frost"] = procDamage["frost"] + procDamageSchools["frost"]
+			procDamage["arcane"] = procDamage["arcane"] + procDamageSchools["arcane"]
+			procDamage["nature"] = procDamage["nature"] + procDamageSchools["nature"]
+			procDamage["shadow"] = procDamage["shadow"] + procDamageSchools["shadow"]
+			procDamage["holy"] = procDamage["holy"] + procDamageSchools["holy"]
+			blockDamage = blockDamage + procs[k]["blocked"]
 		end
-		local procDamageSchools = calculateDamage(proc, procs[k]["ap"], eDmgReduction)
-		print(procs[k]["source"].."["..procs[k]["id"].."] proc with "..procDamageSchools["phy"].."phy ("..procs[k]["blocked"].." blocked) and +"..procs[k]["ap"].."ap")
-		procDamage["phy"] = procDamage["phy"] + procDamageSchools["phy"]
-		procDamage["fire"] = procDamage["fire"] + procDamageSchools["fire"]
-		procDamage["frost"] = procDamage["frost"] + procDamageSchools["frost"]
-		procDamage["arcane"] = procDamage["arcane"] + procDamageSchools["arcane"]
-		procDamage["nature"] = procDamage["nature"] + procDamageSchools["nature"]
-		procDamage["shadow"] = procDamage["shadow"] + procDamageSchools["shadow"]
-		procDamage["holy"] = procDamage["holy"] + procDamageSchools["holy"]
-		blockDamage = blockDamage + procs[k]["blocked"]
 	end
-	--procDamage = calculateDamage(procDamage, procAp, eDmgReduction)
 	return {damage=procDamage,blocked=blockDamage}
 end
 
@@ -627,7 +667,6 @@ function getAttackResult(attackTable, special, pCrit)
 	end
 	for i = 1, #tableOrder do
 		weight = weight + attackTable[tableOrder[i]]
-		--print(rngRanges,weight,attackTable[tableOrder[i]], tableOrder[i])
 		if(rngRanges <= weight) then
 			result = tableOrder[i]
 			if(tableOrder[i] == "block" and special == true) then
@@ -760,24 +799,30 @@ function calculateDamage(pDmgSchools, pAp, pDmgReduction)
 		{["0"]=0,["25"]=0,["50"]=0,["75"]=0,["100"]=100} --100%
 	}
 		
-	local elementalTable = {["0"]=100,["25"]=0,["50"]=0,["75"]=0,["100"]=0}
 	local elementOrder = {"fire","frost","arcane","nature","shadow","holy"}
-	local elemRange = math.random()*100
+	local elemRange = 0
+	local elemAbsorb = 1
 	local weight = 0
 	for i = 1, #elementOrder do
 		elemRange = math.random()*100
 		weight = 0
-		elemResist = math.floor(pDmgReduction[elementOrder[i]] * 100)
-		--print(elemResist)
+		if(pDmgReduction[elementOrder[i]] == 1) then
+			goto continue
+		end
+		if(pDmgReduction[elementOrder[i]] > 1) then
+			elemAbsorb = -pDmgReduction[elementOrder[i]]
+			pDmgReduction[elementOrder[i]] = 0
+		end
+		elemResist = math.floor(pDmgReduction[elementOrder[i]] * 100) + 1
 		resistOrder = {"0","25","50","75","100"}
 		for k = 1, #resistOrder do
 			weight = weight + resistanceTable[elemResist][resistOrder[k]]
-			--print(weight, resistanceTable[elemResist][resistOrder[k]], resistOrder[k], elementOrder[i])
 			if elemRange <= weight then
-				pDmgDone[elementOrder[i]] = pDmgSchools[elementOrder[i]] - (pDmgSchools[elementOrder[i]] * (tonumber(resistOrder[k]) / 100))
+				pDmgDone[elementOrder[i]] = (pDmgSchools[elementOrder[i]] - (pDmgSchools[elementOrder[i]] * (tonumber(resistOrder[k]) / 100))) * elemAbsorb
 				break
 			end
 		end
+		::continue::
 	end
 	
 	return pDmgDone
@@ -790,12 +835,16 @@ function calculateDamageReduction(pLevel, eArmor, eRes, eLevel)
 	elseif(pLevel >= 60) then
 		reductionPercentage["phy"] = math.min( eArmor / ( eArmor + 400 + 85 * ( eLevel + 4.5 * ( eLevel - 60))) , 0.75)
 	end
-	reductionPercentage["fire"] = math.min(0.75,(eRes["fire"] / (pLevel * 5)) * 0.75)
-	reductionPercentage["frost"] = math.min(0.75,(eRes["frost"] / (pLevel * 5)) * 0.75)
-	reductionPercentage["arcane"] = math.min(0.75,(eRes["arcane"] / (pLevel * 5)) * 0.75) 
-	reductionPercentage["nature"] = math.min(0.75,(eRes["nature"] / (pLevel * 5)) * 0.75)
-	reductionPercentage["shadow"] = math.min(0.75,(eRes["shadow"] / (pLevel * 5)) * 0.75)
-	reductionPercentage["holy"] = math.min(0.75,(eRes["holy"] / (pLevel * 5)) * 0.75)
+	local schools = {"fire","frost","arcane","holy","shadow","nature"}
+	for i = 1, (#schools)-1 do
+		if(eRes[schools[i]] == 999) then
+			reductionPercentage[schools[i]] = 1
+		elseif(eRes[schools[i]] >= 1000) then
+			reductionPercentage[schools[i]] = eRes[schools[i]] / 1000
+		else
+			reductionPercentage[schools[i]] = math.min(0.75,(eRes[schools[i]] / (pLevel * 5)) * 0.75)
+		end
+	end
 	return reductionPercentage
 end
 
@@ -810,23 +859,8 @@ function getRandomDamage(weapon)
 	local schools = {"phy","fire","frost","arcane","holy","shadow","nature"}
 	for i = 1, #schools do
 		damage[schools[i]] = math.random(weapon["schools"][schools[i]]["min"] , weapon["schools"][schools[i]]["max"])
-		--if(schools[i] == "Physical") then
-		--	physDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Fire") then
-		--	fireDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Frost") then
-		--	frostDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Arcane") then
-		--	arcaneDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Nature") then
-		--	natureDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Shadow") then
-		--	shadowDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--elseif(schools[i] == "Holy") then
-		--	holyDamage = math.random(tonumber(weapon[schools[i]]["min"]) , tonumber(weapon[schools[i]]["max"]))
-		--end
 	end
-	return damage--{phy=physDamage, fire=fireDamage,frost=frostDamage,arcane=arcaneDamage,nature=natureDamage,shadow=shadowDamage,holy=holyDamage}
+	return damage
 end
 
 function tprint (t, s)
