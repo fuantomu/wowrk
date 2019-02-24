@@ -10,7 +10,7 @@ function init(self)
 			resCurrent=0,
 			resMax=100,
 			attr={str=20, agi=0, sta=100, int=0, spr= 0},
-			resist={fire=315,frost=250,arcane=200,nature=150,holy=100,shadow=999},
+			resist={fire=0,frost=250,arcane=200,nature=150,holy=100,shadow=999},
 			armor=5000,
 			ap=0,
 			rAp=0,

@@ -48,16 +48,30 @@ function on_message(self, message_id, message, sender)
 		local eResistance = mobData[message.e]["resist"]
 		local eAttr = mobData[message.e]["attr"]
 		local eBlockValue = mobData[message.e]["blockValue"]
-		local pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pWeapon]["type"]]
-		local pWeapon = characterData[message.p][message.pWeapon]
+		local pCritChance = 0
+		local pHitBonus = 0
+		local pAp = 0
 		local isRanged = false
-		if(message.pWeapon == "weaponRanged") then
-			isRanged = true
+		local pWpnSkill = 0
+		local pWeapon = 0
+		
+		if(message.pSource == "Weapon") then
+			pWeapon = characterData[message.p][message.pId]
+			pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pId]["type"]]
+			if(message.pWeapon == "weaponRanged") then
+				isRanged = true
+			end
+			pHitBonus = characterData[message.p]["stats"]["hit"]
+			pCritChance = characterData[message.p]["stats"]["crit"]
+			pAp = characterData[message.p]["stats"]["ap"]
+		else
+			pWeapon = ability[tostring(message.pId)]
+			pWpnSkill = -1
+			pHitBonus = characterData[message.p]["stats"]["sHit"]
+			pCritChance = characterData[message.p]["stats"]["sCrit"]
+			pAp = characterData[message.p]["stats"]["sp"]
 		end
 		local pDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
-		local pCritChance = characterData[message.p]["stats"]["crit"]
-		local pHitBonus = characterData[message.p]["stats"]["hit"]
-		local pAp = characterData[message.p]["stats"]["ap"]
 		local pAttr = characterData[message.p]["stats"]["attr"]
 		local pBlockValue = 0
 		if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
@@ -68,7 +82,7 @@ function on_message(self, message_id, message, sender)
 			pWpnSkill = eWpnSkill
 			pDefSkill = eDefSkill
 			eDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
-			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pWeapon]["type"]]
+			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
 			eAvoidance = characterData[message.p]["stats"]["avoidance"]
 			pCritChance = mobData[message.e]["crit"]
 			pLevel = eLevel
@@ -84,13 +98,19 @@ function on_message(self, message_id, message, sender)
 			end
 			isMob = true
 		end
-		
+
+		local attackType = 0
+		if(message.special == true) then
+			attackType = 1
+		elseif(message.pSource == "Ability") then
+			attackType = 2
+		end
 		--print(eDefSkill, pWpnSkill)
-		local pHitChance = calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, message.dw, message.special)
+		local pHitChance = calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, message.dw, attackType)
 		--print(pHitChance)
-		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, message.special, isRanged, message.front,message.block, isMob)
+		local pAttackTable = generateAttackTable(pLevel,pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, attackType, isRanged, message.front,message.block, isMob, characterData[message.p]["stats"]["class"])
 		--tprint(pAttackTable)
-		local pAttackResult = getAttackResult(pAttackTable, message.special, pCritChance)
+		local pAttackResult = getAttackResult(pAttackTable, attackType, pCritChance)
 		--print(pAttackResult)
 		local pDmgDone = 0
 
@@ -99,16 +119,16 @@ function on_message(self, message_id, message, sender)
 		if(isMob == true) then
 			damageRolls = getRandomDamage(mobData[message.e])
 		else
-			if(message.ranged == true) then
-				damageRolls = getRandomDamage(pWeapon)
-			else
-				damageRolls = getRandomDamage(pWeapon)
-			end
+			damageRolls = getRandomDamage(pWeapon)
 		end
 		if(pAttackResult == "glancingBlow") then
 			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)
 		elseif(pAttackResult == "crit") then
-			damageMult = 2
+			if(attackType == 2) then
+				damageMult = 1.5
+			else
+				damageMult = 2
+			end
 		elseif(pAttackResult == "crushingBlow") then
 			damageMult = 1.5
 		end
@@ -144,12 +164,16 @@ function on_message(self, message_id, message, sender)
 		local pProcBlocked = {phy=0}
 		if not(pAttackResult == "parry" or pAttackResult == "dodge" or pAttackResult == "miss") then
 			local slot = "weaponMH"
-			if(message.ranged == true) then
+			if( isRanged == true) then
 				slot = "weaponRanged"
+			elseif(attackType == 2) then
+				slot = "spell"
 			end
 			pProcResult = calculateProcs(isMob,characterData[message.p], slot, pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
 			pProcDamage = pProcResult["damage"]
 			pProcBlocked["phy"] = pProcResult["blocked"]
+
+			applySpellEffects(message.pId, message.p)
 		end
 
 		
@@ -157,6 +181,7 @@ function on_message(self, message_id, message, sender)
 		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = (blockDamage["blocked"]+pProcBlocked["phy"]), rawDamage= damageRolls, reducedDamage=pDmgReduction, procDamage=pProcDamage})
 	elseif(message_id == hash("getCombatStats")) then
 		--removeAura(message.p, 465)
+		--applyAura(message.p, 6, "testEnemy")
 		if not(message.skip == true) then
 			equipItem(message.p, "weapon", "weaponMH", 12583)
 			equipItem(message.p, "armor", "trinket1", 11815)
@@ -165,7 +190,7 @@ function on_message(self, message_id, message, sender)
 			equipItem(message.p, "armor", "hands", 16863)
 			equipItem(message.p, "weapon", "weaponRanged", 9412)
 			--applyAura(message.p, 19740)
-			applyAura(message.p, 6, "testEnemy")
+			--applyAura(message.p, 6, "testEnemy")
 			--applyAura(message.p, 465)
 			
 			calculateBaseStats(characterData[message.p])
@@ -214,7 +239,7 @@ end
 
 function applyAuraEffects()
 	for k, v in pairs(characterData) do
-		print(v["stats"]["hpCurrent"], v["stats"]["hpMax"])
+		--print(v["stats"]["hpCurrent"], v["stats"]["hpMax"])
 		if not( v["buffs"] == nil) then
 			for j,l in pairs(v["buffs"]) do
 				aEffect = effect[tostring(l["id"])]
@@ -265,7 +290,7 @@ function applyAuraEffects()
 							print("Debuff "..aEffect["name"].." on player "..k..": "..aEffect["type"].." "..aEffect["stat"].." over "..aEffect["duration"].." for "..aEffect["tick"])
 						end
 					end
-				else
+				elseif(characterData[k]["debuffs"][j]["active"] == true) then
 					if not(aEffect["condition"] == "AuraDebuff") then
 						if (characterData[k]["debuffs"][j]["duration"] >= (1 / characterData[k]["debuffs"][j]["tick"]))then
 							print(characterData[k]["debuffs"][j]["duration"])
@@ -296,6 +321,21 @@ function applyAuraEffects()
 							end
 						end
 					end
+				end
+			end
+		end
+	end
+end
+
+function applySpellEffects(spell, target)
+	pAbility = ability[tostring(spell)]
+	for i = 1, 3 do
+		if not(pAbility["effectId"][i] == 0) then
+			pEffect = effect[tostring(pAbility["effectId"][i])]
+			if(pEffect["condition"] == "Debuff") then
+				local procChance = math.random()*100
+				if(procChance <= pEffect["chance"]) then
+					applyAura(target, tostring(pAbility["effectId"][i]))
 				end
 			end
 		end
@@ -591,21 +631,36 @@ function calculateRacials(pStats)
 	end
 end
 
-function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, dualWield, special)
+function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dualWield, special)
 	local rHitChance = 100
 	local baseMiss = 5
-	if (special == false) then
-		local baseMissP = math.max(0,baseMiss - (eDefSkill - pWpnSkill) * 0.04)
-		local baseMissE = math.max(0,baseMiss + (pWpnSkill - eDefSkill) * 0.02)
-		baseMiss = (baseMissP + baseMissE) / 2
-	end
-	if(dualWield == true and special == false) then
-		baseMiss = baseMiss + 19
-	end
-	if(eDefSkill - pWpnSkill > 10) then
-		rHitChance = math.max(0,100 - ((baseMiss + 2) + (eDefSkill - pWpnSkill - 10) * 0.4) + pHitBonus)
+	if not(special == 2) then
+		if (special == 0) then
+			local baseMissP = math.max(0,baseMiss - (eDefSkill - pWpnSkill) * 0.04)
+			local baseMissE = math.max(0,baseMiss + (pWpnSkill - eDefSkill) * 0.02)
+			baseMiss = (baseMissP + baseMissE) / 2
+		end
+		if(dualWield == true and special == 0) then
+			baseMiss = baseMiss + 19
+		end
+		if(eDefSkill - pWpnSkill > 10) then
+			rHitChance = math.max(0,100 - ((baseMiss + 2) + (eDefSkill - pWpnSkill - 10) * 0.4) + pHitBonus)
+		else
+			rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1) + pHitBonus)
+		end
 	else
-		rHitChance = math.max(0,100 - (baseMiss + (eDefSkill - pWpnSkill) * 0.1) + pHitBonus)
+		rHitChance = 99
+		baseMiss = 1
+		if(pLevel == eLevel) then
+			baseMiss = baseMiss + 3
+		elseif(pLevel == (eLevel - 1)) then
+			baseMiss = baseMiss + 4
+		elseif(pLevel == (eLevel - 2)) then
+			baseMiss = baseMiss + 5
+		elseif(pLevel <= (eLevel - 3)) then
+			baseMiss = baseMiss + 5 + 11 * (eLevel - pLevel - 2)
+		end
+		rHitChance = math.max(1, math.min(99,rHitChance - baseMiss + pHitBonus))
 	end
 	return rHitChance
 end
@@ -636,19 +691,19 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 								table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),schools=eqEffect["schools"], phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
 							end
 						elseif(eqEffect["type"] == "ExtraAttack" and eqEffect["condition"] == "OnHit") then
-							if(eqEffect["stat"] == "Melee" and not (pWeapon == "weaponRanged")) then 
+							if(eqEffect["stat"] == "Melee" and not (pWeapon == "weaponRanged") and not (pWeapon == "spell")) then 
 								local procChance = math.random()*100
 								if(procChance <= eqEffect["chance"]) then
 									for runs = 1, eqEffect["value"] do
 										local pExtraHit = 0
 										pExtraHit = getAttackResult(pAttackTable, false, pCrit)
 										if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
-											local pExtraHitDamage = {min=pStats["weaponMH"]["schools"]["phy"]["min"],max=pStats["weaponMH"]["schools"]["phy"]["max"],blocked=0}
+											local pExtraHitDamage = {min=pStats[pWeapon]["schools"]["phy"]["min"],max=pStats[pWeapon]["schools"]["phy"]["max"],blocked=0}
 											local pExtraHitMult = 1
 											if(pExtraHit == "crit") then
 												pExtraHitMult = 2
 											elseif(pExtraHit == "glancingBlow") then
-												pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats["weaponMH"]["type"]], eDefSkill)
+												pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats[pWeapon]["type"]], eDefSkill)
 											elseif(pExtraHit == "block") then
 												local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
 												local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
@@ -690,44 +745,53 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 	return {damage=procDamage,blocked=blockDamage}
 end
 
-function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob)
+function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, special, ranged, attackFront, blockEnabled, isMob, pClass)
 	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
-	local pSkillDifference = math.min(eDefSkill - pWpnSkill,300)
-	if(special == true) then
+	local pSkillDifference = 0
+	local spell = false
+	if(special == 2) then
+		spell = true
+	else
+		pSkillDifference = math.min(eDefSkill - pWpnSkill,300)
+	end
+	if(special == 1) then
 		rollTable = {miss=0,dodge=0,parry=0,block=0,hit=0}
+	elseif(spell == true) then
+		rollTable = {miss=0,crit=0,hit=0}
 	end
 	local remainingRolls = math.max(0, pHitChance)
 	local tempVar = 100
 	rollTable["miss"] = math.max(0, tempVar - remainingRolls)
 	tempVar = remainingRolls
-	if(ranged == false) then
+	if(ranged == false and spell == false) then
 		local eDodge = eAvoidance["dodge"]
 		eDodge = math.max(0, eAvoidance["dodge"] + pSkillDifference * 0.04)
 		remainingRolls = math.max(0, remainingRolls - eDodge)
 		rollTable["dodge"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(attackFront == true and ranged == false) then
+	if(attackFront == true and ranged == false and spell == false) then
 		local eParry = eAvoidance["parry"]
 		eParry = math.max(0, eAvoidance["parry"] + pSkillDifference * 0.04)
 		remainingRolls = math.max(0, remainingRolls - eParry)
 		rollTable["parry"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(isMob == false and special == false) then 
-		if(ranged == false) then
-			remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
-		elseif(ranged == true) then
+	if(isMob == false and special == 0 and spell == false) then 
+		if(pClass == "Mage" or pClass == "Priest" or pClass == "Warlock") then
 			if(pLevel > 30) then
 				remainingRolls = math.max(0, remainingRolls - 60)
 			else
 				remainingRolls = math.max(0, remainingRolls - (pLevel - 10) * 3)
 			end
 		end
+		if(ranged == false) then
+			remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
+		end
 		rollTable["glancingBlow"] = (tempVar - remainingRolls)
 		tempVar = remainingRolls
 	end
-	if(attackFront == true and blockEnabled == true) then
+	if(attackFront == true and blockEnabled == true and spell == false) then
 		local eBlock = eAvoidance["block"]
 		eBlock = math.max(0, eAvoidance["block"] + pSkillDifference * 0.04)
 		remainingRolls = math.max(0, remainingRolls - eBlock)
@@ -735,7 +799,7 @@ function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChan
 		tempVar = remainingRolls
 	end
 	if(remainingRolls > 0) then
-		if(special == false) then
+		if(special == 0) then
 			pCritChance = math.max(0, pCritChance - pSkillDifference * 0.04)
 			remainingRolls = math.max(0, remainingRolls - ((pHitChance + rollTable["miss"]) * (pCritChance/100))) 
 			rollTable["crit"] = math.max(0, tempVar - remainingRolls) 
@@ -758,19 +822,21 @@ function getAttackResult(attackTable, special, pCrit)
 	local critWeight = 0
 	local result = "Evaded"
 	local tableOrder = {"miss","dodge","parry","glancingBlow","block","crit","crushingBlow","hit"}
-	if(special == true) then
+	if(special == 1) then
 		tableOrder = {"miss","dodge","parry","block","hit"}
+	elseif(special == 2) then
+		tableOrder = {"miss","crit","hit"}
 	end
 	for i = 1, #tableOrder do
 		weight = weight + attackTable[tableOrder[i]]
 		if(rngRanges <= weight) then
 			result = tableOrder[i]
-			if(tableOrder[i] == "block" and special == true) then
+			if(tableOrder[i] == "block" and special == 1) then
 				critWeight = critWeight + pCrit
 				if(critRng <= critWeight) then
 					result = "critBlock"
 				end
-			elseif(tableOrder[i] == "hit" and special == true) then
+			elseif(tableOrder[i] == "hit" and special == 1) then
 				critWeight = critWeight + pCrit
 				if(critRng <= critWeight) then
 					result = "crit"

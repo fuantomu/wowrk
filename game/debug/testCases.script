@@ -35,7 +35,7 @@ function on_message(self, message_id, message, sender)
 		--tprint(message.p)
 		testResults = {hit=0,dodge=0,block=0,crit=0,parry=0,critBlock=0,glancingBlow=0,crushingBlow=0,miss=0}
 		for i = 1, testAmount do
-			msg.post("game#calculationMain", hash("getAttackResult"), {attacker="player", e="testEnemy", p="testCharacter", pWeapon="weaponMH", special=false , dw=false, front=true, block=true})
+			msg.post("game#calculationMain", hash("getAttackResult"), {attacker="player", e="testEnemy", p="testCharacter", pSource="Ability", pId=133, special=false , dw=false, front=true, block=true})
 		end
 		--tprint(characterData["testCharacter"])
 		--msg.post("game#testCases", hash("testDone"))

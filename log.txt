@@ -6,51 +6,87 @@ DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 INFO:DLIB: SSDP: Started on address 192.168.0.2
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 96phy (0 blocked) and +206ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 107phy (0 blocked) and +206ap
-DEBUG:SCRIPT: Result: 153 raw; 42% reduction: hit with 97 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 290 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 96
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 187 raw; 42% reduction: glancingBlow with 81.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 191 raw; 42% reduction: hit with 119 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 315 raw; 42% reduction: glancingBlow with 90.3 (0 blocked), Proc: 107
-DEBUG:SCRIPT: Result: 214 raw; 42% reduction: glancingBlow with 93.1 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 197 raw; 42% reduction: hit with 123 (0 blocked), Proc: 0
-DEBUG:SCRIPT: 0	610
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 21 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 21 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 16 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 19 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 15 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 19 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 15 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 15 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: hit with 14 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
 DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
 DEBUG:SCRIPT: Tick 1
-DEBUG:SCRIPT: 25.08	610
 DEBUG:SCRIPT: 3
-DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: 3
 DEBUG:SCRIPT: Tick 2
-DEBUG:SCRIPT: 25.08	610
 DEBUG:SCRIPT: 2.5
-DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: 2.5
 DEBUG:SCRIPT: Tick 3
-DEBUG:SCRIPT: 27.588	610
 DEBUG:SCRIPT: 2
-DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: 2
 DEBUG:SCRIPT: Tick 4
-DEBUG:SCRIPT: 27.588	610
-DEBUG:SCRIPT: testCharacter was dealt 0
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
 DEBUG:SCRIPT: Tick 5
-DEBUG:SCRIPT: Debuff FireBallRank1 fell off
-DEBUG:SCRIPT: 30.096	610
 DEBUG:SCRIPT: Tick 6
-DEBUG:SCRIPT: 30.096	610
 DEBUG:SCRIPT: Tick 7
-DEBUG:SCRIPT: 32.604	610
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
 DEBUG:SCRIPT: Tick 8
-DEBUG:SCRIPT: 32.604	610
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
 DEBUG:SCRIPT: Tick 9
-DEBUG:SCRIPT: 57.684	610
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
 DEBUG:SCRIPT: Tick 10
-DEBUG:SCRIPT: 57.684	610
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
 DEBUG:SCRIPT: Tick 11
-DEBUG:SCRIPT: 82.764	610
 DEBUG:SCRIPT: Tick 12
+DEBUG:SCRIPT: Tick 13
+DEBUG:SCRIPT: Tick 14
+DEBUG:SCRIPT: Tick 15
+DEBUG:SCRIPT: Tick 16
+DEBUG:SCRIPT: Tick 17
+DEBUG:SCRIPT: Tick 18
+DEBUG:SCRIPT: Tick 19
+DEBUG:SCRIPT: Tick 20
+DEBUG:SCRIPT: Tick 21
+DEBUG:SCRIPT: Tick 22
+DEBUG:SCRIPT: Tick 23
+DEBUG:SCRIPT: Tick 24
+DEBUG:SCRIPT: Tick 25
+DEBUG:SCRIPT: Tick 26
+DEBUG:SCRIPT: Tick 27
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 192.168.0.2
