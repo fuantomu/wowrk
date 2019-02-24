@@ -58,7 +58,7 @@ function on_message(self, message_id, message, sender)
 		if(message.pSource == "Weapon") then
 			pWeapon = characterData[message.p][message.pId]
 			pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pId]["type"]]
-			if(message.pWeapon == "weaponRanged") then
+			if(message.pId == "weaponRanged") then
 				isRanged = true
 			end
 			pHitBonus = characterData[message.p]["stats"]["hit"]
@@ -173,7 +173,9 @@ function on_message(self, message_id, message, sender)
 			pProcDamage = pProcResult["damage"]
 			pProcBlocked["phy"] = pProcResult["blocked"]
 
-			applySpellEffects(message.pId, message.p)
+			if(attackType == 2) then
+				applySpellEffects(message.pId, message.p)
+			end
 		end
 
 		
@@ -662,6 +664,7 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dua
 		end
 		rHitChance = math.max(1, math.min(99,rHitChance - baseMiss + pHitBonus))
 	end
+	print(rHitChance)
 	return rHitChance
 end
 
@@ -777,21 +780,20 @@ function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChan
 		rollTable["parry"] = tempVar - remainingRolls
 		tempVar = remainingRolls
 	end
-	if(isMob == false and special == 0 and spell == false) then 
+	if(isMob == false and special == 0 and spell == false and ranged == false) then 
 		if(pClass == "Mage" or pClass == "Priest" or pClass == "Warlock") then
 			if(pLevel > 30) then
 				remainingRolls = math.max(0, remainingRolls - 60)
 			else
 				remainingRolls = math.max(0, remainingRolls - (pLevel - 10) * 3)
 			end
-		end
-		if(ranged == false) then
+		else
 			remainingRolls = math.max(0, remainingRolls - math.max(0, 10 + (eDefSkill - math.min(pWpnSkill, 300)) * 2))
 		end
 		rollTable["glancingBlow"] = (tempVar - remainingRolls)
 		tempVar = remainingRolls
 	end
-	if(attackFront == true and blockEnabled == true and spell == false) then
+	if(attackFront == true and blockEnabled == true and spell == false and ranged == false) then
 		local eBlock = eAvoidance["block"]
 		eBlock = math.max(0, eAvoidance["block"] + pSkillDifference * 0.04)
 		remainingRolls = math.max(0, remainingRolls - eBlock)

@@ -3,7 +3,7 @@ function init(self)
 		testCharacter = {
 			stats={
 				class="Warrior", 
-				race="Troll", 
+				race="Human", 
 				level=60, 
 				basehp=0,
 				hpCurrent=0,
