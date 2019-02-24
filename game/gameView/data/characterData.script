@@ -3,7 +3,7 @@ function init(self)
 		testCharacter = {
 			stats={
 				class="Warrior", 
-				race="Human", 
+				race="Troll", 
 				level=60, 
 				basehp=0,
 				hpCurrent=0,
@@ -162,12 +162,10 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			battle={
-				hitRecently=false
+				hitRecently=0
 			}
 		}
 	}
-
-	self.oneSecTimer = 60
 end
 
 function equipItem(character, type, slot, itemid)
@@ -175,12 +173,86 @@ function equipItem(character, type, slot, itemid)
 	characterData[character][slot]["slot"] = slot
 end
 
-function applyAura(character, auraId)
+function applyAura(character, auraId, source)
 	local aEffect = effect[tostring(auraId)]
+	source = source or "None"
+	if(aEffect["condition"] == "Buff" or aEffect["condition"] == "AuraBuff") then
+		table.insert(characterData[character]["buffs"], (#characterData[character]["buffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],type=aEffect["condition"],active=false,source=source})
+	elseif(aEffect["condition"] == "Debuff" or aEffect["condition"] == "AuraDebuff") then
+		table.insert(characterData[character]["debuffs"], (#characterData[character]["debuffs"]+1), {id=auraId,name=aEffect["name"],baseDuration=aEffect["duration"],duration=aEffect["duration"],tick=aEffect["tick"],type=aEffect["condition"],active=false,source=source})
+	end
+end
+
+function removeAura(character, auraId)
+	local aEffect = effect[tostring(auraId)]
+	print(character, auraId, aEffect["condition"])
 	if(aEffect["condition"] == "Buff") then
-		table.insert(characterData[character]["buffs"], (#characterData[character]["buffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],active=false})
+		if not(characterData[character]["buffs"] == nil) then
+			for k, v in pairs(characterData[character]["buffs"]) do
+				if(characterData[character]["buffs"][k]["id"] == tostring(auraId)) then
+					characterData[character]["buffs"][k]["duration"] = 0
+				end
+			end
+		end
 	elseif(aEffect["condition"] == "Debuff") then
-		table.insert(characterData[character]["debuffs"], (#characterData[character]["debuffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],active=false})
+		if not(characterData[character]["debuffs"] == nil) then
+			for k, v in pairs(characterData[character]["debuffs"]) do
+				if(characterData[character]["debuffs"][k]["id"] == tostring(auraId)) then
+					characterData[character]["debuffs"][k]["duration"] = 0
+				end
+			end
+		end
+	elseif(aEffect["condition"] == "AuraBuff") then
+		if not(characterData[character]["buffs"] == nil) then
+			for k, v in pairs(characterData[character]["buffs"]) do
+				if(characterData[character]["buffs"][k]["id"] == auraId) then
+					if(characterData[character]["buffs"][k]["active"] == true) then
+						characterData[character]["buffs"][k]["active"] = 2
+					end
+				end
+			end
+		end
+	end
+end
+
+function updateAuras()
+	for k, v in pairs(characterData) do
+		if not( v["buffs"] == nil) then
+			for j,l in pairs(characterData[k]["buffs"]) do
+				--print(j,l,#characterData[k]["buffs"])
+				if not(characterData[k]["buffs"][j]["type"] == "AuraBuff") then
+					if(currentTick % characterData[k]["buffs"][j]["tick"] == 0) then
+						characterData[k]["buffs"][j]["duration"] = characterData[k]["buffs"][j]["duration"] - 1
+					end
+				end
+				if(characterData[k]["buffs"][j]["duration"] <= 0 or characterData[k]["buffs"][j]["active"] == 3) then
+					print("Buff "..characterData[k]["buffs"][j]["name"].." fell off")
+					if((#characterData[k]["buffs"] < 1 or characterData[k]["buffs"] == nil) and characterData[k]["buffs"][#characterData[k]["buffs"]]["duration"] <= 0) then
+						characterData[k]["buffs"] = {}
+					else
+						table.remove(characterData[k]["buffs"], j)
+					end
+				end
+			end
+		end
+		if not(v["debuffs"] == nil) then
+			for j,l in pairs(characterData[k]["debuffs"]) do
+				--print(j,l,#characterData[k]["buffs"])
+				if not(characterData[k]["debuffs"][j]["type"] == "AuraDebuff") then
+					if(currentTick % characterData[k]["debuffs"][j]["tick"] == 0) then
+						characterData[k]["debuffs"][j]["duration"] = characterData[k]["debuffs"][j]["duration"] - characterData[k]["debuffs"][j]["tick"]
+					end
+				end
+				if(characterData[k]["debuffs"][j]["duration"] <= 0 or characterData[k]["debuffs"][j]["active"] == 3) then
+					print("Debuff "..characterData[k]["debuffs"][j]["name"].." fell off")
+					if((#characterData[k]["debuffs"] < 1 or characterData[k]["debuffs"] == nil) and characterData[k]["debuffs"][#characterData[k]["debuffs"]]["duration"] <= 0) then
+						characterData[k]["debuffs"] = {}
+					else
+						table.remove(characterData[k]["debuffs"], j)
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -189,30 +261,7 @@ function final(self)
 end
 
 function update(self, dt)
-	if(testRuns >= 1) then
-		self.oneSecTimer = self.oneSecTimer-1
-		if(self.oneSecTimer <= 0) then
-			for k, v in pairs(characterData) do
-				if not( v["buffs"] == nil) then
-					for j,l in pairs(characterData[k]["buffs"]) do
-						--print(j,l,#characterData[k]["buffs"])
-						characterData[k]["buffs"][j]["duration"] = characterData[k]["buffs"][j]["duration"] - 23
-						if(characterData[k]["buffs"][j]["duration"] <= 0) then
-							print("Buff "..characterData[k]["buffs"][j]["name"].." fell off")
-							if((#characterData[k]["buffs"] < 1 or characterData[k]["buffs"] == nil) and characterData[k]["buffs"][#characterData[k]["buffs"]]["duration"] <= 0) then
-								characterData[k]["buffs"] = {}
-							else
-								table.remove(characterData[k]["buffs"], j)
-							end
-						end
-					end
-				end
-			end
-			applyAuraEffects()
-			self.oneSecTimer = 60
-		end
-		
-	end
+
 end
 
 function on_message(self, message_id, message, sender)

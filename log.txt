@@ -5,223 +5,52 @@ INFO:ENGINE: Initialised sound device 'default'
 DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
-INFO:DLIB: SSDP: Started on address 169.254.27.165
 INFO:DLIB: SSDP: Started on address 192.168.0.2
-DEBUG:SCRIPT: Wound[16549] proc with 218phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 131phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 124phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 102phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 184 raw; 42% reduction: hit with 115 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 159 raw; 42% reduction: block with 41 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 224 raw; 42% reduction: glancingBlow with 96.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 374 raw; 42% reduction: hit with 99 (0 blocked), Proc: 218
-DEBUG:SCRIPT: Result: 325 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 131
-DEBUG:SCRIPT: Result: 298 raw; 42% reduction: glancingBlow with 76.3 (0 blocked), Proc: 124
-DEBUG:SCRIPT: Result: 301 raw; 42% reduction: glancingBlow with 86.8 (0 blocked), Proc: 102
-DEBUG:SCRIPT: Result: 153 raw; 42% reduction: block with 37 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: Wound[16549] proc with 266phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 204 raw; 42% reduction: glancingBlow with 88.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 172 raw; 42% reduction: block with 49 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 197 raw; 42% reduction: block with 63 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 216 raw; 42% reduction: hit with 134 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 206 raw; 42% reduction: hit with 129 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 489 raw; 42% reduction: hit with 139 (0 blocked), Proc: 266
-DEBUG:SCRIPT: Result: 176 raw; 42% reduction: glancingBlow with 77.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 153 raw; 42% reduction: hit with 98 (0 blocked), Proc: 0
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 113phy (0 blocked) and +242ap
-DEBUG:SCRIPT: Wound[16549] proc with 198phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 84phy (60 blocked) and +242ap
-DEBUG:SCRIPT: Wound[16549] proc with 246phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Result: 209 raw; 42% reduction: glancingBlow with 91.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 270 raw; 42% reduction: hit with 101 (0 blocked), Proc: 113
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 225 raw; 42% reduction: glancingBlow with 98.7 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 184 raw; 42% reduction: hit with 117 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 385 raw; 42% reduction: hit with 118 (0 blocked), Proc: 198
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 167 raw; 42% reduction: hit with 107 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 219 raw; 42% reduction: glancingBlow with 95.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 527 raw; 42% reduction: glancingBlow with 86.8 (60 blocked), Proc: 330
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 127phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 105phy (0 blocked) and +202ap
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 190 raw; 42% reduction: glancingBlow with 83.3 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 200 raw; 42% reduction: block with 64 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 208 raw; 42% reduction: hit with 129 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 317 raw; 42% reduction: block with 59 (60 blocked), Proc: 127
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 96phy (0 blocked) and +206ap
+DEBUG:SCRIPT: Hand of Justice[15600] proc with 107phy (0 blocked) and +206ap
+DEBUG:SCRIPT: Result: 153 raw; 42% reduction: hit with 97 (0 blocked), Proc: 0
 DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 331 raw; 42% reduction: hit with 139 (0 blocked), Proc: 105
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 214 raw; 42% reduction: glancingBlow with 92.4 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 183 raw; 42% reduction: glancingBlow with 79.8 (0 blocked), Proc: 0
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 139phy (0 blocked) and +222ap
-DEBUG:SCRIPT: Result: 179 raw; 42% reduction: glancingBlow with 79.1 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 160 raw; 42% reduction: glancingBlow with 71.4 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 290 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 96
 DEBUG:SCRIPT: Result: 0 raw; 42% reduction: parry with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 0 raw; 42% reduction: miss with 0 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 306 raw; 42% reduction: hit with 106 (0 blocked), Proc: 139
-DEBUG:SCRIPT: Result: 216 raw; 42% reduction: hit with 134 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 155 raw; 42% reduction: block with 39 (60 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 222 raw; 42% reduction: glancingBlow with 96.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 166 raw; 42% reduction: glancingBlow with 73.5 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 81phy (60 blocked) and +222ap
-DEBUG:SCRIPT: Wound[16549] proc with 247phy (0 blocked) and +0ap
-DEBUG:SCRIPT: Hand of Justice[15600] proc with 116phy (0 blocked) and +222ap
-DEBUG:SCRIPT: Result: 180 raw; 42% reduction: hit with 114 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 169 raw; 42% reduction: glancingBlow with 74.9 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 187 raw; 42% reduction: glancingBlow with 82.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 174 raw; 42% reduction: glancingBlow with 77 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 268 raw; 42% reduction: hit with 118 (60 blocked), Proc: 81
-DEBUG:SCRIPT: Result: 439 raw; 42% reduction: glancingBlow with 84.7 (0 blocked), Proc: 247
-DEBUG:SCRIPT: Result: 167 raw; 42% reduction: glancingBlow with 74.2 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 267 raw; 42% reduction: glancingBlow with 67.9 (0 blocked), Proc: 116
-DEBUG:SCRIPT: Result: 188 raw; 42% reduction: glancingBlow with 82.6 (0 blocked), Proc: 0
-DEBUG:SCRIPT: Result: 189 raw; 42% reduction: glancingBlow with 83.3 (0 blocked), Proc: 0
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: 277
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 on player testCharacter: Increase ap by 20
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: 254
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: 231
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 208
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 185
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 162
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 139
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: 116
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 93
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 70
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 47
-DEBUG:SCRIPT: 262
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 242
-DEBUG:SCRIPT: 24
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 222
-DEBUG:SCRIPT: 1
-DEBUG:SCRIPT: Buff gone Blessing of Might Rank1 on player testCharacter: Removed ap by 20
-DEBUG:SCRIPT: Buff Blessing of Might Rank1 fell off
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 202
-DEBUG:SCRIPT: 202
+DEBUG:SCRIPT: Result: 187 raw; 42% reduction: glancingBlow with 81.9 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 191 raw; 42% reduction: hit with 119 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 315 raw; 42% reduction: glancingBlow with 90.3 (0 blocked), Proc: 107
+DEBUG:SCRIPT: Result: 214 raw; 42% reduction: glancingBlow with 93.1 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 0 raw; 42% reduction: dodge with 0 (0 blocked), Proc: 0
+DEBUG:SCRIPT: Result: 197 raw; 42% reduction: hit with 123 (0 blocked), Proc: 0
+DEBUG:SCRIPT: 0	610
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: Tick 1
+DEBUG:SCRIPT: 25.08	610
+DEBUG:SCRIPT: 3
+DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: Tick 2
+DEBUG:SCRIPT: 25.08	610
+DEBUG:SCRIPT: 2.5
+DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: Tick 3
+DEBUG:SCRIPT: 27.588	610
+DEBUG:SCRIPT: 2
+DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: Tick 4
+DEBUG:SCRIPT: 27.588	610
+DEBUG:SCRIPT: testCharacter was dealt 0
+DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
+DEBUG:SCRIPT: Tick 5
+DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: 30.096	610
+DEBUG:SCRIPT: Tick 6
+DEBUG:SCRIPT: 30.096	610
+DEBUG:SCRIPT: Tick 7
+DEBUG:SCRIPT: 32.604	610
+DEBUG:SCRIPT: Tick 8
+DEBUG:SCRIPT: 32.604	610
+DEBUG:SCRIPT: Tick 9
+DEBUG:SCRIPT: 57.684	610
+DEBUG:SCRIPT: Tick 10
+DEBUG:SCRIPT: 57.684	610
+DEBUG:SCRIPT: Tick 11
+DEBUG:SCRIPT: 82.764	610
+DEBUG:SCRIPT: Tick 12
 DEBUG:SCRIPT: saving
-INFO:DLIB: SSDP: Done on address 169.254.27.165
 INFO:DLIB: SSDP: Done on address 192.168.0.2
