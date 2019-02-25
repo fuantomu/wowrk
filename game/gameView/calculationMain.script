@@ -195,9 +195,9 @@ function on_message(self, message_id, message, sender)
 			--applyAura(message.p, 6, "testEnemy")
 			--applyAura(message.p, 465)
 			
-			calculateBaseStats(characterData[message.p])
+			calculateBaseStats(message.p)
 			--tprint(characterData[message.p]["stats"])
-			calculateEquipmentStats(characterData[message.p])
+			calculateEquipmentStats(message.p)
 			--tprint(characterData[message.p]["stats"])
 			calculateCombatStats(characterData[message.p])
 			--tprint(characterData[message.p]["stats"])
@@ -344,110 +344,46 @@ function applySpellEffects(spell, target)
 	end
 end
 
-function calculateBaseStats(pStats)
-	local pRace = pStats["stats"]["race"]
-	local pClass = pStats["stats"]["class"]
+function calculateBaseStats(character)
+	local pRace = getCharacterStat(character, "race")
+	local pClass = getCharacterStat(character, "class")
+	local pLevel = getCharacterStat(character,"level")
 
-	if(pRace == "Human") then
-		pStats["stats"]["attr"] = {str=20,agi=20,sta=20,int=20,spr=20}
-	elseif(pRace == "Dwarf") then
-		pStats["stats"]["attr"] = {str=22,agi=16,sta=23,int=19,spr=19}
-	elseif(pRace == "Gnome") then
-		pStats["stats"]["attr"] = {str=15,agi=23,sta=19,int=23,spr=20}
-	elseif(pRace == "Nightelf") then
-		pStats["stats"]["attr"] = {str=17,agi=25,sta=19,int=20,spr=20}
-	elseif(pRace == "Orc") then
-		pStats["stats"]["attr"] = {str=23,agi=17,sta=22,int=17,spr=23}
-	elseif(pRace == "Undead") then
-		pStats["stats"]["attr"] = {str=19,agi=18,sta=21,int=18,spr=25}
-	elseif(pRace == "Tauren") then
-		pStats["stats"]["attr"] = {str=25,agi=15,sta=22,int=15,spr=22}
-	elseif(pRace == "Troll") then
-		pStats["stats"]["attr"] = {str=21,agi=22,sta=21,int=16,spr=21}
-	end
+	local pBaseValues = getLevelStats(pLevel, pRace, pClass)
 
-	if(pClass == "Warrior") then
-		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 3
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 2
-		pStats["stats"]["basehp"] = 20
-		pStats["stats"]["baseRes"] = 100
-	elseif(pClass == "Rogue") then
-		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
-		pStats["stats"]["attr"]["agi"] = pStats["stats"]["attr"]["agi"] + 3
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
-		pStats["stats"]["basehp"] = 25
-		pStats["stats"]["baseRes"] = 100
-	elseif(pClass == "Paladin") then
-		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 2
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 2
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 1
-		pStats["stats"]["basehp"] = 28
-		pStats["stats"]["baseRes"] = 59
-	elseif(pClass == "Shaman") then
-		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
-		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 1
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
-		pStats["stats"]["basehp"] = 29
-		pStats["stats"]["baseRes"] = 55
-	elseif(pClass == "Warlock") then
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
-		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
-		pStats["stats"]["basehp"] = 33
-		pStats["stats"]["baseRes"] = 90
-	elseif(pClass == "Hunter") then
-		pStats["stats"]["attr"]["agi"] = pStats["stats"]["attr"]["agi"] + 3
-		pStats["stats"]["attr"]["sta"] = pStats["stats"]["attr"]["sta"] + 1
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 1
-		pStats["stats"]["basehp"] = 26
-		pStats["stats"]["baseRes"] = 63
-	elseif(pClass == "Druid") then
-		pStats["stats"]["attr"]["str"] = pStats["stats"]["attr"]["str"] + 1
-		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
-		pStats["stats"]["basehp"] = 34
-		pStats["stats"]["baseRes"] = 50
-	elseif(pClass == "Mage") then
-		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 3
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 2
-		pStats["stats"]["basehp"] = 32
-		pStats["stats"]["baseRes"] = 100
-	elseif(pClass == "Priest") then
-		pStats["stats"]["attr"]["int"] = pStats["stats"]["attr"]["int"] + 2
-		pStats["stats"]["attr"]["spr"] = pStats["stats"]["attr"]["spr"] + 3
-		pStats["stats"]["basehp"] = 32
-		pStats["stats"]["baseRes"] = 110
-	end
+	setCharacterStat(character, "attr", pBaseValues["levelStats"])
+	setCharacterStat(character, "basehp", pBaseValues["baseStats"]["basehp"])
+	setCharacterStat(character, "baseRes", pBaseValues["baseStats"]["baseRes"])
+
 end
 
 function calculateGlancingBlowMult(pWpnSkill, eDefSkill)
 	return math.max(0.40,1 - math.abs(math.min(0,5 + pWpnSkill - eDefSkill) * 0.03))
 end
 
-function calculateEquipmentStats(pStats)
-	local pEquipmentStats = {ap=0, armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0,hit=0, dodge=0, block=0, blockValue=0,parry=0, resist={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}, skill={Defense=0}}
-	local pAttr = pStats["stats"]["attr"]
+function calculateEquipmentStats(character)
+	local pEquipmentStats = {rap=0,ap=0, armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0,hit=0, dodge=0, block=0, blockValue=0,parry=0, resist={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}, skill={Defense=0}}
 	local pSetPieces = {}
 	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","helmet","necklace","shoulder","cloak","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
 	for i = 1, #equipmentSlots do
-		if not (pStats[equipmentSlots[i]]["type"] == "None") then
-			pEquipmentStats["armor"] = pEquipmentStats["armor"] + pStats[equipmentSlots[i]]["armor"]
+		pCurrentEquipment = getCharacterEquipmentSlot(character, equipmentSlots[i])
+		if not (pCurrentEquipment["type"] == "None") then
+			pEquipmentStats["armor"] = pEquipmentStats["armor"] + pCurrentEquipment["armor"]
 			
-			pEquipmentStats["attr"]["str"] = pEquipmentStats["attr"]["str"] + pStats[equipmentSlots[i]]["attr"]["str"]
-			pEquipmentStats["attr"]["agi"] = pEquipmentStats["attr"]["agi"] + pStats[equipmentSlots[i]]["attr"]["agi"]
-			pEquipmentStats["attr"]["sta"] = pEquipmentStats["attr"]["sta"] + pStats[equipmentSlots[i]]["attr"]["sta"]
-			pEquipmentStats["attr"]["int"] = pEquipmentStats["attr"]["int"] + pStats[equipmentSlots[i]]["attr"]["int"]
-			pEquipmentStats["attr"]["spr"] = pEquipmentStats["attr"]["spr"] + pStats[equipmentSlots[i]]["attr"]["spr"]
-			pEquipmentStats["resist"]["fire"] = pEquipmentStats["resist"]["fire"] + pStats[equipmentSlots[i]]["resist"]["fire"]
-			pEquipmentStats["resist"]["shadow"] = pEquipmentStats["resist"]["shadow"] + pStats[equipmentSlots[i]]["resist"]["shadow"]
-			pEquipmentStats["resist"]["frost"] = pEquipmentStats["resist"]["frost"] + pStats[equipmentSlots[i]]["resist"]["frost"]
-			pEquipmentStats["resist"]["arcane"] = pEquipmentStats["resist"]["arcane"] + pStats[equipmentSlots[i]]["resist"]["arcane"]
-			pEquipmentStats["resist"]["nature"] = pEquipmentStats["resist"]["nature"] + pStats[equipmentSlots[i]]["resist"]["nature"]
-			pEquipmentStats["resist"]["holy"] = pEquipmentStats["resist"]["holy"] + pStats[equipmentSlots[i]]["resist"]["holy"]
+			pEquipmentStats["attr"]["str"] = pEquipmentStats["attr"]["str"] + pCurrentEquipment["attr"]["str"]
+			pEquipmentStats["attr"]["agi"] = pEquipmentStats["attr"]["agi"] + pCurrentEquipment["attr"]["agi"]
+			pEquipmentStats["attr"]["sta"] = pEquipmentStats["attr"]["sta"] + pCurrentEquipment["attr"]["sta"]
+			pEquipmentStats["attr"]["int"] = pEquipmentStats["attr"]["int"] + pCurrentEquipment["attr"]["int"]
+			pEquipmentStats["attr"]["spr"] = pEquipmentStats["attr"]["spr"] + pCurrentEquipment["attr"]["spr"]
+			pEquipmentStats["resist"]["fire"] = pEquipmentStats["resist"]["fire"] + pCurrentEquipment["resist"]["fire"]
+			pEquipmentStats["resist"]["shadow"] = pEquipmentStats["resist"]["shadow"] + pCurrentEquipment["resist"]["shadow"]
+			pEquipmentStats["resist"]["frost"] = pEquipmentStats["resist"]["frost"] + pCurrentEquipment["resist"]["frost"]
+			pEquipmentStats["resist"]["arcane"] = pEquipmentStats["resist"]["arcane"] + pCurrentEquipment["resist"]["arcane"]
+			pEquipmentStats["resist"]["nature"] = pEquipmentStats["resist"]["nature"] + pCurrentEquipment["resist"]["nature"]
+			pEquipmentStats["resist"]["holy"] = pEquipmentStats["resist"]["holy"] + pCurrentEquipment["resist"]["holy"]
 			for k = 1, 3 do
-				if not(pStats[equipmentSlots[i]]["effectId"][k] == 0) then
-					local eqEffect = effect[tostring(pStats[equipmentSlots[i]]["effectId"][k])]
+				if not(pCurrentEquipment["effectId"][k] == 0) then
+					local eqEffect = effect[tostring(pCurrentEquipment["effectId"][k])]
 					local eqStat = tostring(eqEffect["stat"])
 					if(eqEffect["type"] == "IncreaseStat" and eqEffect["condition"] == "Equip") then
 						pEquipmentStats[eqStat] = pEquipmentStats[eqStat] + eqEffect["value"]
@@ -456,14 +392,14 @@ function calculateEquipmentStats(pStats)
 					end	
 				end
 			end
-			if not(pStats[equipmentSlots[i]]["setid"] == 0 or pStats[equipmentSlots[i]]["setid"] == nil) then
-				local eqSet = set[tostring(pStats[equipmentSlots[i]]["setid"])]
-				if(pSetPieces[pStats[equipmentSlots[i]]["setid"]] == nil) then
-					table.insert(pSetPieces, pStats[equipmentSlots[i]]["setid"], 1)
+			if not(pCurrentEquipment["setid"] == 0 or pCurrentEquipment["setid"] == nil) then
+				local eqSet = set[tostring(pCurrentEquipment["setid"])]
+				if(pSetPieces[pCurrentEquipment["setid"]] == nil) then
+					table.insert(pSetPieces, pCurrentEquipment["setid"], 1)
 				end
-				pSetPieces[pStats[equipmentSlots[i]]["setid"]] = pSetPieces[pStats[equipmentSlots[i]]["setid"]] + 1
+				pSetPieces[pCurrentEquipment["setid"]] = pSetPieces[pCurrentEquipment["setid"]] + 1
 				for k, v in pairs(eqSet["bonus"]) do
-					if(pSetPieces[pStats[equipmentSlots[i]]["setid"]] == tonumber(k)) then
+					if(pSetPieces[pCurrentEquipment["setid"]] == tonumber(k)) then
 						local eqEffect = effect[tostring(v)]
 						local eqStat = tostring(eqEffect["stat"])
 						if(eqEffect["type"] == "IncreaseStat" and eqEffect["condition"] == "Equip") then
@@ -474,28 +410,57 @@ function calculateEquipmentStats(pStats)
 			end
 		end
 	end
-	pStats["stats"]["attr"]["str"] = pAttr["str"] + pEquipmentStats["attr"]["str"]
-	pStats["stats"]["attr"]["agi"] = pAttr["agi"] + pEquipmentStats["attr"]["agi"]
-	pStats["stats"]["attr"]["sta"] = pAttr["sta"] + pEquipmentStats["attr"]["sta"]
-	pStats["stats"]["attr"]["int"] = pAttr["int"] + pEquipmentStats["attr"]["int"]
-	pStats["stats"]["attr"]["spr"] = pAttr["spr"] + pEquipmentStats["attr"]["spr"]
-	pStats["stats"]["crit"] = pStats["stats"]["crit"] + pEquipmentStats["crit"]
-	pStats["stats"]["hit"] = pStats["stats"]["hit"] + pEquipmentStats["hit"]
-	pStats["stats"]["ap"] = pStats["stats"]["ap"] + pEquipmentStats["ap"]
-	pStats["stats"]["rAp"] = pStats["stats"]["rAp"] + pEquipmentStats["ap"]
-	pStats["stats"]["resist"]["fire"] = pStats["stats"]["resist"]["fire"] + pEquipmentStats["resist"]["fire"]
-	pStats["stats"]["resist"]["frost"] = pStats["stats"]["resist"]["frost"] + pEquipmentStats["resist"]["frost"]
-	pStats["stats"]["resist"]["nature"] = pStats["stats"]["resist"]["nature"] + pEquipmentStats["resist"]["nature"]
-	pStats["stats"]["resist"]["arcane"] = pStats["stats"]["resist"]["arcane"] + pEquipmentStats["resist"]["arcane"]
-	pStats["stats"]["resist"]["holy"] = pStats["stats"]["resist"]["holy"] + pEquipmentStats["resist"]["holy"]
-	pStats["stats"]["resist"]["shadow"] = pStats["stats"]["resist"]["shadow"] + pEquipmentStats["resist"]["shadow"]
-	pStats["stats"]["skill"]["Defense"] = pStats["stats"]["skill"]["Defense"] + pEquipmentStats["skill"]["Defense"]
-	pStats["stats"]["armor"] = pStats["stats"]["armor"] + pEquipmentStats["armor"]
-	pStats["stats"]["avoidance"]["block"] = pStats["stats"]["avoidance"]["block"] + pEquipmentStats["block"]
-	pStats["stats"]["avoidance"]["dodge"] = pStats["stats"]["avoidance"]["dodge"] + pEquipmentStats["dodge"]
-	pStats["stats"]["avoidance"]["parry"] = pStats["stats"]["avoidance"]["parry"] + pEquipmentStats["parry"]
+	
+	local pAttr = getCharacterStat(character, "attr")
+	pAttr["str"] = pAttr["str"] + pEquipmentStats["attr"]["str"]
+	pAttr["agi"] = pAttr["agi"] + pEquipmentStats["attr"]["agi"]
+	pAttr["sta"] = pAttr["sta"] + pEquipmentStats["attr"]["sta"]
+	pAttr["int"] = pAttr["int"] + pEquipmentStats["attr"]["int"]
+	pAttr["spr"] = pAttr["spr"] + pEquipmentStats["attr"]["spr"]
+	setCharacterStat(character, "attr", pAttr)
+
+	local pCrit = getCharacterStat(character, "crit")
+	pCrit = pCrit + pEquipmentStats["crit"]
+	setCharacterStat(character, "crit", pCrit)
+
+	local pHit = getCharacterStat(character, "hit")
+	pHit = pHit + pEquipmentStats["hit"]
+	setCharacterStat(character, "hit", pHit)
+
+	local pAp = getCharacterStat(character, "ap")
+	local pRap = getCharacterStat(character, "rAp")
+	pAp = pAp + pEquipmentStats["ap"]
+	pRap = pRap + pEquipmentStats["ap"] + pEquipmentStats["rap"]
+	setCharacterStat(character, "ap", pAp)
+	setCharacterStat(character, "rAp", pRap)
+
+	local pResist = getCharacterStat(character, "resist")
+	pResist["fire"] = pResist["fire"] + pEquipmentStats["resist"]["fire"]
+	pResist["frost"] = pResist["frost"] + pEquipmentStats["resist"]["frost"]
+	pResist["nature"] = pResist["nature"] + pEquipmentStats["resist"]["nature"]
+	pResist["arcane"] = pResist["arcane"] + pEquipmentStats["resist"]["arcane"]
+	pResist["holy"] = pResist["holy"] + pEquipmentStats["resist"]["holy"]
+	pResist["shadow"] = pResist["shadow"] + pEquipmentStats["resist"]["shadow"]
+	setCharacterStat(character, "resist", pResist)
+
+	local pSkill = getCharacterStat(character, "skill")
+	pSkill["Defense"] = pSkill["Defense"] + pEquipmentStats["skill"]["Defense"]
+	setCharacterStat(character, "skill", pSkill)
+
+	local pArmor = getCharacterStat(character, "armor")
+	pArmor = pArmor + pEquipmentStats["armor"]
+	setCharacterStat(character, "armor", pArmor)
+
+	local pAvoidance = getCharacterStat(character, "avoidance")
+	pAvoidance["block"] = pAvoidance["block"] + pEquipmentStats["block"]
+	pAvoidance["dodge"] = pAvoidance["dodge"] + pEquipmentStats["dodge"]
+	pAvoidance["parry"] = pAvoidance["parry"] + pEquipmentStats["parry"]
+	setCharacterStat(character, "avoidance", pAvoidance)
+	
 	--tprint(pEquipmentStats)
-	pStats["weaponOH"]["blockValue"] = pStats["weaponOH"]["blockValue"] + pEquipmentStats["blockValue"]
+	local pBlockValue = getCharacterEquipmentValue(character, "weaponOH", "blockValue")
+	pBlockValue = pBlockValue + pEquipmentStats["blockValue"]
+	setCharacterEquipmentValue(character, "weaponOH", "blockValue", pBlockValue)
 end
 
 function calculateCombatStats(pStats)
@@ -664,7 +629,7 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dua
 		end
 		rHitChance = math.max(1, math.min(99,rHitChance - baseMiss + pHitBonus))
 	end
-	print(rHitChance)
+	--print(rHitChance)
 	return rHitChance
 end
 
@@ -734,7 +699,8 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 				end
 			end
 			local procDamageSchools = calculateDamage(proc, procs[k]["ap"], eDmgReduction)
-			print(procs[k]["source"].."["..procs[k]["id"].."] proc with "..procDamageSchools["phy"].."phy ("..procs[k]["blocked"].." blocked) and +"..procs[k]["ap"].."ap")
+			--tprint(proc)
+			print(procs[k]["source"].."["..procs[k]["id"].."] proc with "..procDamageSchools["phy"].."["..procDamage["phy"].."] phy ("..procs[k]["blocked"].." blocked) and +"..procs[k]["ap"].."ap")
 			procDamage["phy"] = procDamage["phy"] + procDamageSchools["phy"]
 			procDamage["fire"] = procDamage["fire"] + procDamageSchools["fire"]
 			procDamage["frost"] = procDamage["frost"] + procDamageSchools["frost"]

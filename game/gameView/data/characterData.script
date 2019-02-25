@@ -256,6 +256,26 @@ function updateAuras()
 	end
 end
 
+function setCharacterStat(character, stat, value)
+	characterData[character]["stats"][stat] = value
+end
+
+function setCharacterEquipmentValue(character, slot, stat, value)
+	characterData[character][slot][stat] = value
+end
+
+function getCharacterStat(character, stat)
+	return characterData[character]["stats"][stat]
+end
+
+function getCharacterEquipmentSlot(character, slot)
+	return characterData[character][slot]
+end
+
+function getCharacterEquipmentValue(character, slot, stat)
+	return characterData[character][slot][stat]
+end
+
 function final(self)
 	
 end
