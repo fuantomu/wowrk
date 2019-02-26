@@ -14,6 +14,206 @@ function init(self)
 	}	
 end
 
+function getWeaponData(id)
+	return item["weapon"][tostring(id)]
+end
+
+function getWeaponIcon(id)
+	return item["weapon"][tostring(id)]["icon"]
+end
+
+function getWeaponName(id)
+	return item["weapon"][tostring(id)]["name"]
+end
+
+function getWeaponBind(id)
+	return item["weapon"][tostring(id)]["bind"]
+end
+
+function getWeaponQuality(id)
+	return item["weapon"][tostring(id)]["quality"]
+end
+
+function getWeaponRequiredLevel(id)
+	return item["weapon"][tostring(id)]["rlevel"]
+end
+
+function getWeaponItemLevel(id)
+	return item["weapon"][tostring(id)]["ilevel"]
+end
+
+function getWeaponUnique(id)
+	return item["weapon"][tostring(id)]["unique"]
+end
+
+function getWeaponClass(id)
+	return item["weapon"][tostring(id)]["class"]
+end
+
+function canEquipWeapon(id, level, class, race)
+	return 0
+end
+
+function getWeaponRace(id)
+	return item["weapon"][tostring(id)]["race"]
+end
+
+function getWeaponRequiredRank(id)
+	return item["weapon"][tostring(id)]["rrank"]
+end
+
+function getWeaponAttribute(id)
+	return item["weapon"][tostring(id)]["attr"]
+end
+
+function getWeaponArmor(id)
+	return item["weapon"][tostring(id)]["armor"]
+end
+
+function getWeaponResistance(id)
+	return item["weapon"][tostring(id)]["resist"]
+end
+
+function getWeaponEffect(id)
+	return item["weapon"][tostring(id)]["effectId"]
+end
+
+function getWeaponLore(id)
+	return item["weapon"][tostring(id)]["lore"]
+end
+
+function getWeaponSet(id)
+	return item["weapon"][tostring(id)]["setid"]
+end
+
+function getWeaponValue(id)
+	return item["weapon"][tostring(id)]["value"]
+end
+
+function getWeaponType(id)
+	return item["weapon"][tostring(id)]["type"]
+end
+
+function getWeaponSlot(id)
+	return item["weapon"][tostring(id)]["slot"]
+end
+
+function getWeaponBlock(id)
+	return item["weapon"][tostring(id)]["blockValue"]
+end
+
+function getWeaponSchool(id)
+	return item["weapon"][tostring(id)]["schools"]
+end
+
+function getWeaponAttackspeed(id)
+	return item["weapon"][tostring(id)]["aspd"]
+end 
+
+function getWeaponDurability(id)
+	return item["weapon"][tostring(id)]["durability"]
+end
+
+function getWeaponStat(id, stat)
+	return item["weapon"][tostring(id)][stat]
+end
+
+function getArmorData(id)
+	return item["armor"][tostring(id)]
+end
+
+function getArmorIcon(id)
+	return item["armor"][tostring(id)]["icon"]
+end
+
+function getArmorName(id)
+	return item["armor"][tostring(id)]["name"]
+end
+
+function getArmorBind(id)
+	return item["armor"][tostring(id)]["bind"]
+end
+
+function getArmorQuality(id)
+	return item["armor"][tostring(id)]["quality"]
+end
+
+function getArmorRequiredLevel(id)
+	return item["armor"][tostring(id)]["rlevel"]
+end
+
+function getArmorItemLevel(id)
+	return item["armor"][tostring(id)]["ilevel"]
+end
+
+function getArmorUnique(id)
+	return item["armor"][tostring(id)]["unique"]
+end
+
+function getArmorClass(id)
+	return item["armor"][tostring(id)]["class"]
+end
+
+function canEquipArmor(id, level, class, race)
+	return 0
+end
+
+function getArmorRace(id)
+	return item["armor"][tostring(id)]["race"]
+end
+
+function getArmorRequiredRank(id)
+	return item["armor"][tostring(id)]["rrank"]
+end
+
+function getArmorAttribute(id)
+	return item["armor"][tostring(id)]["attr"]
+end
+
+function getArmorArmor(id)
+	return item["armor"][tostring(id)]["armor"]
+end
+
+function getArmorResistance(id)
+	return item["armor"][tostring(id)]["resist"]
+end
+
+function getArmorEffect(id)
+	return item["armor"][tostring(id)]["effectId"]
+end
+
+function getArmorLore(id)
+	return item["armor"][tostring(id)]["lore"]
+end
+
+function getArmorSet(id)
+	return item["armor"][tostring(id)]["setid"]
+end
+
+function getArmorValue(id)
+	return item["armor"][tostring(id)]["value"]
+end
+
+function getArmorType(id)
+	return item["armor"][tostring(id)]["type"]
+end
+
+function getArmorSlot(id)
+	return item["armor"][tostring(id)]["slot"]
+end
+
+function getArmorBlock(id)
+	return item["armor"][tostring(id)]["blockValue"]
+end
+
+function getArmorDurability(id)
+	return item["armor"][tostring(id)]["durability"]
+end
+
+function getArmorStat(id, stat)
+	return item["armor"][tostring(id)][stat]
+end
+
 function final(self)
 	-- Add finalization code here
 	-- Remove this function if not needed

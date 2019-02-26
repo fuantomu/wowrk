@@ -26,6 +26,58 @@ function init(self)
 	}
 end
 
+function getEnemyData(enemy)
+	return mobData[tostrig(enemy)]
+end
+
+function getEnemyStat(enemy, stat)
+	return mobData[tostring(enemy)][stat]
+end
+
+function getEnemyLevel(enemy)
+	return mobData[tostring(enemy)]["level"]
+end
+
+function getEnemyName(enemy)
+	return mobData[tostring(enemy)]["name"]
+end
+
+function getEnemyHp(enemy)
+	return {currentHp = mobData[tostring(enemy)]["hpCurrent"], maxHp = mobData[tostring(enemy)]["hpMax"]}
+end
+
+function getEnemyResource(enemy)
+	return {currentRes = mobData[tostring(enemy)]["resCurrent"], maxRes = mobData[tostring(enemy)]["resMax"]}
+end
+
+function getEnemyAttribute(enemy)
+	return mobData[tostring(enemy)]["attr"]
+end
+
+function getEnemyResistance(enemy)
+	return mobData[tostring(enemy)]["resist"]
+end
+
+function getEnemyArmor(enemy)
+	return mobData[tostring(enemy)]["armor"]
+end
+
+function getEnemyCrit(enemy)
+	return mobData[tostring(enemy)]["crit"]
+end
+
+function getEnemySchool(enemy)
+	return mobData[tostring(enemy)]["schools"]
+end
+
+function getEnemyAvoidance(enemy)
+	return mobData[tostring(enemy)]["avoidance"]
+end
+
+function getEnemyBlock(enemy)
+	return mobData[tostring(enemy)]["blockValue"]
+end
+
 function final(self)
 	-- Add finalization code here
 	-- Remove this function if not needed

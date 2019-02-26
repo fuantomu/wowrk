@@ -31,7 +31,8 @@ function init(self)
 				sHit=0,
 				avoidance={dodge=0,parry=5,block=5},
 				hpRegen=0,
-				mpRegen=0
+				mpRegen=0,
+				xp=0
 			},
 			buffs={
 			},
@@ -264,16 +265,123 @@ function setCharacterEquipmentValue(character, slot, stat, value)
 	characterData[character][slot][stat] = value
 end
 
+function setCharacterBattleStatus(character, stat, value)
+	characterData[character]["battle"][stat] = value
+end
+
+function getCharacterData()
+	return characterData
+end
+
 function getCharacterStat(character, stat)
 	return characterData[character]["stats"][stat]
+end
+
+function getCharacterLevel(character)
+	return characterData[character]["stats"]["level"]
+end
+
+function getCharacterSkill(character)
+	return characterData[character]["stats"]["skill"]
+end
+
+function getCharacterSkillValue(character, skill)
+	return characterData[character]["stats"]["skill"][skill]
+end
+
+function getCharacterHit(character)
+	return characterData[character]["stats"]["hit"]
+end
+
+function getCharacterCrit(character)
+	return characterData[character]["stats"]["crit"]
+end
+
+function getCharacterAttackpower(character)
+	return characterData[character]["stats"]["ap"]
+end
+
+function getCharacterSpellHit(character)
+	return characterData[character]["stats"]["sHit"]
+end
+
+function getCharacterSpellCrit(character)
+	return characterData[character]["stats"]["sCrit"]
+end
+
+function getCharacterSpellpower(character)
+	return characterData[character]["stats"]["sp"]
+end
+
+function getCharacterAttribute(character)
+	return characterData[character]["stats"]["attr"]
+end
+
+function getCharacterAttributeValue(character, attribute)
+	return characterData[character]["stats"]["attr"][attribute]
+end
+
+function getCharacterAvoidance(character)
+	return characterData[character]["stats"]["avoidance"]
+end
+
+function getCharacterAvoidanceValue(character, skill)
+	return characterData[character]["stats"]["avoidance"][skill]
+end
+
+function getCharacterArmor(character)
+	return characterData[character]["stats"]["armor"]
+end
+
+function getCharacterResistance(character)
+	return characterData[character]["stats"]["resist"]
+end
+
+function getCharacterResistanceValue(character, skill)
+	return characterData[character]["stats"]["resist"][skill]
 end
 
 function getCharacterEquipmentSlot(character, slot)
 	return characterData[character][slot]
 end
 
+function getCharacterWeapons(character)
+	return {weaponMH = characterData[character]["weaponMH"], weaponOH = characterData[character]["weaponOH"], weaponRanged =characterData[character]["weaponRanged"]}
+end
+
+function getCharacterWeaponType(character, weapon)
+	return characterData[character][weapon]["type"]
+end
+
 function getCharacterEquipmentValue(character, slot, stat)
 	return characterData[character][slot][stat]
+end
+
+function getCharacterWeaponBlock(character)
+	return characterData[character]["weaponOH"]["blockValue"]
+end
+
+function getCharacterBuffs(character)
+	return characterData[character]["buffs"]
+end
+
+function getCharacterDebuffs(character)
+	return characterData[character]["debuffs"]
+end
+
+function getCharacterBattleStatus(character, stat)
+	return characterData[character]["battle"][stat]
+end
+
+function expToLevel(character)
+	local currentLevel = getCharacterStat(character, "level")
+	if(currentLevel < 60) then
+		local currentExp = getCharacterStat(character, "xp")
+		local expToNext = getExpToNextLevel(currentLevel)
+		return (expToNext - currentExp)
+	else
+		return 0
+	end
 end
 
 function final(self)

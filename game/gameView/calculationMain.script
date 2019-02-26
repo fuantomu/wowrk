@@ -16,18 +16,20 @@ function update(self, dt)
 		if(tickTimer <= 0) then
 			currentTick = currentTick + 1 * tickTime
 			tickTimer = 60 * tickTime
+			local cData = getCharacterData()
 			if(currentTick % 2 == 0) then
-				for k, v in pairs(characterData) do
-					applyRegeneration(k, 2)
+				for k, v in pairs(cData) do
+					calculateRegeneration(k, 2)
 				end
 			end
 			if(currentTick % 5 == 0) then
-				for k, v in pairs(characterData) do
-					applyRegeneration(k, 5)
+				for k, v in pairs(cData) do
+					calculateRegeneration(k, 5)
 				end
 			end
-			for k, v in pairs(characterData) do
-				characterData[k]["battle"]["hitRecently"] = math.max(0, characterData[k]["battle"]["hitRecently"]-1)
+			for k, v in pairs(cData) do
+				local pHitRecently = getCharacterBattleStatus(k, "hitRecently")
+				setCharacterBattleStatus(k, "hitRecently", math.max(0, pHitRecently-1))
 			end
 			updateAuras()
 			applyAuraEffects()
@@ -39,15 +41,15 @@ end
 function on_message(self, message_id, message, sender)
 	math.random()
 	if(message_id == hash("getAttackResult")) then
-		local eDefSkill = mobData[message.e]["level"] * 5
+		local eDefSkill = getEnemyLevel(message.e) * 5
 		local eWpnSkill = eDefSkill
-		local eAvoidance = mobData[message.e]["avoidance"]
-		local eArmor = mobData[message.e]["armor"]
-		local pLevel = characterData[message.p]["stats"]["level"]
-		local eLevel = mobData[message.e]["level"]
-		local eResistance = mobData[message.e]["resist"]
-		local eAttr = mobData[message.e]["attr"]
-		local eBlockValue = mobData[message.e]["blockValue"]
+		local eAvoidance = getEnemyAvoidance(message.e)
+		local eArmor = getEnemyArmor(message.e)
+		local pLevel = getCharacterLevel(message.p)
+		local eLevel = getEnemyLevel(message.e)
+		local eResistance = getEnemyResistance(message.e)
+		local eAttr = getEnemyAttribute(message.e)
+		local eBlockValue = getEnemyBlock(message.e)
 		local pCritChance = 0
 		local pHitBonus = 0
 		local pAp = 0
@@ -56,45 +58,46 @@ function on_message(self, message_id, message, sender)
 		local pWeapon = 0
 		
 		if(message.pSource == "Weapon") then
-			pWeapon = characterData[message.p][message.pId]
-			pWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p][message.pId]["type"]]
+			pWeapons = getCharacterWeapons(message.p)
+			local pWeaponType = getCharacterWeaponType(message.p, message.pId)
+			pWpnSkill = getCharacterSkillValue(message.p ,pWeaponType)
 			if(message.pId == "weaponRanged") then
 				isRanged = true
 			end
-			pHitBonus = characterData[message.p]["stats"]["hit"]
-			pCritChance = characterData[message.p]["stats"]["crit"]
-			pAp = characterData[message.p]["stats"]["ap"]
+			pHitBonus = getCharacterHit(message.p)
+			pCritChance = getCharacterCrit(message.p)
+			pAp = getCharacterAttackpower(message.p)
 		else
 			pWeapon = ability[tostring(message.pId)]
 			pWpnSkill = -1
-			pHitBonus = characterData[message.p]["stats"]["sHit"]
-			pCritChance = characterData[message.p]["stats"]["sCrit"]
-			pAp = characterData[message.p]["stats"]["sp"]
+			pHitBonus = getCharacterSpellHit(message.p)
+			pCritChance = getCharacterSpellCrit(message.p)
+			pAp = getCharacterSpellpower(message.p)
 		end
-		local pDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
-		local pAttr = characterData[message.p]["stats"]["attr"]
+		local pDefSkill = getCharacterSkillValue(message.p ,"Defense")
+		local pAttr = getCharacterAttribute(message.p)
 		local pBlockValue = 0
-		if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
-			pBlockValue = characterData[message.p]["weaponOH"]["blockValue"]
+		if(getCharacterWeaponType(message.p, "weaponOH") == "Shield") then
+			pBlockValue = getCharacterWeaponBlock(message.p)
 		end
 		local isMob = false
 		if(message.attacker == "mob") then
 			pWpnSkill = eWpnSkill
 			pDefSkill = eDefSkill
-			eDefSkill = characterData[message.p]["stats"]["skill"]["Defense"]
-			eWpnSkill = characterData[message.p]["stats"]["skill"][characterData[message.p]["weaponMH"]["type"]]
-			eAvoidance = characterData[message.p]["stats"]["avoidance"]
-			pCritChance = mobData[message.e]["crit"]
+			eDefSkill = getCharacterSkillValue(message.p ,"Defense")
+			eWpnSkill = getCharacterSkillValue(message.p ,pWeaponType)
+			eAvoidance = getCharacterAvoidance(message.p)
+			pCritChance = getEnemyCrit(message.e)
 			pLevel = eLevel
-			eLevel = characterData[message.p]["stats"]["level"]
+			eLevel = getCharacterLevel(message.p)
 			pAttr = eAttr
-			eAttr = characterData[message.p]["stats"]["attr"]
+			eAttr = getCharacterAttribute(message.p)
 			pBlockValue = eBlockValue
 			eBlockValue = 0
-			eArmor = characterData[message.p]["stats"]["armor"]
-			eResistance = characterData[message.p]["stats"]["resist"]
-			if(characterData[message.p]["weaponOH"]["type"] == "Shield") then
-				eBlockValue = characterData[message.p]["weaponOH"]["blockValue"]
+			eArmor = getCharacterArmor(message.p)
+			eResistance = getCharacterResistance(message.p)
+			if(getCharacterWeaponType(message.p, "weaponOH") == "Shield") then
+				eBlockValue = getCharacterWeaponBlock(message.p)
 			end
 			isMob = true
 		end
@@ -116,10 +119,11 @@ function on_message(self, message_id, message, sender)
 
 		local damageMult = 1
 		local damageRolls = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
+		local enemySchools = getEnemySchool(message.e)
 		if(isMob == true) then
-			damageRolls = getRandomDamage(mobData[message.e])
+			damageRolls = getRandomDamage(enemySchools)
 		else
-			damageRolls = getRandomDamage(pWeapon)
+			damageRolls = getRandomDamage(pWeapons[message.pId])
 		end
 		if(pAttackResult == "glancingBlow") then
 			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)
@@ -169,7 +173,7 @@ function on_message(self, message_id, message, sender)
 			elseif(attackType == 2) then
 				slot = "spell"
 			end
-			pProcResult = calculateProcs(isMob,characterData[message.p], slot, pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
+			pProcResult = calculateProcs(isMob,message.p, slot, pAttackTable, pCritChance, pDmgReduction, eAttr, eBlockValue, eDefSkill)
 			pProcDamage = pProcResult["damage"]
 			pProcBlocked["phy"] = pProcResult["blocked"]
 
@@ -199,44 +203,70 @@ function on_message(self, message_id, message, sender)
 			--tprint(characterData[message.p]["stats"])
 			calculateEquipmentStats(message.p)
 			--tprint(characterData[message.p]["stats"])
-			calculateCombatStats(characterData[message.p])
+			calculateCombatStats(message.p)
 			--tprint(characterData[message.p]["stats"])
-			calculateRacials(characterData[message.p])
+			calculateRacials(message.p)
+
+			--tprint(getCharacterData(message.p))
 			--tprint(characterData[message.p])
 		end
 		msg.post(sender, hash("returnCombatStats"), {p=message.p})
 	end
 end
 
-function applyRegeneration(character, type)
-	local pHp = characterData[character]["stats"]["hpCurrent"]
-	local pHpMax = characterData[character]["stats"]["hpMax"]
-	local pRes = characterData[character]["stats"]["resCurrent"]
-	local pResMax = characterData[character]["stats"]["resMax"]
-	local pHpRegen = characterData[character]["stats"]["hpRegen"]
-	local pMpRegen = characterData[character]["stats"]["mpRegen"]
+function calculateRegeneration(character, type)
+	local pHp = getCharacterStat(character,"hpCurrent")
+	local pHpMax = getCharacterStat(character,"hpMax")
+	local pRes = getCharacterStat(character,"resCurrent")
+	local pResMax = getCharacterStat(character,"resMax")
+	local pHpRegen = getCharacterStat(character,"hpRegen")
+	local pMpRegen = getCharacterStat(character,"mpRegen")
+
+	local pClass = getCharacterStat(character, "class")
+	local pRace = getCharacterStat(character, "race")
+
+	local pBattle = getCharacterBattleStatus(character, "hitRecently")
 
 	if(type == 2) then
-		if(characterData[character]["battle"]["hitRecently"] == 0) then
-			characterData[character]["stats"]["hpCurrent"] = math.min(pHpMax, pHp + pHpRegen)
-		elseif(characterData[character]["battle"]["hitRecently"] >= 1 and characterData[character]["stats"]["race"] == "Troll") then
-			characterData[character]["stats"]["hpCurrent"] = math.min(pHpMax, pHp + (pHpRegen * 0.1))
+		if(pBattle == 0) then
+			applyHeal(character, math.min(pHpMax, pHp + pHpRegen))
+			--characterData[character]["stats"]["hpCurrent"] = math.min(pHpMax, pHp + pHpRegen)
+		elseif(pBattle >= 1 and pRace == "Troll") then
+			applyHeal(character, math.min(pHpMax, pHp + (pHpRegen * 0.1)))
+			--characterData[character]["stats"]["hpCurrent"] = math.min(pHpMax, pHp + (pHpRegen * 0.1))
 		end
-		if(characterData[character]["stats"]["class"] == "Rogue") then
-			characterData[character]["stats"]["resCurrent"] = math.min(pResMax, pRes + 20)
+		if(pClass == "Rogue") then
+			applyResource(character, math.min(pResMax, pRes + 20))
+			--characterData[character]["stats"]["resCurrent"] = math.min(pResMax, pRes + 20)
 		end
 	elseif(type == 5) then
-		if not(characterData[character]["stats"]["class"] == "Warrior" or characterData[character]["stats"]["class"] == "Rogue") then
-			characterData[character]["stats"]["resCurrent"] = math.min(pResMax, pRes + pMpRegen)
+		if not(pClass == "Warrior" or pClass == "Rogue") then
+			applyResource(character, math.min(pResMax, pRes + pMpRegen))
+			--characterData[character]["stats"]["resCurrent"] = math.min(pResMax, pRes + pMpRegen)
 		end
 	end
 end
 
-function applyDamage(character, dmg)
-	local pHp = characterData[character]["stats"]["hpCurrent"]
-	characterData[character]["stats"]["hpCurrent"] = math.max(0, pHp - dmg)
-	characterData[character]["battle"]["hitRecently"] = 5
-	print(character .. " was dealt "..dmg)
+function applyDamage(character, value)
+	local pHp = getCharacterStat(character, "hpCurrent")
+
+	setCharacterStas(character, "hpCurrent", math.max(0, pHp - value))
+	setCharacterBattleStatus(character, "hitRecently", 5)
+	
+	print(character .. " was dealt "..value)
+end
+
+function applyHeal(character, value)
+	--local pHp = getCharacterStat(character,"hpCurrent")
+	local pHpMax = getCharacterStat(character,"hpMax")
+
+	setCharacterStat(character, "hpCurrent", math.min(pHpMax, value))
+end
+
+function applyResource(character, value)
+	local pResMax = getCharacterStat(character,"resMax")
+	
+	setCharacterStat(character, "resCurrent", math.min(pResMax, value))
 end
 
 function applyAuraEffects()
@@ -330,14 +360,17 @@ function applyAuraEffects()
 end
 
 function applySpellEffects(spell, target)
-	pAbility = ability[tostring(spell)]
+	--pAbility = ability[tostring(spell)]
 	for i = 1, 3 do
-		if not(pAbility["effectId"][i] == 0) then
-			pEffect = effect[tostring(pAbility["effectId"][i])]
-			if(pEffect["condition"] == "Debuff") then
+		local aEffect = getAbilityEffect(spell)
+		if not(aEffect[i] == 0) then
+			local eCondition = getEffectCondition(aEffect[i])
+			local eChance = getEffectChance(aEffect[i])
+			--pEffect = effect[tostring(pAbility["effectId"][i])]
+			if(eCondition == "Debuff") then
 				local procChance = math.random()*100
-				if(procChance <= pEffect["chance"]) then
-					applyAura(target, tostring(pAbility["effectId"][i]))
+				if(procChance <= eChance) then
+					applyAura(target, tostring(aEffect[i]))
 				end
 			end
 		end
@@ -463,139 +496,171 @@ function calculateEquipmentStats(character)
 	setCharacterEquipmentValue(character, "weaponOH", "blockValue", pBlockValue)
 end
 
-function calculateCombatStats(pStats)
-	local pClass = pStats["stats"]["class"]
-	local pAttr = pStats["stats"]["attr"]
-	local pAvoidance = pStats["stats"]["avoidance"]
+function calculateCombatStats(character)
+	local pClass = getCharacterStat(character, "class")
+	local pAttr = getCharacterStat(character, "attr")
+	local pAvoidance = getCharacterStat(character, "avoidance")
+	local pBaseAp = getCharacterStat(character, "baseAp")
+	local pBaseRAp = getCharacterStat(character, "baseRAp")
+	
 	-- Strength
 	if(pClass == "Warrior" or pClass == "Shaman" or pClass == "Paladin" or pClass == "Druid") then
-		pStats["stats"]["baseAp"] = 2 * pAttr["str"]
+		pBaseAp = 2 * pAttr["str"]
 	else
-		pStats["stats"]["baseAp"] = 1 * pAttr["str"]
+		pBaseAp = 1 * pAttr["str"]
 	end
-	
 	-- Agility
 		-- Melee Ap
 	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Druid") then
-		pStats["stats"]["baseAp"] = pStats["stats"]["baseAp"] + 1 * pAttr["agi"]
+		pBaseAp = pBaseAp + 1 * pAttr["agi"]
 		
 	end
 		-- Range Ap
 	if(pClass == "Warrior" or pClass == "Rogue" or pClass == "Hunter") then
-		pStats["stats"]["baseRAp"] = 1 * pAttr["agi"]
-		
+		pBaseRAp = pBaseRAp + 1 * pAttr["agi"]
 	end
-	local currentAp = pStats["stats"]["ap"]
-	pStats["stats"]["ap"] = currentAp + pStats["stats"]["baseAp"]
-	pStats["stats"]["rAp"] = currentAp + pStats["stats"]["baseRAp"]
+	setCharacterStat(character, "baseAp", pBaseAp)
+	setCharacterStat(character, "baseRAp", pBaseRAp)
+	local pAp = getCharacterStat(character, "ap")
+	setCharacterStat(character, "ap", (pAp + pBaseAp))
+	setCharacterStat(character, "rAp", (pAp + pBaseRAp))
+
+	local pBaseCrit = getCharacterStat(character, "baseCrit")
 		-- Crit
 	if(pClass == "Warrior" or pClass == "Paladin" or pClass == "Shaman" or pClass == "Warlock") then
-		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 20)
+		pBaseCrit = 1 * ( pAttr["agi"] / 20)
 	elseif(pClass == "Rogue") then
-		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 29)
+		pBaseCrit = 1 * ( pAttr["agi"] / 29)
 	elseif(pClass == "Hunter") then
-		pStats["stats"]["baseCrit"] = 1 * ( pAttr["agi"] / 53)
+		pBaseCrit = 1 * ( pAttr["agi"] / 53)
 	end
-	local currentCrit = pStats["stats"]["crit"]
-	pStats["stats"]["crit"] = pStats["stats"]["baseCrit"] + currentCrit
+	setCharacterStat(character, "baseCrit", pBaseCrit)
+	local pCrit = getCharacterStat(character, "crit")
+	setCharacterStat(character, "crit", (pBaseCrit + pCrit))
+	
 		-- Dodge
 	if(pClass == "Rogue") then
-		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 14.5)
+		pAvoidance["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 14.5)
 	elseif(pClass == "Hunter") then
-		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 26)
+		pAvoidance["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 26)
 	else
-		pStats["stats"]["avoidance"]["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 20)
+		pAvoidance["dodge"] = pAvoidance["dodge"] + 1 * ( pAttr["agi"] / 20)
 	end
+	setCharacterStat(character, "avoidance", pAvoidance)
+
+	local pBaseArmor = getCharacterStat(character, "baseArmor")
 		-- Armor
-	pStats["stats"]["baseArmor"] = 2 * pAttr["agi"]
-	local currentArmor = pStats["stats"]["armor"]
-	pStats["stats"]["armor"] = pStats["stats"]["baseArmor"] + currentArmor
+	pBaseArmor = 2 * pAttr["agi"]
+	local pArmor = getCharacterStat(character, "armor")
+	setCharacterStat(character, "armor", (pBaseArmor + pArmor))
 
 	-- Stamina
 		-- HP
-	if(pStats["stats"]["race"] == "Tauren") then
-		pStats["stats"]["hpMax"] = pStats["stats"]["basehp"] + math.min(pAttr["sta"], 20) + 10.5 * math.max(0, (pAttr["sta"]-20))
+	local pRace = getCharacterStat(character, "race")
+	local pMaxHp = getCharacterStat(character, "hpMax")
+	local pBaseHp = getCharacterStat(character, "basehp")
+	if(pRace == "Tauren") then
+		pMaxHp = pBaseHp + math.min(pAttr["sta"], 20) + 10.5 * math.max(0, (pAttr["sta"]-20))
 	else
-		pStats["stats"]["hpMax"] = pStats["stats"]["basehp"] + math.min(pAttr["sta"], 20) + 10 * math.max(0, (pAttr["sta"]-20))
+		pMaxHp = pBaseHp + math.min(pAttr["sta"], 20) + 10 * math.max(0, (pAttr["sta"]-20))
 	end
+	setCharacterStat(character, "hpMax", pMaxHp)
 
 	-- Intelligence
 		-- Mana
+	local pMaxRes = getCharacterStat(character, "resMax")
+	local pBaseRes = getCharacterStat(character, "baseRes")
 	if not(pClass == "Warrior" or pClass == "Rogue") then
-		pStats["stats"]["resMax"] = pStats["stats"]["baseRes"] + 15 * pAttr["int"]
+		pMaxRes = pBaseRes + 15 * pAttr["int"]
 	end
+	setCharacterStat(character, "resMax", pMaxRes)
 		-- Spellcrit
+	local pBaseSCrit = getCharacterStat(character, "baseSCrit")
+	local pSCrit = getCharacterStat(character, "sCrit")
 	if (pClass == "Paladin") then
-		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 54)
+		pSCrit = pBaseSCrit + 1 * (pAttr["int"] / 54)
 	elseif (pClass == "Shaman") then
-		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 59.2)
+		pSCrit = pBaseSCrit + 1 * (pAttr["int"] / 59.2)
 	elseif (pClass == "Mage" or pClass == "Priest") then
-		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 59.5)
+		pSCrit = pBaseSCrit + 1 * (pAttr["int"] / 59.5)
 	elseif (pClass == "Druid") then
-		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 60)
+		pSCrit = pBaseSCrit + 1 * (pAttr["int"] / 60)
 	elseif (pClass == "Warlock") then
-		pStats["stats"]["sCrit"] = pStats["stats"]["baseSCrit"] + 1 * (pAttr["int"] / 60.6)
+		pSCrit = pBaseSCrit + 1 * (pAttr["int"] / 60.6)
 	end
+	setCharacterStat(character, "sCrit", pSCrit)
 
 	-- Spirit
 		-- HP & MP regeneration
+	local pHpRegen = getCharacterStat(character, "hpRegen")
+	local pMpRegen = getCharacterStat(character, "mpRegen")
 	if(pClass == "Druid") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.09) + 6.5
-		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 4.5) + 15
+		pHpRegen = (pAttr["spr"] * 0.09) + 6.5
+		pMpRegen = (pAttr["spr"] / 4.5) + 15
 	elseif(pClass == "Paladin" or pClass == "Hunter") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.25) + 6
-		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 15
+		pHpRegen = (pAttr["spr"] * 0.25) + 6
+		pMpRegen = (pAttr["spr"] / 5) + 15
 	elseif(pClass == "Warlock") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.07) + 6
-		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 15
+		pHpRegen = (pAttr["spr"] * 0.07) + 6
+		pMpRegen = (pAttr["spr"] / 5) + 15
 	elseif(pClass == "Shaman") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.11) + 7
-		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 5) + 17
+		pHpRegen = (pAttr["spr"] * 0.11) + 7
+		pMpRegen = (pAttr["spr"] / 5) + 17
 	elseif(pClass == "Mage" or pClass == "Priest") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.1) + 5
-		pStats["stats"]["mpRegen"] = (pAttr["spr"] / 4) + 12.5
+		pHpRegen = (pAttr["spr"] * 0.1) + 5
+		pMpRegen = (pAttr["spr"] / 4) + 12.5
 	elseif(pClass == "Warrior") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.8) + 6
+		pHpRegen = (pAttr["spr"] * 0.8) + 6
 	elseif(pClass == "Rogue") then
-		pStats["stats"]["hpRegen"] = (pAttr["spr"] * 0.5) + 2
+		pHpRegen = (pAttr["spr"] * 0.5) + 2
 	end
+	setCharacterStat(character, "hpRegen", pHpRegen)
+	setCharacterStat(character, "mpRegen", pMpRegen)
 end
 
-function calculateRacials(pStats)
-	local pRace = pStats["stats"]["race"]
-	local pAttr = pStats["stats"]["attr"]
-	local pSkill = pStats["stats"]["skill"]
-	local pResistance = pStats["stats"]["resist"]
-	local pProfession = pStats["stats"]["profession"]
+function calculateRacials(character)
+	local pRace = getCharacterStat(character, "race")
+	local pAttr = getCharacterStat(character, "attr")
+	local pSkill = getCharacterStat(character, "skill")
+	local pResistance = getCharacterStat(character, "resist")
+	local pProfession = getCharacterStat(character, "profession")
+	local pAvoidance = getCharacterStat(character, "avoidance")
+	local pHpRegen = getCharacterStat(character, "hpRegen")
 	if(pRace == "Human") then
-		pStats["stats"]["attr"]["spr"] = math.floor(pAttr["spr"] + pAttr["spr"] * 0.05)
-		pStats["stats"]["skill"]["OneHandedSword"] = pSkill["OneHandedSword"] + 5
-		pStats["stats"]["skill"]["OneHandedMace"] = pSkill["OneHandedMace"] + 5
-		pStats["stats"]["skill"]["TwoHandedSword"] = pSkill["TwoHandedSword"] + 5
-		pStats["stats"]["skill"]["TwoHandedMace"] = pSkill["TwoHandedMace"] + 5
+		pAttr["spr"] = math.floor(pAttr["spr"] + pAttr["spr"] * 0.05)
+		pSkill["OneHandedSword"] = pSkill["OneHandedSword"] + 5
+		pSkill["OneHandedMace"] = pSkill["OneHandedMace"] + 5
+		pSkill["TwoHandedSword"] = pSkill["TwoHandedSword"] + 5
+		pSkill["TwoHandedMace"] = pSkill["TwoHandedMace"] + 5
 	elseif(pRace == "Dwarf") then
-		pStats["stats"]["resist"]["frost"] = pResistance["frost"] + 10
-		pStats["stats"]["skill"]["Gun"] = pSkill["Gun"] + 5
+		pResistance["frost"] = pResistance["frost"] + 10
+		pSkill["Gun"]["Gun"] = pSkill["Gun"] + 5
 	elseif(pRace == "Gnome") then
-		pStats["stats"]["resist"]["arcane"] = pResistance["arcane"] + 10
-		pStats["stats"]["profession"]["engineering"] = pProfession["engineering"] + 15
-		pStats["stats"]["attr"]["int"] = math.floor(pAttr["int"] + pAttr["int"] * 0.05)
+		pResistance["arcane"] = pResistance["arcane"] + 10
+		pProfession["engineering"] = pProfession["engineering"] + 15
+		pAttr["int"] = math.floor(pAttr["int"] + pAttr["int"] * 0.05)
 	elseif(pRace == "Nightelf") then
-		pStats["stats"]["resist"]["nature"] = pResistance["nature"] + 10
-		pStats["stats"]["avoidance"]["dodge"] = pStats["stats"]["avoidance"]["dodge"] + 1
+		pResistance["nature"] = pResistance["nature"] + 10
+		pAvoidance["dodge"] = pAvoidance["dodge"] + 1
 	elseif(pRace == "Orc") then
-		pStats["stats"]["skill"]["OneHandedAxe"] = pSkill["OneHandedAxe"] + 5
-		pStats["stats"]["skill"]["TwoHandedAxe"] = pSkill["TwoHandedAxe"] + 5
+		pSkill["OneHandedAxe"] = pSkill["OneHandedAxe"] + 5
+		pSkill["TwoHandedAxe"] = pSkill["TwoHandedAxe"] + 5
 	elseif(pRace == "Tauren") then
-		pStats["stats"]["resist"]["nature"] = pResistance["nature"] + 10
-		pStats["stats"]["profession"]["herbalism"] = pProfession["herbalism"] + 15
+		pResistance["nature"] = pResistance["nature"] + 10
+		pProfession["herbalism"] = pProfession["herbalism"] + 15
 	elseif(pRace == "Undead") then
-		pStats["stats"]["resist"]["shadow"] = pResistance["shadow"] + 10
+		pResistance["shadow"] = pResistance["shadow"] + 10
 	elseif(pRace == "Troll") then
-		pStats["stats"]["skill"]["Throwing"] = pSkill["Throwing"] + 5
-		pStats["stats"]["skill"]["Bow"] = pSkill["Bow"] + 5
-		pStats["stats"]["hpRegen"] = pStats["stats"]["hpRegen"] + pStats["stats"]["hpRegen"] * 0.10
+		pSkill["Throwing"] = pSkill["Throwing"] + 5
+		pSkill["Bow"] = pSkill["Bow"] + 5
+		pHpRegen = pHpRegen + pHpRegen * 0.10
 	end
+	setCharacterStat(character, "attr", pAttr)
+	setCharacterStat(character, "skill", pSkill)
+	setCharacterStat(character, "resist", pResistance)
+	setCharacterStat(character, "profession", pProfession)
+	setCharacterStat(character, "avoidance", pAvoidance)
+	setCharacterStat(character, "hpRegen", pHpRegen)
 end
 
 function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dualWield, special)
@@ -633,7 +698,7 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dua
 	return rHitChance
 end
 
-function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
+function calculateProcs(pAttacked,character, pWeapon, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
 	local eqChance = {"weaponMH","weaponOH","weaponRanged","trinket1","trinket2"}
 	local procDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local procs = {}
@@ -641,14 +706,21 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 	if not (pAttacked == true) then
 		for i = 1, #eqChance do
 			for k = 1, 3 do
-				if not(pStats[eqChance[i]]["effectId"][k] == 0) then
-					local eqEffect = effect[tostring(pStats[eqChance[i]]["effectId"][k])]
-					local eqStat = tostring(eqEffect["stat"])
+				local pEquipmentStats = getCharacterEquipmentValue(character, eqChance[i], "effectId")
+				if not(pEquipmentStats[k] == 0) then
+					local eType = getEffectType(pEquipmentStats[k])
+					local eChance = getEffectChance(pEquipmentStats[k])
+					local eCondition = getEffectCondition(pEquipmentStats[k])
+					local eSchools = getEffectSchool(pEquipmentStats[k])
+					local eStat = getEffectStat(pEquipmentStats[k])
+					local eValue = getEffectValue(pEquipmentStats[k])
+					local eName = getEffectName(pEquipmentStats[k])
+					
 					if((eqChance[i] == "trinket1" or eqChance[i] == "trinket2") or eqChance[i] == pWeapon) then
 						--print(eqChance[i],eqEffect["stat"],eqEffect["condition"])
-						if(eqEffect["type"] == "DirectDamage" and eqEffect["condition"] == "OnHit") then
+						if(eType == "DirectDamage" and eCondition == "OnHit") then
 							local procChance = math.random()*100
-							if(procChance <= eqEffect["chance"]) then
+							if(procChance <= eChance) then
 								local critChance = math.random()*100
 								local phyMult = 1
 								local eleMult = 1
@@ -656,22 +728,26 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 									phyMult = 2
 									eleMult = 1.5
 								end
-								table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),schools=eqEffect["schools"], phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
+								table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),schools=eSchools, phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
 							end
-						elseif(eqEffect["type"] == "ExtraAttack" and eqEffect["condition"] == "OnHit") then
-							if(eqEffect["stat"] == "Melee" and not (pWeapon == "weaponRanged") and not (pWeapon == "spell")) then 
+						elseif(eType == "ExtraAttack" and eCondition == "OnHit") then
+							if(eStat == "Melee" and not (pWeapon == "weaponRanged") and not (pWeapon == "spell")) then 
 								local procChance = math.random()*100
-								if(procChance <= eqEffect["chance"]) then
-									for runs = 1, eqEffect["value"] do
+								if(procChance <= eChance) then
+									for runs = 1, eValue do
 										local pExtraHit = 0
 										pExtraHit = getAttackResult(pAttackTable, false, pCrit)
 										if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
-											local pExtraHitDamage = {min=pStats[pWeapon]["schools"]["phy"]["min"],max=pStats[pWeapon]["schools"]["phy"]["max"],blocked=0}
+											local pWeaponSchools = getCharacterEquipmentValue(character, pWeapon, "schools")
+											local pWeaponType = getCharacterEquipmentValue(character, pWeapon, "type")
+											local pSkill = getCharacterStat(character, "skill")
+											local pAp = getCharacterStat(character, "ap")
+											local pExtraHitDamage = {min=pWeaponSchools["phy"]["min"],max=pWeaponSchools["phy"]["max"],blocked=0}
 											local pExtraHitMult = 1
 											if(pExtraHit == "crit") then
 												pExtraHitMult = 2
 											elseif(pExtraHit == "glancingBlow") then
-												pExtraHitMult = calculateGlancingBlowMult(pStats["stats"]["skill"][pStats[pWeapon]["type"]], eDefSkill)
+												pExtraHitMult = calculateGlancingBlowMult(pSkill[pWeaponType], eDefSkill)
 											elseif(pExtraHit == "block") then
 												local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
 												local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
@@ -679,7 +755,7 @@ function calculateProcs(pAttacked,pStats, pWeapon, pAttackTable, pCrit, eDmgRedu
 												pExtraHitDamage["max"] = blockDamageMax["dmg"]
 												pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
 											end
-											table.insert(procs, #procs, {source=eqEffect["name"],id=tostring(pStats[eqChance[i]]["effectId"][k]),ap=pStats["stats"]["ap"],schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
+											table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),ap=pAp,schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
 										end
 									end
 								end
