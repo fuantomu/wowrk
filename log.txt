@@ -6,636 +6,219 @@ DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 INFO:DLIB: SSDP: Started on address 192.168.0.2
-DEBUG:SCRIPT: table["testCharacter"]["battle"]["hitRecently"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["phy"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["phy"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["setid"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["type"] = "Shield"
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["blockValue"] = 80
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["armor"] = 150
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponOH"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["feet"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket2"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["necklace"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["rlevel"] = 60
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["slot"] = "shoulder"
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["unique"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["ilevel"] = 66
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["effectId"][2] = 13675
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["quality"] = 4
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["attr"]["sta"] = 22
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["attr"]["str"] = 15
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["icon"] = "inv_shoulder_15"
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["durability"]["max"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["durability"]["current"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["armor"] = 562
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["shadow"] = 7
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["setid"] = 209
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["bind"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["value"] = 27364
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["name"] = "Pauldrons of Might"
-DEBUG:SCRIPT: table["testCharacter"]["shoulder"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["rlevel"] = 42
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["phy"]["max"] = 84
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["phy"]["min"] = 44
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["fire"]["max"] = 3
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["fire"]["min"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["unique"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["ilevel"] = 47
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["quality"] = 3
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["aspd"] = 2.6
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["durability"]["max"] = 75
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["durability"]["current"] = 75
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["icon"] = "inv_weapon_rifle_07"
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["mage"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["warlock"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["rogue"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["priest"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["paladin"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["shaman"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["class"]["hunter"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["type"] = "Gun"
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["setid"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["bind"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["value"] = 16681
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["name"] = "Galgann's Fireblaster"
-DEBUG:SCRIPT: table["testCharacter"]["weaponRanged"]["slot"] = "weaponRanged"
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["chest"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["legs"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["rlevel"] = 53
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["slot"] = "trinket1"
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["unique"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["ilevel"] = 58
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["effectId"][1] = 15600
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["effectId"][2] = 9331
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["quality"] = 3
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["icon"] = "inv_jewelry_talisman_01"
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["durability"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["durability"]["current"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["setid"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["bind"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["value"] = 10000
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["name"] = "Hand of Justice"
-DEBUG:SCRIPT: table["testCharacter"]["trinket1"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["rlevel"] = 60
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["slot"] = "waist"
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["unique"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["ilevel"] = 66
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["effectId"][2] = 13669
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["quality"] = 4
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["attr"]["sta"] = 15
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["attr"]["str"] = 21
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["icon"] = "inv_belt_09"
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["durability"]["max"] = 55
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["durability"]["current"] = 55
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["armor"] = 421
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["fire"] = 7
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["setid"] = 209
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["bind"] = 2
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["value"] = 17981
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["name"] = "Belt of Might"
-DEBUG:SCRIPT: table["testCharacter"]["waist"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring1"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["type"] = "Accessory"
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["ring2"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["rlevel"] = 60
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["slot"] = "hands"
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["unique"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["ilevel"] = 66
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["effectId"][1] = 13383
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["effectId"][2] = 15464
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["quality"] = 4
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["attr"]["sta"] = 17
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["attr"]["str"] = 22
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["icon"] = "inv_gauntlets_10"
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["mage"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["warlock"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["rogue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["priest"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["paladin"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["shaman"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["class"]["hunter"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["durability"]["max"] = 55
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["durability"]["current"] = 55
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["armor"] = 421
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["fire"] = 7
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["setid"] = 209
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["bind"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["value"] = 17916
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["name"] = "Gauntlets of Might"
-DEBUG:SCRIPT: table["testCharacter"]["hands"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseAp"] = 436
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["ap"] = 456
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["basehp"] = 1689
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["shadow"] = 7
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["fire"] = 14
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["profession"]["herbalism"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["profession"]["engineering"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["armor"] = 2014
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["TwoHandedMace"] = 305
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Defense"] = 315
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Throwing"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["OneHandedAxe"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Unarmed"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Bow"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Dagger"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["OneHandedSword"] = 305
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Polearm"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["TwoHandedAxe"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["OneHandedMace"] = 305
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Fistweapon"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["TwoHandedSword"] = 305
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["skill"]["Gun"] = 300
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["sHit"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resMax"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseSp"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseSCrit"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["sp"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["attr"]["sta"] = 164
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["attr"]["str"] = 178
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["attr"]["agi"] = 80
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["attr"]["spr"] = 49
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["attr"]["int"] = 30
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["xp"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["sCrit"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["crit"] = 4
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseRAp"] = 80
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["hpRegen"] = 43.6
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseCrit"] = 4
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["baseArmor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["class"] = "Warrior"
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["avoidance"]["dodge"] = 5
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["avoidance"]["block"] = 7
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["avoidance"]["parry"] = 5
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["race"] = "Human"
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["rAp"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["hit"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["hpCurrent"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["hpMax"] = 3149
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["resCurrent"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["mpRegen"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["stats"]["level"] = 60
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["helmet"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["type"] = "Plate"
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["wrists"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["type"] = "Cloth"
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["armor"] = 50
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["effectId"][1] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["cloak"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["rlevel"] = 58
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["phy"]["max"] = 227
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["phy"]["min"] = 151
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["blockValue"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["armor"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["unique"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["ilevel"] = 63
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["effectId"][1] = 16549
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["effectId"][2] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["effectId"][3] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["quality"] = 3
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["attr"]["sta"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["attr"]["str"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["aspd"] = 3.5
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["durability"]["max"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["durability"]["current"] = 100
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["rrank"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["lore"] = ""
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["icon"] = "inv_weapon_halberd_04"
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["undead"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["human"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["dwarf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["tauren"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["gnome"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["nightelf"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["troll"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["race"]["orc"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["mage"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["warlock"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["warrior"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["rogue"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["priest"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["paladin"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["shaman"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["class"]["hunter"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["type"] = "Polearm"
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["holy"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["frost"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["shadow"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["arcane"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["resist"]["nature"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["setid"] = 0
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["bind"] = 1
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["value"] = 74346
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["name"] = "Blackhand Doomsaw"
-DEBUG:SCRIPT: table["testCharacter"]["weaponMH"]["slot"] = "weaponMH"
+DEBUG:SCRIPT: Wound[16549] proc with 231[0] phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Wound[16549] proc with 206[0] phy (0 blocked) and +0ap
 DEBUG:SCRIPT: Test results for 10 runs:
-DEBUG:SCRIPT: 100 raw with 26% reduction: crushingBlow with 145.5[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: dodge with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: block with 0[0] (97 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
+DEBUG:SCRIPT: 172 raw with 42% reduction: glancingBlow with 314.3[231] (0 blocked)
+DEBUG:SCRIPT: 224 raw with 42% reduction: hit with 149[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: miss with 0[0] (0 blocked)
+DEBUG:SCRIPT: 196 raw with 42% reduction: glancingBlow with 93.1[0] (0 blocked)
+DEBUG:SCRIPT: 167 raw with 42% reduction: glancingBlow with 81.2[0] (0 blocked)
+DEBUG:SCRIPT: 163 raw with 42% reduction: glancingBlow with 79.1[0] (0 blocked)
+DEBUG:SCRIPT: 216 raw with 42% reduction: glancingBlow with 100.8[0] (0 blocked)
+DEBUG:SCRIPT: 205 raw with 42% reduction: hit with 138[0] (0 blocked)
+DEBUG:SCRIPT: 215 raw with 42% reduction: hit with 350[206] (0 blocked)
+DEBUG:SCRIPT: 183 raw with 42% reduction: hit with 125[0] (0 blocked)
 DEBUG:SCRIPT: Tick 1
 DEBUG:SCRIPT: Tick 2
 DEBUG:SCRIPT: Tick 3
 DEBUG:SCRIPT: Tick 4
 DEBUG:SCRIPT: Tick 5
 DEBUG:SCRIPT: Tick 6
-DEBUG:SCRIPT: Test results for 10 runs:
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: block with 0[0] (97 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: block with 0[0] (97 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: parry with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: miss with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
 DEBUG:SCRIPT: Tick 7
 DEBUG:SCRIPT: Tick 8
 DEBUG:SCRIPT: Tick 9
 DEBUG:SCRIPT: Tick 10
 DEBUG:SCRIPT: Tick 11
-DEBUG:SCRIPT: Test results for 10 runs:
-DEBUG:SCRIPT: 100 raw with 26% reduction: crushingBlow with 145.5[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: block with 0[0] (97 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: crushingBlow with 145.5[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: crushingBlow with 145.5[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: miss with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: block with 0[0] (97 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: miss with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: crushingBlow with 145.5[0] (0 blocked)
 DEBUG:SCRIPT: Tick 12
 DEBUG:SCRIPT: Tick 13
 DEBUG:SCRIPT: Tick 14
-DEBUG:SCRIPT: Test results for 10 runs:
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: dodge with 0[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: miss with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: crit with 194[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: parry with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
 DEBUG:SCRIPT: Tick 15
-DEBUG:SCRIPT: Test results for 10 runs:
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 0 raw with 26% reduction: dodge with 0[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
-DEBUG:SCRIPT: 100 raw with 26% reduction: hit with 97[0] (0 blocked)
 DEBUG:SCRIPT: Tick 16
+DEBUG:SCRIPT: Tick 17
+DEBUG:SCRIPT: Tick 18
+DEBUG:SCRIPT: Tick 19
+DEBUG:SCRIPT: Tick 20
+DEBUG:SCRIPT: Tick 21
+DEBUG:SCRIPT: Wound[16549] proc with 273[0] phy (0 blocked) and +0ap
+DEBUG:SCRIPT: Test results for 10 runs:
+DEBUG:SCRIPT: 201 raw with 42% reduction: glancingBlow with 94.5[0] (0 blocked)
+DEBUG:SCRIPT: 158 raw with 42% reduction: hit with 111[0] (0 blocked)
+DEBUG:SCRIPT: 189 raw with 42% reduction: glancingBlow with 89.6[0] (0 blocked)
+DEBUG:SCRIPT: 176 raw with 42% reduction: glancingBlow with 357.7[273] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: dodge with 0[0] (0 blocked)
+DEBUG:SCRIPT: 208 raw with 42% reduction: glancingBlow with 98[0] (0 blocked)
+DEBUG:SCRIPT: 221 raw with 42% reduction: glancingBlow with 102.9[0] (0 blocked)
+DEBUG:SCRIPT: 186 raw with 42% reduction: hit with 127[0] (0 blocked)
+DEBUG:SCRIPT: 180 raw with 42% reduction: glancingBlow with 86.1[0] (0 blocked)
+DEBUG:SCRIPT: 153 raw with 42% reduction: hit with 108[0] (0 blocked)
+DEBUG:SCRIPT: Tick 22
+DEBUG:SCRIPT: Tick 23
+DEBUG:SCRIPT: Tick 24
+DEBUG:SCRIPT: Tick 25
+DEBUG:SCRIPT: Test results for 10 runs:
+DEBUG:SCRIPT: 0 raw with 42% reduction: miss with 0[0] (0 blocked)
+DEBUG:SCRIPT: 183 raw with 42% reduction: hit with 125[0] (0 blocked)
+DEBUG:SCRIPT: 180 raw with 42% reduction: glancingBlow with 86.1[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: dodge with 0[0] (0 blocked)
+DEBUG:SCRIPT: 198 raw with 42% reduction: hit with 134[0] (0 blocked)
+DEBUG:SCRIPT: 219 raw with 42% reduction: glancingBlow with 102.2[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: miss with 0[0] (0 blocked)
+DEBUG:SCRIPT: 155 raw with 42% reduction: hit with 109[0] (0 blocked)
+DEBUG:SCRIPT: 223 raw with 42% reduction: glancingBlow with 103.6[0] (0 blocked)
+DEBUG:SCRIPT: 151 raw with 42% reduction: glancingBlow with 74.2[0] (0 blocked)
+DEBUG:SCRIPT: Tick 26
+DEBUG:SCRIPT: Tick 27
+DEBUG:SCRIPT: Tick 28
+DEBUG:SCRIPT: Tick 29
+DEBUG:SCRIPT: Tick 30
+DEBUG:SCRIPT: Tick 31
+DEBUG:SCRIPT: Tick 32
+DEBUG:SCRIPT: Tick 33
+DEBUG:SCRIPT: Tick 34
+DEBUG:SCRIPT: Tick 35
+DEBUG:SCRIPT: Tick 36
+DEBUG:SCRIPT: Tick 37
+DEBUG:SCRIPT: Tick 38
+DEBUG:SCRIPT: Tick 39
+DEBUG:SCRIPT: Tick 40
+DEBUG:SCRIPT: Tick 41
+DEBUG:SCRIPT: Tick 42
+DEBUG:SCRIPT: Tick 43
+DEBUG:SCRIPT: Tick 44
+DEBUG:SCRIPT: Tick 45
+DEBUG:SCRIPT: Tick 46
+DEBUG:SCRIPT: Tick 47
+DEBUG:SCRIPT: Tick 48
+DEBUG:SCRIPT: Tick 49
+DEBUG:SCRIPT: Tick 50
+DEBUG:SCRIPT: Tick 51
+DEBUG:SCRIPT: Tick 52
+DEBUG:SCRIPT: Tick 53
+DEBUG:SCRIPT: Tick 54
+DEBUG:SCRIPT: Tick 55
+DEBUG:SCRIPT: Tick 56
+DEBUG:SCRIPT: Tick 57
+DEBUG:SCRIPT: Tick 58
+DEBUG:SCRIPT: Tick 59
+DEBUG:SCRIPT: Tick 60
+DEBUG:SCRIPT: Tick 61
+DEBUG:SCRIPT: Tick 62
+DEBUG:SCRIPT: Tick 63
+DEBUG:SCRIPT: Tick 64
+DEBUG:SCRIPT: Tick 65
+DEBUG:SCRIPT: Test results for 10 runs:
+DEBUG:SCRIPT: 181 raw with 42% reduction: hit with 124[0] (0 blocked)
+DEBUG:SCRIPT: 163 raw with 42% reduction: hit with 113[0] (0 blocked)
+DEBUG:SCRIPT: 201 raw with 42% reduction: glancingBlow with 94.5[0] (0 blocked)
+DEBUG:SCRIPT: 172 raw with 42% reduction: glancingBlow with 83.3[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: miss with 0[0] (0 blocked)
+DEBUG:SCRIPT: 203 raw with 42% reduction: hit with 137[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: dodge with 0[0] (0 blocked)
+DEBUG:SCRIPT: 173 raw with 42% reduction: hit with 119[0] (0 blocked)
+DEBUG:SCRIPT: 170 raw with 42% reduction: glancingBlow with 81.9[0] (0 blocked)
+DEBUG:SCRIPT: 198 raw with 42% reduction: glancingBlow with 93.8[0] (0 blocked)
+DEBUG:SCRIPT: Tick 66
+DEBUG:SCRIPT: Tick 67
+DEBUG:SCRIPT: Tick 68
+DEBUG:SCRIPT: Test results for 10 runs:
+DEBUG:SCRIPT: 156 raw with 42% reduction: hit with 109[0] (0 blocked)
+DEBUG:SCRIPT: 175 raw with 42% reduction: hit with 120[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: dodge with 0[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: parry with 0[0] (0 blocked)
+DEBUG:SCRIPT: 207 raw with 42% reduction: hit with 139[0] (0 blocked)
+DEBUG:SCRIPT: 181 raw with 42% reduction: glancingBlow with 86.8[0] (0 blocked)
+DEBUG:SCRIPT: 223 raw with 42% reduction: glancingBlow with 103.6[0] (0 blocked)
+DEBUG:SCRIPT: 213 raw with 42% reduction: hit with 142[0] (0 blocked)
+DEBUG:SCRIPT: 216 raw with 42% reduction: hit with 144[0] (0 blocked)
+DEBUG:SCRIPT: 217 raw with 42% reduction: glancingBlow with 101.5[0] (0 blocked)
+DEBUG:SCRIPT: Tick 69
+DEBUG:SCRIPT: Tick 70
+DEBUG:SCRIPT: Tick 71
+DEBUG:SCRIPT: Tick 72
+DEBUG:SCRIPT: Tick 73
+DEBUG:SCRIPT: Tick 74
+DEBUG:SCRIPT: Tick 75
+DEBUG:SCRIPT: Tick 76
+DEBUG:SCRIPT: Tick 77
+DEBUG:SCRIPT: Tick 78
+DEBUG:SCRIPT: Tick 79
+DEBUG:SCRIPT: Tick 80
+DEBUG:SCRIPT: Tick 81
+DEBUG:SCRIPT: Tick 82
+DEBUG:SCRIPT: Tick 83
+DEBUG:SCRIPT: Tick 84
+DEBUG:SCRIPT: Tick 85
+DEBUG:SCRIPT: Tick 86
+DEBUG:SCRIPT: Tick 87
+DEBUG:SCRIPT: Tick 88
+DEBUG:SCRIPT: Tick 89
+DEBUG:SCRIPT: Tick 90
+DEBUG:SCRIPT: Tick 91
+DEBUG:SCRIPT: Tick 92
+DEBUG:SCRIPT: Tick 93
+DEBUG:SCRIPT: Tick 94
+DEBUG:SCRIPT: Tick 95
+DEBUG:SCRIPT: Tick 96
+DEBUG:SCRIPT: Tick 97
+DEBUG:SCRIPT: Tick 98
+DEBUG:SCRIPT: Tick 99
+DEBUG:SCRIPT: Tick 100
+DEBUG:SCRIPT: Tick 101
+DEBUG:SCRIPT: Tick 102
+DEBUG:SCRIPT: Tick 103
+DEBUG:SCRIPT: Tick 104
+DEBUG:SCRIPT: Tick 105
+DEBUG:SCRIPT: Tick 106
+DEBUG:SCRIPT: Tick 107
+DEBUG:SCRIPT: Tick 108
+DEBUG:SCRIPT: Tick 109
+DEBUG:SCRIPT: Tick 110
+DEBUG:SCRIPT: Tick 111
+DEBUG:SCRIPT: Tick 112
+DEBUG:SCRIPT: Tick 113
+DEBUG:SCRIPT: Tick 114
+DEBUG:SCRIPT: Tick 115
+DEBUG:SCRIPT: Tick 116
+DEBUG:SCRIPT: Tick 117
+DEBUG:SCRIPT: Tick 118
+DEBUG:SCRIPT: Tick 119
+DEBUG:SCRIPT: Tick 120
+DEBUG:SCRIPT: Tick 121
+DEBUG:SCRIPT: Tick 122
+DEBUG:SCRIPT: Tick 123
+DEBUG:SCRIPT: Tick 124
+DEBUG:SCRIPT: Tick 125
+DEBUG:SCRIPT: Tick 126
+DEBUG:SCRIPT: Tick 127
+DEBUG:SCRIPT: Tick 128
+DEBUG:SCRIPT: Tick 129
+DEBUG:SCRIPT: Tick 130
+DEBUG:SCRIPT: Tick 131
+DEBUG:SCRIPT: Tick 132
+DEBUG:SCRIPT: Tick 133
+DEBUG:SCRIPT: Tick 134
+DEBUG:SCRIPT: Tick 135
+DEBUG:SCRIPT: Tick 136
+DEBUG:SCRIPT: Tick 137
+DEBUG:SCRIPT: Tick 138
+DEBUG:SCRIPT: Tick 139
+DEBUG:SCRIPT: Tick 140
+DEBUG:SCRIPT: Tick 141
+DEBUG:SCRIPT: Tick 142
+DEBUG:SCRIPT: Test results for 10 runs:
+DEBUG:SCRIPT: 0 raw with 42% reduction: miss with 0[0] (0 blocked)
+DEBUG:SCRIPT: 177 raw with 42% reduction: glancingBlow with 85.4[0] (0 blocked)
+DEBUG:SCRIPT: 190 raw with 42% reduction: glancingBlow with 90.3[0] (0 blocked)
+DEBUG:SCRIPT: 176 raw with 42% reduction: hit with 121[0] (0 blocked)
+DEBUG:SCRIPT: 163 raw with 42% reduction: block with 53[0] (60 blocked)
+DEBUG:SCRIPT: 160 raw with 42% reduction: glancingBlow with 78.4[0] (0 blocked)
+DEBUG:SCRIPT: 152 raw with 42% reduction: glancingBlow with 74.9[0] (0 blocked)
+DEBUG:SCRIPT: 0 raw with 42% reduction: dodge with 0[0] (0 blocked)
+DEBUG:SCRIPT: 155 raw with 42% reduction: hit with 109[0] (0 blocked)
+DEBUG:SCRIPT: 204 raw with 42% reduction: glancingBlow with 95.9[0] (0 blocked)
+DEBUG:SCRIPT: Tick 143
+DEBUG:SCRIPT: Tick 144
+DEBUG:SCRIPT: Tick 145
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 192.168.0.2

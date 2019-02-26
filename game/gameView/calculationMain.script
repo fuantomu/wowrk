@@ -16,23 +16,6 @@ function update(self, dt)
 		if(tickTimer <= 0) then
 			currentTick = currentTick + 1 * tickTime
 			tickTimer = 60 * tickTime
-			local cData = getCharacterData()
-			if(currentTick % 2 == 0) then
-				for k, v in pairs(cData) do
-					calculateRegeneration(k, 2)
-				end
-			end
-			if(currentTick % 5 == 0) then
-				for k, v in pairs(cData) do
-					calculateRegeneration(k, 5)
-				end
-			end
-			for k, v in pairs(cData) do
-				local pHitRecently = getCharacterBattleStatus(k, "hitRecently")
-				setCharacterBattleStatus(k, "hitRecently", math.max(0, pHitRecently-1))
-			end
-			updateAuras()
-			applyAuraEffects()
 			print("Tick "..currentTick)
 		end
 	end
@@ -123,7 +106,7 @@ function on_message(self, message_id, message, sender)
 		if(isMob == true) then
 			damageRolls = getRandomDamage(enemySchools)
 		else
-			damageRolls = getRandomDamage(pWeapons[message.pId])
+			damageRolls = getRandomDamage(pWeapons[message.pId]["schools"])
 		end
 		if(pAttackResult == "glancingBlow") then
 			damageMult =  calculateGlancingBlowMult(pWpnSkill, eDefSkill)
@@ -178,7 +161,7 @@ function on_message(self, message_id, message, sender)
 			pProcBlocked["phy"] = pProcResult["blocked"]
 
 			if(attackType == 2) then
-				applySpellEffects(message.pId, message.p)
+				applySpellEffects(message.pId, message.e)
 			end
 		end
 
@@ -187,7 +170,7 @@ function on_message(self, message_id, message, sender)
 		msg.post(sender, hash("returnAttackResult"), {result=pAttackResult, damageTable=pDmgDone, damageResult= pDmgResult, blockedDamage = (blockDamage["blocked"]+pProcBlocked["phy"]), rawDamage= damageRolls, reducedDamage=pDmgReduction, procDamage=pProcDamage})
 	elseif(message_id == hash("getCombatStats")) then
 		--removeAura(message.p, 465)
-		--applyAura(message.p, 6, "testEnemy")
+		--applyAura(message.p, 6, {id="testEnemy", type="mob"})
 		if not(message.skip == true) then
 			equipItem(message.p, "weapon", "weaponMH", 12583)
 			equipItem(message.p, "armor", "trinket1", 11815)
@@ -250,7 +233,7 @@ end
 function applyDamage(character, value)
 	local pHp = getCharacterStat(character, "hpCurrent")
 
-	setCharacterStas(character, "hpCurrent", math.max(0, pHp - value))
+	setCharacterStat(character, "hpCurrent", math.max(0, pHp - value))
 	setCharacterBattleStatus(character, "hitRecently", 5)
 	
 	print(character .. " was dealt "..value)
@@ -269,88 +252,139 @@ function applyResource(character, value)
 	setCharacterStat(character, "resCurrent", math.min(pResMax, value))
 end
 
-function applyAuraEffects()
-	for k, v in pairs(characterData) do
-		--print(v["stats"]["hpCurrent"], v["stats"]["hpMax"])
-		if not( v["buffs"] == nil) then
-			for j,l in pairs(v["buffs"]) do
-				aEffect = effect[tostring(l["id"])]
-				if(characterData[k]["buffs"][j]["active"] == false) then
-					if(aEffect["condition"] == "Buff") then
-						characterData[k]["buffs"][j]["active"] = true
-						if(aEffect["type"] == "IncreaseStat") then
-							characterData[k]["stats"][aEffect["stat"]] = v["stats"][aEffect["stat"]] + aEffect["value"]
-							print("Buff "..aEffect["name"].." on player "..k..": Increase "..aEffect["stat"].." by "..aEffect["value"])
-						end
-					elseif(aEffect["condition"] == "AuraBuff") then
-						characterData[k]["buffs"][j]["active"] = true
-						if(aEffect["type"] == "IncreaseStat") then
-							characterData[k]["stats"][aEffect["stat"]] = v["stats"][aEffect["stat"]] + aEffect["value"]
-							print("Aura "..aEffect["name"].." on player "..k..": Increase "..aEffect["stat"].." by "..aEffect["value"])
+function applyAuraEffects(character)
+	--print(v["stats"]["hpCurrent"], v["stats"]["hpMax"])
+	local pBuffs = getCharacterBuffs(character)
+	local pDebuffs = getCharacterDebuffs(character)
+	--tprint(pDebuffs)
+	if not( pBuffs == nil) then
+		for j,l in pairs(pBuffs) do
+			aEffect = effect[tostring(l["id"])]
+			local eCondition = getEffectCondition(tostring(l["id"]))
+			local eType = getEffectType(tostring(l["id"]))
+			local eStat = getEffectStat(tostring(l["id"]))
+			local eValue = getEffectValue(tostring(l["id"]))
+			local eName = getEffectName(tostring(l["id"]))
+			local pBuffType = getCharacterBuffType(character, j)
+			local pBuffDuration = getCharacterBuffDuration(character, j)
+			local pBuffTick = getCharacterBuffTick(character, j)
+			local pBuffStatus = getCharacterBuffStatus(character, j)
+			local pBuffName = getCharacterBuffName(character, j)
+			
+			if(pBuffStatus == false) then
+				setCharacterBuffStatus(character, j, true)
+				if(eCondition == "Buff") then
+					if(eType == "IncreaseStat") then
+						local pStat = getCharacterStat(character, eStat)
+						setCharacterStat(character, eStat, ( pStat + eValue))
+						print("Buff "..eName.." on player "..character..": Increase "..eStat.." by "..eValue)
+					end
+				elseif(eCondition == "AuraBuff") then
+					if(eType == "IncreaseStat") then
+						local pStat = getCharacterStat(character, eStat)
+						setCharacterStat(character, eStat, ( pStat + eValue))
+						print("Buff Aura "..eName.." on player "..character..": Increase "..eStat.." by "..eValue)
+					end
+				end
+			else
+				if not(eCondition == "AuraBuff") then
+					if(pBuffDuration <= 1) then
+						if(eType == "IncreaseStat") then
+							local pStat = getCharacterStat(character, eStat)
+							setCharacterStat(character, eStat, math.max(0, ( pStat - eValue)))
+							print("Buff gone "..eName.." on player "..character..": Removed "..eStat.." by "..eValue)
+							setCharacterBuffStatus(character, j, 3)
 						end
 					end
 				else
-					if not(aEffect["condition"] == "AuraBuff") then
-						if(characterData[k]["buffs"][j]["duration"] <= 1) then
-							if(aEffect["condition"] == "Buff") then
-								if(aEffect["type"] == "IncreaseStat") then
-									characterData[k]["stats"][aEffect["stat"]] = math.max(0,v["stats"][aEffect["stat"]] - aEffect["value"])
-									print("Buff gone "..aEffect["name"].." on player "..k..": Removed "..aEffect["stat"].." by "..aEffect["value"])
-									characterData[k]["buffs"][j]["active"] = 3
-								end
-							end
-						end
-					else
-						if(characterData[k]["buffs"][j]["active"] == 2) then
-							if(aEffect["type"] == "IncreaseStat") then
-								characterData[k]["stats"][aEffect["stat"]] = math.max(0,v["stats"][aEffect["stat"]] - aEffect["value"])
-								print("Aura gone "..aEffect["name"].." on player "..k..": Removed "..aEffect["stat"].." by "..aEffect["value"])
-								characterData[k]["buffs"][j]["active"] = 3
-							end
+					if(pBuffStatus == 2) then
+						if(eType == "IncreaseStat") then
+							local pStat = getCharacterStat(character, eStat)
+							setCharacterStat(character, eStat, math.max(0, ( pStat - eValue)))
+							print("Buff Aura gone "..eName.." on player "..character..": Removed "..eStat.." by "..eValue)
+							setCharacterBuffStatus(character, j, 3)
 						end
 					end
 				end
 			end
 		end
-		if not( v["debuffs"] == nil) then
-			for j,l in pairs(v["debuffs"]) do
-				aEffect = effect[tostring(l["id"])]
-				if(characterData[k]["debuffs"][j]["active"] == false) then
-					if(aEffect["condition"] == "Debuff") then
-						characterData[k]["debuffs"][j]["active"] = true
-						if(aEffect["type"] == "DoT") then
-							print("Debuff "..aEffect["name"].." on player "..k..": "..aEffect["type"].." "..aEffect["stat"].." over "..aEffect["duration"].." for "..aEffect["tick"])
+	end
+	if not( pDebuffs == nil) then
+		for j,l in pairs(pDebuffs) do
+			aEffect = effect[tostring(l["id"])]
+			local eCondition = getEffectCondition(tostring(l["id"]))
+			local eType = getEffectType(tostring(l["id"]))
+			local eStat = getEffectStat(tostring(l["id"]))
+			local eValue = getEffectValue(tostring(l["id"]))
+			local eName = getEffectName(tostring(l["id"]))
+			local eDuration = getEffectDuration(tostring(l["id"]))
+			local eTick = getEffectTick(tostring(l["id"]))
+			local pDebuffType = getCharacterDebuffType(character, j)
+			local pDebuffDuration = getCharacterDebuffDuration(character, j)
+			local pDebuffTick = getCharacterDebuffTick(character, j)
+			local pDebuffStatus = getCharacterDebuffStatus(character, j)
+			local pDebuffName = getCharacterDebuffName(character, j)
+			local pDebuffSource = getCharacterDebuffSource(character, j)
+
+			if(pDebuffStatus == false) then
+				setCharacterDebuffStatus(character, j, true)
+				if(eCondition == "Debuff") then
+					if(eType == "DoT") then
+						print("Debuff "..eName.." on player "..character..": "..eType.." "..eStat.." over "..eDuration.." for "..eTick)
+					end
+				elseif(eCondition == "AuraDebuff") then
+					if(eType == "DecreaseStat") then
+						local pStat = getCharacterStat(character, eStat)
+						setCharacterStat(character, eStat, math.max(0, (pStat - eValue)))
+						print("Debuff Aura "..eName.." on player "..character..": Decrease "..eStat.." by "..eValue)
+					end
+				end
+			else--if(characterData[k]["debuffs"][j]["active"] == true) then
+				if not(eCondition == "AuraDebuff") then
+					local enemyLevel = 0
+					if(pDebuffSource["type"] == "player") then
+						enemyLevel = getCharacterLevel(pDebuffSource["id"])
+					elseif(pDebuffSource["type"] == "mob") then
+						enemyLevel = getEnemyLevel(pDebuffSource["id"])
+					end
+					local pLevel = getCharacterLevel(character)
+					local pArmor = getCharacterArmor(character)
+					local pResist = getCharacterResistance(character)
+					local eSchools = getEffectSchool(l["id"])
+					if (pDebuffDuration >= (1 / pDebuffTick))then
+						--print(characterData[k]["debuffs"][j]["duration"])
+						if(eType == "DoT") then
+							if not(pDebuffSource["id"] == "None") then
+								
+								dDmgReduction = calculateDamageReduction(enemyLevel, pArmor, pResist, pLevel)
+								dDmg = getRandomDamage(eSchools)
+								dDmgRaw = calculateDamage(dDmg, 0, dDmgReduction)
+								dDmgDone = (dDmgRaw["phy"] + dDmgRaw["fire"] + dDmgRaw["frost"] + dDmgRaw["arcane"] + dDmgRaw["nature"] + dDmgRaw["holy"] + dDmgRaw["shadow"]) / eDuration
+								applyDamage(character, dDmgDone)
+							end
+						end
+					else
+						if(eCondition == "Debuff") then
+							if(eType == "DoT") then
+								if not(pDebuffSource["id"] == "None") then
+									dDmgReduction = calculateDamageReduction(enemyLevel, pArmor, pResist, pLevel)
+									dDmg = getRandomDamage(eSchools)
+									dDmgRaw = calculateDamage(dDmg, 0, dDmgReduction)
+									dDmgDone = (dDmgRaw["phy"] + dDmgRaw["fire"] + dDmgRaw["frost"] + dDmgRaw["arcane"] + dDmgRaw["nature"] + dDmgRaw["holy"] + dDmgRaw["shadow"]) / eDuration
+									applyDamage(character, dDmgDone)
+									print("Debuff gone "..eName.." on player "..character..": "..eType.." "..eStat.." over "..eDuration.." every "..eTick)
+									setCharacterDebuffStatus(character, j, 3)
+								end
+							end
 						end
 					end
-				elseif(characterData[k]["debuffs"][j]["active"] == true) then
-					if not(aEffect["condition"] == "AuraDebuff") then
-						if (characterData[k]["debuffs"][j]["duration"] >= (1 / characterData[k]["debuffs"][j]["tick"]))then
-							print(characterData[k]["debuffs"][j]["duration"])
-							if(aEffect["condition"] == "Debuff") then
-								if(aEffect["type"] == "DoT") then
-									if not(characterData[k]["debuffs"][j]["source"] == "None") then
-										dDmgReduction = calculateDamageReduction(mobData[characterData[k]["debuffs"][j]["source"]]["level"], characterData[k]["stats"]["armor"], characterData[k]["stats"]["resist"], characterData[k]["stats"]["level"])
-										dDmg = getRandomDamage(aEffect)
-										dDmgRaw = calculateDamage(dDmg, 0, dDmgReduction)
-										dDmgDone = (dDmgRaw["phy"] + dDmgRaw["fire"] + dDmgRaw["frost"] + dDmgRaw["arcane"] + dDmgRaw["nature"] + dDmgRaw["holy"] + dDmgRaw["shadow"]) / aEffect["duration"]
-										applyDamage(k, dDmgDone)
-									end
-								end
-							end
-						else--(characterData[k]["debuffs"][j]["duration"] <= (1 / characterData[k]["debuffs"][j]["tick"])) then
-							if(aEffect["condition"] == "Debuff") then
-								if(aEffect["type"] == "DoT") then
-									if not(characterData[k]["debuffs"][j]["source"] == "None") then
-										dDmgReduction = calculateDamageReduction(mobData[characterData[k]["debuffs"][j]["source"]]["level"], characterData[k]["stats"]["armor"], characterData[k]["stats"]["resist"], characterData[k]["stats"]["level"])
-										dDmg = getRandomDamage(aEffect)
-										dDmgRaw = calculateDamage(dDmg, 0, dDmgReduction)
-										dDmgDone = (dDmgRaw["phy"] + dDmgRaw["fire"] + dDmgRaw["frost"] + dDmgRaw["arcane"] + dDmgRaw["nature"] + dDmgRaw["holy"] + dDmgRaw["shadow"]) / aEffect["duration"]
-										applyDamage(k, dDmgDone)
-										print("Debuff gone "..aEffect["name"].." on player "..k..": "..aEffect["type"].." "..aEffect["stat"].." over "..aEffect["duration"].." every "..aEffect["tick"])
-										characterData[k]["debuffs"][j]["active"] = 3
-									end
-								end
-							end
+				else
+					if(pDebuffStatus == 2) then
+						if(eType == "DecreaseStat") then
+							local pStat = getCharacterStat(character, eStat)
+							setCharacterStat(character, eStat, math.max(0, ( pStat + eValue)))
+							print("Debuff Aura gone "..eName.." on player "..character..": Increased "..eStat.." by "..eValue)
+							setCharacterDebuffStatus(character, j, 3)
 						end
 					end
 				end
@@ -766,7 +800,7 @@ function calculateProcs(pAttacked,character, pWeapon, pAttackTable, pCrit, eDmgR
 			end
 		end
 		for k, v in pairs(procs) do
-			local proc = getRandomDamage(procs[k])
+			local proc = getRandomDamage(procs[k]["schools"])
 			for j, l in pairs(proc) do
 				if(j == "phy") then
 					l = l * procs[k]["phyMult"]
@@ -1064,7 +1098,7 @@ function getRandomDamage(source)
 	local damage={phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local schools = {"phy","fire","frost","arcane","holy","shadow","nature"}
 	for i = 1, #schools do
-		damage[schools[i]] = math.random(source["schools"][schools[i]]["min"] , source["schools"][schools[i]]["max"])
+		damage[schools[i]] = math.random(source[schools[i]]["min"] , source[schools[i]]["max"])
 	end
 	return damage
 end

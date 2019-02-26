@@ -170,45 +170,76 @@ function init(self)
 end
 
 function equipItem(character, type, slot, itemid)
-	characterData[character][slot] = item[type][tostring(itemid)]
-	characterData[character][slot]["slot"] = slot
+	local pItem = {}
+	if (type == "weapon") then
+		pItem = getWeaponData(tostring(itemid))
+		characterData[character][slot] = pItem
+		characterData[character][slot]["slot"] = slot
+	else
+		pItem = getArmorData(tostring(itemid))
+		characterData[character][slot] = pItem
+		characterData[character][slot]["slot"] = slot
+	end
 end
 
 function applyAura(character, auraId, source)
 	local aEffect = effect[tostring(auraId)]
-	source = source or "None"
-	if(aEffect["condition"] == "Buff" or aEffect["condition"] == "AuraBuff") then
-		table.insert(characterData[character]["buffs"], (#characterData[character]["buffs"]+1), {id=auraId,name=aEffect["name"],duration=aEffect["duration"],tick=aEffect["tick"],type=aEffect["condition"],active=false,source=source})
-	elseif(aEffect["condition"] == "Debuff" or aEffect["condition"] == "AuraDebuff") then
-		table.insert(characterData[character]["debuffs"], (#characterData[character]["debuffs"]+1), {id=auraId,name=aEffect["name"],baseDuration=aEffect["duration"],duration=aEffect["duration"],tick=aEffect["tick"],type=aEffect["condition"],active=false,source=source})
+	local eCondition = getEffectCondition(tostring(auraId))
+	local eName = getEffectName(tostring(auraId))
+	local eTick = getEffectTick(tostring(auraId))
+	local eDuration = getEffectDuration(tostring(auraId))
+	local pBuffs = getCharacterBuffs(character)
+	local pDebuffs = getCharacterBuffs(character)
+	source = source or {id="None", type="None"}
+	if(eCondition == "Buff" or eCondition == "AuraBuff") then
+		table.insert(characterData[character]["buffs"], (#pBuffs+1), {id=auraId,name=eName,duration=eDuration,tick=eTick,type=eCondition,active=false,source=source})
+	elseif(eCondition == "Debuff" or eCondition == "AuraDebuff") then
+		table.insert(characterData[character]["debuffs"], (#pDebuffs+1), {id=auraId,name=eName,baseDuration=eDuration,duration=eDuration,tick=eTick,type=eCondition,active=false,source=source})
 	end
 end
 
 function removeAura(character, auraId)
 	local aEffect = effect[tostring(auraId)]
-	print(character, auraId, aEffect["condition"])
-	if(aEffect["condition"] == "Buff") then
-		if not(characterData[character]["buffs"] == nil) then
-			for k, v in pairs(characterData[character]["buffs"]) do
-				if(characterData[character]["buffs"][k]["id"] == tostring(auraId)) then
-					characterData[character]["buffs"][k]["duration"] = 0
+	local eCondition = getEffectCondition(tostring(auraId))
+	local eType = getEffectType(tostring(auraId))
+	local eStat = getEffectStat(tostring(auraId))
+	local eValue = getEffectValue(tostring(auraId))
+	local eName = getEffectName(tostring(auraId))
+	local pBuffs = getCharacterBuffs(character)
+	local pDebuffs = getCharacterDebuffs(character)
+	if(eCondition == "Buff") then
+		if not(pBuffs == nil) then
+			for k, v in pairs(pBuffs) do
+				if(pBuffs[k]["id"] == tostring(auraId)) then
+					setCharacterBuffDuration(character, k, 0)
 				end
 			end
 		end
-	elseif(aEffect["condition"] == "Debuff") then
-		if not(characterData[character]["debuffs"] == nil) then
-			for k, v in pairs(characterData[character]["debuffs"]) do
-				if(characterData[character]["debuffs"][k]["id"] == tostring(auraId)) then
-					characterData[character]["debuffs"][k]["duration"] = 0
+	elseif(eCondition == "Debuff") then
+		if not(pDebuffs == nil) then
+			for k, v in pairs(pDebuffs) do
+				if(pDebuffs[k]["id"] == tostring(auraId)) then
+					setCharacterDebuffDuration(character, k, 0)
 				end
 			end
 		end
-	elseif(aEffect["condition"] == "AuraBuff") then
-		if not(characterData[character]["buffs"] == nil) then
-			for k, v in pairs(characterData[character]["buffs"]) do
-				if(characterData[character]["buffs"][k]["id"] == auraId) then
-					if(characterData[character]["buffs"][k]["active"] == true) then
-						characterData[character]["buffs"][k]["active"] = 2
+	elseif(eCondition == "AuraBuff") then
+		if not(pBuffs == nil) then
+			for k, v in pairs(pBuffs) do
+				if(pBuffs[k]["id"] == auraId) then
+					local pBuffStatus = getCharacterBuffStatus(character, k)
+					if(pBuffStatus == true) then
+						setCharacterBuffStatus(character, k, 2)
+					end
+				end
+			end
+		end
+	elseif(eCondition == "AuraDebuff") then
+		if not(pDebuffs == nil) then
+			for k, v in pairs(pDebuffs) do
+				if(pDebuffs[k]["id"] == auraId) then
+					if(pDebuffs["active"] == true) then
+						setCharacterDebuffStatus(character, k, 2)
 					end
 				end
 			end
@@ -216,41 +247,61 @@ function removeAura(character, auraId)
 	end
 end
 
-function updateAuras()
-	for k, v in pairs(characterData) do
-		if not( v["buffs"] == nil) then
-			for j,l in pairs(characterData[k]["buffs"]) do
-				--print(j,l,#characterData[k]["buffs"])
-				if not(characterData[k]["buffs"][j]["type"] == "AuraBuff") then
-					if(currentTick % characterData[k]["buffs"][j]["tick"] == 0) then
-						characterData[k]["buffs"][j]["duration"] = characterData[k]["buffs"][j]["duration"] - 1
+function updateAuras(character)
+	local pBuffs = getCharacterBuffs(character)
+	local pDebuffs = getCharacterDebuffs(character)
+	if not( pBuffs == nil) then
+		for j,l in pairs(pBuffs) do
+			--print(j,l,#characterData[k]["buffs"])
+			local pBuffType = getCharacterBuffType(character, j)
+			local pBuffDuration = getCharacterBuffDuration(character, j)
+			local pBuffTick = getCharacterBuffTick(character, j)
+			local pBuffStatus = getCharacterBuffStatus(character, j)
+			local pBuffName = getCharacterBuffName(character, j)
+			--print(pBuffType,pBuffDuration,pBuffTick,pBuffStatus,pBuffName)
+			if not(pBuffType == "AuraBuff") then
+				if(currentTick % pBuffTick == 0) then
+					setCharacterBuffDuration(character, j, pBuffDuration - 1)
+				end
+				if(pBuffDuration <= 0) then
+					print("Buff "..pBuffName.." fell off")
+					if((#pBuffs < 1 or pBuffs == nil) and pBuffs[#pBuffs]["duration"] <= 0) then
+						setCharacterBuffs(character, {})
+					else
+						removeCharacterBuff(character, j)
 					end
 				end
-				if(characterData[k]["buffs"][j]["duration"] <= 0 or characterData[k]["buffs"][j]["active"] == 3) then
-					print("Buff "..characterData[k]["buffs"][j]["name"].." fell off")
-					if((#characterData[k]["buffs"] < 1 or characterData[k]["buffs"] == nil) and characterData[k]["buffs"][#characterData[k]["buffs"]]["duration"] <= 0) then
-						characterData[k]["buffs"] = {}
+			else
+				if(pBuffStatus == 3) then
+					print("Buff "..pBuffName.." fell off")
+					if((#pBuffs < 1 or pBuffs == nil) and pBuffs[#pBuffs]["duration"] <= 0) then
+						setCharacterBuffs(character, {})
 					else
-						table.remove(characterData[k]["buffs"], j)
+						removeCharacterBuff(character, j)
 					end
 				end
 			end
 		end
-		if not(v["debuffs"] == nil) then
-			for j,l in pairs(characterData[k]["debuffs"]) do
-				--print(j,l,#characterData[k]["buffs"])
-				if not(characterData[k]["debuffs"][j]["type"] == "AuraDebuff") then
-					if(currentTick % characterData[k]["debuffs"][j]["tick"] == 0) then
-						characterData[k]["debuffs"][j]["duration"] = characterData[k]["debuffs"][j]["duration"] - characterData[k]["debuffs"][j]["tick"]
-					end
+	end
+	if not(pDebuffs == nil) then
+		for j,l in pairs(pDebuffs) do
+			--print(j,l,#characterData[k]["buffs"])
+			local pDebuffType = getCharacterDebuffType(character, j)
+			local pDebuffDuration = getCharacterDebuffDuration(character, j)
+			local pDebuffTick = getCharacterDebuffTick(character, j)
+			local pDebuffStatus = getCharacterDebuffStatus(character, j)
+			local pDebuffName = getCharacterDebuffName(character, j)
+			if not(pDebuffType == "AuraDebuff") then
+				if(currentTick % pDebuffTick == 0) then
+					setCharacterDebuffDuration(character, j, pDebuffDuration - pDebuffTick)
 				end
-				if(characterData[k]["debuffs"][j]["duration"] <= 0 or characterData[k]["debuffs"][j]["active"] == 3) then
-					print("Debuff "..characterData[k]["debuffs"][j]["name"].." fell off")
-					if((#characterData[k]["debuffs"] < 1 or characterData[k]["debuffs"] == nil) and characterData[k]["debuffs"][#characterData[k]["debuffs"]]["duration"] <= 0) then
-						characterData[k]["debuffs"] = {}
-					else
-						table.remove(characterData[k]["debuffs"], j)
-					end
+			end
+			if(pDebuffDuration <= 0 or pDebuffStatus == 3) then
+				print("Debuff "..pDebuffName.." fell off")
+				if((#pDebuffs < 1 or pDebuffs == nil) and pDebuffs[#pDebuffs]["duration"] <= 0) then
+					setCharacterDebuffs(character, {})
+				else
+					removeCharacterDebuff(character, j)
 				end
 			end
 		end
@@ -365,8 +416,90 @@ function getCharacterBuffs(character)
 	return characterData[character]["buffs"]
 end
 
+function setCharacterBuffs(character, value)
+	characterData[character]["buffs"] = value
+end
+
+function removeCharacterBuff(character, buff)
+	table.remove(characterData[character]["buffs"], buff)
+end
+
+function getCharacterBuffType(character, buff)
+	return characterData[character]["buffs"][buff]["type"]
+end
+
+function getCharacterBuffTick(character, buff)
+	if not(characterData[character]["buffs"][buff]["tick"] == nil) then
+		return characterData[character]["buffs"][buff]["tick"]
+	end
+	return -1
+end
+
+function getCharacterBuffName(character, buff)
+	return characterData[character]["buffs"][buff]["name"]
+end
+
+function getCharacterBuffStatus(character, buff)
+	return characterData[character]["buffs"][buff]["active"]
+end
+
+function setCharacterBuffStatus(character, buff, value)
+	characterData[character]["buffs"][buff]["active"] = value
+end
+
+function getCharacterBuffDuration(character, buff)
+	if not(characterData[character]["buffs"][buff]["duration"] == nil) then
+		return characterData[character]["buffs"][buff]["duration"]
+	end
+	return -1
+end
+
+function setCharacterBuffDuration(character, buff, value)
+	characterData[character]["buffs"][buff]["duration"] = value
+end
+
 function getCharacterDebuffs(character)
 	return characterData[character]["debuffs"]
+end
+
+function setCharacterDebuffs(character, value)
+	characterData[character]["debuffs"] = value
+end
+
+function removeCharacterDebuff(character, debuff)
+	table.remove(characterData[character]["debuffs"], debuff)
+end
+
+function getCharacterDebuffType(character, debuff)
+	return characterData[character]["debuffs"][debuff]["type"]
+end
+
+function getCharacterDebuffTick(character, debuff)
+	return characterData[character]["debuffs"][debuff]["tick"]
+end
+
+function getCharacterDebuffName(character, debuff)
+	return characterData[character]["debuffs"][debuff]["name"]
+end
+
+function getCharacterDebuffStatus(character, debuff)
+	return characterData[character]["debuffs"][debuff]["active"]
+end
+
+function setCharacterDebuffStatus(character, debuff, value)
+	characterData[character]["debuffs"][debuff]["active"] = value
+end
+
+function getCharacterDebuffDuration(character, debuff)
+	return characterData[character]["debuffs"][debuff]["duration"]
+end
+
+function setCharacterDebuffDuration(character, debuff, value)
+	characterData[character]["debuffs"][debuff]["duration"] = value
+end
+
+function getCharacterDebuffSource(character, debuff)
+	return characterData[character]["debuffs"][debuff]["source"]
 end
 
 function getCharacterBattleStatus(character, stat)
@@ -389,7 +522,20 @@ function final(self)
 end
 
 function update(self, dt)
-
+	if(tickTimer <= 1) then
+		for k, v in pairs(characterData) do
+			if(currentTick % 2 == 0) then
+				calculateRegeneration(k, 2)
+			end
+			if(currentTick % 5 == 0) then
+				calculateRegeneration(k, 5)
+			end
+			local pHitRecently = getCharacterBattleStatus(k, "hitRecently")
+			setCharacterBattleStatus(k, "hitRecently", math.max(0, pHitRecently-1))
+			updateAuras(k)
+			applyAuraEffects(k)
+		end
+	end
 end
 
 function on_message(self, message_id, message, sender)
