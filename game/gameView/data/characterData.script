@@ -284,6 +284,7 @@ function updateAuras(character)
 		end
 	end
 	if not(pDebuffs == nil) then
+		tprint(pDebuffs)
 		for j,l in pairs(pDebuffs) do
 			--print(j,l,#characterData[k]["buffs"])
 			local pDebuffType = getCharacterDebuffType(character, j)
@@ -332,6 +333,14 @@ function getCharacterLevel(character)
 	return characterData[character]["stats"]["level"]
 end
 
+function getCharacterClass(character)
+	return characterData[character]["stats"]["class"]
+end
+
+function getCharacterRace(character)
+	return characterData[character]["stats"]["race"]
+end
+
 function getCharacterSkill(character)
 	return characterData[character]["stats"]["skill"]
 end
@@ -350,6 +359,10 @@ end
 
 function getCharacterAttackpower(character)
 	return characterData[character]["stats"]["ap"]
+end
+
+function getCharacterRangedAttackpower(character)
+	return characterData[character]["stats"]["rAp"]
 end
 
 function getCharacterSpellHit(character)

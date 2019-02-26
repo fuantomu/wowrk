@@ -2,6 +2,7 @@ function init(self)
 	mobData = {
 		testEnemy = {
 			name="Dummy",
+			race="Mechanical",
 			level=63,
 			basehp=150,
 			hpCurrent=150,
@@ -16,8 +17,10 @@ function init(self)
 			rAp=0,
 			sAp=0,
 			crit=5,
+			sCrit=5,
 			schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},
-			avoidance={dodge=5,parry=5,block=5},
+			schoolsRanged={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},
+			avoidance={dodge=5,parry=5,block=50},
 			blockValue = 50,
 			hpRegen=0,
 			mpRegen=0,
@@ -40,6 +43,10 @@ end
 
 function getEnemyName(enemy)
 	return mobData[tostring(enemy)]["name"]
+end
+
+function getEnemyRace(enemy)
+	return mobData[tostring(enemy)]["race"]
 end
 
 function getEnemyHp(enemy)
@@ -66,8 +73,16 @@ function getEnemyCrit(enemy)
 	return mobData[tostring(enemy)]["crit"]
 end
 
+function getEnemySpellCrit(enemy)
+	return mobData[tostring(enemy)]["sCrit"]
+end
+
 function getEnemySchool(enemy)
 	return mobData[tostring(enemy)]["schools"]
+end
+
+function getEnemySchoolRanged(enemy)
+	return mobData[tostring(enemy)]["schoolsRanged"]
 end
 
 function getEnemyAvoidance(enemy)
