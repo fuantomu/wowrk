@@ -86,7 +86,7 @@ function generateCombatResult(attacker, target, source, type, position)
 			pStats["weaponType"]["RANGED"] = getCharacterWeaponType(character, "weaponRanged")
 			pStats["weaponSkill"]["RANGED"] = getCharacterSkillValue(character , pStats["weaponType"]["RANGED"])
 		end
-		pStats["defenseSkill"] = getCharacterSkillValue(character, "defense")
+		pStats["defenseSkill"] = getCharacterSkillValue(character, "Defense")
 		pStats["weaponSchools"]["MH"] = pWeapons["weaponMH"]["schools"]
 		pStats["weaponSchools"]["OH"] = pWeapons["weaponOH"]["schools"]
 		pStats["weaponSchools"]["RANGED"] = pWeapons["weaponRanged"]["schools"]
@@ -165,7 +165,7 @@ function generateCombatResult(attacker, target, source, type, position)
 			eStats["weaponType"]["RANGED"] = getCharacterWeaponType(enemy, "weaponRanged")
 			eStats["weaponSkill"]["RANGED"] = getCharacterSkillValue(enemy , eStats["weaponType"]["RANGED"])
 		end
-		eStats["defenseSkill"] = getCharacterSkillValue(enemy, "defense")
+		eStats["defenseSkill"] = getCharacterSkillValue(enemy, "Defense")
 		eStats["weaponSchools"]["MH"] = pWeapons["weaponMH"]["schools"]
 		eStats["weaponSchools"]["OH"] = pWeapons["weaponOH"]["schools"]
 		eStats["weaponSchools"]["RANGED"] = pWeapons["weaponRanged"]["schools"]
@@ -187,6 +187,7 @@ function generateCombatResult(attacker, target, source, type, position)
 		eStats["class"] = getCharacterClass(enemy)
 		eStats["race"] = getCharacterRace(enemy)
 		enemyIsPlayer = true
+		tprint(eStats)
 	end
 
 	if(position == "Front" and source == "Melee") then
@@ -351,7 +352,7 @@ function generateCombatResult(attacker, target, source, type, position)
 				combatProcResult = calculateProcs(character, "spell", combatAttackTable, pStats["spellcrit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
 				combatProcDamage = combatProcResult["damage"]
 			end
-			applySpellEffects(type, character, {id=enemy,type="mob"})
+			applySpellEffects(type, enemy, character)
 		end
 	end
 
@@ -398,31 +399,31 @@ function calculateRegeneration(character, type)
 end
 
 function applyDamage(character, value)
-	local pHp = getCharacterStat(character, "hpCurrent")
+	local pHp = getStat(character, "hpCurrent")
 
-	setCharacterStat(character, "hpCurrent", math.max(0, pHp - value))
-	setCharacterBattleStatus(character, "hitRecently", 5)
+	setStat(character, "hpCurrent", math.max(0, pHp - value))
+	setBattleStatus(character, "hitRecently", 5)
 	
 	print(character .. " was dealt "..value)
 end
 
 function applyHeal(character, value)
 	--local pHp = getCharacterStat(character,"hpCurrent")
-	local pHpMax = getCharacterStat(character,"hpMax")
+	local pHpMax = getStat(character,"hpMax")
 
-	setCharacterStat(character, "hpCurrent", math.min(pHpMax, value))
+	setStat(character, "hpCurrent", math.min(pHpMax, value))
 end
 
 function applyResource(character, value)
-	local pResMax = getCharacterStat(character,"resMax")
+	local pResMax = getStat(character,"resMax")
 	
-	setCharacterStat(character, "resCurrent", math.min(pResMax, value))
+	setStat(character, "resCurrent", math.min(pResMax, value))
 end
 
 function applyAuraEffects(character)
 	--print(v["stats"]["hpCurrent"], v["stats"]["hpMax"])
-	local pBuffs = getCharacterBuffs(character)
-	local pDebuffs = getCharacterDebuffs(character)
+	local pBuffs = getBuffs(character)
+	local pDebuffs = getDebuffs(character)
 	--tprint(pDebuffs)
 	if not( pBuffs == nil) then
 		for j,l in pairs(pBuffs) do
@@ -432,24 +433,24 @@ function applyAuraEffects(character)
 			local eStat = getEffectStat(tostring(l["id"]))
 			local eValue = getEffectValue(tostring(l["id"]))
 			local eName = getEffectName(tostring(l["id"]))
-			local pBuffType = getCharacterBuffType(character, j)
-			local pBuffDuration = getCharacterBuffDuration(character, j)
-			local pBuffTick = getCharacterBuffTick(character, j)
-			local pBuffStatus = getCharacterBuffStatus(character, j)
-			local pBuffName = getCharacterBuffName(character, j)
+			local pBuffType = getBuffType(character, j)
+			local pBuffDuration = getBuffDuration(character, j)
+			local pBuffTick = getBuffTick(character, j)
+			local pBuffStatus = getBuffStatus(character, j)
+			local pBuffName = getBuffName(character, j)
 			
 			if(pBuffStatus == false) then
-				setCharacterBuffStatus(character, j, true)
+				setBuffStatus(character, j, true)
 				if(eCondition == "Buff") then
 					if(eType == "IncreaseStat") then
-						local pStat = getCharacterStat(character, eStat)
-						setCharacterStat(character, eStat, ( pStat + eValue))
+						local pStat = getStat(character, eStat)
+						setStat(character, eStat, ( pStat + eValue))
 						print("Buff "..eName.." on player "..character..": Increase "..eStat.." by "..eValue)
 					end
 				elseif(eCondition == "AuraBuff") then
 					if(eType == "IncreaseStat") then
-						local pStat = getCharacterStat(character, eStat)
-						setCharacterStat(character, eStat, ( pStat + eValue))
+						local pStat = getStat(character, eStat)
+						setStat(character, eStat, ( pStat + eValue))
 						print("Buff Aura "..eName.." on player "..character..": Increase "..eStat.." by "..eValue)
 					end
 				end
@@ -457,19 +458,19 @@ function applyAuraEffects(character)
 				if not(eCondition == "AuraBuff") then
 					if(pBuffDuration <= 1) then
 						if(eType == "IncreaseStat") then
-							local pStat = getCharacterStat(character, eStat)
-							setCharacterStat(character, eStat, math.max(0, ( pStat - eValue)))
+							local pStat = getStat(character, eStat)
+							setStat(character, eStat, math.max(0, ( pStat - eValue)))
 							print("Buff gone "..eName.." on player "..character..": Removed "..eStat.." by "..eValue)
-							setCharacterBuffStatus(character, j, 3)
+							setBuffStatus(character, j, 3)
 						end
 					end
 				else
 					if(pBuffStatus == 2) then
 						if(eType == "IncreaseStat") then
-							local pStat = getCharacterStat(character, eStat)
-							setCharacterStat(character, eStat, math.max(0, ( pStat - eValue)))
+							local pStat = getStat(character, eStat)
+							setStat(character, eStat, math.max(0, ( pStat - eValue)))
 							print("Buff Aura gone "..eName.." on player "..character..": Removed "..eStat.." by "..eValue)
-							setCharacterBuffStatus(character, j, 3)
+							setBuffStatus(character, j, 3)
 						end
 					end
 				end
@@ -486,37 +487,33 @@ function applyAuraEffects(character)
 			local eName = getEffectName(tostring(l["id"]))
 			local eDuration = getEffectDuration(tostring(l["id"]))
 			local eTick = getEffectTick(tostring(l["id"]))
-			local pDebuffType = getCharacterDebuffType(character, j)
-			local pDebuffDuration = getCharacterDebuffDuration(character, j)
-			local pDebuffTick = getCharacterDebuffTick(character, j)
-			local pDebuffStatus = getCharacterDebuffStatus(character, j)
-			local pDebuffName = getCharacterDebuffName(character, j)
-			local pDebuffSource = getCharacterDebuffSource(character, j)
+			local pDebuffType = getDebuffType(character, j)
+			local pDebuffDuration = getDebuffDuration(character, j)
+			local pDebuffTick = getDebuffTick(character, j)
+			local pDebuffStatus = getDebuffStatus(character, j)
+			local pDebuffName = getDebuffName(character, j)
+			local pDebuffSource = getDebuffSource(character, j)
 
 			if(pDebuffStatus == false) then
-				setCharacterDebuffStatus(character, j, true)
+				setDebuffStatus(character, j, true)
 				if(eCondition == "Debuff") then
 					if(eType == "DoT") then
 						print("Debuff "..eName.." on player "..character..": "..eType.." "..eStat.." over "..eDuration.." for "..eTick)
 					end
 				elseif(eCondition == "AuraDebuff") then
 					if(eType == "DecreaseStat") then
-						local pStat = getCharacterStat(character, eStat)
-						setCharacterStat(character, eStat, math.max(0, (pStat - eValue)))
+						local pStat = getStat(character, eStat)
+						setStat(character, eStat, math.max(0, (pStat - eValue)))
 						print("Debuff Aura "..eName.." on player "..character..": Decrease "..eStat.." by "..eValue)
 					end
 				end
 			else--if(characterData[k]["debuffs"][j]["active"] == true) then
 				if not(eCondition == "AuraDebuff") then
 					local enemyLevel = 0
-					if(pDebuffSource["type"] == "player") then
-						enemyLevel = getCharacterLevel(pDebuffSource["id"])
-					elseif(pDebuffSource["type"] == "mob") then
-						enemyLevel = getEnemyLevel(pDebuffSource["id"])
-					end
-					local pLevel = getCharacterLevel(character)
-					local pArmor = getCharacterArmor(character)
-					local pResist = getCharacterResistance(character)
+					enemyLevel = getLevel(pDebuffSource)
+					local pLevel = getLevel(character)
+					local pArmor = getArmor(character)
+					local pResist = getResistance(character)
 					local eSchools = getEffectSchool(l["id"])
 					if (pDebuffDuration >= (1 / pDebuffTick))then
 						--print(characterData[k]["debuffs"][j]["duration"])
@@ -540,7 +537,7 @@ function applyAuraEffects(character)
 									dDmgDone = (dDmgRaw["phy"] + dDmgRaw["fire"] + dDmgRaw["frost"] + dDmgRaw["arcane"] + dDmgRaw["nature"] + dDmgRaw["holy"] + dDmgRaw["shadow"]) / eDuration
 									applyDamage(character, dDmgDone)
 									print("Debuff gone "..eName.." on player "..character..": "..eType.." "..eStat.." over "..eDuration.." every "..eTick)
-									setCharacterDebuffStatus(character, j, 3)
+									setDebuffStatus(character, j, 3)
 								end
 							end
 						end
@@ -548,10 +545,10 @@ function applyAuraEffects(character)
 				else
 					if(pDebuffStatus == 2) then
 						if(eType == "DecreaseStat") then
-							local pStat = getCharacterStat(character, eStat)
-							setCharacterStat(character, eStat, math.max(0, ( pStat + eValue)))
+							local pStat = getStat(character, eStat)
+							setStat(character, eStat, math.max(0, ( pStat + eValue)))
 							print("Debuff Aura gone "..eName.." on player "..character..": Increased "..eStat.." by "..eValue)
-							setCharacterDebuffStatus(character, j, 3)
+							setDebuffStatus(character, j, 3)
 						end
 					end
 				end
@@ -1260,6 +1257,404 @@ function getRandomDamage(source)
 		damage[schools[i]] = math.random(source[schools[i]]["min"] , source[schools[i]]["max"])
 	end
 	return damage
+end
+
+function addBuff(character, buff)
+	if (isPlayer(character))then
+		return addCharacterBuff(character, buff)
+	else
+		print("No player")
+		return addEnemyBuff(character,buff)
+	end
+end
+
+function addDebuff(character, buff)
+	if (isPlayer(character))then
+		return addCharacterDebuff(character, buff)
+	else
+		print("No player")
+		return addEnemyDebuff(character,buff)
+	end
+end
+
+function getBuffs(character)
+	print(isPlayer(character), character)
+	if (isPlayer(character))then
+		return getCharacterBuffs(character)
+	else
+		print("No player")
+		return getEnemyBuffs(character)
+	end
+end
+
+function getDebuffs(character)
+	if (isPlayer(character))then
+		return getCharacterDebuffs(character)
+	else
+		print("No player")
+		return getEnemyDebuffs(character)
+	end
+end
+
+function setBuffs(character, buff)
+	if (isPlayer(character))then
+		return setCharacterBuffs(character, buff)
+	else
+		print("No player")
+		return setEnemyBuffs(character, buff)
+	end
+end
+
+function setDebuffs(character, buff)
+	if (isPlayer(character))then
+		return setCharacterDebuffs(character, buff)
+	else
+		print("No player")
+		return setEnemyDebuffs(character, buff)
+	end
+end
+
+function removeBuff(character, buff)
+	if (isPlayer(character))then
+		return removeCharacterBuff(character, buff)
+	else
+		print("No player")
+		return removeEnemyBuff(character, buff)
+	end
+end
+
+function removeDebuff(character, buff)
+	if (isPlayer(character))then
+		return removeCharacterDebuff(character, buff)
+	else
+		print("No player")
+		return removeEnemyDebuff(character, buff)
+	end
+end
+
+function getDebuffSource(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffSource(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffSource(character, buff)
+	end
+end
+function getBuffType(character, buff)
+	if (isPlayer(character))then
+		return getCharacterBuffType(character, buff)
+	else
+		print("No player")
+		return getEnemyBuffType(character, buff)
+	end
+end
+
+function getBuffDuration(character, buff)
+	if (isPlayer(character))then
+		return getCharacterBuffDuration(character, buff)
+	else
+		print("No player")
+		return getEnemyBuffDuration(character, buff)
+	end
+end
+
+function getDebuffType(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffType(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffType(character, buff)
+	end
+end
+
+function getDebuffDuration(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffDuration(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffDuration(character, buff)
+	end
+end
+
+function setBuffDuration(character, buff, value)
+	if (isPlayer(character))then
+		return setCharacterBuffDuration(character, buff, value)
+	else
+		print("No player")
+		return setEnemyBuffDuration(character, buff, value)
+	end
+end
+
+function setDebuffDuration(character, buff, value)
+	if (isPlayer(character))then
+		return setCharacterDebuffDuration(character, buff, value)
+	else
+		print("No player")
+		return setEnemyDebuffDuration(character, buff, value)
+	end
+end
+
+function getBuffStatus(character, buff)
+	if (isPlayer(character))then
+		return getCharacterBuffStatus(character, buff)
+	else
+		print("No player")
+		return getEnemyBuffStatus(character, buff)
+	end
+end
+
+function setBuffStatus(character, buff, value)
+	if (isPlayer(character))then
+		return setCharacterBuffStatus(character, buff, value)
+	else
+		print("No player")
+		return setEnemyBuffStatus(character, buff, value)
+	end
+end
+
+function getDebuffStatus(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffStatus(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffStatus(character, buff)
+	end
+end
+
+function setDebuffStatus(character, buff, value)
+	if (isPlayer(character))then
+		return setCharacterDebuffStatus(character, buff, value)
+	else
+		print("No player")
+		return setEnemyDebuffStatus(character, buff, value)
+	end
+end
+
+function getBuffTick(character, buff)
+	if (isPlayer(character))then
+		return getCharacterBuffTick(character, buff)
+	else
+		print("No player")
+		return getEnemyBuffTick(character, buff)
+	end
+end
+
+function getBuffName(character, buff)
+	if (isPlayer(character))then
+		return getCharacterBuffName(character, buff)
+	else
+		print("No player")
+		return getEnemyBuffName(character, buff)
+	end
+end
+
+function getDebuffTick(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffTick(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffTick(character, buff)
+	end
+end
+
+function getDebuffName(character, buff)
+	if (isPlayer(character))then
+		return getCharacterDebuffName(character, buff)
+	else
+		print("No player")
+		return getEnemyDebuffName(character, buff)
+	end
+end
+
+function getStat(character, stat)
+	if (isPlayer(character))then
+		return getCharacterStat(character, stat)
+	else
+		print("No player")
+		return getEnemyStat(character, stat)
+	end
+end
+
+function setStat(character, stat, value)
+	if (isPlayer(character))then
+		return setCharacterStat(character, stat, value)
+	else
+		print("No player")
+		return setEnemyStat(character, stat,value)
+	end
+end
+
+function getLevel (character)
+	if (isPlayer(character))then
+		return getCharacterLevel(character)
+	else
+		print("No player")
+		return getEnemyLevel(character)
+	end
+end
+
+function getArmor (character)
+	if (isPlayer(character))then
+		return getCharacterArmor(character)
+	else
+		print("No player")
+		return getEnemyArmor(character)
+	end
+end
+
+function getResistance(character)
+	if (isPlayer(character))then
+		return getCharacterResistance(character)
+	else
+		print("No player")
+		return getEnemyResistance(character)
+	end
+end
+
+function getBattleStatus(character)
+	if (isPlayer(character))then
+		return getCharacterBattleStatus(character)
+	else
+		print("No player")
+		return getEnemyBattleStatus(character)
+	end
+end
+
+function setBattleStatus(character, stat, value)
+	if (isPlayer(character))then
+		return setCharacterBattleStatus(character, stat, value)
+	else
+		print("No player")
+		return setEnemyBattleStatus(character, stat, value)
+	end
+end
+
+
+function applyAura(character, auraId, source)
+	local aEffect = effect[tostring(auraId)]
+	local eCondition = getEffectCondition(tostring(auraId))
+	local eName = getEffectName(tostring(auraId))
+	local eTick = getEffectTick(tostring(auraId))
+	local eDuration = getEffectDuration(tostring(auraId))
+	local pBuffs = getBuffs(character)
+	local pDebuffs = getDebuffs(character)
+	source = source or {id="None", type="None"}
+	if(eCondition == "Buff" or eCondition == "AuraBuff") then
+		addBuff(character, {id=auraId,name=eName,duration=eDuration,tick=eTick,type=eCondition,active=false,source=source})
+	elseif(eCondition == "Debuff" or eCondition == "AuraDebuff") then
+		addDebuff(character, {id=auraId,name=eName,baseDuration=eDuration,duration=eDuration,tick=eTick,type=eCondition,active=false,source=source})
+	end
+end
+
+function removeAura(character, auraId)
+	local aEffect = effect[tostring(auraId)]
+	local eCondition = getEffectCondition(tostring(auraId))
+	local eType = getEffectType(tostring(auraId))
+	local eStat = getEffectStat(tostring(auraId))
+	local eValue = getEffectValue(tostring(auraId))
+	local eName = getEffectName(tostring(auraId))
+	local pBuffs = getBuffs(character)
+	local pDebuffs = getDebuffs(character)
+	if(eCondition == "Buff") then
+		if not(pBuffs == nil) then
+			for k, v in pairs(pBuffs) do
+				if(pBuffs[k]["id"] == tostring(auraId)) then
+					setBuffDuration(character, k, 0)
+				end
+			end
+		end
+	elseif(eCondition == "Debuff") then
+		if not(pDebuffs == nil) then
+			for k, v in pairs(pDebuffs) do
+				if(pDebuffs[k]["id"] == tostring(auraId)) then
+					setDebuffDuration(character, k, 0)
+				end
+			end
+		end
+	elseif(eCondition == "AuraBuff") then
+		if not(pBuffs == nil) then
+			for k, v in pairs(pBuffs) do
+				if(pBuffs[k]["id"] == auraId) then
+					local pBuffStatus = getBuffStatus(character, k)
+					if(pBuffStatus == true) then
+						setBuffStatus(character, k, 2)
+					end
+				end
+			end
+		end
+	elseif(eCondition == "AuraDebuff") then
+		if not(pDebuffs == nil) then
+			for k, v in pairs(pDebuffs) do
+				if(pDebuffs[k]["id"] == auraId) then
+					if(pDebuffs["active"] == true) then
+						setDebuffStatus(character, k, 2)
+					end
+				end
+			end
+		end
+	end
+end
+
+function updateAuras(character)
+	local pBuffs = getBuffs(character)
+	local pDebuffs = getDebuffs(character)
+	if not( pBuffs == nil) then
+		for j,l in pairs(pBuffs) do
+			--print(j,l,#characterData[k]["buffs"])
+			local pBuffType = getBuffType(character, j)
+			local pBuffDuration = getBuffDuration(character, j)
+			local pBuffTick = getBuffTick(character, j)
+			local pBuffStatus = getBuffStatus(character, j)
+			local pBuffName = getBuffName(character, j)
+			--print(pBuffType,pBuffDuration,pBuffTick,pBuffStatus,pBuffName)
+			if not(pBuffType == "AuraBuff") then
+				if(currentTick % pBuffTick == 0) then
+					setBuffDuration(character, j, pBuffDuration - 1)
+				end
+				if(pBuffDuration <= 0) then
+					print("Buff "..pBuffName.." fell off")
+					if((#pBuffs < 1 or pBuffs == nil) and pBuffs[#pBuffs]["duration"] <= 0) then
+						setBuffs(character, {})
+					else
+						removeBuff(character, j)
+					end
+				end
+			else
+				if(pBuffStatus == 3) then
+					print("Buff "..pBuffName.." fell off")
+					if((#pBuffs < 1 or pBuffs == nil) and pBuffs[#pBuffs]["duration"] <= 0) then
+						setBuffs(character, {})
+					else
+						removeBuff(character, j)
+					end
+				end
+			end
+		end
+	end
+	if not(pDebuffs == nil) then
+		tprint(pDebuffs)
+		for j,l in pairs(pDebuffs) do
+			--print(j,l,#characterData[k]["buffs"])
+			local pDebuffType = getDebuffType(character, j)
+			local pDebuffDuration = getDebuffDuration(character, j)
+			local pDebuffTick = getDebuffTick(character, j)
+			local pDebuffStatus = getDebuffStatus(character, j)
+			local pDebuffName = getDebuffName(character, j)
+			if not(pDebuffType == "AuraDebuff") then
+				if(currentTick % pDebuffTick == 0) then
+					setDebuffDuration(character, j, pDebuffDuration - pDebuffTick)
+				end
+			end
+			if(pDebuffDuration <= 0 or pDebuffStatus == 3) then
+				print("Debuff "..pDebuffName.." fell off")
+				if((#pDebuffs < 1 or pDebuffs == nil) and pDebuffs[#pDebuffs]["duration"] <= 0) then
+					setDebuffs(character, {})
+				else
+					removeDebuff(character, j)
+				end
+			end
+		end
+	end
 end
 
 function tprint (t, s)

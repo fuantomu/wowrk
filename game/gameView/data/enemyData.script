@@ -24,7 +24,10 @@ function init(self)
 			blockValue = 50,
 			hpRegen=0,
 			mpRegen=0,
-			icon="hws010"
+			icon="hws010",
+			buffs={},
+			debuffs={},
+			battle={hitRecently=0}
 		}
 	}
 end
@@ -35,6 +38,10 @@ end
 
 function getEnemyStat(enemy, stat)
 	return mobData[tostring(enemy)][stat]
+end
+
+function setEnemyStat(enemy, stat, value)
+	mobData[tostring(enemy)][stat] = value
 end
 
 function getEnemyLevel(enemy)
@@ -93,14 +100,126 @@ function getEnemyBlock(enemy)
 	return mobData[tostring(enemy)]["blockValue"]
 end
 
+function getEnemyBuffs(enemy)
+	return mobData[enemy]["buffs"]
+end
+
+function addEnemyBuff(enemy, buff)
+	table.insert(mobData[enemy]["buffs"], (#mobData[enemy]["buffs"]+1), buff)
+end
+
+function addEnemyDebuff(enemy, debuff)
+	table.insert(mobData[enemy]["debuffs"], (#mobData[enemy]["debuffs"]+1), debuff)
+end
+
+function setEnemyBuffs(enemy, value)
+	mobData[enemy]["buffs"] = value
+end
+
+function removeEnemyBuff(enemy, buff)
+	table.remove(mobData[enemy]["buffs"], buff)
+end
+
+function getEnemyBuffType(enemy, buff)
+	return mobData[enemy]["buffs"][buff]["type"]
+end
+
+function getEnemyBuffTick(enemy, buff)
+	if not(mobData[enemy]["buffs"][buff]["tick"] == nil) then
+		return mobData[enemy]["buffs"][buff]["tick"]
+	end
+	return -1
+end
+
+function getEnemyBuffName(enemy, buff)
+	return mobData[enemy]["buffs"][buff]["name"]
+end
+
+function getEnemyBuffStatus(enemy, buff)
+	return mobData[enemy]["buffs"][buff]["active"]
+end
+
+function setEnemyBuffStatus(enemy, buff, value)
+	mobData[enemy]["buffs"][buff]["active"] = value
+end
+
+function getEnemyBuffDuration(enemy, buff)
+	if not(mobData[enemy]["buffs"][buff]["duration"] == nil) then
+		return mobData[enemy]["buffs"][buff]["duration"]
+	end
+	return -1
+end
+
+function setEnemyBuffDuration(enemy, buff, value)
+	mobData[enemy]["buffs"][buff]["duration"] = value
+end
+
+function getEnemyDebuffs(enemy)
+	return mobData[enemy]["debuffs"]
+end
+
+function setEnemyDebuffs(enemy, value)
+	mobData[enemy]["debuffs"] = value
+end
+
+function removeEnemyDebuff(enemy, debuff)
+	table.remove(mobData[enemy]["debuffs"], debuff)
+end
+
+function getEnemyDebuffType(enemy, debuff)
+	print(enemy,debuff)
+	return mobData[enemy]["debuffs"][debuff]["type"]
+end
+
+function getEnemyDebuffTick(enemy, debuff)
+	return mobData[enemy]["debuffs"][debuff]["tick"]
+end
+
+function getEnemyDebuffName(enemy, debuff)
+	return mobData[enemy]["debuffs"][debuff]["name"]
+end
+
+function getEnemyDebuffStatus(enemy, debuff)
+	return mobData[enemy]["debuffs"][debuff]["active"]
+end
+
+function setEnemyDebuffStatus(enemy, debuff, value)
+	mobData[enemy]["debuffs"][debuff]["active"] = value
+end
+
+function getEnemyDebuffDuration(enemy, debuff)
+	return mobData[enemy]["debuffs"][debuff]["duration"]
+end
+
+function setEnemyDebuffDuration(enemy, debuff, value)
+	mobData[enemy]["debuffs"][debuff]["duration"] = value
+end
+
+function getEnemyDebuffSource(enemy, debuff)
+	return mobData[enemy]["debuffs"][debuff]["source"]
+end
+
+function getEnemyBattleStatus(enemy, stat)
+	return mobData[enemy]["battle"][stat]
+end
+
+function setEnemyBattleStatus(enemy, stat, value)
+	mobData[enemy]["battle"][stat] = value
+end
+
+
 function final(self)
 	-- Add finalization code here
 	-- Remove this function if not needed
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	if(tickTimer <= 1) then
+		for k, v in pairs(mobData) do
+			updateAuras(k)
+			applyAuraEffects(k)
+		end
+	end
 end
 
 function on_message(self, message_id, message, sender)

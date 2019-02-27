@@ -6,6 +6,10 @@ DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 INFO:DLIB: SSDP: Started on address 192.168.0.2
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: ===================Combat Result
 DEBUG:SCRIPT: hit: 82
 DEBUG:SCRIPT: result: hit [0/0 blocked]
@@ -16,8 +20,14 @@ DEBUG:SCRIPT: table["crit"] = 0
 DEBUG:SCRIPT: table["miss"] = 18
 DEBUG:SCRIPT: table["hit"] = 82
 DEBUG:SCRIPT: Test results for 1 runs:
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 4
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -25,10 +35,34 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = false
-DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: Debuff FireBallRank1 on player testEnemy: DoT Damage over 4 for 0.5
 DEBUG:SCRIPT: Tick 1
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 3.5
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -36,10 +70,39 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 2
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 3
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -47,10 +110,39 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 3
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 2.5
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -58,10 +150,39 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 4
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 2
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -69,11 +190,41 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy was dealt 0.5
+DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testEnemy: DoT Damage over 4 every 0.5
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 5
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
 DEBUG:SCRIPT: table[1]["baseDuration"] = 4
 DEBUG:SCRIPT: table[1]["duration"] = 1.5
 DEBUG:SCRIPT: table[1]["id"] = "6"
@@ -81,255 +232,51 @@ DEBUG:SCRIPT: table[1]["type"] = "Debuff"
 DEBUG:SCRIPT: table[1]["tick"] = 0.5
 DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
 DEBUG:SCRIPT: table[1]["active"] = 3
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: testEnemy	1
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Debuff FireBallRank1 fell off
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 6
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 7
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 8
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: true	testCharacter
+DEBUG:SCRIPT: testCharacter
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	testEnemy
+DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 9
-DEBUG:SCRIPT: Tick 10
-DEBUG:SCRIPT: Tick 11
-DEBUG:SCRIPT: Tick 12
-DEBUG:SCRIPT: Tick 13
-DEBUG:SCRIPT: Tick 14
-DEBUG:SCRIPT: Tick 15
-DEBUG:SCRIPT: Tick 16
-DEBUG:SCRIPT: Tick 17
-DEBUG:SCRIPT: Tick 18
-DEBUG:SCRIPT: Tick 19
-DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: hit: 82
-DEBUG:SCRIPT: result: hit [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 1, reduction: 0.42007981516488
-DEBUG:SCRIPT: damage before mitigation: 0, after: 14
-DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["miss"] = 18
-DEBUG:SCRIPT: table["hit"] = 82
-DEBUG:SCRIPT: Test results for 1 runs:
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 4
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = false
-DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
-DEBUG:SCRIPT: Tick 20
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 21
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 22
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 23
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
-DEBUG:SCRIPT: Tick 24
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 1.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = 3
-DEBUG:SCRIPT: Debuff FireBallRank1 fell off
-DEBUG:SCRIPT: Tick 25
-DEBUG:SCRIPT: Tick 26
-DEBUG:SCRIPT: Tick 27
-DEBUG:SCRIPT: Tick 28
-DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: hit: 82
-DEBUG:SCRIPT: result: hit [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 1, reduction: 0.42007981516488
-DEBUG:SCRIPT: damage before mitigation: 0, after: 20
-DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["miss"] = 18
-DEBUG:SCRIPT: table["hit"] = 82
-DEBUG:SCRIPT: Test results for 1 runs:
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 4
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = false
-DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
-DEBUG:SCRIPT: Tick 29
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 30
-DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: hit: 82
-DEBUG:SCRIPT: result: hit [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 1, reduction: 0.42007981516488
-DEBUG:SCRIPT: damage before mitigation: 0, after: 19
-DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["miss"] = 18
-DEBUG:SCRIPT: table["hit"] = 82
-DEBUG:SCRIPT: Test results for 1 runs:
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 4
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = false
-DEBUG:SCRIPT: table[2]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[2]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[2]["baseDuration"] = 4
-DEBUG:SCRIPT: table[2]["duration"] = 3
-DEBUG:SCRIPT: table[2]["id"] = "6"
-DEBUG:SCRIPT: table[2]["type"] = "Debuff"
-DEBUG:SCRIPT: table[2]["tick"] = 0.5
-DEBUG:SCRIPT: table[2]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[2]["active"] = true
-DEBUG:SCRIPT: Debuff FireBallRank1 on player testCharacter: DoT Damage over 4 for 0.5
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 31
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: table[2]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[2]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[2]["baseDuration"] = 4
-DEBUG:SCRIPT: table[2]["duration"] = 2.5
-DEBUG:SCRIPT: table[2]["id"] = "6"
-DEBUG:SCRIPT: table[2]["type"] = "Debuff"
-DEBUG:SCRIPT: table[2]["tick"] = 0.5
-DEBUG:SCRIPT: table[2]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[2]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 32
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: table[2]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[2]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[2]["baseDuration"] = 4
-DEBUG:SCRIPT: table[2]["duration"] = 2
-DEBUG:SCRIPT: table[2]["id"] = "6"
-DEBUG:SCRIPT: table[2]["type"] = "Debuff"
-DEBUG:SCRIPT: table[2]["tick"] = 0.5
-DEBUG:SCRIPT: table[2]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[2]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
-DEBUG:SCRIPT: Tick 33
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: table[2]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[2]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[2]["baseDuration"] = 4
-DEBUG:SCRIPT: table[2]["duration"] = 1.5
-DEBUG:SCRIPT: table[2]["id"] = "6"
-DEBUG:SCRIPT: table[2]["type"] = "Debuff"
-DEBUG:SCRIPT: table[2]["tick"] = 0.5
-DEBUG:SCRIPT: table[2]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[2]["active"] = 3
-DEBUG:SCRIPT: Debuff FireBallRank1 fell off
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Tick 34
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: testCharacter was dealt 0.5
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testCharacter: DoT Damage over 4 every 0.5
-DEBUG:SCRIPT: Tick 35
-DEBUG:SCRIPT: table[1]["source"]["type"] = "mob"
-DEBUG:SCRIPT: table[1]["source"]["id"] = "testEnemy"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 1.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = 3
-DEBUG:SCRIPT: Debuff FireBallRank1 fell off
-DEBUG:SCRIPT: Tick 36
-DEBUG:SCRIPT: Tick 37
-DEBUG:SCRIPT: Tick 38
-DEBUG:SCRIPT: Tick 39
-DEBUG:SCRIPT: Tick 40
-DEBUG:SCRIPT: Tick 41
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 192.168.0.2
