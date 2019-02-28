@@ -163,7 +163,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Head"
+  texture: "equipmentGUI/ui-paperdoll-slot-head"
   id: "slot_head"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -218,7 +218,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Shirt"
+  texture: "equipmentGUI/ui-paperdoll-slot-shirt"
   id: "slot_shirt"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -273,8 +273,8 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Ranged"
-  id: "slot_wprh"
+  texture: "equipmentGUI/ui-paperdoll-slot-ranged"
+  id: "slot_weaponRanged"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -328,7 +328,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Shoulder"
+  texture: "equipmentGUI/ui-paperdoll-slot-shoulder"
   id: "slot_shoulder"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -383,7 +383,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Wrists"
+  texture: "equipmentGUI/ui-paperdoll-slot-wrists"
   id: "slot_wrists"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -438,7 +438,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Waist"
+  texture: "equipmentGUI/ui-paperdoll-slot-waist"
   id: "slot_waist"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -493,7 +493,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Finger"
+  texture: "equipmentGUI/ui-paperdoll-slot-finger"
   id: "slot_ring1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -548,7 +548,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-RFinger"
+  texture: "equipmentGUI/ui-paperdoll-slot-rfinger"
   id: "slot_ring2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -603,8 +603,8 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-MainHand"
-  id: "slot_wpmh"
+  texture: "equipmentGUI/ui-paperdoll-slot-mainhand"
+  id: "slot_weaponMH"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -658,7 +658,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-REar"
+  texture: "equipmentGUI/ui-paperdoll-slot-rear"
   id: "slot_trinket2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -713,7 +713,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Chest"
+  texture: "equipmentGUI/ui-paperdoll-slot-chest"
   id: "slot_chest"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -768,7 +768,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Hands"
+  texture: "equipmentGUI/ui-paperdoll-slot-hands"
   id: "slot_hands"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -823,7 +823,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Tabard"
+  texture: "equipmentGUI/ui-paperdoll-slot-tabard"
   id: "slot_tabard"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -878,8 +878,8 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-SecondaryHand"
-  id: "slot_wpoh"
+  texture: "equipmentGUI/ui-paperdoll-slot-secondaryhand"
+  id: "slot_weaponOH"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -933,7 +933,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Trinket"
+  texture: "equipmentGUI/ui-paperdoll-slot-trinket"
   id: "slot_trinket1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -988,7 +988,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Legs"
+  texture: "equipmentGUI/ui-paperdoll-slot-legs"
   id: "slot_legs"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1043,8 +1043,8 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Neck"
-  id: "slot_neck"
+  texture: "equipmentGUI/ui-paperdoll-slot-neck"
+  id: "slot_necklace"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1098,7 +1098,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Feet"
+  texture: "equipmentGUI/ui-paperdoll-slot-feet"
   id: "slot_feet"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1153,7 +1153,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/UI-PaperDoll-Slot-Chest"
+  texture: "equipmentGUI/ui-paperdoll-slot-chest"
   id: "slot_back"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1208,7 +1208,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/sprite_button_settingsExit_0"
+  texture: "equipmentGUI/sprite_button_settingsexit_0"
   id: "exitButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1270,8 +1270,8 @@ nodes {
 }
 nodes {
   position {
-    x: -57.0
-    y: -1.0
+    x: 1.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -1356,7 +1356,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "weapons/INV_Sword_02"
+  texture: "weapons/inv_sword_02"
   id: "tooltipGUI/tticon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1380,8 +1380,8 @@ nodes {
 }
 nodes {
   position {
-    x: 55.0
-    y: 54.0
+    x: 60.0
+    y: 100.0
     z: 0.0
     w: 1.0
   }
@@ -1398,8 +1398,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 200.0
+    y: 100.0
     z: 0.0
     w: 1.0
   }
@@ -1429,14 +1429,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: 103.0
-    y: 60.0
+    x: 100.0
+    y: 10.0
     z: 0.0
     w: 1.0
   }
@@ -1459,7 +1459,7 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 0.6
     y: 0.0
     z: 0.0
     w: 1.0
@@ -1484,14 +1484,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   overridden_fields: 20
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -100.0
     y: 0.0
     z: 0.0
     w: 1.0
@@ -1510,7 +1510,7 @@ nodes {
   }
   size {
     x: 200.0
-    y: 100.0
+    y: 20.0
     z: 0.0
     w: 1.0
   }
@@ -1545,7 +1545,7 @@ nodes {
   parent: "tooltipGUI/tooltipName"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -1554,8 +1554,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: 25.0
+    x: 65.0
+    y: -25.0
     z: 0.0
     w: 1.0
   }
@@ -1572,20 +1572,20 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
+    x: 130.0
     y: 50.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 0.101960786
+    y: 0.2
+    z: 0.6
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipGUI/tooltipLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1603,14 +1603,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   overridden_fields: 20
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -65.0
     y: 25.0
     z: 0.0
     w: 1.0
@@ -1666,7 +1666,7 @@ nodes {
   parent: "tooltipGUI/tooltipLeft"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -1676,7 +1676,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 73.0
+    y: 20.0
     z: 0.0
     w: 1.0
   }
@@ -1730,7 +1730,7 @@ nodes {
 }
 nodes {
   position {
-    x: 34.0
+    x: 33.0
     y: -33.0
     z: 0.0
     w: 1.0
@@ -1761,7 +1761,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipGUI/ttblBG"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1779,7 +1779,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
@@ -1816,7 +1816,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderBot"
+  texture: "tooltipGUI/ui-tooltip-borderbot"
   id: "tooltipGUI/ttblBorderBot"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1871,7 +1871,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderTop"
+  texture: "tooltipGUI/ui-tooltip-bordertop"
   id: "tooltipGUI/ttblBorderTop"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1926,7 +1926,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderLeft"
+  texture: "tooltipGUI/ui-tooltip-borderleft"
   id: "tooltipGUI/ttblBorderLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1981,7 +1981,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderRight"
+  texture: "tooltipGUI/ui-tooltip-borderright"
   id: "tooltipGUI/ttblBorderRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2036,7 +2036,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerTL"
+  texture: "tooltipGUI/ui-tooltip-bordercornertl"
   id: "tooltipGUI/ttblBorderCornerTL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2091,7 +2091,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerTR"
+  texture: "tooltipGUI/ui-tooltip-bordercornertr"
   id: "tooltipGUI/ttblBorderCornerTR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2146,7 +2146,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerBR"
+  texture: "tooltipGUI/ui-tooltip-bordercornerbr"
   id: "tooltipGUI/ttblBorderCornerBR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2201,7 +2201,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerBL"
+  texture: "tooltipGUI/ui-tooltip-bordercornerbl"
   id: "tooltipGUI/ttblBorderCornerBL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2225,8 +2225,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: -22.0
+    x: 100.0
+    y: -75.0
     z: 0.0
     w: 1.0
   }
@@ -2249,14 +2249,14 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 0.4
+    y: 0.6
+    z: 0.4
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipGUI/tooltipEffects"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2274,13 +2274,13 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -100.0
     y: 25.0
     z: 0.0
     w: 1.0
@@ -2334,7 +2334,7 @@ nodes {
   parent: "tooltipGUI/tooltipEffects"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -2343,8 +2343,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: 25.0
+    x: 165.0
+    y: -25.0
     z: 0.0
     w: 1.0
   }
@@ -2361,20 +2361,20 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
+    x: 70.0
     y: 50.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 0.9019608
+    z: 0.4
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipGUI/tooltipRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2392,14 +2392,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: 96.0
-    y: 25.0
+    x: 33.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -2434,9 +2434,9 @@ nodes {
   ""
   font: "FRIZQT"
   id: "tooltipGUI/rightSideText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_NE
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_E
   outline {
     x: 0.0
     y: 0.0
@@ -2450,11 +2450,11 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   parent: "tooltipGUI/tooltipRight"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true

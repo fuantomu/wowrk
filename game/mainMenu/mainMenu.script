@@ -1,5 +1,6 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	msg.post("main:/game#savegame", hash("loadGame"))
 end
 
 function final(self)

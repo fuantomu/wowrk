@@ -27,9 +27,9 @@ function on_message(self, message_id, message, sender)
 		--testEnemy["attr"]["sta"] = math.random(1,500)
 		testRuns = testRuns + 1
 		if( testRuns > 1) then
-			msg.post("game#calculationMain", hash("getCombatStats"), {p="testCharacter", skip=true})
+			msg.post("game#calculationMain", hash("getCombatStats"), {p="Lexwin", skip=true})
 		else
-			msg.post("game#calculationMain", hash("getCombatStats"), {p="testCharacter"})
+			msg.post("game#calculationMain", hash("getCombatStats"), {p="Lexwin"})
 		end
 	elseif(message_id == hash("returnCombatStats")) then
 		--tprint(message.p)

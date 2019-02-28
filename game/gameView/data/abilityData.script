@@ -1,6 +1,6 @@
 function init(self)
 	ability = {
-		["133"] = {icon="Spell_fire_flamebolt",name="Fireball",description="Hurls a fiery ball that causes 14 to 23 Fire damage and an additional 2 Fire damage over 4 sec.",rank=1,cost=30,cspd=1.5,range=35,cooldown=0,schools={phy={min=0,max=0},fire={min=14,max=23},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},effectId={6,0,0}},
+		["133"] = {icon="spell_fire_flamebolt",name="Fireball",description="Hurls a fiery ball that causes 14 to 23 Fire damage and an additional 2 Fire damage over 4 sec.",rank=1,cost=30,cspd=1.5,range=35,cooldown=0,schools={phy={min=0,max=0},fire={min=14,max=23},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},effectId={6,0,0}},
 		["19740"] = {icon="spell_holy_fistofjustice",name="Blessing of Might",description="Places a Blessing on the friendly target, increasing melee attack power by 20 for 5 min. Players may only have one Blessing on them per Paladin at any one time.",rank=1,cost=30,cspd=0,range=20,cooldown=0,effectId={19740,0,0}}
 	}
 end

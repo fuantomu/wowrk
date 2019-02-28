@@ -1,7 +1,9 @@
 local save_state = save_state or {}
 local SAVE_STATE_DIR = "wowrecordkeeper"
-local SAVE_STATE_FILENAME = "save.sav"
+local SAVE_STATE_FILENAME = "wowrkSave.sav"
 local SAVE_STATE_PATH = SAVE_STATE_PATH or sys.get_save_file(SAVE_STATE_DIR, SAVE_STATE_FILENAME)
+
+currentParty = {}
 
 
 
@@ -16,60 +18,197 @@ end
 
 
 local function init_save_state()
-	for i = 1, 5 do
-		table.insert(save_state,{stats={
-			player=i,
+	local charData = getCharacterData()
+	player = {
+		stats={
 			class="Warrior", 
 			race="Human", 
 			level=1, 
-			hpmax=20, 
-			hpcurr=20, 
-			resmax=100, 
-			rescurr=0, 
-			str=23, 
-			agi=20, 
-			sta=22, 
-			int=20, 
-			spr=21,
+			basehp=0,
+			hpCurrent=0,
+			hpMax=0,
+			baseRes=0,
+			resCurrent=0,
+			resMax=100,
+			attr={str=0, agi=0, sta=0, int=0, spr=0},
+			skill={OneHandedSword=1,OneHandedMace=1,OneHandedAxe=1,TwoHandedAxe=1,TwoHandedSword=1,TwoHandedMace=1,Polearm=1,Dagger=1,Fistweapon=1,Unarmed=1,Bow=1,Gun=1,Throwing=1,Defense=1},
+			profession={engineering=0,herbalism=0},
+			baseArmor=0,
 			armor=0,
-			res={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
-			ap=46,
+			baseAp=0,
+			ap=0,
+			baseRAp=0,
+			rAp=0,
+			baseSp=0,
 			sp=0,
-			hp=0,
-			crit=5,
-			critdmg=50,
-			dodge=1,
-			parry=5,
-			block=5,
-			hp5=1,
-			mp5=0,
-			mhit=0,
-			sphit=0,
-			sp1id=i,
-			sp2id=6
+			resist={fire=0,frost=0,arcane=0,nature=0,holy=0,shadow=0},
+			baseCrit=0,
+			crit=0,
+			baseSCrit=0,
+			sCrit=0,
+			hit=0,
+			sHit=0,
+			avoidance={dodge=0,parry=5,block=5},
+			hpRegen=0,
+			mpRegen=0,
+			xp=0
 		},
-		equipment={
-			head={id=0,icon="",slot=1},
-			neck={id=0,icon="",slot=2},
-			shoulder={id=0,icon="",slot=3},
-			cloak={id=0,icon="",slot=15},
-			chest={id=0,icon="",slot=5},
-			shirt={id=38,icon="",slot=4},
-			tabard={id=0,icon="",slot=19},
-			wrists={id=0,icon="",slot=9},
-			hands={id=0,icon="",slot=10},
-			waist={id=0,icon="",slot=6},
-			legs={id=39,icon="",slot=7},
-			feet={id=40,icon="",slot=8},
-			ring1={id=0,icon="",slot=11},
-			ring={id=0,icon="",slot=12},
-			trinket1={id=0,icon="",slot=13},
-			trinket2={id=0,icon="",slot=14},
-			mainhand={id=25,icon="",slot=16},
-			offhand={id=2362,icon="",slot=17},
-			ranged={id=0,icon="",slot=18},
-		}})
-	end
+		buffs={
+		},
+		debuffs={
+		},
+		weaponMH={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			attr={str=0,agi=0,sta=0,int=0,spr=0},
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			setid=0,
+			schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
+		},
+		weaponOH={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			attr={str=0,agi=0,sta=0,int=0,spr=0},
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			setid=0,
+			blockValue=0,
+			schools={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
+		},
+		weaponRanged={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			attr={str=0,agi=0,sta=0,int=0,spr=0},
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0}
+		},
+		head={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		necklace={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		shoulder={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		back={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		chest={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		wrists={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		hands={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		waist={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		legs={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		feet={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		ring1={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		ring2={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		trinket1={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		trinket2={
+			id=0,
+			type="None",
+			effectId={0,0,0},
+			armor=0,
+			resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
+			attr={str=0,agi=0,sta=0,int=0,spr=0}
+		},
+		battle={
+			hitRecently=0
+		},
+		loadout={
+			spell1=133,
+			spell2=19740
+		}
+	}
+	charData["Lexwin"] = player
+	currentParty = {"Lexwin","None","None","None","None"}
+	save_state = {characterData = charData, lastParty=currentParty}
 	sys.save(SAVE_STATE_PATH, save_state)
 end
 
@@ -78,11 +217,23 @@ local function save_save_state()
 	sys.save(SAVE_STATE_PATH,save_state)
 end
 
+local function initSavegame()
+	if check_save_state_exists(SAVE_STATE_PATH) then
+		save_state = sys.load(SAVE_STATE_PATH)
+		print("Loaded existing save state!")
+		setCharacterData(save_state["characterData"])
+		
+	else
+		init_save_state()
+		print("Created new save state!")
+	end
+end
+
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("saveGame")) then
-		if(message.data) then
-			table.insert(save_state,message.data)
-		end
+		local charData = getCharacterData()
+		save_state = {characterData = charData, lastParty=currentParty}
+		save_save_state()
 		msg.post("game#loader", hash("getCurrentView"))
 	elseif(message_id == hash("returnCurrentView")) then
 		if(not (message.view == "mainMenu" or message.view == "main")) then
@@ -94,22 +245,17 @@ function on_message(self, message_id, message, sender)
 		if(message.data) then
 			save_state[message.player]["stats"] = message.data
 		end
-		tprint(save_state[message.player])
+		--tprint(save_state[message.player])
 		save_save_state()
 		msg.post(sender, hash("saveDone"))
 	elseif(message_id == hash("loadGame")) then
-		msg.post(sender, hash("loadDone"), {data=save_state[message.player],player=message.player})
+		initSavegame()
+		msg.post(sender, hash("loadDone"), {characters=save_state["lastParty"]})
 	end
 end
 
 function init(self)
-	if check_save_state_exists(SAVE_STATE_PATH) then
-		save_state = sys.load(SAVE_STATE_PATH)
-		print("Loaded existing save state!")
-	else
-		init_save_state()
-		print("Created new save state!")
-	end
+	
 end
 
 

@@ -46,7 +46,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "lobbyView/sprite_button_startGame_0"
+  texture: "lobbyView/sprite_button_startgame_0"
   id: "startButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -100,7 +100,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "lobbyView/sprite_button_endGame_0"
+  texture: "lobbyView/sprite_button_endgame_0"
   id: "endButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1114,7 +1114,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP1/mhicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1232,7 +1232,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP1/ohicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1350,7 +1350,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP1/ricon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1468,7 +1468,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP1/sp1icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1586,7 +1586,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP1/sp2icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2602,7 +2602,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP2/mhicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2720,7 +2720,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP2/ohicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2838,7 +2838,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP2/ricon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2956,7 +2956,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP2/sp1icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3074,7 +3074,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP2/sp2icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4090,7 +4090,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP3/mhicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4208,7 +4208,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP3/ohicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4326,7 +4326,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP3/ricon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4444,7 +4444,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP3/sp1icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4562,7 +4562,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP3/sp2icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5578,7 +5578,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP4/mhicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5696,7 +5696,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP4/ohicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5814,7 +5814,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP4/ricon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5932,7 +5932,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP4/sp1icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6050,7 +6050,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP4/sp2icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7066,7 +7066,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP5/mhicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7184,7 +7184,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP5/ohicon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7302,7 +7302,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP5/ricon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7420,7 +7420,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP5/sp1icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7538,7 +7538,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "partyGUI/invEmpty"
+  texture: "partyGUI/invempty"
   id: "partyP5/sp2icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

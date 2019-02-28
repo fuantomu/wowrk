@@ -260,7 +260,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "gameView/sprite_button_settingsExit_0"
+  texture: "gameView/sprite_button_settingsexit_0"
   id: "backButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -314,7 +314,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "weapons/INV_Sword_04"
+  texture: "weapons/inv_sword_04"
   id: "attackButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -368,7 +368,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "abilities/Ability_MeleeDamage"
+  texture: "abilities/ability_meleedamage"
   id: "currentSelection"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5497,7 +5497,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "abilities/Ability_MeleeDamage"
+  texture: "abilities/ability_meleedamage"
   id: "spell1Button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5551,7 +5551,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "abilities/Ability_MeleeDamage"
+  texture: "abilities/ability_meleedamage"
   id: "spell2Button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

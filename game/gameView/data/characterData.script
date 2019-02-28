@@ -39,6 +39,7 @@ function init(self)
 			debuffs={
 			},
 			weaponMH={
+				id=0,
 				type="OneHandedSword",
 				effectId={0,0,0},
 				armor=0,
@@ -48,6 +49,7 @@ function init(self)
 				schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
 			},
 			weaponOH={
+				id=0,
 				type="Shield",
 				effectId={0,0,0},
 				armor=150,
@@ -58,13 +60,15 @@ function init(self)
 				schools={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}
 			},
 			weaponRanged={
+				id=0,
 				type="Gun",
 				effectId={0,0,0},
 				armor=0,
 				attr={str=0,agi=0,sta=0,int=0,spr=0},
 				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0}
 			},
-			helmet={
+			head={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -72,6 +76,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			necklace={
+				id=0,
 				type="Accessory",
 				effectId={0,0,0},
 				armor=0,
@@ -79,13 +84,15 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			shoulder={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
 				resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0},
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
-			cloak={
+			back={
+				id=0,
 				type="Cloth",
 				effectId={0,0,0},
 				armor=50,
@@ -93,6 +100,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			chest={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -100,6 +108,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			wrists={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -107,6 +116,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			hands={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -114,6 +124,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			waist={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -121,6 +132,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			legs={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -128,6 +140,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			feet={
+				id=0,
 				type="Plate",
 				effectId={0,0,0},
 				armor=50,
@@ -135,6 +148,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			ring1={
+				id=0,
 				type="Accessory",
 				effectId={0,0,0},
 				armor=0,
@@ -142,6 +156,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			ring2={
+				id=0,
 				type="Accessory",
 				effectId={0,0,0},
 				armor=0,
@@ -149,6 +164,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			trinket1={
+				id=0,
 				type="Accessory",
 				effectId={0,0,0},
 				armor=0,
@@ -156,6 +172,7 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			trinket2={
+				id=0,
 				type="Accessory",
 				effectId={0,0,0},
 				armor=0,
@@ -164,6 +181,10 @@ function init(self)
 			},
 			battle={
 				hitRecently=0
+			},
+			loadout={
+				spell1=0,
+				spell2=0
 			}
 		}
 	}
@@ -175,13 +196,15 @@ function equipItem(character, type, slot, itemid)
 		pItem = getWeaponData(tostring(itemid))
 		characterData[character][slot] = pItem
 		characterData[character][slot]["slot"] = slot
-		if(slot == "WeaponMH" and (pItem[type] == "Polearm" or pItem[type] == "TwoHandedSword" or pItem[type] == "TwoHandedAxe" or pItem[type] == "TwoHandedMace")) then
+		characterData[character][slot]["id"] = itemid
+		if(slot == "weaponMH" and (pItem[type] == "Polearm" or pItem[type] == "TwoHandedSword" or pItem[type] == "TwoHandedAxe" or pItem[type] == "TwoHandedMace")) then
 			unequipItem(character, "weaponOH")
 		end
 	else
 		pItem = getArmorData(tostring(itemid))
 		characterData[character][slot] = pItem
 		characterData[character][slot]["slot"] = slot
+		characterData[character][slot]["id"] = itemid
 	end
 end
 
@@ -205,6 +228,14 @@ end
 
 function getCharacterData()
 	return characterData
+end
+
+function setCharacterData(charData)
+	characterData = charData
+end
+
+function addCharacterData(data)
+	table.insert(characterData, data)
 end
 
 function getCharacterStat(character, stat)
@@ -303,7 +334,9 @@ function getCharacterWeaponName(character, weapon)
 	return characterData[character][weapon]["name"]
 end
 
+
 function getCharacterEquipmentValue(character, slot, stat)
+	--print(character,slot,stat)
 	return characterData[character][slot][stat]
 end
 

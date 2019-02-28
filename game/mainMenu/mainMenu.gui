@@ -42,7 +42,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "main/sprite_button_startGame_0"
+  texture: "main/sprite_button_startgame_0"
   id: "box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -96,7 +96,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "main/sprite_button_endGame_0"
+  texture: "main/sprite_button_endgame_0"
   id: "box1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

@@ -2,10 +2,10 @@ images {
   image: "/assets/img/bg/bg_game_quest_00001.png"
 }
 images {
-  image: "/assets/img/icons/buttons/sprite_button_startGame_0.png"
+  image: "/assets/img/icons/buttons/sprite_button_startgame_0.png"
 }
 images {
-  image: "/assets/img/icons/buttons/sprite_button_endGame_0.png"
+  image: "/assets/img/icons/buttons/sprite_button_endgame_0.png"
 }
 images {
   image: "/assets/img/characters/human/warrior/start/hws001.png"

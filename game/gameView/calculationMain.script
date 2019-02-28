@@ -29,8 +29,7 @@ function on_message(self, message_id, message, sender)
 		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Melee", "AutoAttack", "Front")
 		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Melee", "AutoAttack", "Front")
 		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Melee", "AutoAttack", "Front")
-		--tprint(getCharacterData(message.player))
-		generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Melee", "AutoAttack", "Front")
+		generateCombatResult({id="Lexwin",type="player"}, {id="testEnemy",type="mob"}, "Melee", "AutoAttack", "Front")
 
 		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Melee", "Ability", "Front")
 		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Melee", "Ability", "Front")
@@ -66,7 +65,8 @@ function on_message(self, message_id, message, sender)
 			--applyAura(message.p, 19740)
 			--applyAura(message.p, 6, "testEnemy")
 			--applyAura(message.p, 465)
-			
+
+
 			calculateBaseStats(message.p)
 			--tprint(characterData[message.p]["stats"])
 			calculateEquipmentStats(message.p)
@@ -226,6 +226,7 @@ function generateCombatResult(attacker, target, source, type, position, secondAt
 		end
 	end
 
+
 	local combatHitChance = 0
 	local combatAttackTable = {}
 	local combatAttackResult = "Evaded"
@@ -239,6 +240,7 @@ function generateCombatResult(attacker, target, source, type, position, secondAt
 	local combatProcDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local combatProcBlocked = 0
 	local combatWeapon = "None"
+	tprint(pStats)
 	if(source == "Melee") then
 		combatWeapon = "weaponMH"
 		if(type == "AutoAttack") then
@@ -641,7 +643,7 @@ end
 function calculateEquipmentStats(character)
 	local pEquipmentStats = {rap=0,ap=0, armor=0, attr={str=0,agi=0,sta=0,int=0,spr=0},crit=0,hit=0, dodge=0, block=0, blockValue=0,parry=0, resist={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}, skill={Defense=0}}
 	local pSetPieces = {}
-	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","helmet","necklace","shoulder","cloak","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
+	local equipmentSlots = {"weaponMH","weaponOH","weaponRanged","head","necklace","shoulder","back","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
 	for i = 1, #equipmentSlots do
 		pCurrentEquipment = getCharacterEquipmentSlot(character, equipmentSlots[i])
 		if not (pCurrentEquipment["type"] == "None") then

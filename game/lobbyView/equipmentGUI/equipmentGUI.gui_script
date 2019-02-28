@@ -1,11 +1,11 @@
 local richtext = require "richtext.richtext"
+local isShowing = false
+local LoadingDone = false
+local lastPos = {head=0,necklace=0,shoulder=0,back=0,chest=0,wrists=0,hands=0,waist=0,legs=0,feet=0,ring1=0,ring2=0,trinket1=0,trinket2=0,weaponMH=0,weaponOH=0,weaponRanged=0}
+local character = "None"
+
 function init(self)
 	msg.post(".", hash("acquire_input_focus"))
-	self.playerEquipmenmt = {}
-	self.equipmentStats = {}
-	self.effectTooltips = {}
-	self.isShowing = false
-	self.LoadingDone = false
 end
 
 function final(self)
@@ -19,35 +19,23 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("generateIcons")) then
-		self.playerEquipmenmt = message.icons
-		for i = 1, 20 do
-			if(i == message.icons["shirt"]["slot"]) then
-				gui.set_texture(gui.get_node("slot_shirt"), "armor")
-				gui.play_flipbook(gui.get_node("slot_shirt"), message.icons["shirt"]["icon"])
-			elseif(i == message.icons["legs"]["slot"]) then
-				gui.set_texture(gui.get_node("slot_legs"), "armor")
-				gui.play_flipbook(gui.get_node("slot_legs"), message.icons["legs"]["icon"])
-			elseif(i == message.icons["feet"]["slot"]) then
-				gui.set_texture(gui.get_node("slot_feet"), "armor")
-				gui.play_flipbook(gui.get_node("slot_feet"), message.icons["feet"]["icon"])
-			elseif(i == message.icons["mainhand"]["slot"]) then
-				gui.set_texture(gui.get_node("slot_wpmh"), "weapons")
-				gui.play_flipbook(gui.get_node("slot_wpmh"), message.icons["mainhand"]["icon"])
-			elseif(i == message.icons["offhand"]["slot"]) then
-				gui.set_texture(gui.get_node("slot_wpoh"), "weapons")
-				gui.play_flipbook(gui.get_node("slot_wpoh"), message.icons["offhand"]["icon"])
+		local pArmorSlots = {"head","necklace","shoulder","back","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
+		character = message.character
+		for k, v in pairs(pArmorSlots) do
+			local aId = getCharacterEquipmentValue(message.character, v, "id")
+			if(aId ~= 0) then
+				gui.set_texture(gui.get_node("slot_"..v), "armor")
+				gui.play_flipbook(gui.get_node("slot_"..v), getArmorIcon(aId))
 			end
 		end
-	elseif(message_id == hash("equipmentStats")) then
-		self.equipmentStats[message.slot] = message.stats
-		self.effectTooltips[message.slot] = {e1="",e2="",e3=""}
-		for i = 1, 3 do
-			if(self.equipmentStats[message.slot]["eids"]["eid"..i]["func"] == "Cast") then
-				msg.post("main:/game#main", hash("getProperties"), {type="Ability", id=self.equipmentStats[message.slot]["eids"]["eid"..i]["val"],slot=message.slot,player=i})
+		local pWeaponSlots = {"weaponMH","weaponOH","weaponRanged"}
+		for k, v in pairs(pWeaponSlots) do
+			local aId = getCharacterEquipmentValue(message.character, v, "id")
+			if(aId ~= 0) then
+				gui.set_texture(gui.get_node("slot_"..v), "weapons")
+				gui.play_flipbook(gui.get_node("slot_"..v), getWeaponIcon(aId))
 			end
 		end
-	elseif(message_id == hash("getProperties")) then
-		self.effectTooltips[message.slot]["e"..message.player]=message.values["tooltip"]
 	end
 end
 
@@ -59,258 +47,381 @@ function on_input(self, action_id, action)
 			msg.post(".", hash("disable"))
 		end
 	end
-	if not(self.isShowing) or self.LoadingDone then
-		if(gui.pick_node(gui.get_node("slot_legs"), action.x, action.y)) then
-			updateTooltip(self,"legs","armor", action.x, action.y)
-		elseif(gui.pick_node(gui.get_node("slot_wpmh"), action.x, action.y)) then
-			updateTooltip(self,"mainhand","weapons", action.x, action.y)
-		elseif(gui.pick_node(gui.get_node("slot_wpoh"), action.x, action.y)) then
-			updateTooltip(self,"offhand","weapons", action.x, action.y)
-		elseif(gui.pick_node(gui.get_node("slot_feet"), action.x, action.y)) then
-			updateTooltip(self,"feet","armor", action.x, action.y)
-		elseif(gui.pick_node(gui.get_node("slot_shirt"), action.x, action.y)) then
-			updateTooltip(self,"shirt","armor", action.x, action.y)
+	if (not(isShowing) or LoadingDone) then
+		local pArmorSlots = {"head","necklace","shoulder","back","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
+		if(gui.pick_node(gui.get_node("slot_weaponMH"), action.x, action.y)) then
+			if(gui.get_texture(gui.get_node("slot_weaponMH")) ~= hash("equipmentGUI")) then
+				updateTooltip("weaponMH","weapons", action.x, action.y)
+			end
+		elseif(gui.pick_node(gui.get_node("slot_weaponOH"), action.x, action.y)) then
+			if(gui.get_texture(gui.get_node("slot_weaponOH")) ~= hash("equipmentGUI")) then
+				updateTooltip("weaponOH","weapons", action.x, action.y)
+			end
+		elseif(gui.pick_node(gui.get_node("slot_weaponRanged"), action.x, action.y)) then
+			if(gui.get_texture(gui.get_node("slot_weaponRanged")) ~= hash("equipmentGUI")) then
+				updateTooltip("weaponRanged","weapons", action.x, action.y)
+			end
 		else
+			for k, v in pairs(pArmorSlots) do
+				if(gui.pick_node(gui.get_node("slot_"..v), action.x, action.y)) then
+					if(gui.get_texture(gui.get_node("slot_"..v)) ~= hash("equipmentGUI")) then
+						updateTooltip(v,"armor", action.x, action.y)
+					end
+				else
+					--gui.set_enabled(gui.get_node("tooltipGUI/tooltip"), false)
+					--isShowing = false
+					--LoadingDone = false
+				end
+			end
 			gui.set_enabled(gui.get_node("tooltipGUI/tooltip"), false)
-			self.isShowing = false
-			self.LoadingDone = false
+			isShowing = false
+			LoadingDone = false
 		end
 	end
 	
 end
 
-function updateTooltip(self,slot,type,x,y)
+function updateTooltip(slot,type,x,y)
 	local tooltip = gui.get_node("tooltipGUI/tooltip")
-	if not (self.LoadingDone) then
+	if not(LoadingDone) then
 		gui.set_enabled(tooltip, false)
 	end
-	self.isShowing = true
-	local ticon = gui.get_node("tooltipGUI/tticon")
-	local tbg = gui.get_node("tooltipGUI/ttblBG")
-	local tbgsize = gui.get_size(tbg)
-	local tooltipEquip = gui.get_node("tooltipGUI/tooltipEffects")
-	
-	local tooltipText = gui.get_node("tooltipGUI/tooltiptext")
-	local tooltipLeft = gui.get_node("tooltipGUI/tooltipLeft")
-	local tooltipRight = gui.get_node("tooltipGUI/tooltipRight")
-	local tooltipName = gui.get_node("tooltipGUI/tooltipName")
-	
-	
+	if not(isShowing) then
+		isShowing = true
+		local ticon = gui.get_node("tooltipGUI/tticon")
+		local tbg = gui.get_node("tooltipGUI/ttblBG")
+		local tbgsize = gui.get_size(tbg)
+		local tooltipEquip = gui.get_node("tooltipGUI/tooltipEffects")
+		
+		local tooltipText = gui.get_node("tooltipGUI/tooltiptext")
+		local tooltipLeft = gui.get_node("tooltipGUI/tooltipLeft")
+		local tooltipRight = gui.get_node("tooltipGUI/tooltipRight")
+		local tooltipName = gui.get_node("tooltipGUI/tooltipName")
+		
+		
 
-	local colorPoor = vmath.vector3(0.62,0.62,0.62)
-	local colorCommon = vmath.vector3(1,1,1)
-	local colorUncommon = vmath.vector3(0.12,1,00,0.00)
-	local colorRare = vmath.vector3(0.00,0.44,0.87)
-	local colorEpic = vmath.vector3(0.64,0.21,0.93)
-	local colorLegendary = vmath.vector3(1.00,0.50,0.00)
+		local colorPoor = vmath.vector3(0.62,0.62,0.62)
+		local colorCommon = vmath.vector3(1,1,1)
+		local colorUncommon = vmath.vector3(0.12,1,00,0.00)
+		local colorRare = vmath.vector3(0.00,0.44,0.87)
+		local colorEpic = vmath.vector3(0.64,0.21,0.93)
+		local colorLegendary = vmath.vector3(1.00,0.50,0.00)
 
 
 
-	local itemName = gui.get_node("tooltipGUI/itemname")
-	gui.set_text(itemName, self.equipmentStats[slot]["name"])
-	
+		local itemName = gui.get_node("tooltipGUI/itemname")
+		local eqName = getCharacterEquipmentValue(character, slot, "name")
+		gui.set_text(itemName, eqName)
+		
 
-	local nameTextHeight = gui.get_text_metrics_from_node(itemName)["height"]
-	local nameTextWidth = gui.get_text_metrics_from_node(itemName)["width"]
+		local nameTextHeight = gui.get_text_metrics_from_node(itemName)["height"]
+		local nameTextWidth = gui.get_text_metrics_from_node(itemName)["width"]
 
-	if(self.equipmentStats[slot]["quality"] == "0") then
-		gui.set_color(itemName, colorPoor)
-	elseif(self.equipmentStats[slot]["quality"] == "1") then
-		gui.set_color(itemName, colorCommon)
-	elseif(self.equipmentStats[slot]["quality"] == "2") then
-		gui.set_color(itemName, colorUncommon)
-	elseif(self.equipmentStats[slot]["quality"] == "3") then
-		gui.set_color(itemName, colorRare)
-	elseif(self.equipmentStats[slot]["quality"] == "4") then
-		gui.set_color(itemName, colorEpic)
-	elseif(self.equipmentStats[slot]["quality"] == "5") then
-		gui.set_color(itemName, colorLegendary)
-	else
-		gui.set_color(itemName, colorPoor)
-	end
-	local leftString = ""
-	local rightString = ""
-	local equipString = ""
-	if(self.equipmentStats[slot]["unique"] == "1") then
-		leftString = leftString .. "Unique\n"
-	end
-	if(self.equipmentStats[slot]["bind"] == "1") then
-		leftString = leftString .. "Bind on Equip\n"
-	end
-	if(type == "weapons") then
-		if(self.equipmentStats[slot]["wtype"] == "9") then
-			leftString = leftString .. "Off hand\n"
-			rightString = rightString .. "     Shield\n"
+		
+		local eQuality = getCharacterEquipmentValue(character, slot, "quality")
+		if(eQuality == 0) then
+			gui.set_color(itemName, colorPoor)
+		elseif(eQuality == 1) then
+			gui.set_color(itemName, colorCommon)
+		elseif(eQuality == 2) then
+			gui.set_color(itemName, colorUncommon)
+		elseif(eQuality == 3) then
+			gui.set_color(itemName, colorRare)
+		elseif(eQuality == 4) then
+			gui.set_color(itemName, colorEpic)
+		elseif(eQuality == 5) then
+			gui.set_color(itemName, colorLegendary)
 		else
-			if(self.equipmentStats[slot]["slotid"] == "16") then
-				leftString = leftString .. "Main hand\n"
-				if(self.equipmentStats[slot]["wtype"] == "7") then
-					rightString = rightString .. "Sword\n"
-				end
-			elseif(self.equipmentStats[slot]["slotid"] == "17") then
+			gui.set_color(itemName, colorPoor)
+		end
+		local leftString = ""
+		local rightString = ""
+		local equipString = ""
+		if(getCharacterEquipmentValue(character, slot, "unique") == 1) then
+			leftString = leftString .. "Unique\n"
+		end
+		if(getCharacterEquipmentValue(character, slot, "bind") == 1) then
+			leftString = leftString .. "Binds when picked up\n"
+		elseif(getCharacterEquipmentValue(character, slot, "bind") == 2) then
+			leftString = leftString .. "Binds when equipped\n"
+		end
+		local pWeapons = getCharacterWeapons(character)
+		if(type == "weapons") then
+			--tprint(pWeapons[slot])
+			if(pWeapons[slot]["type"] == "Shield") then
 				leftString = leftString .. "Off hand\n"
-			end
-			local damage = 0
-			local aspeedDone = false
-			local schools = {"Physical","Fire","Frost","Arcane","Holy","Shadow","Nature"}
-			for i = 1, #schools do
-				if(tonumber(self.equipmentStats[slot]["damage"][schools[i]]["min"]) > 0) then
-					damage = damage + (self.equipmentStats[slot]["damage"][schools[i]]["min"] + self.equipmentStats[slot]["damage"][schools[i]]["max"])/2
-					if(schools[i] == "Physical") then
-						leftString = leftString .. self.equipmentStats[slot]["damage"][schools[i]]["min"] .. " - " .. self.equipmentStats[slot]["damage"][schools[i]]["max"] .. " Damage\n"
+				rightString = rightString .. "     Shield\n"
+			else
+				if(pWeapons[slot]["slot"] == "weaponMH") then
+					if(string.match(pWeapons[slot]["type"] , "OneHanded")) then
+						leftString = leftString .. "Main hand\n"
 					else
-						leftString = leftString .. "+" ..self.equipmentStats[slot]["damage"][schools[i]]["min"] .. " - " .. self.equipmentStats[slot]["damage"][schools[i]]["max"] .. schools[i].. " Damage\n"
+						leftString = leftString .. "Two-hand\n"
 					end
-					if(not aspeedDone) then
-						aspeedDone = true
-						rightString = rightString .. "Speed " .. self.equipmentStats[slot]["aspeed"] .. "0\n"
+					
+				elseif(pWeapons[slot]["slot"] == "weaponOH") then
+					if(string.match(pWeapons[slot]["type"] , "OneHanded")) then
+						leftString = leftString .. "One-hand\n"
+					end
+				elseif(pWeapons[slot]["slot"] == "weaponRanged") then
+					leftString = leftString .. "Ranged" .. "\n"
+				end
+				if(string.match(pWeapons[slot]["type"] , "Sword")) then
+					rightString = rightString .. "Sword\n"
+				elseif(string.match(pWeapons[slot]["type"] , "Axe")) then
+					rightString = rightString .. "Axe\n"
+				elseif(string.match(pWeapons[slot]["type"] , "Gun")) then
+					rightString = rightString .. "Gun\n"
+				end
+				local damage = 0
+				local aspeedDone = false
+				local schools = {"Phy","Fire","Frost","Arcane","Holy","Shadow","Nature"}
+				for i = 1, #schools do
+					if(pWeapons[slot]["schools"][string.lower(schools[i])]["min"] > 0) then
+						damage = damage + (pWeapons[slot]["schools"][string.lower(schools[i])]["min"] + pWeapons[slot]["schools"][string.lower(schools[i])]["max"])
+						if(schools[i] == "Phy") then
+							leftString = leftString .. tostring(pWeapons[slot]["schools"][string.lower(schools[i])]["min"]) .. " - " .. tostring(pWeapons[slot]["schools"][string.lower(schools[i])]["max"]) .. " Damage\n"
+						else
+							leftString = leftString .. "+" ..tostring(pWeapons[slot]["schools"][string.lower(schools[i])]["min"]) .. " - " .. tostring(pWeapons[slot]["schools"][string.lower(schools[i])]["max"]) .. " "..schools[i].. " Damage\n"
+						end
+						if(not aspeedDone) then
+							aspeedDone = true
+							rightString = rightString .. "Speed " .. tostring(pWeapons[slot]["aspd"]) .. "0\n"
+						end
 					end
 				end
+				damage = math.floor(((damage/2)/pWeapons[slot]["aspd"]) * 10 + 0.5) / 10
+				leftString = leftString .. "("..damage.." damage per second)\n"
 			end
-			damage = math.floor((damage/self.equipmentStats[slot]["aspeed"])*100+5)/100
-			leftString = leftString .. "("..damage.." damage per second)\n"
+		elseif(type == "armor") then
+			local eqSlot = getCharacterEquipmentValue(character, slot, "slot")
+			local slotText = ""
+			if(eqSlot == "trinket1" or eqSlot == "trinket2") then
+				slotText = "Trinket"
+			elseif(eqSlot == "ring1" or eqSlot == "ring1") then
+				slotText = "Finger"
+			else
+				slotText = string.upper(string.sub(eqSlot, 1,1)) .. string.sub(eqSlot, 2)
+			end
+
+			leftString = leftString .. slotText .. "\n"
+
+			local eqType = getCharacterEquipmentValue(character, slot, "type")
+			if(eqType ~= "Accessory") then
+				rightString = rightString .. eqType .. "\n"
+			end
 		end
-	elseif(type == "armor") then
-		if(self.equipmentStats[slot]["slotid"] == "4") then
-			leftString = leftString .. "Shirt\n"
-		elseif(self.equipmentStats[slot]["slotid"] == "7") then
-			leftString = leftString .. "Legs\n"
-		elseif(self.equipmentStats[slot]["slotid"] == "8") then
-			leftString = leftString .. "Feet\n"
+		local eqArmor = getCharacterEquipmentValue(character, slot, "armor")
+		if(eqArmor > 0) then
+			leftString = leftString ..tostring(eqArmor) .. " Armor\n"
 		end
-		if(self.equipmentStats[slot]["atype"] == "1") then
-			rightString = rightString .. "Cloth\n"
-		elseif(self.equipmentStats[slot]["atype"] == "2") then
-			rightString = rightString .. "Leather\n"
-		elseif(self.equipmentStats[slot]["atype"] == "3") then
-			rightString = rightString .. "Mail\n"
-		elseif(self.equipmentStats[slot]["atype"] == "4") then
-			rightString = rightString .. "Plate\n"
+		if(type == "weapons") then
+			if(pWeapons[slot]["blockValue"] > 0 and pWeapons["weaponOH"]["type"] == "Shield") then
+				leftString = leftString ..tostring(pWeapons[slot]["blockValue"]) .. " Block\n"
+			end
 		end
-	end
-	if(tonumber(self.equipmentStats[slot]["armor"]) > 0) then
-		leftString = leftString ..self.equipmentStats[slot]["armor"] .. " Armor\n"
-	end
-	if(type == "weapons") then
-		if(tonumber(self.equipmentStats[slot]["block"]) > 0) then
-			leftString = leftString ..self.equipmentStats[slot]["block"] .. " Block\n"
+		local eqAttr = getCharacterEquipmentValue(character, slot, "attr")
+		if(eqAttr["agi"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["agi"]) .. " Agility\n"
 		end
-	end
-	if(tonumber(self.equipmentStats[slot]["stats"]["agi"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["agi"] .. " Agility\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["stats"]["str"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["str"] .. " Strength\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["stats"]["int"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["int"] .. " Intelligence\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["stats"]["spr"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["spr"] .. " Spirit\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["stats"]["sta"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["stats"]["sta"] .. " Stamina\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["fire"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["fire"] .. " Fire Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["frost"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["frost"] .. " Frost Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["shadow"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["shadow"] .. " Shadow Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["holy"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["holy"] .. " Holy Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["nature"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["nature"] .. " Nature Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["res"]["arcane"]) > 0) then
-		leftString = leftString .. "+" ..self.equipmentStats[slot]["res"]["arnace"] .. " Arcane Resistance\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["durability"]["max"]) > -1) then
-		leftString = leftString .. "Durability " .. self.equipmentStats[slot]["durability"]["min"] .. " / " .. self.equipmentStats[slot]["durability"]["max"] .. "\n"
-	end
-	if(tonumber(self.equipmentStats[slot]["rlvl"]) > 1) then
-		leftString = leftString .. "Requires Level " .. self.equipmentStats[slot]["rlvl"] .. "\n"
-	end
-	for i = 1, 3 do
-		if(self.equipmentStats[slot]["eids"]["eid"..i]["func"] == "Cast") then
-			equipString = equipString .. "Equip: " .. self.effectTooltips[slot]["e"..i] .. "\n"
+		if(eqAttr["str"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["str"]) .. " Strength\n"
 		end
-	end
-	leftString = leftString .. "\n"
+		if(eqAttr["int"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["int"]) .. " Intelligence\n"
+		end
+		if(eqAttr["spr"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["spr"]) .. " Spirit\n"
+		end
+		if(eqAttr["sta"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["sta"]) .. " Stamina\n"
+		end
+		local eqResist = getCharacterEquipmentValue(character, slot, "resist")
+		if(eqResist["fire"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["fire"]) .. " Fire Resistance\n"
+		end
+		if(eqResist["frost"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["frost"]) .. " Frost Resistance\n"
+		end
+		if(eqResist["shadow"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["shadow"]) .. " Shadow Resistance\n"
+		end
+		if(eqResist["holy"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["holy"]) .. " Holy Resistance\n"
+		end
+		if(eqResist["nature"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["nature"]) .. " Nature Resistance\n"
+		end
+		if(eqResist["arcane"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqResist["arcane"]) .. " Arcane Resistance\n"
+		end
+		local eqDurability = getCharacterEquipmentValue(character, slot, "durability")
+		if(eqDurability["max"] > 0) then
+			leftString = leftString .. "Durability " .. eqDurability["current"] .. " / " .. eqDurability["max"] .. "\n"
+		end
+		local eqClasses = getCharacterEquipmentValue(character, slot, "class")
+		local classes = {"Warrior", "Paladin", "Rogue", "Priest", "Warlock", "Mage", "Druid", "Hunter", "Shaman"}
+		local classString = "Classes: "
+		local classesAdded = 0
+		for k, v in pairs(classes) do
+			if(eqClasses[string.lower(classes[k])] == 1) then
+				classString = classString .. v
+				classesAdded = classesAdded + 1
+				if(classesAdded > 1) then
+					classString = classString .. ", "
+				end
+			end
+		end
+		if(classString ~= "Classes: ") then
+			leftString = leftString .. classString .. "\n"
+		end
+		local eqRLevel = getCharacterEquipmentValue(character, slot, "rlevel")
+		if(eqRLevel > 1) then
+			leftString = leftString .. "Requires Level " .. tostring(eqRLevel) .. "\n"
+		end
+		local eqEffects = getCharacterEquipmentValue(character, slot, "effectId")
+		for i = 1, 3 do
+			if(eqEffects[i] ~= 0) then
+				local eCondition = getEffectCondition(eqEffects[i])
+				local eDescription = getEffectDescription(eqEffects[i])
+				local eName = getEffectName(eqEffects[i])
+				--print(eCondition,eDescription)
+				if(eCondition == "Equip" or eName == "Hand of Justice") then
+					equipString = equipString .. "Equip: " .. eDescription .. "\n"
+				end
+			end
+		end
+		--leftString = leftString .. "\n"
 
-	
-	local leftText = gui.get_node("tooltipGUI/leftSideText")
-	gui.set_text(leftText, leftString)
-	local rightText = gui.get_node("tooltipGUI/rightSideText")
-	gui.set_text(rightText, rightString)
+		
+		local leftText = gui.get_node("tooltipGUI/leftSideText")
+		gui.set_text(leftText, leftString)
+		local rightText = gui.get_node("tooltipGUI/rightSideText")
+		gui.set_text(rightText, rightString)
 
-	print(leftString)
+		--print(eqName)
+		--print(leftString)
+		--print(equipString)
+		--print(rightString)
 
-	local tooltipEquipText = gui.get_node("tooltipGUI/effectText")
-	gui.set_text(tooltipEquipText, equipString)
-	gui.set_color(tooltipEquipText, colorUncommon)
-	
+		
+		
 
-	local tooltipTextPos = gui.get_position(tooltipText)
-	local leftTextWidth = gui.get_text_metrics_from_node(leftText)["width"]
-	local leftTextHeight = gui.get_text_metrics_from_node(leftText)["height"]
-	local rightTextWidth = gui.get_text_metrics_from_node(rightText)["width"]
-	local rightTextHeight = gui.get_text_metrics_from_node(rightText)["height"]
-	local equipTextWidth = gui.get_text_metrics_from_node(tooltipEquipText)["width"] / 3
-	local equipTextHeight = gui.get_text_metrics_from_node(tooltipEquipText)["height"]
-	local equipTextWidth = 1
-	local equipTextHeight = 1
-
-	gui.set_size(tooltipEquip, vmath.vector3(equipTextWidth,equipTextHeight,0))
-	gui.set_size(tooltipName, vmath.vector3(nameTextWidth,nameTextHeight,0))
-
-	local bodyWidth,bodyHeight = equipTextWidth + leftTextWidth + rightTextWidth, equipTextHeight + leftTextHeight + rightTextHeight
-	local maxX = 0
-	if((bodyWidth-80) > nameTextWidth) then maxX = bodyWidth - 120 else maxX = nameTextWidth*2 - nameTextWidth/2 - 40 end
-	local minX,minY = maxX, nameTextHeight + 10
-	local newX,newY = 0,0
-	if(bodyWidth < minX) then newX = minX + 20 else newX = (bodyWidth) + equipTextWidth*(equipTextWidth-100)/25 + 10 end
-	if(bodyHeight < minY) then newY = minY else newY = (bodyHeight-bodyHeight/2) + nameTextHeight*2 + equipTextHeight/2.5 + bodyHeight/14 end
-	gui.set_size(tooltipLeft, vmath.vector3(newX,newY,0))
-	gui.set_position(tooltipName, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-5,1))
-	gui.set_position(tooltipLeft, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-40,1))
-	
-	gui.set_position(tooltipEquip, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-145,1))
-
-	local rightX = 0
-	if(bodyWidth > equipTextWidth*3) then rightX = rightTextWidth + rightTextWidth/2 - 93 else rightX = equipTextWidth end
-	gui.set_position(tooltipRight, vmath.vector3(tooltipTextPos.x + rightX,tooltipTextPos.y+nameTextHeight/2-40,1))
+		local tooltipEquipText = gui.get_node("tooltipGUI/effectText")
+		gui.set_text(tooltipEquipText, equipString)
+		gui.set_color(tooltipEquipText, colorUncommon)
 
 
-	local tooltipWidth = (newX + maxX)/2 - 15
-	local tooltipHeight = newY + nameTextHeight - 40
-	
+		local tooltipItemName = gui.get_text_metrics_from_node(itemName)
+		local tooltipItemDetails = gui.get_text_metrics_from_node(leftText)
+		local tooltipItemType = gui.get_text_metrics_from_node(rightText)
+		local tooltipItemEffect = gui.get_text_metrics_from_node(tooltipEquipText)
+		--tprint(tooltipItemName)
+		--tprint(tooltipItemDetails)
+		--tprint(tooltipItemType)
+		--tprint(tooltipItemEffect)
 
-	gui.set_position(tooltip, vmath.vector3(x, y, 0))
-	gui.set_size(tbg, vmath.vector3(tooltipWidth,tooltipHeight, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth, 5, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth, 5, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(5, tooltipHeight, 0))
-	gui.set_size(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(5, tooltipHeight, 0))
-	gui.set_position(tbg, vmath.vector3((tooltipTextPos.x+tooltipWidth)/2-28,(tooltipTextPos.y-tooltipHeight)/2-29,0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth-tbgsize.x, tooltipHeight-(tbgsize.y)/2, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth-tbgsize.x, -tooltipHeight+(tbgsize.y)/2, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(tooltipWidth-(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, tooltipHeight-(tbgsize.y)/2-1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, tooltipHeight-(tbgsize.y)/2-1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, -tooltipHeight+(tbgsize.y)/2+1, 0))
-	gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, -tooltipHeight+(tbgsize.y)/2+1, 0))
-	gui.set_texture(ticon, type)
-	gui.play_flipbook(ticon, self.playerEquipmenmt[slot]["icon"])
+		local tooltipBoxHeight = 0
+		tooltipBoxHeight = tooltipBoxHeight + tooltipItemName["height"]
+		tooltipBoxHeight = tooltipBoxHeight + math.max(tooltipItemDetails["height"], tooltipItemType["height"])
+		tooltipBoxHeight = tooltipBoxHeight + tooltipItemEffect["height"]
 
-	if not(self.LoadingDone) then
-		self.LoadingDone = true
-		delay.seconds(0.25, function(self, id)
+		local tooltipBoxWidth = 0
+		tooltipBoxWidth = math.max(tooltipItemName["width"], tooltipItemDetails["width"], tooltipItemType["width"], tooltipItemEffect["width"])
+
+		--[[
+		local tooltipTextPos = gui.get_position(tooltipText)
+		local leftTextWidth = gui.get_text_metrics_from_node(leftText)["width"]
+		local leftTextHeight = gui.get_text_metrics_from_node(leftText)["height"] * 1.8
+		local rightTextWidth = gui.get_text_metrics_from_node(rightText)["width"]
+		local rightTextHeight = gui.get_text_metrics_from_node(rightText)["height"]
+		local equipTextWidth = gui.get_text_metrics_from_node(tooltipEquipText)["width"] / 3
+		local equipTextHeight = gui.get_text_metrics_from_node(tooltipEquipText)["height"]
+		local equipTextWidth = 1
+		local equipTextHeight = 1
+		--]]
+
+		local nameWidth = tooltipItemName["width"]
+		local moveNameWidth = (103*(tooltipItemName["width"]/200))
+		local nameHeight = math.max(20, tooltipItemName["height"])
+		--gui.set_size(tooltipName, vmath.vector3(nameWidth,nameHeight,0))
+		--gui.set_position(tooltipName, vmath.vector3(moveNameWidth,60,1))
+
+		local statsWidth = tooltipItemDetails["width"]
+		local moveStatsWidth = (67*(tooltipItemDetails["width"]/130))
+		local moveStatsHeight = (100/(tooltipItemDetails["height"])+25)
+		local statsHeight = tooltipItemDetails["height"]
+		--tprint(tooltipItemDetails)
+		--gui.set_size(tooltipLeft, vmath.vector3(statsWidth,statsHeight,0))
+		--gui.set_position(tooltipLeft, vmath.vector3(moveStatsWidth,moveStatsHeight,1))
+
+		--print(moveNameWidth, gui.get_position(tooltipName)["x"]*moveNameWidth, (gui.get_position(tooltipName)["x"]*moveNameWidth)/2)
+
+		--gui.set_size(tooltipEquip, vmath.vector3(effectWidth,effectHeight,0))
+		
+
+		local effectHeight = math.max(50, tooltipItemEffect["height"])
+		local effectWidth = math.max(200, tooltipItemEffect["width"])
+
+		--[[
+		local bodyWidth,bodyHeight = equipTextWidth + leftTextWidth + rightTextWidth, equipTextHeight + leftTextHeight + rightTextHeight
+		local maxX = 0
+		if((bodyWidth-80) > nameTextWidth) then maxX = bodyWidth - 120 else maxX = nameTextWidth*2 - nameTextWidth/2 - 40 end
+		local minX,minY = maxX, nameTextHeight + 10
+		local newX,newY = 0,0
+		if(bodyWidth < minX) then newX = minX + 20 else newX = (bodyWidth) + equipTextWidth*(equipTextWidth-100)/25 + 10 end
+		if(bodyHeight < minY) then newY = minY else newY = (bodyHeight-bodyHeight/2) + nameTextHeight*2 + equipTextHeight/2.5 + bodyHeight/14 end
+		--]]
+
+		
+		--gui.set_size(tooltipLeft, vmath.vector3((tooltipItemDetails["width"]+tooltipItemType["width"]),math.max(tooltipItemDetails["height"], tooltipItemType["height"]),0))
+		--gui.set_position(tooltipLeft, vmath.vector3(103,-(tooltipItemName["height"]+gui.get_position(tooltipName)["y"])/2,1))
+		
+		
+		--gui.set_size(tbg, vmath.vector3(tooltipBoxWidth,tooltipBoxHeight, 0))
+		--gui.set_position(tbg, vmath.vector3(tooltipBoxWidth/2,-tooltipBoxHeight/2,0))
+
+		--gui.set_position(tooltipEquip, vmath.vector3(103,-(tooltipItemDetails["height"]+gui.get_position(tooltipLeft)["y"]),1))
+		--[[
+		gui.set_position(tooltipName, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-5,1))
+		gui.set_position(tooltipLeft, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-40,1))
+		
+		
+
+		local rightX = 0
+		if(bodyWidth > equipTextWidth*3) then rightX = rightTextWidth + rightTextWidth/2 - 93 else rightX = equipTextWidth end
+		gui.set_position(tooltipRight, vmath.vector3(tooltipTextPos.x + rightX,tooltipTextPos.y+nameTextHeight/2-40,1))
+
+
+		local tooltipWidth = (newX + maxX)/2 - 15
+		local tooltipHeight = newY + nameTextHeight - 40
+		
+
+		
+		
+		
+		gui.set_size(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth, 5, 0))
+		gui.set_size(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth, 5, 0))
+		gui.set_size(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(5, tooltipHeight, 0))
+		gui.set_size(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(5, tooltipHeight, 0))
+		
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderTop"), vmath.vector3(tooltipWidth-tbgsize.x, tooltipHeight-(tbgsize.y)/2, 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderBot"), vmath.vector3(tooltipWidth-tbgsize.x, -tooltipHeight+(tbgsize.y)/2, 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderLeft"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderRight"), vmath.vector3(tooltipWidth-(tbgsize.x)/2, tooltipHeight-(tbgsize.y), 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, tooltipHeight-(tbgsize.y)/2-1, 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, tooltipHeight-(tbgsize.y)/2-1, 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, -tooltipHeight+(tbgsize.y)/2+1, 0))
+		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, -tooltipHeight+(tbgsize.y)/2+1, 0))
+		--]]
+		gui.set_texture(ticon, type)
+		local eqIcon = getCharacterEquipmentValue(character, slot, "icon")
+		gui.play_flipbook(ticon, eqIcon)
+		gui.set_position(tooltip, vmath.vector3(x, y, 0))
+		
+		
+		LoadingDone = true
+		delay.seconds(0.4, function(self, id)
 			gui.set_enabled(tooltip, true)
 		end)
 	end

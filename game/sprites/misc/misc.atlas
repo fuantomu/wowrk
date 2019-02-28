@@ -1,20 +1,3371 @@
 images {
-  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Misc_Ammo_Bullet_01.PNG"
+  image: "/assets/img/icons/items/misc/ammo/arrow/inv_ammo_arrow_01.png"
 }
 images {
-  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Ammo_Arrow_01.png"
+  image: "/assets/img/icons/items/misc/ammo/arrow/inv_ammo_arrow_02.png"
 }
 images {
-  image: "/assets/img/icons/items/misc/ammo/arrow/INV_Ammo_Arrow_02.png"
+  image: "/assets/img/icons/items/misc/ammo/bullet/inv_ammo_bullet_01.png"
 }
 images {
-  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Ammo_Bullet_01.png"
+  image: "/assets/img/icons/items/misc/ammo/bullet/inv_ammo_bullet_02.png"
 }
 images {
-  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Ammo_Bullet_02.png"
+  image: "/assets/img/icons/items/misc/ammo/bullet/inv_ammo_bullet_03.png"
 }
 images {
-  image: "/assets/img/icons/items/misc/ammo/bullet/INV_Ammo_Bullet_03.png"
+  image: "/assets/img/icons/items/misc/ammo/bullet/inv_misc_ammo_bullet_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_21.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_22.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_23.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_24.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_25.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_26.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_27.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_28.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_29.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_30.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_31.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_32.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_33.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_turtle_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_turtle_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/fish/inv_misc_fish_turtle_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_milk_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_milk_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_milk_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_milk_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_milk_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_drink_waterskin_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_egg_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_egg_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_egg_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_egg_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_egg_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_food_christmasfruitcake_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_21.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_22.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_23.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_24.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_25.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_26.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_27.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_28.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_29.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_30.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_31.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_32.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_33.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_34.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_35.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_36.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_37.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_38.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_39.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_40.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_41.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_42.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_43.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_44.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_45.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_46.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_47.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_48.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_49.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_50.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_51.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_52.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_53.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_54.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_55.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_56.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_57.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_58.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_59.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_60.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_61.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_62.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_63.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_64.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_65.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_66.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_67.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_68.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_69.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_70.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_71.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_72.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_73cinnamonroll.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_dimsum.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_wheat_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_food_wheat_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_shell_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_shell_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_shell_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_misc_shell_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/food/inv_mushroom_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_poison_mindnumbing.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_100.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_101.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_102.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_103.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_104.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_105.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_21.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_22.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_23.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_24.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_25.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_26.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_27.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_28.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_29.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_30.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_31.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_32.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_33.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_34.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_35.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_36.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_37.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_38.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_39.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_40.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_41.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_42.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_43.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_44.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_45.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_46.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_47.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_48.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_49.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_50.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_51.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_52.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_53.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_54.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_55.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_56.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_57.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_58.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_59.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_60.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_61.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_62.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_63.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_64.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_65.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_66.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_67.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_68.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_69.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_70.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_71.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_72.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_73.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_74.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_75.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_76.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_77.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_78.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_79.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_80.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_81.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_82.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_83.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_84.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_85.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_86.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_87.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_88.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_89.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_90.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_91.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_92.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_93.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_94.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_95.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_96.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_97.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_98.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/consumables/potions/inv_potion_99.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_ammo_firetar.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_ammo_snowball.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_banner_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_banner_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_banner_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bannerpvp_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bannerpvp_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_battery_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_battery_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_bronze.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_gold.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_orange.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_silver.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_bijou_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_birdcage_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_box_petcarrier_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_brd_banner.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_cask_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_cask_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_cask_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_cask_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_crate_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_diablostone.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_feather_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_fishingpole_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_fishingpole_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_present_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_present_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_present_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_wrapping_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_wrapping_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_christmas_wrapping_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicebandage.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicebowl.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicebrownie.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicepotion01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicepotion02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_holiday_tow_spicepotion03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_letter_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_bullet_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ammo_gunpowder_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_armorkit_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_07_black.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_07_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_07_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_07_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_09_black.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_09_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_09_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_09_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_10_black.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_10_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_10_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_10_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_21.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_22.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_bigbagofenchantments.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_cenarionherbbag.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_corefelclothbag.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_enchantedmageweave.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_enchantedrunecloth.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_felclothbag.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_herbpouch.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_satchelofcenarius.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bag_soulbag.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bell_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_birdbeck_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_birdbeck_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_dwarfskull_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_elfskull_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_humanskull_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_orcskull_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bone_taurenskull_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_book_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_bowl_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_branch_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_candle_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_candle_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_candle_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_coin_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_comb_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_comb_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothbelt.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothboots.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothbracer.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothchest.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothglove.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothhelm.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothpants.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_clothshoulder.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherbelt.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherboots.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherbracer.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherchest.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherglove.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherhelm.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leatherpants.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_leathershoulder.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailbelt.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailboots.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailbracer.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailchest.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailglove.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailhelm.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailpants.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_mailshoulder.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_platebelt.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_plateboots.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_platebracer.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_platechest.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_plategloves.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_platehelm.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_platepants.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_desecrated_plateshoulder.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_drum_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_drum_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ear_human_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ear_human_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ear_nightelf_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ear_nightelf_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_elvencoins.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_eye_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_flute_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_foot_centaur.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_foot_kodo.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_fork&knife.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_gift_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_gift_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_gift_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_gift_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_gift_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_giftwrap_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_giftwrap_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_giftwrap_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_centaur_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_black.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_bronze.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dragon_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dwarf_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_dwarf_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_elf_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_elf_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_gnoll_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_gnome_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_gnome_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_human_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_human_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_kobold_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_murloc_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_orc_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_orc_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_quillboar_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_scourge_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_tauren_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_tauren_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_tiger_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_troll_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_troll_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_undead_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_head_undead_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_horn_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_horn_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_horn_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_idol_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_idol_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_idol_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_key_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_lantern_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_luckymoneyenvelope.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_map_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_white.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelarge_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_white.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilelargecluster_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_white.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmall_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_white.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_missilesmallcluster_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterclaw_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterclaw_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterclaw_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterclaw_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterfang_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterhead_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterhead_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterhead_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterhead_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monsterspidercarapace_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monstertail_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monstertail_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_monstertail_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_net_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_note_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_orb_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_orb_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_orb_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_orb_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_orb_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_organ_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ornatebox.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_pipe_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_platnumdisks.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_pocketwatch_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_pocketwatch_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_pocketwatch_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_punchcards_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_punchcards_prismatic.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_punchcards_red.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_punchcards_white.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_punchcards_yellow.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_qirajicrystal_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_qirajicrystal_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_qirajicrystal_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_qirajicrystal_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_qirajicrystal_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_questionmark.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ribbon_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_rune_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_shadowegg.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_slime_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_spyglass_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_spyglass_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_spyglass_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_stonetablet_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_summerfest_brazierblue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_summerfest_braziergreen.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_summerfest_brazierorange.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_summerfest_brazierred.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_symbolofkings_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_thegoldencheep.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_throwingball_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_darkmoon_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_beasts_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_bluedragon_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_elemental_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_heroism_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_maelstrom_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_portal_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_stack_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_twistingnether_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_ticket_tarot_warlord_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_token_argentdawn.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_token_argentdawn2.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_token_argentdawn3.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_token_scarletcrusade.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_urn_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_wartornscrap_chain.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_wartornscrap_cloth.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_wartornscrap_leather.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_misc_wartornscrap_plate.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_bindingscommand.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_bindingsdominance.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_carapaceoldgod.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_drapemartial.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_draperegal.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_hiltornate.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_hiltspiked.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_huskoldgod.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_jewelblessed.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_jewelencased.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_jewelengraved.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_jewelglyphed.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_ourohide.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_ringceremonial.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_ringmagisterial.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qiraj_skinsandworm.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_alabaster.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_amber.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_azure.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_death.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_jasper.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_lambent.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_life.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_night.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_obsidian.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_onyx.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_rebirth.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_sage.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_strife.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_sun.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_vermillion.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_qirajidol_war.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_rosebouquet01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_rosepotted01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_bone.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_bronze.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_clay.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_crystal.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_gold.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_ivory.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_silver.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scarab_stone.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_scroll_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_stone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_stone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_stone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_stone_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_stone_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_firedrink.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_fireflower.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_firepotion.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_firespirit.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_smorc.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_symbol_high.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_symbol_low.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_summerfest_symbol_medium.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_tradeskillitem_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_tradeskillitem_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_tradeskillitem_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinecolognebottle.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentineperfumebottle.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinesboxofchocolates01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinesboxofchocolates02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescandy.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescandysack.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescard01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescard02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescardtornleft.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentinescardtornright.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentineschocolate01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentineschocolate02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentineschocolate03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/inv_valentineschocolate04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_bronze.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_eternium.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_iron.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_mithril.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_steel.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_ingot_thorium.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_amethyst_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_amethyst_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_amethyst_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_bloodstone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_bloodstone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_bloodstone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_crystal_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_crystal_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_crystal_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_diamond_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_diamond_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_diamond_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_emerald_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_emerald_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_emerald_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_opal_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_opal_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_opal_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_pearl_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_ruby_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_ruby_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_ruby_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_sapphire_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_sapphire_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_sapphire_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_stone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_topaz_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_topaz_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_topaz_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_variety_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_gem_variety_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_powder_black.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_powder_blue.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_powder_green.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_misc_powder_purple.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_grindingstone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_grindingstone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_grindingstone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_grindingstone_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_grindingstone_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_sharpeningstone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_sharpeningstone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_sharpeningstone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_sharpeningstone_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_sharpeningstone_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_weightstone_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_weightstone_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_weightstone_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_weightstone_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/blacksmithing/inv_stone_weightstone_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_dustdream.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_dustillusion.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_dustsoul.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_duststrange.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_dustvision.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essenceastrallarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essenceastralsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essenceeternallarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essenceeternalsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencemagiclarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencemagicsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencemysticallarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencemysticalsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencenetherlarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_essencenethersmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardbrilliantlarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardbrilliantsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardglimmeringlarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardglimmeringsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardglowinglarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardglowingsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardnexuslarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardradientlarge.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/enchanting/inv_enchant_shardradientsmall.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_bronzeframework_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_goblinboombox_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_mithrilcasing_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_mithrilcasing_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_pipe_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_pipe_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_pipe_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_gizmo_pipe_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_bomb_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_21.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_23.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_24.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_enggizmos_essencedistiller.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_gear_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_screwdriver_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_screwdriver_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_wrench_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_misc_wrench_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_musket_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_musket_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_musket_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/engineering/inv_musket_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandage_20.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandana_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/firstaid/inv_misc_bandana_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_flower_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_flower_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_flower_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_flower_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_11a.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_19.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_blacklotus.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_dreamfoil.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_icecap.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_mountainsilversage.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_plaguebloom.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_herb_sansamroot.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_root_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/herbalism/inv_misc_root_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/inv_misc_dust_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_leatherscrap_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_17.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_monsterscales_18.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_ruin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_ruin_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_ruin_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_ruin_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_bear_ruin_05.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_boar_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_boar_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_boar_ruin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_boar_ruin_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_boar_ruin_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_ruin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_ruin_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_ruin_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/leatherworking/inv_misc_pelt_wolf_ruin_04.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_arcanite_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_arcanite_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_copper_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_iron_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_mithril_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_mithril_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_thorium_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_thorium_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_tin_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_ore_truesilver_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_06.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_07.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_08.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_09.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_10.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_11.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_12.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_13.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_14.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_15.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/mining/inv_stone_16.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_felrag.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_linen_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_linen_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_linen_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_mageweave_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_mageweave_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_mageweave_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_moonrag_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_moonrag_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_purple_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_purple_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_purplefire_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_purplefire_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_silk_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_silk_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_silk_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_wool_01.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_wool_02.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/tailoring/inv_fabric_wool_03.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_alchemy.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_blacksmithing.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_brewpoison.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_engineering.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_engraving.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_fishing.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_herbalism.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_leatherworking.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_mining.png"
+}
+images {
+  image: "/assets/img/icons/items/misc/professions/trade_tailoring.png"
 }
 margin: 0
 extrude_borders: 0

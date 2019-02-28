@@ -27,8 +27,8 @@ background_color {
 }
 nodes {
   position {
-    x: -57.0
-    y: -1.0
+    x: 1.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -112,7 +112,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "weapons/INV_Sword_02"
+  texture: "weapons/inv_sword_02"
   id: "tticon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -136,8 +136,8 @@ nodes {
 }
 nodes {
   position {
-    x: 55.0
-    y: 54.0
+    x: 60.0
+    y: 100.0
     z: 0.0
     w: 1.0
   }
@@ -154,8 +154,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 200.0
+    y: 100.0
     z: 0.0
     w: 1.0
   }
@@ -185,14 +185,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: 103.0
-    y: 60.0
+    x: 100.0
+    y: 10.0
     z: 0.0
     w: 1.0
   }
@@ -215,7 +215,7 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 0.6
     y: 0.0
     z: 0.0
     w: 1.0
@@ -240,13 +240,13 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -100.0
     y: 0.0
     z: 0.0
     w: 1.0
@@ -265,7 +265,7 @@ nodes {
   }
   size {
     x: 200.0
-    y: 100.0
+    y: 20.0
     z: 0.0
     w: 1.0
   }
@@ -300,7 +300,7 @@ nodes {
   parent: "tooltipName"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
@@ -309,8 +309,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: 25.0
+    x: 65.0
+    y: -25.0
     z: 0.0
     w: 1.0
   }
@@ -327,20 +327,20 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
+    x: 130.0
     y: 50.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 0.101960786
+    y: 0.2
+    z: 0.6
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -358,13 +358,13 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -65.0
     y: 25.0
     z: 0.0
     w: 1.0
@@ -420,7 +420,7 @@ nodes {
   parent: "tooltipLeft"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
@@ -430,7 +430,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 73.0
+    y: 20.0
     z: 0.0
     w: 1.0
   }
@@ -484,7 +484,7 @@ nodes {
 }
 nodes {
   position {
-    x: 34.0
+    x: 33.0
     y: -33.0
     z: 0.0
     w: 1.0
@@ -515,7 +515,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "ttblBG"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -533,7 +533,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
@@ -570,7 +570,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderBot"
+  texture: "tooltipGUI/ui-tooltip-borderbot"
   id: "ttblBorderBot"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -625,7 +625,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderTop"
+  texture: "tooltipGUI/ui-tooltip-bordertop"
   id: "ttblBorderTop"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -680,7 +680,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderLeft"
+  texture: "tooltipGUI/ui-tooltip-borderleft"
   id: "ttblBorderLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -735,7 +735,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderRight"
+  texture: "tooltipGUI/ui-tooltip-borderright"
   id: "ttblBorderRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -790,7 +790,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerTL"
+  texture: "tooltipGUI/ui-tooltip-bordercornertl"
   id: "ttblBorderCornerTL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -845,7 +845,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerTR"
+  texture: "tooltipGUI/ui-tooltip-bordercornertr"
   id: "ttblBorderCornerTR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -900,7 +900,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerBR"
+  texture: "tooltipGUI/ui-tooltip-bordercornerbr"
   id: "ttblBorderCornerBR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -955,7 +955,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-BorderCornerBL"
+  texture: "tooltipGUI/ui-tooltip-bordercornerbl"
   id: "ttblBorderCornerBL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -979,8 +979,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: -22.0
+    x: 100.0
+    y: -75.0
     z: 0.0
     w: 1.0
   }
@@ -1003,14 +1003,14 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 0.4
+    y: 0.6
+    z: 0.4
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipEffects"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1028,13 +1028,13 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: -96.0
+    x: -100.0
     y: 25.0
     z: 0.0
     w: 1.0
@@ -1088,7 +1088,7 @@ nodes {
   parent: "tooltipEffects"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
@@ -1097,8 +1097,8 @@ nodes {
 }
 nodes {
   position {
-    x: 103.0
-    y: 25.0
+    x: 165.0
+    y: -25.0
     z: 0.0
     w: 1.0
   }
@@ -1115,20 +1115,20 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
+    x: 70.0
     y: 50.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 0.9019608
+    z: 0.4
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/UI-Tooltip-Background"
+  texture: "tooltipGUI/ui-tooltip-background"
   id: "tooltipRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1146,14 +1146,14 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
-    x: 96.0
-    y: 25.0
+    x: 33.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -1188,9 +1188,9 @@ nodes {
   ""
   font: "FRIZQT"
   id: "rightSideText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_NE
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_E
   outline {
     x: 0.0
     y: 0.0
@@ -1204,11 +1204,11 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   parent: "tooltipRight"
   layer: ""
   inherit_alpha: false
-  alpha: 1.0
+  alpha: 0.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false

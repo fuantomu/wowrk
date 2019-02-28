@@ -1,5 +1,5 @@
 images {
-  image: "/assets/img/icons/other/invEmpty.png"
+  image: "/assets/img/icons/other/invempty.png"
 }
 margin: 0
 extrude_borders: 0

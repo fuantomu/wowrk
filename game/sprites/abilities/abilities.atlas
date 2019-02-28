@@ -1,20 +1,1562 @@
 images {
-  image: "/assets/img/icons/abilities/Ability_GolemThunderClap.png"
+  image: "/assets/img/icons/abilities/ability_ambush.png"
 }
 images {
-  image: "/assets/img/icons/abilities/Ability_Marksmanship.png"
+  image: "/assets/img/icons/abilities/ability_backstab.png"
 }
 images {
-  image: "/assets/img/icons/abilities/Ability_MeleeDamage.png"
+  image: "/assets/img/icons/abilities/ability_bullrush.png"
 }
 images {
-  image: "/assets/img/icons/abilities/ABILITY_SHOOTWAND.png"
+  image: "/assets/img/icons/abilities/ability_cheapshot.png"
 }
 images {
-  image: "/assets/img/icons/abilities/Spell_Fire_FlameBolt.png"
+  image: "/assets/img/icons/abilities/ability_creature_cursed_01.png"
 }
 images {
-  image: "/assets/img/icons/abilities/Ability_Rogue_Ambush.PNG"
+  image: "/assets/img/icons/abilities/ability_creature_cursed_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_cursed_03.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_cursed_04.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_cursed_05.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_disease_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_disease_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_disease_03.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_disease_04.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_disease_05.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_03.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_04.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_05.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_creature_poison_06.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_criticalstrike.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_defend.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_devour.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_aquaticform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_bash.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_catform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_catformattack.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_challangingroar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_cower.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_dash.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_demoralizingroar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_disembowel.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_enrage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_ferociousbite.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_mangle.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_mangle.tga.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_maul.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_rake.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_ravage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_supriseattack.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_swipe.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_druid_travelform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_dualwield.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_ensnare.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_eyeoftheowl.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_fiegndead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_ghoulfrenzy.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_golemstormbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_golemthunderclap.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_gouge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hibernation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_aimedshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_aspectofthemonkey.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_beastcall.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_beastcall02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_beastsoothe.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_beasttaming.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_beasttraining.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_criticalshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_eagleeye.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_harass.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_mendpet.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pathfinding.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_bat.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_bear.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_boar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_cat.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_crab.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_crocolisk.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_gorilla.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_hyena.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_owl.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_raptor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_scorpid.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_spider.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_tallstrider.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_turtle.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_vulture.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_windserpent.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_pet_wolf.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_quickshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_runningshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_snipershot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_hunter_swiftstrike.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_impalingbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_kick.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_marksmanship.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_meleedamage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_blackdirewolf.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_blackpanther.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_charger.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_dreadsteed.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_jungletiger.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_kodo_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_kodo_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_kodo_03.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_mechastrider.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_mountainram.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_nightmarehorse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_pinktiger.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_raptor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_ridinghorse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_undeadhorse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_whitedirewolf.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_mount_whitetiger.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_parry.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_physical_taunt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_piercedamage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_poisonarrow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_poisons.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_poisonsting.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_avatar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_bearform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_bloodrage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_cannibalize.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_shadowmeld.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_racial_ultravision.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_repair.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_ambush.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_disguise.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_distract.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_dualweild.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_eviscerate.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_feigndeath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_feint.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_garrote.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_kidneyshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_rupture.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_slicedice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_sprint.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_rogue_trip.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_sap.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_seal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_searingarrow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_shockwave.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_shootwand.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_smash.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_spy.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_stealth.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_steelmelee.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_suffocate.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_theblackarrow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_throw.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_thunderbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_thunderclap.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_townwatch.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_tracking.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_trueshot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_upgrademoonglaive.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_vanish.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_battleshout.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_challange.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_charge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_cleave.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_decisivestrike.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_defensivestance.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_disarm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_innerrage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_offensivestance.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_punishingblow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_revenge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_riposte.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_savageblow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_shieldbash.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_shieldwall.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_sunder.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warrior_warcry.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_warstomp.png"
+}
+images {
+  image: "/assets/img/icons/abilities/ability_whirlwind.png"
+}
+images {
+  image: "/assets/img/icons/abilities/racial_dwarf_findtreasure.png"
+}
+images {
+  image: "/assets/img/icons/abilities/racial_orc_berserkerstrength.png"
+}
+images {
+  image: "/assets/img/icons/abilities/racial_troll_berserk.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_arcaneresilience.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_blink.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portaldarnassus.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portalironforge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portalorgrimmar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portalstormwind.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portalthunderbluff.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_portalundercity.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_starfire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportdarnassus.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportironforge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportmoonglade.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportorgrimmar.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportstormwind.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportthunderbluff.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_arcane_teleportundercity.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_brokenheart.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_chargenegative.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_chargepositive.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_elementaldevastation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_enchantweapon.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_fire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_firearmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_fireball.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_fireball02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_firebolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_firebolt02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_flameblades.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_flamebolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_flameshock.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_flametounge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_flare.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_frostresistancetotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_immolation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_incinerate.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_lavaspawn.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_masterofelements.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_meteorstorm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_sealoffire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_searingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_selfdestruct.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_soulburn.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_sunkey.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_volcano.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fire_windsofwoe.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_fireresistancetotem_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_chainsofice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_chillingarmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_chillingblast.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_chillingbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_fireresistancetotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_freezingbreath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frost.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostarmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostarmor02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostblast.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostbolt02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostbrand.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostnova.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostshock.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_frostward.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_glacier.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_iceclaw.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_iceshard.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_iceshock.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_icestorm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_manaburn.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_manarecharge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_stun.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_summonwaterelemental.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_windwalkon.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_wisp.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frost_wizardmark.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_frostresistancetotem_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holiday_tow_spicecloud.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_arcaneintellect.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_ashestoashes.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_auraoflight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_blessedrecovery.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_blessingofagility.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_blessingofprotection.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_blessingofstamina.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_blessingofstrength.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_devotion.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_devotionaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_dispelmagic.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_divineintervention.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_divinespirit.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_dizzy.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_elunesgrace.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_excorcism.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_excorcism_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_eyeforaneye.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_fistofjustice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_flashheal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterblessingofkings.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterblessingoflight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterblessingofsalvation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterblessingofsanctuary.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterblessingofwisdom.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_greaterheal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_harmundeadaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_heal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_heal02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_healingaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_healingfocus.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_holybolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_holynova.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_holyprotection.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_holysmite.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_innerfire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_layonhands.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_lesserheal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_lesserheal02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_magicalsentry.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_mindsooth.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_mindvision.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_nullifydisease.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_persuitofjustice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_power.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_powerinfusion.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_powerwordshield.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_prayeroffortitude.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_prayerofhealing.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_prayerofhealing02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_prayerofshadowprotection.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_prayerofspirit.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_purify.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_redemption.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_removecurse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_renew.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_restoration.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_resurrection.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_retribution.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_retributionaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_righteousfury.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_righteousnessaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealoffury.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofmight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofprotection.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofrighteousness.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofsacrifice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofsalvation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofvalor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofwisdom.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_sealofwrath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_searinglight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_searinglightpriest.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_senseundead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_silence.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_spellwarding.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_spiritualguidence.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_summonlightwell.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_turnundead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_unyieldingfaith.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_vindication.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_holy_wordfortitude.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_ice_lament.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_ice_magicdamage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_lightning_lightningbolt01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magearmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_featherfall.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_greaterblessingofkings.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_lesserinvisibilty.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_magearmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_polymorphchicken.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_magic_polymorphpig.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_misc_conjuremanajewel.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_misc_drink.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_misc_food.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_abolishmagic.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_acid_01.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_agitatingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_ancestralguardian.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_astralrecal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_astralrecalgroup.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_bloodlust.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_brilliance.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_callstorm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_chainlightning.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_corrosivebreath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_crystalball.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_cyclone.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_diseasecleansingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_drowsy.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_dryaddispelmagic.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_earthbind.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_earthbindtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_earthquake.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_earthshock.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_enchantarmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_eyeofthestorm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_faeriefire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_farsight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_forceofnature.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_groundingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_guardianward.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_healingtouch.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_healingwavegreater.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_healingwavelesser.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_healingway.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_insectswarm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_invisibilitytotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_invisibilty.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_lightning.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_lightningbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_lightningshield.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_magicimmunity.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_manaregentotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_massteleport.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_mirrorimage.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_moonglow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_moonkey.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_natureresistancetotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_naturesblessing.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_natureswrath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_naturetouchdecay.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_naturetouchgrow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_nullifydisease.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_nullifypoison.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_nullifypoison_02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_nullward.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_poisoncleansingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_polymorph.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_polymorph_cow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_preservation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_protectionformnature.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_purge.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_ravenform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_regenerate.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_regeneration.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_reincarnation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_rejuvenation.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_removecurse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_removedisease.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_resistmagic.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_resistnature.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_rockbiter.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_sentinal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_sleep.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_slow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_slowingtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_slowpoison.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_spiritarmor.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_spiritwolf.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_starfall.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_stoneclawtotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_stoneskintotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_stormreach.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_stranglevines.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_strength.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_strengthofearthtotem02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_swiftness.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_thorns.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_thunderclap.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_timestop.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_tranquility.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_tremortotem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_undyingstrength.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_unyeildingstamina.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_web.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_windfury.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_wispheal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_nature_wispsplode.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_abominationexplosion.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_animatedead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_antimagicshell.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_antishadow.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_auraofdarkness.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_blackplague.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_bloodboil.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_burningspirit.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_callofbone.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_carrionswarm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_charm.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_chilltouch.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_contagion.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_corpseexplode.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_creepingplague.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_cripple.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_curse.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_curseofachimonde.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_curseofmannoroth.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_curseofsargeras.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_curseoftounges.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_darkritual.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_darksummoning.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_deadofnight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_deathanddecay.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_deathcoil.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_deathpact.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_deathscream.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_demonbreath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_detectinvisibility.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_detectlesserinvisibility.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_enslavedemon.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_evileye.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_fingerofdeath.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_fumble.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_gathershadows.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_ghostkey.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_grimward.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_haunting.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_impphaseshift.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_improvedvampiricembrace.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_lifedrain.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_lifedrain02.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_manaburn.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_metamorphosis.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_mindbomb.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_mindrot.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_mindsteal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_nightofthedead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_plaguecloud.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_possession.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_psychicscream.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_ragingscream.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_rainoffire.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_raisedead.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_requiem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_ritualofsacrifice.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_sacrificialshield.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_scourgebuild.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_sealofkings.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadetruesight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowbolt.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowform.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowpact.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowward.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowworddominate.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_shadowwordpain.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_siphonmana.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_soothingkiss.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_soulgem.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_spectralsight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_summonfelhunter.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_summonimp.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_summoninfernal.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_summonsuccubus.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_summonvoidwalker.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_teleport.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_twilight.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_unholyfrenzy.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_unholystrength.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_unsummonbuilding.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_shadow_vampiricaura.png"
+}
+images {
+  image: "/assets/img/icons/abilities/spell_totem_wardofdraining.png"
 }
 margin: 0
 extrude_borders: 0

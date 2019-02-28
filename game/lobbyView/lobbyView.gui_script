@@ -1,18 +1,14 @@
+local playerStats = {}
+local party = {}
+local partySize = 0
+local equipGUIOpen = false
+
+
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("/equipGUI#equipmentGUI", hash("disable"))
-	self.currentStat = "None"
-	self.currentPlayer = -1
-	self.playerStats = {}
-	self.playerEquipment = {}
-	self.playerEquipProperties = {}
-	self.maxPlayers = 5
-	self.equipGUIOpen = false
-	msg.post(".", hash("updateUI"), {players=self.maxPlayers})
-	for x = 1,self.maxPlayers  do
-		msg.post("main:/game#savegame", hash("loadGame"), {player=x})
-	end
+	msg.post("main:/game#savegame", hash("loadGame"))
 end
 
 function final(self)
@@ -21,83 +17,65 @@ end
 
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("loadDone")) then
-		table.insert(self.playerStats,message.data["stats"])
-		table.insert(self.playerEquipment, message.data["equipment"])
-		--self.playerEquipment[message.player]["offhand"]["id"] = 1168
-		local equipTable = {}
-		for k, v in pairs(self.playerEquipment[message.player]) do
-			if(self.playerEquipment[message.player][tostring(k)]["id"] > 0) then
-				equipTable[tostring(k)] = self.playerEquipment[message.player][tostring(k)]["id"]
+		tprint(message)
+		for k, v in pairs(message.characters) do
+			if(v ~= "None") then
+				partySize = partySize + 1
+				playerStats[v] = getCharacterData()[v]
+				table.insert(party, v)
+				table.insert(currentParty, v)
+			else
+				table.insert(currentParty, "None")
 			end
 		end
-		self.playerEquipProperties[message.player] = equipTable
-
-		local x = message.player
-		gui.set_text(gui.get_node("partyP"..x.."/class"), tostring(self.playerStats[x]["class"]) )
-		gui.set_text(gui.get_node("partyP"..x.."/level"), tostring(self.playerStats[x]["level"]))
-		gui.set_text(gui.get_node("partyP"..x.."/hpmax"), tostring(self.playerStats[x]["hpmax"]))
-		gui.set_text(gui.get_node("partyP"..x.."/hpcurr"), tostring(self.playerStats[x]["hpcurr"]))
-		gui.set_text(gui.get_node("partyP"..x.."/resmax"), tostring(self.playerStats[x]["resmax"]))
-		gui.set_text(gui.get_node("partyP"..x.."/rescurr"), tostring(self.playerStats[x]["rescurr"]))
-		gui.set_text(gui.get_node("partyP"..x.."/str"), "STR: "..tostring(self.playerStats[x]["str"]))
-		gui.set_text(gui.get_node("partyP"..x.."/agi"), "AGI: "..tostring(self.playerStats[x]["agi"]))
-		gui.set_text(gui.get_node("partyP"..x.."/sta"), "STA: "..tostring(self.playerStats[x]["sta"]))
-		gui.set_text(gui.get_node("partyP"..x.."/int"), "INT: "..tostring(self.playerStats[x]["int"]))
-		gui.set_text(gui.get_node("partyP"..x.."/spr"), "SPR: "..tostring(self.playerStats[x]["spr"]))
-		gui.set_text(gui.get_node("partyP"..x.."/mhid"), "MH: "..tostring(self.playerEquipment[x]["mainhand"]["id"]))
-		gui.set_text(gui.get_node("partyP"..x.."/ohid"), "OH: "..tostring(self.playerEquipment[x]["offhand"]["id"]))
-		gui.set_text(gui.get_node("partyP"..x.."/rid"), "R: "..tostring(self.playerEquipment[x]["ranged"]["id"]))
-		gui.set_text(gui.get_node("partyP"..x.."/sp1"), "R: "..tostring(self.playerStats[x]["sp1id"]))
-		gui.set_text(gui.get_node("partyP"..x.."/sp2"), "R: "..tostring(self.playerStats[x]["sp2id"]))
-		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp1id"], player=x,slot=1})
-		msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=self.playerStats[x]["sp2id"], player=x,slot=2})
-		loadEquipment(self,x)
-		--msg.post("main:/game#main", hash("getProperties"), {type="Armor" id=self.playerEquipment[x][ player=x})
-	elseif(message_id == hash("updateUI")) then
 		for i = 1, 5 do
-			if(i>message.players) then
+			if(i>partySize) then
 				gui.set_enabled(gui.get_node("p"..i), false)
 				msg.post("/party#spriteP"..i, hash("disable"))
 			end
 		end
+
+		for x, v in pairs(party) do
+			equipItem(v, "weapon", "weaponMH", 10837)
+			equipItem(v, "weapon", "weaponOH", 12774)
+			equipItem(v, "armor", "trinket1", 11815)
+			equipItem(v, "armor", "shoulder", 16868)
+			equipItem(v, "armor", "waist", 16864)
+			equipItem(v, "armor", "hands", 16863)
+			equipItem(v, "weapon", "weaponRanged", 9412)
+			gui.set_text(gui.get_node("partyP"..x.."/class"), tostring(playerStats[v]["stats"]["class"]) )
+			gui.set_text(gui.get_node("partyP"..x.."/level"), tostring(playerStats[v]["stats"]["level"]))
+			gui.set_text(gui.get_node("partyP"..x.."/hpmax"), tostring(playerStats[v]["stats"]["hpMax"]))
+			gui.set_text(gui.get_node("partyP"..x.."/hpcurr"), tostring(playerStats[v]["stats"]["hpCurrent"]))
+			gui.set_text(gui.get_node("partyP"..x.."/resmax"), tostring(playerStats[v]["stats"]["resMax"]))
+			gui.set_text(gui.get_node("partyP"..x.."/rescurr"), tostring(playerStats[v]["stats"]["resCurrent"]))
+			gui.set_text(gui.get_node("partyP"..x.."/str"), "STR: "..tostring(playerStats[v]["stats"]["attr"]["str"]))
+			gui.set_text(gui.get_node("partyP"..x.."/agi"), "AGI: "..tostring(playerStats[v]["stats"]["attr"]["agi"]))
+			gui.set_text(gui.get_node("partyP"..x.."/sta"), "STA: "..tostring(playerStats[v]["stats"]["attr"]["sta"]))
+			gui.set_text(gui.get_node("partyP"..x.."/int"), "INT: "..tostring(playerStats[v]["stats"]["attr"]["int"]))
+			gui.set_text(gui.get_node("partyP"..x.."/spr"), "SPR: "..tostring(playerStats[v]["stats"]["attr"]["spr"]))
+			
+			
+			if(playerStats[v]["loadout"]["spell1"] ~= 0) then
+				gui.set_text(gui.get_node("partyP"..x.."/sp1"), "A: "..tostring(playerStats[v]["loadout"]["spell1"]))
+				gui.set_texture(gui.get_node("partyP"..x.."/sp1icon"), "abilities")
+				gui.play_flipbook(gui.get_node("partyP"..x.."/sp1icon"),getAbilityIcon(playerStats[v]["loadout"]["spell1"]))
+			end
+			if(playerStats[v]["loadout"]["spell2"] ~= 0) then
+				gui.set_text(gui.get_node("partyP"..x.."/sp2"), "A: "..tostring(playerStats[v]["loadout"]["spell2"]))
+				gui.set_texture(gui.get_node("partyP"..x.."/sp2icon"), "abilities")
+				gui.play_flipbook(gui.get_node("partyP"..x.."/sp2icon"),getAbilityIcon(playerStats[v]["loadout"]["spell2"]))
+			end
+			
+			loadEquipment(x,v)
+		end
+		
+		--msg.post("main:/game#main", hash("getProperties"), {type="Armor" id=self.playerEquipment[x][ player=x})
 	elseif(message_id == hash("exitEquipGUI")) then
-		self.equipGUIOpen = false
+		equipGUIOpen = false
 		gui.set_enabled(gui.get_node("partyP2/values"), true)
 		gui.set_enabled(gui.get_node("partyP3/values"), true)
 		gui.set_enabled(gui.get_node("partyP4/values"), true)
-	elseif(message_id == hash("getIcon")) then
-		if(message.type == "Ability") then
-			gui.set_texture(gui.get_node("partyP"..message.player.."/sp"..message.slot.."icon"), "abilities")
-			gui.play_flipbook(gui.get_node("partyP"..message.player.."/sp"..message.slot.."icon"),message.values)
-		end
-	elseif(message_id == hash("getProperties")) then
-		local slot = ""
-		if(message.type == "Weapon") then
-			if(message.slot == 16) then
-				gui.set_texture(gui.get_node("partyP"..message.player.."/mhicon"), "weapons")
-				gui.play_flipbook(gui.get_node("partyP"..message.player.."/mhicon"), message.values["icon"])
-				slot = "mainhand"
-				
-			elseif(message.slot == 17) then
-				gui.set_texture(gui.get_node("partyP"..message.player.."/ohicon"), "weapons")
-				gui.play_flipbook(gui.get_node("partyP"..message.player.."/ohicon"), message.values["icon"])
-				slot = "offhand"
-			end		
-		elseif(message.type == "Armor") then
-			if(message.slot == 4) then
-				slot = "shirt"
-			elseif(message.slot == 7) then
-				slot = "legs"
-			elseif(message.slot == 8) then
-				slot = "feet"
-			end
-		end
-		self.playerEquipment[message.player][slot]["icon"] = message.values["icon"]
-		self.playerEquipProperties[message.player][slot] = message.values
-		for i = 1, 3 do
-			self.playerEquipProperties[message.player][slot]["eids"]["eid"..i] = message.effects[i]
-			
-		end
 	end
 end
 
@@ -125,19 +103,19 @@ function on_input(self, action_id, action)
 			msg.post("lobbyView", hash("end"))
 		
 		end
-		for x = 1, self.maxPlayers do
-			if(not self.equipGUIOpen and gui.pick_node(gui.get_node("spriteP"..x), action.x, action.y)) then
+		for x = 1, partySize do
+			if(not equipGUIOpen and gui.pick_node(gui.get_node("spriteP"..x), action.x, action.y)) then
 				print("clicked "..x)
 				gui.set_enabled(gui.get_node("partyP2/values"), false)
 				gui.set_enabled(gui.get_node("partyP3/values"), false)
 				gui.set_enabled(gui.get_node("partyP4/values"), false)
-				self.equipGUIOpen = true
+				equipGUIOpen = true
 				msg.post("/equipGUI#equipmentGUI", hash("enable"))
 				--tprint(self.playerEquipProperties[x])
-				for k, v in pairs(self.playerEquipProperties[x]) do
-					msg.post("/equipGUI#equipmentGUI", hash("equipmentStats"), {stats=self.playerEquipProperties[x][tostring(k)],slot=tostring(k)})
-				end
-				msg.post("/equipGUI#equipmentGUI", hash("generateIcons"), {icons=self.playerEquipment[x]})
+				--for k, v in pairs(self.playerEquipProperties[x]) do
+				--	msg.post("/equipGUI#equipmentGUI", hash("equipmentStats"), {stats=self.playerEquipProperties[x][tostring(k)],slot=tostring(k)})
+				--end
+				msg.post("/equipGUI#equipmentGUI", hash("generateIcons"), {character=party[x]})
 				break
 			end
 		end
@@ -153,12 +131,27 @@ function dirtylarry.set_input(self, node, txt)
 end
 ]]--
 
-function loadEquipment(self,player)
-	msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[player]["mainhand"]["id"], player=player, slot=16})
-	msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[player]["offhand"]["id"], player=player, slot=17})
-	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["shirt"]["id"], player=player, slot=4})
-	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["legs"]["id"], player=player, slot=7})
-	msg.post("main:/game#main", hash("getProperties"), {type="Armor", id=self.playerEquipment[player]["feet"]["id"], player=player, slot=8})
+function loadEquipment(id, character)
+	local pWeaponIds = {weaponMH=0,weaponOH=0,weaponRanged=0}
+	pWeaponIds["weaponMH"] = getCharacterEquipmentValue(character, "weaponMH", "id")
+	pWeaponIds["weaponOH"] = getCharacterEquipmentValue(character, "weaponOH", "id")
+	pWeaponIds["weaponRanged"] = getCharacterEquipmentValue(character, "weaponRanged", "id")
+	if(pWeaponIds["weaponMH"] ~= 0) then
+		gui.set_text(gui.get_node("partyP"..id.."/mhid"), "MH: "..tostring(pWeaponIds["weaponMH"]))
+		gui.set_texture(gui.get_node("partyP"..id.."/mhicon"), "weapons")
+		gui.play_flipbook(gui.get_node("partyP"..id.."/mhicon"), getWeaponIcon(pWeaponIds["weaponMH"]))
+	end
+	if(pWeaponIds["weaponOH"] ~= 0) then
+		gui.set_text(gui.get_node("partyP"..id.."/ohid"), "OH: "..tostring(pWeaponIds["weaponOH"]))
+		gui.set_texture(gui.get_node("partyP"..id.."/ohicon"), "weapons")
+		gui.play_flipbook(gui.get_node("partyP"..id.."/ohicon"), getWeaponIcon(pWeaponIds["weaponOH"]))
+	end
+	if(pWeaponIds["weaponRanged"] ~= 0) then
+		gui.set_text(gui.get_node("partyP"..id.."/rid"), "R: "..tostring(pWeaponIds["weaponRanged"]))
+		gui.set_texture(gui.get_node("partyP"..id.."/ricon"), "weapons")
+		gui.play_flipbook(gui.get_node("partyP"..id.."/ricon"), getWeaponIcon(pWeaponIds["weaponRanged"]))
+	end
+	
 end
 
 
