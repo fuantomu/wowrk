@@ -24,12 +24,40 @@ end
 function on_message(self, message_id, message, sender)
 	math.random()
 	if(message_id == hash("getAttackResult")) then
-		generateCombatResult(message.player, message.enemy, message.source, message.type, message.position)
+		--generateCombatResult(message.player, message.enemy, message.source, message.type, message.position)
+		
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Melee", "AutoAttack", "Front")
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Melee", "AutoAttack", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Melee", "AutoAttack", "Front")
+		--tprint(getCharacterData(message.player))
+		generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Melee", "AutoAttack", "Front")
+
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Melee", "Ability", "Front")
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Melee", "Ability", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Melee", "Ability", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Melee", "Ability", "Front")
+
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Ranged", "AutoAttack", "Front")
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Ranged", "AutoAttack", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Ranged", "AutoAttack", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Ranged", "AutoAttack", "Front")
+
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Ranged", "Ability", "Front")
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Ranged", "Ability", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Ranged", "Ability", "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Ranged", "Ability", "Front")
+
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testEnemy",type="mob"}, "Spell", 133, "Front")
+		--generateCombatResult({id="testEnemy",type="mob"}, {id="testCharacter",type="player"}, "Spell", 133, "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testCharacter",type="player"}, "Spell", 133, "Front")
+		--generateCombatResult({id="testCharacter",type="player"}, {id="testEnemy",type="mob"}, "Spell", 133, "Front")
+		
 	elseif(message_id == hash("getCombatStats")) then
 		--removeAura(message.p, 465)
 		--applyAura(message.p, 6, {id="testEnemy", type="mob"})
 		if not(message.skip == true) then
-			equipItem(message.p, "weapon", "weaponMH", 12583)
+			equipItem(message.p, "weapon", "weaponMH", 10837)
+			equipItem(message.p, "weapon", "weaponOH", 12774)
 			equipItem(message.p, "armor", "trinket1", 11815)
 			equipItem(message.p, "armor", "shoulder", 16868)
 			equipItem(message.p, "armor", "waist", 16864)
@@ -54,7 +82,7 @@ function on_message(self, message_id, message, sender)
 	end
 end
 
-function generateCombatResult(attacker, target, source, type, position)
+function generateCombatResult(attacker, target, source, type, position, secondAttack)
 	local pStats = {level=1,weaponSkill={MH=0,OH=0,RANGED=0},defenseSkill=0,weaponType={MH="Unarmed",OH="Unarmed",RANGED="None"},weaponSchools={MH={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},OH={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},RANGED={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},SPELL={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}},crit=0,spellcrit=0,hit=0,spellhit=0,ap=0,rangedAp=0,spellpower=0,avoidance={dodge=0,parry=0,block=0},armor=0,resistance={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0},attribute={str=0,agi=0,sta=0,int=0,spr=0},block=0,class="None",race="None"}
 	local eStats = {level=1,weaponSkill={MH=0,OH=0,RANGED=0},defenseSkill=0,weaponType={MH="Unarmed",OH="Unarmed",RANGED="None"},weaponSchools={MH={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},OH={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},RANGED={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},SPELL={phy={min=0,max=0},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}}},crit=0,spellcrit=0,hit=0,spellhit=0,ap=0,rangedAp=0,spellpower=0,avoidance={dodge=0,parry=0,block=0},armor=0,resistance={fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0},attribute={str=0,agi=0,sta=0,int=0,spr=0},block=0,class="None",race="None"}
 
@@ -64,6 +92,7 @@ function generateCombatResult(attacker, target, source, type, position)
 	local enemyCanBlock = false
 	local parryEnabled = false
 	local blockEnabled = false
+	secondAttack = secondAttack or false
 	local character = attacker["id"]
 	local enemy = target["id"]
 
@@ -77,7 +106,7 @@ function generateCombatResult(attacker, target, source, type, position)
 		end
 		if not (pWeapons["weaponOH"] == nil) then
 			pStats["weaponType"]["OH"] = getCharacterWeaponType(character, "weaponOH")
-			if not(pWeaponTypeOH == nil or pWeaponTypeOH == "Shield") and source == "Melee" then
+			if not(pStats["weaponType"]["OH"] == nil or pStats["weaponType"]["OH"] == "Shield") and source == "Melee" then
 				dualWield = true
 				pStats["weaponSkill"]["OH"] = getCharacterSkillValue(character , pStats["weaponType"]["OH"])
 			end
@@ -154,7 +183,7 @@ function generateCombatResult(attacker, target, source, type, position)
 		end
 		if not (pWeapons["weaponOH"] == nil) then
 			eStats["weaponType"]["OH"] = getCharacterWeaponType(enemy, "weaponOH")
-			if not(pWeaponTypeOH == nil or pWeaponTypeOH == "Shield") and source == "Melee" then
+			if not(eStats["weaponType"]["OH"] == nil or eStats["weaponType"]["OH"] == "Shield") and source == "Melee" then
 				dualWield = true
 				eStats["weaponSkill"]["OH"] = getCharacterSkillValue(enemy , eStats["weaponType"]["OH"])
 			elseif(pWeaponTypeOH == "Shield") then
@@ -187,7 +216,7 @@ function generateCombatResult(attacker, target, source, type, position)
 		eStats["class"] = getCharacterClass(enemy)
 		eStats["race"] = getCharacterRace(enemy)
 		enemyIsPlayer = true
-		tprint(eStats)
+		--tprint(eStats)
 	end
 
 	if(position == "Front" and source == "Melee") then
@@ -209,51 +238,57 @@ function generateCombatResult(attacker, target, source, type, position)
 	local combatProcResult = {damage={phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0},blocked=0}
 	local combatProcDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local combatProcBlocked = 0
+	local combatWeapon = "None"
 	if(source == "Melee") then
+		combatWeapon = "weaponMH"
 		if(type == "AutoAttack") then
-			if(dualWield == true) then
-				combatHitChance = calculateHitChance(pStats["weaponSkill"]["MH"], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], true, "Attack")
-			else
-				combatHitChance = calculateHitChance(pStats["weaponSkill"]["MH"], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], false, "Attack")
-				combatAttackTable = generateAttackTable(pStats["level"],pStats["weaponSkill"]["MH"], pStats["defenseSkill"], combatHitChance, pStats["crit"], eStats["level"], eStats["weaponSkill"]["MH"], eStats["defenseSkill"], eStats["avoidance"], "Attack", false, parryEnabled, blockEnabled, playerIsMob, pStats["class"])
-				combatAttackResult = getAttackResult(combatAttackTable, "Attack", pStats["crit"])
-				if not(combatAttackResult == "miss" or combatAttackResult == "dodge" or combatAttackResult == "Evaded" or combatAttackResult == "parry") then
-					combatDamageRolls = getRandomDamage(pStats["weaponSchools"]["MH"])
+			local attackWeapon = "MH"
+			if(secondAttack == true) then
+				attackWeapon = "OH"
+				combatWeapon = "weaponOH"
+			end
+			combatHitChance = calculateHitChance(pStats["weaponSkill"][attackWeapon], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], dualWield, "Attack")
+			combatAttackTable = generateAttackTable(pStats["level"],pStats["weaponSkill"][attackWeapon], pStats["defenseSkill"], combatHitChance, pStats["crit"], eStats["level"], eStats["weaponSkill"][attackWeapon], eStats["defenseSkill"], eStats["avoidance"], "Attack", false, parryEnabled, blockEnabled, playerIsMob, pStats["class"])
+			combatAttackResult = getAttackResult(combatAttackTable, "Attack", pStats["crit"])
+			if not(combatAttackResult == "miss" or combatAttackResult == "dodge" or combatAttackResult == "Evaded" or combatAttackResult == "parry") then
+				combatDamageRolls = getRandomDamage(pStats["weaponSchools"][attackWeapon])
+				if(combatAttackResult == "glancingBlow") then
+					combatDamageMultiplier = calculateGlancingBlowMult(pStats["weaponSkill"][attackWeapon], eStats["defenseSkill"])
+				elseif(combatAttackResult == "crit") then
+					combatDamageMultiplier = 2.0
+				elseif(combatAttackResult == "crushingBlow") then
+					combatDamageMultiplier = 1.5
+				else
+					combatDamageMultiplier = 1.0
+				end
+				if(secondAttack == true) then
+					combatDamageMultiplier = combatDamageMultiplier * 0.5
+				end
+				combatDamageReduction = calculateDamageReduction(pStats["level"], eStats["armor"], eStats["resistance"], eStats["level"])
+				combatDamageDone = calculateDamage(combatDamageRolls, pStats["ap"], combatDamageReduction)
+				if(combatAttackResult == "block") then
+					combatBlockDamage = calculateBlock(combatDamageDone["phy"], eStats["attribute"]["str"], eStats["block"])
+					combatDamageDone["phy"] = combatBlockDamage["dmg"]
+				end
+				for k, v in pairs(combatDamageDone) do
 					if(combatAttackResult == "glancingBlow") then
-						combatDamageMultiplier = calculateGlancingBlowMult(pStats["weaponSkill"]["MH"], eStats["defenseSkill"])
-					elseif(combatAttackResult == "crit") then
-						combatDamageMultiplier = 2.0
-					elseif(combatAttackResult == "crushingBlow") then
-						combatDamageMultiplier = 1.5
-					else
-						combatDamageMultiplier = 1.0
-					end
-					combatDamageReduction = calculateDamageReduction(pStats["level"], eStats["armor"], eStats["resistance"], eStats["level"])
-					combatDamageDone = calculateDamage(combatDamageRolls, pStats["ap"], combatDamageReduction)
-					if(combatAttackResult == "block") then
-						combatBlockDamage = calculateBlock(combatDamageDone["phy"], eStats["attribute"]["str"], eStats["block"])
-						combatDamageDone["phy"] = combatBlockDamage["dmg"]
-					end
-					for k, v in pairs(combatDamageDone) do
-						if(combatAttackResult == "glancingBlow") then
-							if(k == "phy") then
-								combatResult = combatResult + v * combatDamageMultiplier
-							else
-								combatResult = combatResult + v
-							end
-						else
+						if(k == "phy") then
 							combatResult = combatResult + v * combatDamageMultiplier
+						else
+							combatResult = combatResult + v
 						end
+					else
+						combatResult = combatResult + v * combatDamageMultiplier
 					end
-					if(playerIsMob == false) then
-						combatProcResult = calculateProcs(character, "weaponMH", combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
-						combatProcDamage = combatProcResult["damage"]
-						combatProcBlocked = combatProcResult["blocked"]
-					end
+				end
+				if(playerIsMob == false) then
+					combatProcResult = calculateProcs(character, type, combatWeapon, combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attribute"], eStats["block"], eStats["defenseSkill"])
+					combatProcDamage = combatProcResult["damage"]
+					combatProcBlocked = combatProcResult["blocked"]
 				end
 			end
 		elseif(type == "Ability") then
-			combatHitChance = calculateHitChance(pStats["weaponSkill"]["MH"], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], false, "Ability")
+			combatHitChance = calculateHitChance(pStats["weaponSkill"]["MH"], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], dualWield, "Ability")
 			combatAttackTable = generateAttackTable(pStats["level"],pStats["weaponSkill"]["MH"], pStats["defenseSkill"], combatHitChance, pStats["crit"], eStats["level"], eStats["weaponSkill"]["MH"], eStats["defenseSkill"], eStats["avoidance"], "Ability", false, parryEnabled, blockEnabled, playerIsMob, pStats["class"])
 			combatAttackResult = getAttackResult(combatAttackTable, "Ability", pStats["crit"])
 			if not(combatAttackResult == "miss" or combatAttackResult == "dodge" or combatAttackResult == "Evaded" or combatAttackResult == "parry") then
@@ -278,13 +313,14 @@ function generateCombatResult(attacker, target, source, type, position)
 					combatResult = combatResult + v * combatDamageMultiplier
 				end
 				if(playerIsMob == false) then
-					combatProcResult = calculateProcs(character, "weaponMH", combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
+					combatProcResult = calculateProcs(character, type, "weaponMH", combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attribute"], eStats["block"], eStats["defenseSkill"])
 					combatProcDamage = combatProcResult["damage"]
 					combatProcBlocked = combatProcResult["blocked"]
 				end
 			end
 		end
 	elseif(source == "Ranged") then
+		combatWeapon = "weaponRanged"
 		if(type == "AutoAttack") then
 			combatHitChance = calculateHitChance(pStats["weaponSkill"]["RANGED"], pStats["hit"], eStats["defenseSkill"], pStats["level"], eStats["level"], false, "Attack")
 			combatAttackTable = generateAttackTable(pStats["level"],pStats["weaponSkill"]["RANGED"], pStats["defenseSkill"], combatHitChance, pStats["crit"], eStats["level"], eStats["weaponSkill"]["MH"], eStats["defenseSkill"], eStats["avoidance"], "Attack", true, parryEnabled, blockEnabled, playerIsMob, pStats["class"])
@@ -304,7 +340,7 @@ function generateCombatResult(attacker, target, source, type, position)
 					combatResult = combatResult + v * combatDamageMultiplier
 				end
 				if(playerIsMob == false) then
-					combatProcResult = calculateProcs(character, "weaponRanged", combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
+					combatProcResult = calculateProcs(character, type, combatWeapon, combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attribute"], eStats["block"], eStats["defenseSkill"])
 					combatProcDamage = combatProcResult["damage"]
 				end
 			end
@@ -327,13 +363,14 @@ function generateCombatResult(attacker, target, source, type, position)
 					combatResult = combatResult + v * combatDamageMultiplier
 				end
 				if(playerIsMob == false) then
-					combatProcResult = calculateProcs(character, "weaponRanged", combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
+					combatProcResult = calculateProcs(character, type, combatWeapon, combatAttackTable, pStats["crit"], combatDamageReduction, eStats["attribute"], eStats["block"], eStats["defenseSkill"])
 					combatProcDamage = combatProcResult["damage"]
 				end
 			end
 		end
 	elseif(source == "Spell") then
-		combatHitChance = calculateHitChance(0, pStats["spellhit"], eStats["defenseSkill"], pStats["level"], eStats["level"], true, "Spell")
+		combatWeapon = type
+		combatHitChance = calculateHitChance(0, pStats["spellhit"], eStats["defenseSkill"], pStats["level"], eStats["level"], false, "Spell")
 		combatAttackTable = generateAttackTable(pStats["level"],0, pStats["defenseSkill"], combatHitChance, pStats["spellcrit"], eStats["level"], 0, eStats["defenseSkill"], eStats["avoidance"], "Spell", true, parryEnabled, blockEnabled, playerIsMob, pStats["class"])
 		combatAttackResult = getAttackResult(combatAttackTable, "Spell", pStats["sCrit"])
 		if not(combatAttackResult == "miss" or combatAttackResult == "Evaded") then
@@ -349,20 +386,29 @@ function generateCombatResult(attacker, target, source, type, position)
 				combatResult = combatResult + v * combatDamageMultiplier
 			end
 			if(playerIsMob == false) then
-				combatProcResult = calculateProcs(character, "spell", combatAttackTable, pStats["spellcrit"], combatDamageReduction, eStats["attr"], eStats["block"], eStats["defenseSkill"])
+				combatProcResult = calculateProcs(character, type, source, combatAttackTable, pStats["spellcrit"], combatDamageReduction, eStats["attribute"], eStats["block"], eStats["defenseSkill"])
 				combatProcDamage = combatProcResult["damage"]
 			end
-			applySpellEffects(type, enemy, character)
+			--applySpellEffects(type, enemy, character)
 		end
 	end
 
 	print("===================Combat Result")
+	if(source ~= "Spell") then
+		print("source: "..source.."["..type.."] from "..character.." with "..getCharacterWeaponName(character, combatWeapon).." against "..enemy)
+	else
+		print("source: "..source.."["..type.."] from "..character.." with "..getAbilityName(character, combatWeapon).." against "..enemy)
+	end
+	tprint(combatAttackTable)
 	print("hit: "..combatHitChance)
 	print("result: "..combatAttackResult.." ["..combatBlockDamage["blocked"].."/"..combatBlockDamage["dmg"].." blocked]")
 	print("multiplier: "..combatDamageMultiplier..", reduction: "..combatDamageReduction["phy"])
 	print("damage before mitigation: "..combatDamageRolls["phy"]..", after: "..combatResult)
 	print("proc result: "..combatProcResult["damage"]["phy"].." ["..combatProcBlocked.." blocked]")
-	tprint(combatAttackTable)
+	print("===================")
+	if(dualWield == true and secondAttack == false and source == "Melee" and type == "AutoAttack") then
+		generateCombatResult(attacker, target, source, type, position, true)
+	end
 end
 
 function calculateRegeneration(character, type)
@@ -507,7 +553,7 @@ function applyAuraEffects(character)
 						print("Debuff Aura "..eName.." on player "..character..": Decrease "..eStat.." by "..eValue)
 					end
 				end
-			else--if(characterData[k]["debuffs"][j]["active"] == true) then
+			elseif not(pDebuffStatus == 3) then
 				if not(eCondition == "AuraDebuff") then
 					local enemyLevel = 0
 					enemyLevel = getLevel(pDebuffSource)
@@ -518,7 +564,7 @@ function applyAuraEffects(character)
 					if (pDebuffDuration >= (1 / pDebuffTick))then
 						--print(characterData[k]["debuffs"][j]["duration"])
 						if(eType == "DoT") then
-							if not(pDebuffSource["id"] == "None") then
+							if not(pDebuffSource == "None") then
 								
 								dDmgReduction = calculateDamageReduction(enemyLevel, pArmor, pResist, pLevel)
 								dDmg = getRandomDamage(eSchools)
@@ -530,7 +576,7 @@ function applyAuraEffects(character)
 					else
 						if(eCondition == "Debuff") then
 							if(eType == "DoT") then
-								if not(pDebuffSource["id"] == "None") then
+								if not(pDebuffSource == "None") then
 									dDmgReduction = calculateDamageReduction(enemyLevel, pArmor, pResist, pLevel)
 									dDmg = getRandomDamage(eSchools)
 									dDmgRaw = calculateDamage(dDmg, 0, dDmgReduction)
@@ -896,7 +942,7 @@ function calculateHitChance(pWpnSkill, pHitBonus, eDefSkill, pLevel, eLevel, dua
 	return rHitChance
 end
 
-function calculateProcs(character, pWeapon, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
+function calculateProcs(character, source, pWeapon, pAttackTable, pCrit, eDmgReduction, eAttr, eBlockValue, eDefSkill)
 	local eqChance = {"weaponMH","weaponOH","weaponRanged","trinket1","trinket2"}
 	local procDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local procs = {}
@@ -912,47 +958,50 @@ function calculateProcs(character, pWeapon, pAttackTable, pCrit, eDmgReduction, 
 				local eStat = getEffectStat(pEquipmentStats[k])
 				local eValue = getEffectValue(pEquipmentStats[k])
 				local eName = getEffectName(pEquipmentStats[k])
-
+				--print(eName)
 				if((eqChance[i] == "trinket1" or eqChance[i] == "trinket2") or eqChance[i] == pWeapon) then
 					--print(eqChance[i],eqEffect["stat"],eqEffect["condition"])
-					if(eType == "DirectDamage" and eCondition == "OnHit") then
-						local procChance = math.random()*100
-						if(procChance <= eChance) then
-							local critChance = math.random()*100
-							local phyMult = 1
-							local eleMult = 1
-							if(critChance <= pCrit) then
-								phyMult = 2
-								eleMult = 1.5
-							end
-							table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),schools=eSchools, phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
-						end
-					elseif(eType == "ExtraAttack" and eCondition == "OnHit") then
-						if(eStat == "Melee" and not (pWeapon == "weaponRanged") and not (pWeapon == "spell")) then 
+					--print(eCondition,source,eType,eStat)
+					if(eCondition == "OnHitAttack" and source == "AutoAttack") then
+						if(eType == "DirectDamage") then
 							local procChance = math.random()*100
 							if(procChance <= eChance) then
-								for runs = 1, eValue do
-									local pExtraHit = 0
-									pExtraHit = getAttackResult(pAttackTable, false, pCrit)
-									if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
-										local pWeaponSchools = getCharacterEquipmentValue(character, pWeapon, "schools")
-										local pWeaponType = getCharacterEquipmentValue(character, pWeapon, "type")
-										local pSkill = getCharacterStat(character, "skill")
-										local pAp = getCharacterStat(character, "ap")
-										local pExtraHitDamage = {min=pWeaponSchools["phy"]["min"],max=pWeaponSchools["phy"]["max"],blocked=0}
-										local pExtraHitMult = 1
-										if(pExtraHit == "crit") then
-											pExtraHitMult = 2
-										elseif(pExtraHit == "glancingBlow") then
-											pExtraHitMult = calculateGlancingBlowMult(pSkill[pWeaponType], eDefSkill)
-										elseif(pExtraHit == "block") then
-											local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
-											local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
-											pExtraHitDamage["min"] = blockDamageMin["dmg"]
-											pExtraHitDamage["max"] = blockDamageMax["dmg"]
-											pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
+								local critChance = math.random()*100
+								local phyMult = 1
+								local eleMult = 1
+								if(critChance <= pCrit) then
+									phyMult = 2
+									eleMult = 1.5
+								end
+								table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),schools=eSchools, phyMult=phyMult,eleMult=eleMult,blocked=0,ap=0})
+							end
+						elseif(eType == "ExtraAttack") then
+							if(eStat == "Melee" and not (pWeapon == "weaponRanged") and not (pWeapon == "Spell")) then 
+								local procChance = math.random()*100
+								if(procChance <= eChance) then
+									for runs = 1, eValue do
+										local pExtraHit = 0
+										pExtraHit = getAttackResult(pAttackTable, false, pCrit)
+										if not(pExtraHit == "miss" or pExtraHit == "dodge" or pExtraHit == "parry") then
+											local pWeaponSchools = getCharacterEquipmentValue(character, pWeapon, "schools")
+											local pWeaponType = getCharacterEquipmentValue(character, pWeapon, "type")
+											local pSkill = getCharacterStat(character, "skill")
+											local pAp = getCharacterStat(character, "ap")
+											local pExtraHitDamage = {min=pWeaponSchools["phy"]["min"],max=pWeaponSchools["phy"]["max"],blocked=0}
+											local pExtraHitMult = 1
+											if(pExtraHit == "crit") then
+												pExtraHitMult = 2
+											elseif(pExtraHit == "glancingBlow") then
+												pExtraHitMult = calculateGlancingBlowMult(pSkill[pWeaponType], eDefSkill)
+											elseif(pExtraHit == "block") then
+												local blockDamageMin = calculateBlock(pExtraHitDamage["min"], eAttr["str"], eBlockValue)
+												local blockDamageMax = calculateBlock(pExtraHitDamage["max"], eAttr["str"], eBlockValue)
+												pExtraHitDamage["min"] = blockDamageMin["dmg"]
+												pExtraHitDamage["max"] = blockDamageMax["dmg"]
+												pExtraHitDamage["blocked"] = (blockDamageMin["blocked"] + blockDamageMax["blocked"]) / 2 
+											end
+											table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),ap=pAp,schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
 										end
-										table.insert(procs, #procs, {source=eName,id=tostring(pEquipmentStats[k]),ap=pAp,schools={phy={min=pExtraHitDamage["min"],max=pExtraHitDamage["max"]},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},phyMult=pExtraHitMult,eleMult=1,blocked=pExtraHitDamage["blocked"]})
 									end
 								end
 							end
@@ -987,7 +1036,7 @@ function calculateProcs(character, pWeapon, pAttackTable, pCrit, eDmgReduction, 
 end
 
 function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChance, eLevel, eWpnSkill, eDefSkill, eAvoidance, special, ranged, parryEnabled, blockEnabled, playerIsMob, pClass)
-	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crit=0,crushingBlow=0,hit=0}
+	local rollTable = {miss=0,dodge=0,parry=0,glancingBlow=0,block=0,crushingBlow=0,crit=0,hit=0}
 	local pSkillDifference = math.min(eDefSkill - pWpnSkill,300)
 	if(special == "Ability") then
 		rollTable = {miss=0,dodge=0,parry=0,block=0,hit=0}
@@ -1039,7 +1088,7 @@ function generateAttackTable(pLevel, pWpnSkill, pDefSkill, pHitChance, pCritChan
 			rollTable["crit"] = math.max(0, tempVar - remainingRolls) 
 			tempVar = remainingRolls
 		end
-		if(playerIsMob == true and (pLevel - eLevel >= 3)) then
+		if(playerIsMob == true and (pLevel - eLevel >= 3) and special == "Attack") then
 			remainingRolls = math.max(0, remainingRolls - (((pWpnSkill - math.min(eDefSkill,300)) * 2) - 15))
 			rollTable["crushingBlow"] = math.max(0, tempVar - remainingRolls) 
 			tempVar = remainingRolls
@@ -1263,7 +1312,6 @@ function addBuff(character, buff)
 	if (isPlayer(character))then
 		return addCharacterBuff(character, buff)
 	else
-		print("No player")
 		return addEnemyBuff(character,buff)
 	end
 end
@@ -1272,17 +1320,15 @@ function addDebuff(character, buff)
 	if (isPlayer(character))then
 		return addCharacterDebuff(character, buff)
 	else
-		print("No player")
 		return addEnemyDebuff(character,buff)
 	end
 end
 
 function getBuffs(character)
-	print(isPlayer(character), character)
+	--print(isPlayer(character), character)
 	if (isPlayer(character))then
 		return getCharacterBuffs(character)
 	else
-		print("No player")
 		return getEnemyBuffs(character)
 	end
 end
@@ -1291,7 +1337,6 @@ function getDebuffs(character)
 	if (isPlayer(character))then
 		return getCharacterDebuffs(character)
 	else
-		print("No player")
 		return getEnemyDebuffs(character)
 	end
 end
@@ -1300,7 +1345,6 @@ function setBuffs(character, buff)
 	if (isPlayer(character))then
 		return setCharacterBuffs(character, buff)
 	else
-		print("No player")
 		return setEnemyBuffs(character, buff)
 	end
 end
@@ -1309,7 +1353,6 @@ function setDebuffs(character, buff)
 	if (isPlayer(character))then
 		return setCharacterDebuffs(character, buff)
 	else
-		print("No player")
 		return setEnemyDebuffs(character, buff)
 	end
 end
@@ -1318,7 +1361,6 @@ function removeBuff(character, buff)
 	if (isPlayer(character))then
 		return removeCharacterBuff(character, buff)
 	else
-		print("No player")
 		return removeEnemyBuff(character, buff)
 	end
 end
@@ -1327,7 +1369,6 @@ function removeDebuff(character, buff)
 	if (isPlayer(character))then
 		return removeCharacterDebuff(character, buff)
 	else
-		print("No player")
 		return removeEnemyDebuff(character, buff)
 	end
 end
@@ -1336,7 +1377,6 @@ function getDebuffSource(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffSource(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffSource(character, buff)
 	end
 end
@@ -1344,7 +1384,6 @@ function getBuffType(character, buff)
 	if (isPlayer(character))then
 		return getCharacterBuffType(character, buff)
 	else
-		print("No player")
 		return getEnemyBuffType(character, buff)
 	end
 end
@@ -1353,7 +1392,6 @@ function getBuffDuration(character, buff)
 	if (isPlayer(character))then
 		return getCharacterBuffDuration(character, buff)
 	else
-		print("No player")
 		return getEnemyBuffDuration(character, buff)
 	end
 end
@@ -1362,7 +1400,6 @@ function getDebuffType(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffType(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffType(character, buff)
 	end
 end
@@ -1371,7 +1408,6 @@ function getDebuffDuration(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffDuration(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffDuration(character, buff)
 	end
 end
@@ -1380,7 +1416,6 @@ function setBuffDuration(character, buff, value)
 	if (isPlayer(character))then
 		return setCharacterBuffDuration(character, buff, value)
 	else
-		print("No player")
 		return setEnemyBuffDuration(character, buff, value)
 	end
 end
@@ -1389,7 +1424,6 @@ function setDebuffDuration(character, buff, value)
 	if (isPlayer(character))then
 		return setCharacterDebuffDuration(character, buff, value)
 	else
-		print("No player")
 		return setEnemyDebuffDuration(character, buff, value)
 	end
 end
@@ -1398,7 +1432,6 @@ function getBuffStatus(character, buff)
 	if (isPlayer(character))then
 		return getCharacterBuffStatus(character, buff)
 	else
-		print("No player")
 		return getEnemyBuffStatus(character, buff)
 	end
 end
@@ -1407,7 +1440,6 @@ function setBuffStatus(character, buff, value)
 	if (isPlayer(character))then
 		return setCharacterBuffStatus(character, buff, value)
 	else
-		print("No player")
 		return setEnemyBuffStatus(character, buff, value)
 	end
 end
@@ -1416,7 +1448,6 @@ function getDebuffStatus(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffStatus(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffStatus(character, buff)
 	end
 end
@@ -1425,7 +1456,6 @@ function setDebuffStatus(character, buff, value)
 	if (isPlayer(character))then
 		return setCharacterDebuffStatus(character, buff, value)
 	else
-		print("No player")
 		return setEnemyDebuffStatus(character, buff, value)
 	end
 end
@@ -1434,7 +1464,6 @@ function getBuffTick(character, buff)
 	if (isPlayer(character))then
 		return getCharacterBuffTick(character, buff)
 	else
-		print("No player")
 		return getEnemyBuffTick(character, buff)
 	end
 end
@@ -1443,7 +1472,6 @@ function getBuffName(character, buff)
 	if (isPlayer(character))then
 		return getCharacterBuffName(character, buff)
 	else
-		print("No player")
 		return getEnemyBuffName(character, buff)
 	end
 end
@@ -1452,7 +1480,6 @@ function getDebuffTick(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffTick(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffTick(character, buff)
 	end
 end
@@ -1461,7 +1488,6 @@ function getDebuffName(character, buff)
 	if (isPlayer(character))then
 		return getCharacterDebuffName(character, buff)
 	else
-		print("No player")
 		return getEnemyDebuffName(character, buff)
 	end
 end
@@ -1470,7 +1496,6 @@ function getStat(character, stat)
 	if (isPlayer(character))then
 		return getCharacterStat(character, stat)
 	else
-		print("No player")
 		return getEnemyStat(character, stat)
 	end
 end
@@ -1479,7 +1504,6 @@ function setStat(character, stat, value)
 	if (isPlayer(character))then
 		return setCharacterStat(character, stat, value)
 	else
-		print("No player")
 		return setEnemyStat(character, stat,value)
 	end
 end
@@ -1488,7 +1512,6 @@ function getLevel (character)
 	if (isPlayer(character))then
 		return getCharacterLevel(character)
 	else
-		print("No player")
 		return getEnemyLevel(character)
 	end
 end
@@ -1497,7 +1520,6 @@ function getArmor (character)
 	if (isPlayer(character))then
 		return getCharacterArmor(character)
 	else
-		print("No player")
 		return getEnemyArmor(character)
 	end
 end
@@ -1506,7 +1528,6 @@ function getResistance(character)
 	if (isPlayer(character))then
 		return getCharacterResistance(character)
 	else
-		print("No player")
 		return getEnemyResistance(character)
 	end
 end
@@ -1515,7 +1536,6 @@ function getBattleStatus(character)
 	if (isPlayer(character))then
 		return getCharacterBattleStatus(character)
 	else
-		print("No player")
 		return getEnemyBattleStatus(character)
 	end
 end
@@ -1524,7 +1544,6 @@ function setBattleStatus(character, stat, value)
 	if (isPlayer(character))then
 		return setCharacterBattleStatus(character, stat, value)
 	else
-		print("No player")
 		return setEnemyBattleStatus(character, stat, value)
 	end
 end
@@ -1632,7 +1651,7 @@ function updateAuras(character)
 		end
 	end
 	if not(pDebuffs == nil) then
-		tprint(pDebuffs)
+		--tprint(pDebuffs)
 		for j,l in pairs(pDebuffs) do
 			--print(j,l,#characterData[k]["buffs"])
 			local pDebuffType = getDebuffType(character, j)

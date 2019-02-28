@@ -20,7 +20,7 @@ function init(self)
 			sCrit=5,
 			schools={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},
 			schoolsRanged={phy={min=100,max=100},fire={min=0,max=0},frost={min=0,max=0},arcane={min=0,max=0},nature={min=0,max=0},shadow={min=0,max=0},holy={min=0,max=0}},
-			avoidance={dodge=5,parry=5,block=50},
+			avoidance={dodge=5,parry=5,block=5},
 			blockValue = 50,
 			hpRegen=0,
 			mpRegen=0,
@@ -167,7 +167,7 @@ function removeEnemyDebuff(enemy, debuff)
 end
 
 function getEnemyDebuffType(enemy, debuff)
-	print(enemy,debuff)
+	--print(enemy,debuff)
 	return mobData[enemy]["debuffs"][debuff]["type"]
 end
 

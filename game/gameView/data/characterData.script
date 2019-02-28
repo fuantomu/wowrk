@@ -175,11 +175,18 @@ function equipItem(character, type, slot, itemid)
 		pItem = getWeaponData(tostring(itemid))
 		characterData[character][slot] = pItem
 		characterData[character][slot]["slot"] = slot
+		if(slot == "WeaponMH" and (pItem[type] == "Polearm" or pItem[type] == "TwoHandedSword" or pItem[type] == "TwoHandedAxe" or pItem[type] == "TwoHandedMace")) then
+			unequipItem(character, "weaponOH")
+		end
 	else
 		pItem = getArmorData(tostring(itemid))
 		characterData[character][slot] = pItem
 		characterData[character][slot]["slot"] = slot
 	end
+end
+
+function unequipItem(character, slot)
+	characterData[character][slot] = {type="None",effectId={0,0,0},armor=0,attr={str=0,agi=0,sta=0,int=0,spr=0},resist={fire=0,frost=0,arcane=0,shadow=0,nature=0,holy=0}}
 end
 
 
@@ -292,6 +299,10 @@ function getCharacterWeaponType(character, weapon)
 	return characterData[character][weapon]["type"]
 end
 
+function getCharacterWeaponName(character, weapon)
+	return characterData[character][weapon]["name"]
+end
+
 function getCharacterEquipmentValue(character, slot, stat)
 	return characterData[character][slot][stat]
 end
@@ -301,7 +312,7 @@ function getCharacterWeaponBlock(character)
 end
 
 function getCharacterBuffs(character)
-	print(character)
+	--print(character)
 	return characterData[character]["buffs"]
 end
 

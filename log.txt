@@ -5,278 +5,125 @@ INFO:ENGINE: Initialised sound device 'default'
 DEBUG:SCRIPT: Loaded existing save state!
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
-INFO:DLIB: SSDP: Started on address 192.168.0.2
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
+INFO:DLIB: SSDP: Started on address 192.168.0.3
+DEBUG:SCRIPT: false	false	true
 DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: hit: 82
-DEBUG:SCRIPT: result: hit [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 1, reduction: 0.42007981516488
-DEBUG:SCRIPT: damage before mitigation: 0, after: 17
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Tooth of Eranikus against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: glancingBlow [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0.7, reduction: 0.42007981516488
+DEBUG:SCRIPT: damage before mitigation: 102, after: 54.6
 DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["miss"] = 18
-DEBUG:SCRIPT: table["hit"] = 82
+DEBUG:SCRIPT: ===================
+DEBUG:SCRIPT: false	false	true
+DEBUG:SCRIPT: ===================Combat Result
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Dawn's Edge against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: miss [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0, reduction: 0
+DEBUG:SCRIPT: damage before mitigation: 0, after: 0
+DEBUG:SCRIPT: proc result: 0 [0 blocked]
+DEBUG:SCRIPT: ===================
 DEBUG:SCRIPT: Test results for 1 runs:
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 4
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = false
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: Debuff FireBallRank1 on player testEnemy: DoT Damage over 4 for 0.5
 DEBUG:SCRIPT: Tick 1
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 2
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 3
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 3
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy was dealt 0.5
 DEBUG:SCRIPT: Tick 4
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 2
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = true
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy was dealt 0.5
-DEBUG:SCRIPT: Debuff gone FireBallRank1 on player testEnemy: DoT Damage over 4 every 0.5
-DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 5
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: table[1]["source"] = "testCharacter"
-DEBUG:SCRIPT: table[1]["baseDuration"] = 4
-DEBUG:SCRIPT: table[1]["duration"] = 1.5
-DEBUG:SCRIPT: table[1]["id"] = "6"
-DEBUG:SCRIPT: table[1]["type"] = "Debuff"
-DEBUG:SCRIPT: table[1]["tick"] = 0.5
-DEBUG:SCRIPT: table[1]["name"] = "FireBallRank1"
-DEBUG:SCRIPT: table[1]["active"] = 3
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: testEnemy	1
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: Debuff FireBallRank1 fell off
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
+DEBUG:SCRIPT: false	false	true
+DEBUG:SCRIPT: ===================Combat Result
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Tooth of Eranikus against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: glancingBlow [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0.7, reduction: 0.42007981516488
+DEBUG:SCRIPT: damage before mitigation: 63, after: 38.5
+DEBUG:SCRIPT: proc result: 0 [0 blocked]
+DEBUG:SCRIPT: ===================
+DEBUG:SCRIPT: false	false	true
+DEBUG:SCRIPT: ===================Combat Result
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Dawn's Edge against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: miss [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0, reduction: 0
+DEBUG:SCRIPT: damage before mitigation: 0, after: 0
+DEBUG:SCRIPT: proc result: 0 [0 blocked]
+DEBUG:SCRIPT: ===================
+DEBUG:SCRIPT: Test results for 1 runs:
 DEBUG:SCRIPT: Tick 6
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 7
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 8
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: true	testCharacter
-DEBUG:SCRIPT: testCharacter
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: false	testEnemy
-DEBUG:SCRIPT: No player
-DEBUG:SCRIPT: No player
 DEBUG:SCRIPT: Tick 9
+DEBUG:SCRIPT: false	false	true
+DEBUG:SCRIPT: ===================Combat Result
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Tooth of Eranikus against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: glancingBlow [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0.7, reduction: 0.42007981516488
+DEBUG:SCRIPT: damage before mitigation: 84, after: 47.6
+DEBUG:SCRIPT: proc result: 0 [0 blocked]
+DEBUG:SCRIPT: ===================
+DEBUG:SCRIPT: false	false	true
+DEBUG:SCRIPT: ===================Combat Result
+DEBUG:SCRIPT: source: Melee[AutoAttack] from testCharacter with Dawn's Edge against testEnemy
+DEBUG:SCRIPT: table["crit"] = 4.4
+DEBUG:SCRIPT: table["dodge"] = 5.6
+DEBUG:SCRIPT: table["hit"] = 13.25
+DEBUG:SCRIPT: table["block"] = 5.6
+DEBUG:SCRIPT: table["miss"] = 25.55
+DEBUG:SCRIPT: table["glancingBlow"] = 40
+DEBUG:SCRIPT: table["crushingBlow"] = 0
+DEBUG:SCRIPT: table["parry"] = 5.6
+DEBUG:SCRIPT: hit: 74.45
+DEBUG:SCRIPT: result: hit [0/0 blocked]
+DEBUG:SCRIPT: multiplier: 0.5, reduction: 0.42007981516488
+DEBUG:SCRIPT: damage before mitigation: 59, after: 26.5
+DEBUG:SCRIPT: proc result: 0 [0 blocked]
+DEBUG:SCRIPT: ===================
+DEBUG:SCRIPT: Test results for 1 runs:
+DEBUG:SCRIPT: Tick 10
+DEBUG:SCRIPT: Tick 11
+DEBUG:SCRIPT: Tick 12
+DEBUG:SCRIPT: Tick 13
+DEBUG:SCRIPT: Tick 14
 DEBUG:SCRIPT: saving
-INFO:DLIB: SSDP: Done on address 192.168.0.2
+INFO:DLIB: SSDP: Done on address 192.168.0.3
