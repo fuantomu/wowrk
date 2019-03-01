@@ -1429,7 +1429,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
@@ -1484,7 +1484,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   overridden_fields: 20
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
@@ -1522,7 +1522,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Thunderfury, Blessed Blade of the Windseeker"
+  text: "Ironfoe"
   font: "FRIZQT"
   id: "tooltipGUI/itemname"
   xanchor: XANCHOR_NONE
@@ -1545,7 +1545,7 @@ nodes {
   parent: "tooltipGUI/tooltipName"
   layer: ""
   inherit_alpha: false
-  alpha: 0.0
+  alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -1603,7 +1603,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   overridden_fields: 20
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
@@ -1666,7 +1666,7 @@ nodes {
   parent: "tooltipGUI/tooltipLeft"
   layer: ""
   inherit_alpha: false
-  alpha: 0.0
+  alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -1675,8 +1675,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 20.0
+    x: -3.0
+    y: 23.0
     z: 0.0
     w: 1.0
   }
@@ -1693,8 +1693,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 70.0
+    x: 206.0
+    y: 126.0
     z: 0.0
     w: 1.0
   }
@@ -1779,7 +1779,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.0
+  alpha: 1.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
@@ -2274,7 +2274,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
@@ -2334,7 +2334,7 @@ nodes {
   parent: "tooltipGUI/tooltipEffects"
   layer: ""
   inherit_alpha: false
-  alpha: 0.0
+  alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true
@@ -2392,7 +2392,7 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 1.0
+  alpha: 0.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
 }
@@ -2454,7 +2454,7 @@ nodes {
   parent: "tooltipGUI/tooltipRight"
   layer: ""
   inherit_alpha: false
-  alpha: 0.0
+  alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: true

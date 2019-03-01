@@ -47,36 +47,34 @@ function on_input(self, action_id, action)
 			msg.post(".", hash("disable"))
 		end
 	end
+	local isLoading = false
 	if (not(isShowing) or LoadingDone) then
 		local pArmorSlots = {"head","necklace","shoulder","back","chest","wrists","hands","waist","legs","feet","ring1","ring2","trinket1","trinket2"}
-		if(gui.pick_node(gui.get_node("slot_weaponMH"), action.x, action.y)) then
-			if(gui.get_texture(gui.get_node("slot_weaponMH")) ~= hash("equipmentGUI")) then
-				updateTooltip("weaponMH","weapons", action.x, action.y)
+		local pWeaponSlots = {"weaponMH", "weaponOH", "weaponRanged"}
+		for k, v in pairs(pWeaponSlots) do
+			if(gui.pick_node(gui.get_node("slot_"..v), action.x, action.y)) then
+				if(gui.get_texture(gui.get_node("slot_"..v)) ~= hash("equipmentGUI")) then
+					updateTooltip(v,"weapons", action.x, action.y)
+					isLoading = true
+					break
+				end
 			end
-		elseif(gui.pick_node(gui.get_node("slot_weaponOH"), action.x, action.y)) then
-			if(gui.get_texture(gui.get_node("slot_weaponOH")) ~= hash("equipmentGUI")) then
-				updateTooltip("weaponOH","weapons", action.x, action.y)
-			end
-		elseif(gui.pick_node(gui.get_node("slot_weaponRanged"), action.x, action.y)) then
-			if(gui.get_texture(gui.get_node("slot_weaponRanged")) ~= hash("equipmentGUI")) then
-				updateTooltip("weaponRanged","weapons", action.x, action.y)
-			end
-		else
+		end
+		if(isLoading == false) then
 			for k, v in pairs(pArmorSlots) do
 				if(gui.pick_node(gui.get_node("slot_"..v), action.x, action.y)) then
 					if(gui.get_texture(gui.get_node("slot_"..v)) ~= hash("equipmentGUI")) then
 						updateTooltip(v,"armor", action.x, action.y)
+						isLoading = true
+						break
 					end
-				else
-					--gui.set_enabled(gui.get_node("tooltipGUI/tooltip"), false)
-					--isShowing = false
-					--LoadingDone = false
 				end
 			end
-			gui.set_enabled(gui.get_node("tooltipGUI/tooltip"), false)
-			isShowing = false
-			LoadingDone = false
 		end
+		gui.set_enabled(gui.get_node("tooltipGUI/tooltip"), false)
+		isShowing = false
+		LoadingDone = false
+		isLoading = false
 	end
 	
 end
@@ -221,12 +219,6 @@ function updateTooltip(slot,type,x,y)
 			end
 		end
 		local eqAttr = getCharacterEquipmentValue(character, slot, "attr")
-		if(eqAttr["agi"] > 0) then
-			leftString = leftString .. "+" ..tostring(eqAttr["agi"]) .. " Agility\n"
-		end
-		if(eqAttr["str"] > 0) then
-			leftString = leftString .. "+" ..tostring(eqAttr["str"]) .. " Strength\n"
-		end
 		if(eqAttr["int"] > 0) then
 			leftString = leftString .. "+" ..tostring(eqAttr["int"]) .. " Intelligence\n"
 		end
@@ -235,6 +227,12 @@ function updateTooltip(slot,type,x,y)
 		end
 		if(eqAttr["sta"] > 0) then
 			leftString = leftString .. "+" ..tostring(eqAttr["sta"]) .. " Stamina\n"
+		end
+		if(eqAttr["str"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["str"]) .. " Strength\n"
+		end
+		if(eqAttr["agi"] > 0) then
+			leftString = leftString .. "+" ..tostring(eqAttr["agi"]) .. " Agility\n"
 		end
 		local eqResist = getCharacterEquipmentValue(character, slot, "resist")
 		if(eqResist["fire"] > 0) then
@@ -291,7 +289,7 @@ function updateTooltip(slot,type,x,y)
 				end
 			end
 		end
-		--leftString = leftString .. "\n"
+		leftString = leftString .. "\n"
 
 		
 		local leftText = gui.get_node("tooltipGUI/leftSideText")
@@ -323,11 +321,14 @@ function updateTooltip(slot,type,x,y)
 
 		local tooltipBoxHeight = 0
 		tooltipBoxHeight = tooltipBoxHeight + tooltipItemName["height"]
-		tooltipBoxHeight = tooltipBoxHeight + math.max(tooltipItemDetails["height"], tooltipItemType["height"])
-		tooltipBoxHeight = tooltipBoxHeight + tooltipItemEffect["height"]
-
+		--print(tooltipItemDetails["height"]-32, tooltipItemType["height"], (tooltipItemDetails["height"]+tooltipItemEffect["height"] - 39))
+		tooltipBoxHeight = tooltipBoxHeight + math.max(tooltipItemDetails["height"]-32, tooltipItemType["height"], (tooltipItemDetails["height"]+tooltipItemEffect["height"] - 39))
 		local tooltipBoxWidth = 0
-		tooltipBoxWidth = math.max(tooltipItemName["width"], tooltipItemDetails["width"], tooltipItemType["width"], tooltipItemEffect["width"])
+		--print(tooltipItemName["width"], tooltipItemDetails["width"], (tooltipItemDetails["width"]+tooltipItemType["width"]-52), tooltipItemEffect["width"]-52)
+		tooltipBoxWidth = math.max(tooltipItemName["width"], tooltipItemDetails["width"], (tooltipItemDetails["width"]+tooltipItemType["width"]-52), tooltipItemEffect["width"]-52)
+
+		local tooltipItemname = gui.get_node("tooltipGUI/itemname")
+		--print(gui.get_size(tooltipItemname))
 
 		--[[
 		local tooltipTextPos = gui.get_position(tooltipText)
@@ -358,6 +359,8 @@ function updateTooltip(slot,type,x,y)
 		--print(moveNameWidth, gui.get_position(tooltipName)["x"]*moveNameWidth, (gui.get_position(tooltipName)["x"]*moveNameWidth)/2)
 
 		--gui.set_size(tooltipEquip, vmath.vector3(effectWidth,effectHeight,0))
+
+		gui.set_position(tooltipEquip, vmath.vector3(100,0-tooltipItemDetails["height"]*0.88,1))
 		
 
 		local effectHeight = math.max(50, tooltipItemEffect["height"])
@@ -378,23 +381,23 @@ function updateTooltip(slot,type,x,y)
 		--gui.set_position(tooltipLeft, vmath.vector3(103,-(tooltipItemName["height"]+gui.get_position(tooltipName)["y"])/2,1))
 		
 		
-		--gui.set_size(tbg, vmath.vector3(tooltipBoxWidth,tooltipBoxHeight, 0))
-		--gui.set_position(tbg, vmath.vector3(tooltipBoxWidth/2,-tooltipBoxHeight/2,0))
+		gui.set_size(tbg, vmath.vector3(tooltipBoxWidth,tooltipBoxHeight, 0))
+		gui.set_position(tbg, vmath.vector3(tooltipBoxWidth/2,-tooltipBoxHeight/2,0))
 
 		--gui.set_position(tooltipEquip, vmath.vector3(103,-(tooltipItemDetails["height"]+gui.get_position(tooltipLeft)["y"]),1))
-		--[[
-		gui.set_position(tooltipName, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-5,1))
-		gui.set_position(tooltipLeft, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-40,1))
+		
+		--gui.set_position(tooltipName, vmath.vector3(tooltipTextPos.x+45,tooltipTextPos.y+nameTextHeight/2-5,1))
+		gui.set_position(tooltipRight, vmath.vector3(tooltipBoxWidth-41,-25,1))
 		
 		
 
-		local rightX = 0
-		if(bodyWidth > equipTextWidth*3) then rightX = rightTextWidth + rightTextWidth/2 - 93 else rightX = equipTextWidth end
-		gui.set_position(tooltipRight, vmath.vector3(tooltipTextPos.x + rightX,tooltipTextPos.y+nameTextHeight/2-40,1))
+		--local rightX = 0
+		--if(bodyWidth > equipTextWidth*3) then rightX = rightTextWidth + rightTextWidth/2 - 93 else rightX = equipTextWidth end
+		--gui.set_position(tooltipRight, vmath.vector3(tooltipTextPos.x + rightX,tooltipTextPos.y+nameTextHeight/2-40,1))
 
 
-		local tooltipWidth = (newX + maxX)/2 - 15
-		local tooltipHeight = newY + nameTextHeight - 40
+		local tooltipWidth = tooltipBoxWidth--(newX + maxX)/2 - 15
+		local tooltipHeight = tooltipBoxHeight-- newY + nameTextHeight - 40
 		
 
 		
@@ -413,17 +416,19 @@ function updateTooltip(slot,type,x,y)
 		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerTR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, tooltipHeight-(tbgsize.y)/2-1, 0))
 		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBL"), vmath.vector3(-tooltipWidth+(tbgsize.x)/2+1, -tooltipHeight+(tbgsize.y)/2+1, 0))
 		gui.set_position(gui.get_node("tooltipGUI/ttblBorderCornerBR"), vmath.vector3(tooltipWidth-(tbgsize.x)/2-1, -tooltipHeight+(tbgsize.y)/2+1, 0))
-		--]]
+		
 		gui.set_texture(ticon, type)
 		local eqIcon = getCharacterEquipmentValue(character, slot, "icon")
 		gui.play_flipbook(ticon, eqIcon)
 		gui.set_position(tooltip, vmath.vector3(x, y, 0))
 		
-		
-		LoadingDone = true
-		delay.seconds(0.4, function(self, id)
-			gui.set_enabled(tooltip, true)
-		end)
+
+		if not(LoadingDone) then
+			LoadingDone = true
+			delay.seconds(0.4, function(self, id)
+				gui.set_enabled(tooltip, true)
+			end)
+		end
 	end
 end
 
