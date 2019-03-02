@@ -33,7 +33,7 @@ function init(self)
 end
 
 function getEnemyData(enemy)
-	return mobData[tostrig(enemy)]
+	return mobData[tostring(enemy)]
 end
 
 function getEnemyStat(enemy, stat)

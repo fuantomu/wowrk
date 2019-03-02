@@ -10,7 +10,7 @@ end
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("start")) then
 		print("start quest")
-		msg.post("main:/game#loader", "gotoGame", {players=message.players})
+		msg.post("main:/game#loader", "gotoGame", {party=message.party,partySize=message.partySize})
 	elseif(message_id == hash("end")) then
 		print("end quest")
 		msg.post("main:/game#loader", "gotoMainMenu")

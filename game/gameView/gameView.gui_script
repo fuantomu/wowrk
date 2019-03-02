@@ -1,18 +1,18 @@
+local currentPlayer = -1
+local currentSelection = 0
+local nextPlayer = 0
+local partySize = 5
+local waitForAnimation = false
+local playersAlive = partySize
+local bossAlive = true
+local target = "boss"
+
+local actionQueue = {}
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	self.actionQueue = {}
-	self.currentSelection = 0
-	self.currentPlayer = -1
-	self.nextPlayer = 1
-	self.maxPlayers = 5
-	self.waitForAnimation = false
-	self.alivePlayers = self.maxPlayers
-	self.bossAlive = true
-	self.gameRunning = true
-	self.playerWeapon = {}
 	math.randomseed(os.clock() * 1000)
 	math.random()
-	self.oneSecTimer = 60
 	gui.set_color(gui.get_node("lblBoss"), vmath.vector4(0,0,0,0))
 	for i = 1, 5 do
 		gui.set_color(gui.get_node("lblP"..i), vmath.vector4(0,0,0,0))
@@ -25,89 +25,87 @@ function final(self)
 end
 
 function update(self, dt)
-	if(self.gameRunning) then
-		for x = 1, self.maxPlayers do
-			if((not self.waitForAnimation) and self.bossAlive) then
-				local gbar = gui.get_node("barsP".. x .."/gcdbar/gcdbar_fill")
-				local cbar = gui.get_node("barsP".. x .."/cbar/cbar_fill")
-				local gcdpos = gui.get_position(gbar)
-				local cpos = gui.get_position(cbar)
-				local ccolor = gui.get_color(cbar)
-				if(not self.actionQueue[x]["dead"]) then
-					if(ccolor.w == 0) then
-						if(gcdpos.x >= 0) then
-							gui.set_position(gbar, vmath.vector3(gcdpos.x-300, gcdpos.y, gcdpos.z))
-							gui.set_color(gbar, vmath.vector4(1,1,1,1))
-							gui.set_position(cbar, vmath.vector3(cpos.x+300, cpos.y, cpos.z))
-							gui.set_color(cbar, vmath.vector4(1,1,1,0.5))
-							msg.post(".", hash("gcdDone"), {player=x})
-						elseif(gcdpos.x < 0) then
-							gui.set_position(gbar, vmath.vector3(gcdpos.x+3, gcdpos.y, gcdpos.z))
-						end
-					elseif (ccolor.w > 0) then
-						if(#self.actionQueue > 0) then
-							if(self.actionQueue[x]["action"] == "Wait") then
-								if(not(self.nextPlayer == -1)) then
-									for i = self.nextPlayer, self.maxPlayers do
-										if(self.actionQueue[i]["action"] == "Wait") then
-											self.nextPlayer = i
-											break
-										else
-											self.nextPlayer = x
-											break
+	if(gameRunning) then
+		if(loadDone) then
+			for x = 1, partySize do
+				if((not waitForAnimation) and bossAlive) then
+					local gbar = gui.get_node("barsP".. x .."/gcdbar/gcdbar_fill")
+					local cbar = gui.get_node("barsP".. x .."/cbar/cbar_fill")
+					local gcdpos = gui.get_position(gbar)
+					local cpos = gui.get_position(cbar)
+					local ccolor = gui.get_color(cbar)
+					if(not actionQueue[x]["dead"]) then
+						if(ccolor.w == 0) then
+							if(gcdpos.x >= 0) then
+								gui.set_position(gbar, vmath.vector3(gcdpos.x-300, gcdpos.y, gcdpos.z))
+								gui.set_color(gbar, vmath.vector4(1,1,1,1))
+								gui.set_position(cbar, vmath.vector3(cpos.x+300, cpos.y, cpos.z))
+								gui.set_color(cbar, vmath.vector4(1,1,1,0.5))
+								msg.post(".", hash("gcdDone"), {player=x})
+							elseif(gcdpos.x < 0) then
+								gui.set_position(gbar, vmath.vector3(gcdpos.x+3, gcdpos.y, gcdpos.z))
+							end
+						elseif (ccolor.w > 0) then
+							if(#actionQueue > 0) then
+								if(actionQueue[x]["action"] == "Wait") then
+									if(not(nextPlayer == -1)) then
+										for i = (nextPlayer+1), partySize do
+											if(actionQueue[i]["action"] == "Wait") then
+												nextPlayer = i
+												break
+											else
+												nextPlayer = x
+												break
+											end
 										end
-									end
-									if(self.currentSelection == 0 and self.nextPlayer == x) then
-										print("Turn Player " .. x)
-										self.currentSelection = 1
-										self.currentPlayer = x
-										local cSel = gui.get_node("currentSelection")
-										local barPos = gui.get_position(gui.get_node("barGroup"))
-										gui.set_position(cSel, vmath.vector3(barPos.x-22, barPos.y-(135*(x-1))+10, barPos.z))
-										gui.set_color(cSel, vmath.vector4(1,1,1,1))
-										gui.set_color(gui.get_node("attackButton"), vmath.vector4(1,1,1,1))
-										gui.play_flipbook(gui.get_node("attackButton"), self.actionQueue[x]["attackicon"])
-										gui.set_color(gui.get_node("spell1Button"), vmath.vector4(1,1,1,1))
-										gui.play_flipbook(gui.get_node("spell1Button"), self.actionQueue[x]["spell1icon"])
-										gui.set_color(gui.get_node("spell2Button"), vmath.vector4(1,1,1,1))
-										gui.play_flipbook(gui.get_node("spell2Button"), self.actionQueue[x]["spell2icon"])
-										gui.set_color(gui.get_node("barsP".. x .."/cbar/cbar_fill"), vmath.vector4(1,1,1,1))
+										if(currentSelection == 0 and nextPlayer == x) then
+											print("Turn Player " .. x)
+											currentSelection = 1
+											currentPlayer = x
+											local cSel = gui.get_node("currentSelection")
+											local barPos = gui.get_position(gui.get_node("barGroup"))
+											gui.set_position(cSel, vmath.vector3(barPos.x-22, barPos.y-(135*(x-1))+10, barPos.z))
+											gui.set_color(cSel, vmath.vector4(1,1,1,1))
+											gui.set_color(gui.get_node("attackButton"), vmath.vector4(1,1,1,1))
+											gui.play_flipbook(gui.get_node("attackButton"), actionQueue[x]["attackicon"])
+											gui.set_color(gui.get_node("spell1Button"), vmath.vector4(1,1,1,1))
+											gui.play_flipbook(gui.get_node("spell1Button"), actionQueue[x]["spell1icon"])
+											gui.set_color(gui.get_node("spell2Button"), vmath.vector4(1,1,1,1))
+											gui.play_flipbook(gui.get_node("spell2Button"), actionQueue[x]["spell2icon"])
+											gui.set_color(gui.get_node("barsP".. x .."/cbar/cbar_fill"), vmath.vector4(1,1,1,1))
+										end
+									else
+										gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
+										gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
+										gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
+										gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
 									end
 								else
-									gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
-									gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
-									gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
-									gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
-								end
-							else
-								if(cpos.x >= 0) then
-									gui.set_position(cbar, vmath.vector3(cpos.x-300, cpos.y, cpos.z))
-									gui.set_color(cbar, vmath.vector4(1,1,1,0))
-									msg.post(".", hash("castDone"), {player=x})
-								elseif(cpos.x < 0) then
-									gui.set_position(cbar, vmath.vector3(cpos.x+((1.0/self.actionQueue[x]["casttime"])*3), cpos.y, cpos.z))
+									if(cpos.x >= 0) then
+										gui.set_position(cbar, vmath.vector3(cpos.x-300, cpos.y, cpos.z))
+										gui.set_color(cbar, vmath.vector4(1,1,1,0))
+										msg.post(".", hash("castDone"), {player=x})
+									elseif(cpos.x < 0) then
+										gui.set_position(cbar, vmath.vector3(cpos.x+((1.0/actionQueue[x]["casttime"])*3), cpos.y, cpos.z))
+									end
 								end
 							end
+							if (currentSelection == 0 or actionQueue[x]["dead"] or nextPlayer == -1) then
+								gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
+								gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
+								gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
+								gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
+							end
 						end
-						if (self.currentSelection == 0 or self.actionQueue[x]["dead"] or self.nextPlayer == -1) then
-							gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
-							gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
-							gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
-							gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
-						end
+					else
+						gui.set_position(gbar, vmath.vector3(gcdpos.x-300, gcdpos.y, gcdpos.z))
+						gui.set_color(gbar, vmath.vector4(0,0,0,0))
+						gui.set_color(gui.get_node("barsP".. x .."/rbar/rbar_fill"), vmath.vector4(0,0,0,0))
+						gui.set_position(cbar, vmath.vector3(cpos.x-300, cpos.y, cpos.z))
+						gui.set_color(cbar, vmath.vector4(0,0,0,0))
 					end
-				else
-					gui.set_position(gbar, vmath.vector3(gcdpos.x-300, gcdpos.y, gcdpos.z))
-					gui.set_color(gbar, vmath.vector4(0,0,0,0))
-					gui.set_color(gui.get_node("barsP".. x .."/rbar/rbar_fill"), vmath.vector4(0,0,0,0))
-					gui.set_position(cbar, vmath.vector3(cpos.x-300, cpos.y, cpos.z))
-					gui.set_color(cbar, vmath.vector4(0,0,0,0))
 				end
 			end
-		end
-		self.oneSecTimer = self.oneSecTimer - 1
-		if(self.oneSecTimer <= 0) then
-			self.oneSecTimer = 60
 		end
 	end
 end
@@ -115,7 +113,7 @@ end
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("setHP")) then
 		if(not (message.player == "boss")) then
-			if(not self.actionQueue[message.player]["dead"]) then
+			if(not actionQueue[message.player]["dead"]) then
 				local hpbar = gui.get_node("barsP".. message.player .."/hbar/hbar_fill")
 				local hppos = gui.get_position(hpbar)
 				if(message.val == hash("add")) then
@@ -127,16 +125,16 @@ function on_message(self, message_id, message, sender)
 				end
 				local hppos = gui.get_position(hpbar)
 				if(hppos.x <= -300) then
-					self.actionQueue[message.player]["dead"] = true
+					actionQueue[message.player]["dead"] = true
 					msg.post("/game#gameView", hash("death"), {player=message.player})
 					gui.set_enabled(gui.get_node("barP"..message.player),false)
-					if(self.currentPlayer == message.player) then
-						self.currentSelection = 0
-						self.currentPlayer = -1
-						self.nextPlayer = (message.player + 1 ) % self.maxPlayers
-						for i = 1, self.maxPlayers do
-							if(not (self.actionQueue[i]["dead"])) then
-								self.nextPlayer = tonumber(self.actionQueue[i]["player"])
+					if(currentPlayer == message.player) then
+						currentSelection = 0
+						currentPlayer = -1
+						nextPlayer = (message.player + 1 ) % partySize
+						for i = 1, partySize do
+							if(not (actionQueue[i]["dead"])) then
+								nextPlayer = tonumber(actionQueue[i]["player"])
 							end
 						end
 						gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
@@ -144,11 +142,11 @@ function on_message(self, message_id, message, sender)
 						gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
 						gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
 					end
-					self.alivePlayers = self.alivePlayers - 1
-					if(self.alivePlayers == 0) then
+					alivePlayers = alivePlayers - 1
+					if(alivePlayers == 0) then
 						msg.post("/game#gameView", hash("gameOver"), {result="Loss"})
-						msg.post("/game#boss", hash("gameOver"), {result="Loss"})
-						self.gameRunning = false
+						--msg.post("/game#boss", hash("gameOver"), {result="Loss"})
+						gameRunning = false
 						print("party dead")
 					end
 				end
@@ -162,10 +160,10 @@ function on_message(self, message_id, message, sender)
 				gui.set_position(hpbar, vmath.vector3(-300+(message.hp*3), 0, 0))
 				local hppos = gui.get_position(hpbar)
 				if(hppos.x <= -300) then
-					self.bossAlive = false
+					bossAlive = false
 					msg.post("/game#gameView", hash("gameOver"), {result="Victory"})
-					msg.post("/game#boss", hash("gameOver"), {result="Victory"})
-					self.gameRunning = false
+					--msg.post("/game#boss", hash("gameOver"), {result="Victory"})
+					gameRunning = false
 					print("boss dead")
 				end
 			else
@@ -173,7 +171,7 @@ function on_message(self, message_id, message, sender)
 			end
 		end
 	elseif(message_id == hash("setRES")) then
-		if(not self.actionQueue[message.player]["dead"]) then
+		if(not actionQueue[message.player]["dead"]) then
 			local rbar = gui.get_node("barsP".. message.player .."/rbar/rbar_fill")
 			local rpos = gui.get_position(rbar)
 			if(message.val == hash("add")) then
@@ -186,30 +184,28 @@ function on_message(self, message_id, message, sender)
 		end
 	elseif(message_id == hash("gcdDone")) then
 		print("Player " .. message.player .. " waiting")
-		self.actionQueue[message.player]["action"] = "Wait"
-		if(self.nextPlayer == -1) then
-			self.nextPlayer = message.player
+		actionQueue[message.player]["action"] = "Wait"
+		if(nextPlayer == -1) then
+			nextPlayer = message.player
 		end
 	elseif(message_id == hash("bossCast")) then
-		self.waitForAnimation = true
-	elseif(message_id == hash("getWeaponStats")) then
-		self.playerWeapon = message.wpn
+		waitForAnimation = true
 	elseif(message_id == hash("castDone")) then
 		print("Player " .. message.player .. " done")
-		msg.post("/game#gameView", hash("action"), {type=self.actionQueue[message.player]["action"],id=self.actionQueue[message.player]["attack"],player=message.player})
-		self.waitForAnimation = true
+		msg.post("/game#gameView", hash("action"), {type=actionQueue[message.player]["action"],id=actionQueue[message.player]["attack"],player=message.player})
+		waitForAnimation = true
 		msg.post("/game#boss", hash("waitForAnimation"))
-		self.actionQueue[message.player]["action"] = "None"
+		actionQueue[message.player]["action"] = "None"
 	elseif(message_id == hash("startCast")) then
 		local cbar = gui.get_node("barsP".. message.player .."/cbar/cbar_fill")
 		local cpos = gui.get_position(cbar)
 		sprite.play_flipbook("/spritePlayer#spriteP".. message.player, hash("idle_cast"))
 		gui.set_position(cbar, vmath.vector3(cpos.x-300, cpos.y, cpos.z))
-		self.actionQueue[message.player]["action"] =  message.type
-		self.actionQueue[message.player]["id"] = message.player
-		self.actionQueue[message.player]["casttime"] = message.cast
+		actionQueue[message.player]["action"] =  message.type
+		actionQueue[message.player]["id"] = message.player
+		actionQueue[message.player]["casttime"] = message.cast
 	elseif(message_id == hash("animDone")) then
-		self.waitForAnimation = false
+		waitForAnimation = false
 	elseif(message_id == hash("bossDamage")) then
 		local targets = {}
 		if(type(message.targets) == "table") then
@@ -217,7 +213,7 @@ function on_message(self, message_id, message, sender)
 				table.insert(targets, message.targets[i])
 			end
 		elseif(message.targets == "ALL") then
-			for i = 1, self.maxPlayers do
+			for i = 1, partySize do
 				table.insert(targets, i)
 			end
 		else
@@ -232,20 +228,28 @@ function on_message(self, message_id, message, sender)
 				end
 			else
 				for i = 1, number do
-					table.insert(targets, math.random(self.maxPlayers))
+					table.insert(targets, math.random(partySize))
 				end
 			end
 		end
 		
 		msg.post("/game#gameView", hash("bossDamage"), {dmg=message.dmg, targets=targets, type=message.targets})
 	elseif(message_id == hash("maxPlayers")) then
-		self.maxPlayers = message.val
-		self.alivePlayers = message.val
-		for i = 1, self.maxPlayers do
-			table.insert(self.actionQueue, {player=i, action="None", attack="Attack", attackid=message.ids[i]["attackid"],attackicon="",spell1id=message.ids[i]["idSp1"],spell1icon="", spell2id=message.ids[i]["idSp2"],spell2icon="", casttime=1.0, dead=false})
-			msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=message.ids[i]["idSp1"], player=i, slot=1})
-			msg.post("main:/game#main", hash("getIcon"), {type="Ability", id=message.ids[i]["idSp2"], player=i,slot=2})
-			msg.post("main:/game#main", hash("getIcon"), {type="Weapon", id=message.ids[i]["attackid"], player=i})
+		partySize = message.val
+		alivePlayers = message.val
+		for i = 1, partySize do
+			table.insert(actionQueue, {player=i, action="None", attack="Attack", attackid=message.ids[i]["attackid"],attackicon="",spell1id=message.ids[i]["idSp1"],spell1icon="", spell2id=message.ids[i]["idSp2"],spell2icon="", casttime=1.0, dead=false})
+
+			tprint(message.ids)
+			local attackIcon = getWeaponIcon(message.ids[i]["attackid"])
+			local defenseIcon = getWeaponIcon(message.ids[i]["defenseid"])
+			local spellIcon1 = getAbilityIcon(message.ids[i]["idSp1"])
+			local spellIcon2 = getAbilityIcon(message.ids[i]["idSp2"])
+			actionQueue[i]["attackicon"] = attackIcon
+			actionQueue[i]["defenseicon"] = defenseIcon
+			actionQueue[i]["spell1icon"] = spellIcon1
+			actionQueue[i]["spell2icon"] = spellIcon2
+			
 			local hpbar = gui.get_node("barsP".. i .."/hbar/hbar_fill")
 			gui.set_position(hpbar, vmath.vector3(0, 0, 0))
 			local rbar = gui.get_node("barsP".. i .."/rbar/rbar_fill")
@@ -269,12 +273,6 @@ function on_message(self, message_id, message, sender)
 				end
 			end
 		end
-	elseif(message_id == hash("getIcon")) then
-		if(message.type == "Ability") then
-			self.actionQueue[message.player]["spell"..message.slot.."icon"] = message.values
-		elseif(message.type == "Weapon") then
-			self.actionQueue[message.player]["attackicon"] = message.values
-		end	
 	elseif(message_id == hash("updateLabel")) then
 		if(message.player == "Boss") then
 			gui.set_text(gui.get_node("lblBoss"), tostring(message.dmg))
@@ -298,75 +296,75 @@ function on_input(self, action_id, action)
 		if(gui.pick_node(gui.get_node("backButton"), action.x, action.y)) then
 			print("clicked exit")
 			msg.post("/game#gameView", hash("back"))
-		elseif(gui.pick_node(gui.get_node("attackButton"), action.x, action.y) and self.currentSelection > 0) then
-			print("clicked Attack for P"..self.currentPlayer)
-			self.actionQueue[self.currentPlayer]["attack"] = self.actionQueue[self.currentPlayer]["attackid"]
-			msg.post("game#gameView", hash("calculateAttack"), {type="Attack",player=self.currentPlayer})
-			self.nextPlayer = (self.currentPlayer % self.maxPlayers) + 1
+		elseif(gui.pick_node(gui.get_node("attackButton"), action.x, action.y) and currentSelection > 0) then
+			print("clicked Attack for P"..currentPlayer)
+			actionQueue[currentPlayer]["attack"] = actionQueue[currentPlayer]["attackid"]
+			msg.post("game#gameView", hash("doAction"), {type="AutoAttack",player=currentPlayer,target=target,source="Melee"})
+			nextPlayer = (currentPlayer % partySize) + 1
 			local playerWaiting = false
-			for i = 1, self.maxPlayers do
-				if(not(i==self.currentPlayer)) then
-					if(self.actionQueue[self.nextPlayer]["action"] == "Wait") then
+			for i = 1, partySize do
+				if(not(i==currentPlayer)) then
+					if(actionQueue[nextPlayer]["action"] == "Wait") then
 						playerWaiting = true
 						break
-					elseif(self.actionQueue[i]["action"] == "Wait") then
-						self.nextPlayer = i
+					elseif(actionQueue[i]["action"] == "Wait") then
+						nextPlayer = i
 						playerWaiting = true
 						break
 					end
 				end
 			end
 			if(not playerWaiting) then
-				self.nextPlayer = -1
+				nextPlayer = -1
 			end
-			self.currentPlayer = -1
-			self.currentSelection = 0
-		elseif(gui.pick_node(gui.get_node("spell1Button"), action.x, action.y) and self.currentSelection > 0) then
-			print("clicked Spell1 for P"..self.currentPlayer)
-			self.actionQueue[self.currentPlayer]["attack"] = self.actionQueue[self.currentPlayer]["spell1id"]
-			msg.post("game#gameView", hash("calculateAttack"), {type="Ability",slot=1,player=self.currentPlayer})
-			self.nextPlayer = (self.currentPlayer % self.maxPlayers) + 1
+			currentPlayer = -1
+			currentSelection = 0
+		elseif(gui.pick_node(gui.get_node("spell1Button"), action.x, action.y) and currentSelection > 0) then
+			print("clicked Spell1 for P"..currentPlayer)
+			actionQueue[currentPlayer]["attack"] = actionQueue[currentPlayer]["spell1id"]
+			msg.post("game#gameView", hash("doAction"), {type="Ability",slot=1,player=currentPlayer})
+			nextPlayer = (currentPlayer % partySize) + 1
 			local playerWaiting = false
-			for i = 1, self.maxPlayers do
-				if(not(i==self.currentPlayer)) then
-					if(self.actionQueue[self.nextPlayer]["action"] == "Wait") then
+			for i = 1, partySize do
+				if(not(i==currentPlayer)) then
+					if(actionQueue[nextPlayer]["action"] == "Wait") then
 						playerWaiting = true
 						break
-					elseif(self.actionQueue[i]["action"] == "Wait") then
-						self.nextPlayer = i
+					elseif(actionQueue[i]["action"] == "Wait") then
+						nextPlayer = i
 						playerWaiting = true
 						break
 					end
 				end
 			end
 			if(not playerWaiting) then
-				self.nextPlayer = -1
+				snextPlayer = -1
 			end
-			self.currentPlayer = -1
-			self.currentSelection = 0
-		elseif(gui.pick_node(gui.get_node("spell2Button"), action.x, action.y) and self.currentSelection > 0) then
-			print("clicked Spell2 for P"..self.currentPlayer)
-			self.actionQueue[self.currentPlayer]["attack"] = self.actionQueue[self.currentPlayer]["spell2id"]
-			msg.post("game#gameView", hash("calculateAttack"), {type="Ability",slot=2,player=self.currentPlayer})
-			self.nextPlayer = (self.currentPlayer % self.maxPlayers) + 1
+			currentPlayer = -1
+			currentSelection = 0
+		elseif(gui.pick_node(gui.get_node("spell2Button"), action.x, action.y) and currentSelection > 0) then
+			print("clicked Spell2 for P"..currentPlayer)
+			actionQueue[currentPlayer]["attack"] = actionQueue[currentPlayer]["spell2id"]
+			msg.post("game#gameView", hash("doAction"), {type="Ability",slot=2,player=currentPlayer})
+			nextPlayer = (currentPlayer % partySize) + 1
 			local playerWaiting = false
-			for i = 1, self.maxPlayers do
-				if(not(i==self.currentPlayer)) then
-					if(self.actionQueue[self.nextPlayer]["action"] == "Wait") then
+			for i = 1, partySize do
+				if(not(i==currentPlayer)) then
+					if(actionQueue[nextPlayer]["action"] == "Wait") then
 						playerWaiting = true
 						break
-					elseif(self.actionQueue[i]["action"] == "Wait") then
-						self.nextPlayer = i
+					elseif(actionQueue[i]["action"] == "Wait") then
+						nextPlayer = i
 						playerWaiting = true
 						break
 					end
 				end
 			end
 			if(not playerWaiting) then
-				self.nextPlayer = -1
+				nextPlayer = -1
 			end
-			self.currentPlayer = -1
-			self.currentSelection = 0
+			currentPlayer = -1
+			currentSelection = 0
 		end
 	end
 end

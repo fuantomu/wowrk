@@ -180,7 +180,8 @@ function init(self)
 				attr={str=0,agi=0,sta=0,int=0,spr=0}
 			},
 			battle={
-				hitRecently=0
+				hitRecently=0,
+				dead=false
 			},
 			loadout={
 				spell1=0,
@@ -445,6 +446,12 @@ end
 
 function getCharacterBattleStatus(character, stat)
 	return characterData[character]["battle"][stat]
+end
+
+
+
+function getCharacterLoadout(character)
+	return characterData[character]["loadout"]
 end
 
 function isPlayer(character)

@@ -1,8 +1,9 @@
+local currentView = "main"
+local loaded = ""
+local tempData = {}
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	self.currentView = "main"
-	self.loaded = ""
-	self.tempData = {}
 end
 
 function final(self)
@@ -12,41 +13,40 @@ end
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("gotoLobby")) then
 		print("load lobby")
-		if(self.currentView == "mainMenu") then
+		if(currentView == "mainMenu") then
 			msg.post("/screens#proxy_mainMenu", hash("unload"))
-		elseif(self.currentView == "gameView") then
+		elseif(currentView == "gameView") then
 			msg.post("/screens#proxy_gameView", hash("unload"))
 		end
 		msg.post("/screens#proxy_lobbyView", hash("load"))
-		self.currentView = "lobbyView"
+		currentView = "lobbyView"
 	elseif(message_id == hash("gotoMainMenu")) then
 		print("load main")
-		if(self.currentView == "lobbyView") then
+		if(currentView == "lobbyView") then
 			msg.post("/screens#proxy_lobbyView", hash("unload"))
 		end
 		msg.post("/screens#proxy_mainMenu", hash("load"))
-		self.currentView = "mainMenu"
+		currentView = "mainMenu"
 	elseif(message_id == hash("gotoGame")) then
 		print("load game")
-		if(self.currentView == "lobbyView") then
-			table.insert(self.tempData, {players=message.players})
+		if(currentView == "lobbyView") then
+			tempData= {party=message.party,partySize=message.partySize}
 			msg.post("/screens#proxy_lobbyView", hash("unload"))
 		end
 		msg.post("/screens#proxy_gameView", hash("load"))
-		self.currentView = "gameView"
+		currentView = "gameView"
 	elseif message_id == hash("proxy_loaded") then
 		print(tostring(sender), " loaded")
-		if(self.currentView == "gameView") then
-			msg.post("gameView:/game#gameView", hash("sendGameData"), {players=self.tempData[1]["players"]})
-			table.remove(self.tempData,1)
-			table.remove(self.tempData,1)
+		if(currentView == "gameView") then
+			msg.post("gameView:/game#gameView", hash("sendGameData"), {party=tempData["party"],partySize=tempData["partySize"]})
+			tempData = {}
 		end
 		msg.post(sender, "acquire_input_focus")
 		msg.post(sender, hash("init"))
 		msg.post(sender, hash("enable"))
-		self.loaded = tostring(sender)
+		loaded = tostring(sender)
 	elseif(message_id == hash("getCurrentView")) then
-		msg.post(sender, hash("returnCurrentView"), {view=self.currentView})
+		msg.post(sender, hash("returnCurrentView"), {view=currentView})
 	end
 end
 

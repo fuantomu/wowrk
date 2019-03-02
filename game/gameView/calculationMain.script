@@ -16,7 +16,7 @@ function update(self, dt)
 		if(tickTimer <= 0) then
 			currentTick = currentTick + 1 * tickTime
 			tickTimer = 60 * tickTime
-			print("Tick "..currentTick)
+			--print("Tick "..currentTick)
 		end
 	end
 end
@@ -240,7 +240,7 @@ function generateCombatResult(attacker, target, source, type, position, secondAt
 	local combatProcDamage = {phy=0,fire=0,frost=0,arcane=0,nature=0,shadow=0,holy=0}
 	local combatProcBlocked = 0
 	local combatWeapon = "None"
-	tprint(pStats)
+	--tprint(pStats)
 	if(source == "Melee") then
 		combatWeapon = "weaponMH"
 		if(type == "AutoAttack") then
@@ -411,6 +411,18 @@ function generateCombatResult(attacker, target, source, type, position, secondAt
 	if(dualWield == true and secondAttack == false and source == "Melee" and type == "AutoAttack") then
 		generateCombatResult(attacker, target, source, type, position, true)
 	end
+	return {hitChance= combatHitChance,
+	attackTable = combatAttackTable,
+	attackResult = combatAttackResult,
+	damageRolls = combatDamageRolls,
+	damageMult = combatDamageMultiplier,
+	damageReduction = combatDamageReduction,
+	damageDone = combatDamageDone,
+	damageBlocked = combatBlockDamage,
+	combatResult = combatResult,
+	procResult = combatProcResult,
+	procDamage = combatProcDamage,
+	procBlocked = combatProcBlocked}
 end
 
 function calculateRegeneration(character, type)

@@ -25,7 +25,7 @@ local function init_save_state()
 			race="Human", 
 			level=1, 
 			basehp=0,
-			hpCurrent=0,
+			hpCurrent=1,
 			hpMax=0,
 			baseRes=0,
 			resCurrent=0,
@@ -199,7 +199,8 @@ local function init_save_state()
 			attr={str=0,agi=0,sta=0,int=0,spr=0}
 		},
 		battle={
-			hitRecently=0
+			hitRecently=0,
+			dead=0
 		},
 		loadout={
 			spell1=133,

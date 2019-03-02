@@ -1,12 +1,9 @@
+bossData = {}
+local isCasting = false
+local castTime = -1
+local castId = -1
+local waitForAnimation = false
 function init(self)
-	self.bossData = {}
-	self.turnTimer = 0
-	self.currentTurn = 0
-	self.isCasting = false
-	self.castTime = -1
-	self.castId = -1
-	self.waitForAnimation = false
-	self.gameRunning = true
 	math.randomseed(os.clock() * 1000)
 	math.random()
 end
@@ -17,43 +14,40 @@ function final(self)
 end
 
 function update(self, dt)
-	if(self.gameRunning) then
-		if(not self.isCasting and not self.waitForAnimation) then
-			if(self.turnTimer >= 60) then
-				self.currentTurn = self.currentTurn + 1
-				print("Turn "..self.currentTurn)
-				for i = 1, #self.bossData["turnOrder"] do
-					if(self.bossData["turnOrder"][i]["turn"] == clamp(self.currentTurn, #self.bossData["turnOrder"])) then
-						if(self.bossData["turnOrder"][i]["action"] == "Skip") then
+	if(gameRunning) then
+		if(not isCasting and not waitForAnimation) then
+			if(tickTimer <= 0) then
+				print("Turn "..currentTurn)
+				for i = 1, #bossData["turnOrder"] do
+					if(bossData["turnOrder"][i]["turn"] == clamp(currentTurn, #bossData["turnOrder"])) then
+						if(bossData["turnOrder"][i]["action"] == "Skip") then
 
-						elseif(self.bossData["turnOrder"][i]["action"] == "Say") then
-							print(self.bossData["turnOrder"][i]["actionVal"])
-						elseif(self.bossData["turnOrder"][i]["action"] == "Attack") then
+						elseif(bossData["turnOrder"][i]["action"] == "Say") then
+							print(bossData["turnOrder"][i]["actionVal"])
+						elseif(bossData["turnOrder"][i]["action"] == "Attack") then
 							local rngRanges =math.floor(math.random()*100)/100
 							local weight = 0
 							local abid = -1
-							self.castId = -1
-							for x = 1, #self.bossData["turnOrder"][i]["chance"] do
-								weight = weight + self.bossData["turnOrder"][i]["chance"][x]
+							castId = -1
+							for x = 1, #bossData["turnOrder"][i]["chance"] do
+								weight = weight + bossData["turnOrder"][i]["chance"][x]
 								if(rngRanges <= weight) then
 									abid = x
-									self.castId = self.bossData["turnOrder"][i]["actionVal"][x]["id"]
+									castId = bossData["turnOrder"][i]["actionVal"][x]["id"]
 									break
 								end
 							end
-							print("using ability "..self.bossData["abilities"][self.castId]["name"].." with chance "..self.bossData["turnOrder"][i]["chance"][abid].." cast="..self.bossData["abilities"][self.castId]["cast"])
-							self.castTime= self.bossData["abilities"][self.castId]["cast"]
-							self.isCasting = true
+							print("using ability "..bossData["abilities"][castId]["name"].." with chance "..bossData["turnOrder"][i]["chance"][abid].." cast="..bossData["abilities"][castId]["cast"])
+							castTime= bossData["abilities"][castId]["cast"]
+							isCasting = true
 						end
 					end
 				end
-				self.turnTimer = 0
 			end
-			self.turnTimer = self.turnTimer + 1
-		elseif(self.isCasting) then
-			self.castTime = self.castTime - (1/60)
-			if(self.castTime <= 0) then
-				self.isCasting = false
+		elseif(isCasting) then
+			castTime = castTime - (1/60)
+			if(castTime <= 0) then
+				isCasting = false
 				msg.post(".", hash("castDone"))
 			end
 		end
@@ -64,26 +58,24 @@ function on_message(self, message_id, message, sender)
 	if(message_id == hash("loadBoss")) then
 		local bossAIScript = ("/game/gameView/bossAI/boss"..message.id..".lua")
 		local code_str = sys.load_resource(bossAIScript)
-		self.bossData = assert(loadstring(code_str))()
+		bossData = assert(loadstring(code_str))()
+		bossData["stats"] = getEnemyData(bossData["id"])
 		msg.post("/GUI#gameViewGUI", hash("setHP"), {player="boss", hp=100, val=hash("set")})
-		msg.post(sender, hash("bossData"), {values=self.bossData["stats"]})
 	elseif(message_id == hash("castDone")) then
 		print("boss cast done")
 		msg.post("/GUI#gameViewGUI", hash("bossCast"))
-		self.waitForAnimation = true
+		waitForAnimation = true
 		msg.post("/spriteBoss#spriteBoss", "play_animation", { id = hash("attack") })
-		local damageDone = self.bossData["stats"][string.lower(self.bossData["abilities"][self.castId]["attr"])] * (self.bossData["abilities"][self.castId]["mult"]/100)
-		print("Boss,".. self.bossData["stats"][string.lower(self.bossData["abilities"][self.castId]["attr"])] .." did "..damageDone.." damage with "..self.bossData["abilities"][self.castId]["name"]..","..self.bossData["abilities"][self.castId]["attr"]..",",self.bossData["abilities"][self.castId]["mult"])
-		msg.post("/GUI#gameViewGUI", hash("bossDamage"), {dmg = damageDone, targets=self.bossData["abilities"][self.castId]["targets"]})
+		local damageDone = 1--bossData["stats"][string.lower(bossData["abilities"][castId]["attr"])] * (bossData["abilities"][castId]["mult"]/100)
+		print("Boss,".. bossData["stats"][string.lower(bossData["abilities"][castId]["attr"])] .." did "..damageDone.." damage with "..bossData["abilities"][castId]["name"]..","..bossData["abilities"][castId]["attr"]..",",bossData["abilities"][castId]["mult"])
+		msg.post("/GUI#gameViewGUI", hash("bossDamage"), {dmg = damageDone, targets=bossData["abilities"][castId]["targets"]})
 	elseif(message_id == hash("animation_done")) then
 		msg.post("/GUI#gameViewGUI", hash("animDone"))
-		self.waitForAnimation = false
+		waitForAnimation = false
 	elseif(message_id == hash("animDone")) then
-		self.waitForAnimation = false
+		waitForAnimation = false
 	elseif(message_id == hash("waitForAnimation")) then
-		self.waitForAnimation = true
-	elseif(message_id == hash("gameOver")) then
-		self.gameRunning = false
+		waitForAnimation = true
 	end
 end
 
