@@ -5,7 +5,7 @@ INFO:ENGINE: Initialised sound device 'default'
 DEBUG:SCRIPT: load main
 DEBUG:SCRIPT: url: [main:/screens#proxy_mainMenu]	 loaded
 DEBUG:SCRIPT: Loaded existing save state!
-INFO:DLIB: SSDP: Started on address 192.168.178.26
+INFO:DLIB: SSDP: Started on address 192.168.0.8
 DEBUG:SCRIPT: clicked start
 DEBUG:SCRIPT: start game
 DEBUG:SCRIPT: load lobby
@@ -16,6 +16,7 @@ DEBUG:SCRIPT: table["characters"][2] = "None"
 DEBUG:SCRIPT: table["characters"][3] = "None"
 DEBUG:SCRIPT: table["characters"][4] = "None"
 DEBUG:SCRIPT: table["characters"][5] = "None"
+DEBUG:SCRIPT: clicked 1
 DEBUG:SCRIPT: start quest
 DEBUG:SCRIPT: load game
 DEBUG:SCRIPT: url: [main:/screens#proxy_gameView]	 loaded
@@ -236,4 +237,4 @@ DEBUG:SCRIPT: table["damageDone"]["nature"] = 0
 DEBUG:SCRIPT: table["procBlocked"] = 0
 DEBUG:SCRIPT: table["combatResult"] = 0
 DEBUG:SCRIPT: saving
-INFO:DLIB: SSDP: Done on address 192.168.178.26
+INFO:DLIB: SSDP: Done on address 192.168.0.8

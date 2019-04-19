@@ -2,10 +2,10 @@ images {
   image: "/assets/img/splash/sprite_logo_main.png"
 }
 images {
-  image: "/assets/img/icons/buttons/sprite_button_endgame_0.png"
+  image: "/assets/img/icons/buttons/sprite_button_endGame_0.png"
 }
 images {
-  image: "/assets/img/icons/buttons/sprite_button_startgame_0.png"
+  image: "/assets/img/icons/buttons/sprite_button_startGame_0.png"
 }
 margin: 0
 extrude_borders: 2

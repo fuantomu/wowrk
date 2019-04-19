@@ -221,7 +221,7 @@ embedded_instances {
   "  id: \"bg\"\n"
   "  type: \"sprite\"\n"
   "  data: \"tile_set: \\\"/game/gameView/gameView.atlas\\\"\\n"
-  "default_animation: \\\"bg_main_mainmenu\\\"\\n"
+  "default_animation: \\\"bg_main_mainMenu\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "\"\n"

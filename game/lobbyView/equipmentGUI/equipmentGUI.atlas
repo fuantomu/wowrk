@@ -2,70 +2,70 @@ images {
   image: "/assets/img/icons/other/1px.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-ammo.png"
+  image: "/assets/img/icons/buttons/sprite_button_settingsExit_0.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-bag.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Ammo.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-chest.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Bag.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-feet.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Chest.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-finger.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Feet.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-hands.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Finger.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-head.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Hands.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-legs.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Head.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-mainhand.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Legs.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-neck.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-MainHand.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-ranged.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Neck.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-rear.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Ranged.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-relic.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-REar.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-rfinger.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Relic.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-secondaryhand.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-RFinger.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-shirt.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-SecondaryHand.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-shoulder.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Shirt.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-tabard.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Shoulder.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-trinket.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Tabard.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-waist.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Trinket.png"
 }
 images {
-  image: "/assets/img/icons/other/ui-paperdoll-slot-wrists.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Waist.png"
 }
 images {
-  image: "/assets/img/icons/buttons/sprite_button_settingsexit_0.png"
+  image: "/assets/img/icons/other/UI-PaperDoll-Slot-Wrists.png"
 }
 margin: 0
 extrude_borders: 0

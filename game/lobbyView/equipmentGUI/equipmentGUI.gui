@@ -163,7 +163,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-head"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Head"
   id: "slot_head"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -218,7 +218,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-shirt"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Shirt"
   id: "slot_shirt"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -273,7 +273,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-ranged"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Ranged"
   id: "slot_weaponRanged"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -328,7 +328,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-shoulder"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Shoulder"
   id: "slot_shoulder"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -383,7 +383,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-wrists"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Wrists"
   id: "slot_wrists"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -438,7 +438,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-waist"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Waist"
   id: "slot_waist"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -493,7 +493,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-finger"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Finger"
   id: "slot_ring1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -548,7 +548,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-rfinger"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-RFinger"
   id: "slot_ring2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -603,7 +603,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-mainhand"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-MainHand"
   id: "slot_weaponMH"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -658,7 +658,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-rear"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-REar"
   id: "slot_trinket2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -713,7 +713,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-chest"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Chest"
   id: "slot_chest"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -768,7 +768,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-hands"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Hands"
   id: "slot_hands"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -823,7 +823,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-tabard"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Tabard"
   id: "slot_tabard"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -878,7 +878,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-secondaryhand"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-SecondaryHand"
   id: "slot_weaponOH"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -933,7 +933,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-trinket"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Trinket"
   id: "slot_trinket1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -988,7 +988,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-legs"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Legs"
   id: "slot_legs"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1043,7 +1043,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-neck"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Neck"
   id: "slot_necklace"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1098,7 +1098,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-feet"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Feet"
   id: "slot_feet"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1153,7 +1153,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/ui-paperdoll-slot-chest"
+  texture: "equipmentGUI/UI-PaperDoll-Slot-Chest"
   id: "slot_back"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1208,7 +1208,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "equipmentGUI/sprite_button_settingsexit_0"
+  texture: "equipmentGUI/sprite_button_settingsExit_0"
   id: "exitButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1356,7 +1356,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "weapons/inv_sword_02"
+  texture: "weapons/INV_Sword_02"
   id: "tooltipGUI/tticon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1585,7 +1585,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipGUI/tooltipLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1761,7 +1761,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipGUI/ttblBG"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1816,7 +1816,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderbot"
+  texture: "tooltipGUI/UI-Tooltip-BorderBot"
   id: "tooltipGUI/ttblBorderBot"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1871,7 +1871,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordertop"
+  texture: "tooltipGUI/UI-Tooltip-BorderTop"
   id: "tooltipGUI/ttblBorderTop"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1926,7 +1926,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderleft"
+  texture: "tooltipGUI/UI-Tooltip-BorderLeft"
   id: "tooltipGUI/ttblBorderLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1981,7 +1981,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderright"
+  texture: "tooltipGUI/UI-Tooltip-BorderRight"
   id: "tooltipGUI/ttblBorderRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2036,7 +2036,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornertl"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerTL"
   id: "tooltipGUI/ttblBorderCornerTL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2091,7 +2091,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornertr"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerTR"
   id: "tooltipGUI/ttblBorderCornerTR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2146,7 +2146,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornerbr"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerBR"
   id: "tooltipGUI/ttblBorderCornerBR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2201,7 +2201,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornerbl"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerBL"
   id: "tooltipGUI/ttblBorderCornerBL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2256,7 +2256,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipGUI/tooltipEffects"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2374,7 +2374,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipGUI/tooltipRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

@@ -112,7 +112,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "weapons/inv_sword_02"
+  texture: "weapons/INV_Sword_02"
   id: "tticon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -340,7 +340,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -515,7 +515,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "ttblBG"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -570,7 +570,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderbot"
+  texture: "tooltipGUI/UI-Tooltip-BorderBot"
   id: "ttblBorderBot"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -625,7 +625,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordertop"
+  texture: "tooltipGUI/UI-Tooltip-BorderTop"
   id: "ttblBorderTop"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -680,7 +680,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderleft"
+  texture: "tooltipGUI/UI-Tooltip-BorderLeft"
   id: "ttblBorderLeft"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -735,7 +735,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-borderright"
+  texture: "tooltipGUI/UI-Tooltip-BorderRight"
   id: "ttblBorderRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -790,7 +790,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornertl"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerTL"
   id: "ttblBorderCornerTL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -845,7 +845,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornertr"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerTR"
   id: "ttblBorderCornerTR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -900,7 +900,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornerbr"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerBR"
   id: "ttblBorderCornerBR"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -955,7 +955,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-bordercornerbl"
+  texture: "tooltipGUI/UI-Tooltip-BorderCornerBL"
   id: "ttblBorderCornerBL"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1010,7 +1010,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipEffects"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1128,7 +1128,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "tooltipGUI/ui-tooltip-background"
+  texture: "tooltipGUI/UI-Tooltip-Background"
   id: "tooltipRight"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

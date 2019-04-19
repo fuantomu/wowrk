@@ -2,34 +2,34 @@ images {
   image: "/assets/img/icons/other/1px.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-border.png"
+  image: "/assets/img/ui/UI-Tooltip-Background.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-borderbot.png"
+  image: "/assets/img/ui/UI-Tooltip-Border.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-bordertop.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderBot.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-background.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerBL.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-bordercornerbl.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerBR.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-bordercornerbr.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerTL.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-bordercornertl.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderCornerTR.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-bordercornertr.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderLeft.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-borderleft.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderRight.png"
 }
 images {
-  image: "/assets/img/ui/ui-tooltip-borderright.png"
+  image: "/assets/img/ui/UI-Tooltip-BorderTop.png"
 }
 margin: 0
 extrude_borders: 0
