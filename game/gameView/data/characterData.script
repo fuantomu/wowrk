@@ -233,6 +233,9 @@ end
 
 function setCharacterData(charData)
 	characterData = charData
+	for k, v in pairs(characterData) do
+		characterData[k]["stats"]["hpCurrent"] = math.max(characterData[k]["stats"]["hpCurrent"], 1)
+	end
 end
 
 function addCharacterData(data)

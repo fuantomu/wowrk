@@ -1,4 +1,6 @@
 bossData = {}
+
+local currentTurn = 0
 local isCasting = false
 local castTime = -1
 local castId = -1
@@ -16,7 +18,7 @@ end
 function update(self, dt)
 	if(gameRunning) then
 		if(not isCasting and not waitForAnimation) then
-			if(tickTimer <= 0) then
+			if(tickTimer <= 1) then
 				print("Turn "..currentTurn)
 				for i = 1, #bossData["turnOrder"] do
 					if(bossData["turnOrder"][i]["turn"] == clamp(currentTurn, #bossData["turnOrder"])) then
@@ -43,6 +45,7 @@ function update(self, dt)
 						end
 					end
 				end
+				currentTurn = currentTurn + 1
 			end
 		elseif(isCasting) then
 			castTime = castTime - (1/60)

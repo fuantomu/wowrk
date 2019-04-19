@@ -68,6 +68,8 @@ function update(self, dt)
 											gui.set_color(cSel, vmath.vector4(1,1,1,1))
 											gui.set_color(gui.get_node("attackButton"), vmath.vector4(1,1,1,1))
 											gui.play_flipbook(gui.get_node("attackButton"), actionQueue[x]["attackicon"])
+											gui.set_color(gui.get_node("rangeButton"), vmath.vector4(1,1,1,1))
+											gui.play_flipbook(gui.get_node("rangeButton"), actionQueue[x]["rangeicon"])
 											gui.set_color(gui.get_node("spell1Button"), vmath.vector4(1,1,1,1))
 											gui.play_flipbook(gui.get_node("spell1Button"), actionQueue[x]["spell1icon"])
 											gui.set_color(gui.get_node("spell2Button"), vmath.vector4(1,1,1,1))
@@ -77,6 +79,7 @@ function update(self, dt)
 									else
 										gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
 										gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
+										gui.set_color(gui.get_node("rangeButton"), vmath.vector4(0,0,0,0))
 										gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
 										gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
 									end
@@ -93,6 +96,7 @@ function update(self, dt)
 							if (currentSelection == 0 or actionQueue[x]["dead"] or nextPlayer == -1) then
 								gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
 								gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))
+								gui.set_color(gui.get_node("rangeButton"), vmath.vector4(0,0,0,0))
 								gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
 								gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
 							end
@@ -139,6 +143,7 @@ function on_message(self, message_id, message, sender)
 						end
 						gui.set_color(gui.get_node("currentSelection"), vmath.vector4(0,0,0,0))
 						gui.set_color(gui.get_node("attackButton"), vmath.vector4(0,0,0,0))	
+						gui.set_color(gui.get_node("rangeButton"), vmath.vector4(0,0,0,0))	
 						gui.set_color(gui.get_node("spell1Button"), vmath.vector4(0,0,0,0))
 						gui.set_color(gui.get_node("spell2Button"), vmath.vector4(0,0,0,0))
 					end
@@ -235,18 +240,19 @@ function on_message(self, message_id, message, sender)
 		
 		msg.post("/game#gameView", hash("bossDamage"), {dmg=message.dmg, targets=targets, type=message.targets})
 	elseif(message_id == hash("maxPlayers")) then
-		partySize = message.val
+		partySize = message.size
 		alivePlayers = message.val
+		tprint(message)
 		for i = 1, partySize do
-			table.insert(actionQueue, {player=i, action="None", attack="Attack", attackid=message.ids[i]["attackid"],attackicon="",spell1id=message.ids[i]["idSp1"],spell1icon="", spell2id=message.ids[i]["idSp2"],spell2icon="", casttime=1.0, dead=false})
+			table.insert(actionQueue, {player=i, action="None", attack="Attack", attackid=message.ids[i]["attackid"],attackicon="",rangeid=message.ids[i]["rangeid"],rangeicon="",spell1id=message.ids[i]["idSp1"],spell1icon="", spell2id=message.ids[i]["idSp2"],spell2icon="", casttime=1.0, dead=false})
 
 			tprint(message.ids)
 			local attackIcon = getWeaponIcon(message.ids[i]["attackid"])
-			local defenseIcon = getWeaponIcon(message.ids[i]["defenseid"])
+			local rangeIcon = getWeaponIcon(message.ids[i]["rangeid"])
 			local spellIcon1 = getAbilityIcon(message.ids[i]["idSp1"])
 			local spellIcon2 = getAbilityIcon(message.ids[i]["idSp2"])
 			actionQueue[i]["attackicon"] = attackIcon
-			actionQueue[i]["defenseicon"] = defenseIcon
+			actionQueue[i]["rangeicon"] = rangeIcon
 			actionQueue[i]["spell1icon"] = spellIcon1
 			actionQueue[i]["spell2icon"] = spellIcon2
 			
@@ -263,16 +269,7 @@ function on_message(self, message_id, message, sender)
 			end
 		end
 		msg.post(sender, hash("gameDataDone"))
-		msg.post(".", hash("updateUI"), {players=message.val})
-	elseif(message_id == hash("updateUI")) then
-		if(not message.val) then
-			for i = 1, 5 do
-				if(i>message.players) then
-					msg.post("/spritePlayer#spriteP"..i, hash("disable"))
-					gui.set_enabled(gui.get_node("barP"..i),false)
-				end
-			end
-		end
+		updateUI(alivePlayers)
 	elseif(message_id == hash("updateLabel")) then
 		if(message.player == "Boss") then
 			gui.set_text(gui.get_node("lblBoss"), tostring(message.dmg))
@@ -300,6 +297,29 @@ function on_input(self, action_id, action)
 			print("clicked Attack for P"..currentPlayer)
 			actionQueue[currentPlayer]["attack"] = actionQueue[currentPlayer]["attackid"]
 			msg.post("game#gameView", hash("doAction"), {type="AutoAttack",player=currentPlayer,target=target,source="Melee"})
+			nextPlayer = (currentPlayer % partySize) + 1
+			local playerWaiting = false
+			for i = 1, partySize do
+				if(not(i==currentPlayer)) then
+					if(actionQueue[nextPlayer]["action"] == "Wait") then
+						playerWaiting = true
+						break
+					elseif(actionQueue[i]["action"] == "Wait") then
+						nextPlayer = i
+						playerWaiting = true
+						break
+					end
+				end
+			end
+			if(not playerWaiting) then
+				nextPlayer = -1
+			end
+			currentPlayer = -1
+			currentSelection = 0
+		elseif(gui.pick_node(gui.get_node("rangeButton"), action.x, action.y) and currentSelection > 0) then
+			print("clicked Attack for P"..currentPlayer)
+			actionQueue[currentPlayer]["attack"] = actionQueue[currentPlayer]["rangeid"]
+			msg.post("game#gameView", hash("doAction"), {type="AutoAttack",player=currentPlayer,target=target,source="Ranged"})
 			nextPlayer = (currentPlayer % partySize) + 1
 			local playerWaiting = false
 			for i = 1, partySize do
@@ -383,6 +403,15 @@ function tprint (t, s)
 				vfmt = tostring(v)
 			end
 			print(type(t)..(s or '')..kfmt..' = '..vfmt)
+		end
+	end
+end
+
+function updateUI(players)
+	for i = 1, 5 do
+		if(i>players) then
+			msg.post("/spritePlayer#spriteP"..i, hash("disable"))
+			gui.set_enabled(gui.get_node("barP"..i),false)
 		end
 	end
 end

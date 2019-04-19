@@ -16,225 +16,81 @@ DEBUG:SCRIPT: table["characters"][2] = "None"
 DEBUG:SCRIPT: table["characters"][3] = "None"
 DEBUG:SCRIPT: table["characters"][4] = "None"
 DEBUG:SCRIPT: table["characters"][5] = "None"
-DEBUG:SCRIPT: clicked 1
 DEBUG:SCRIPT: start quest
 DEBUG:SCRIPT: load game
 DEBUG:SCRIPT: url: [main:/screens#proxy_gameView]	 loaded
+DEBUG:SCRIPT: table["party"][1] = "Lexwin"
+DEBUG:SCRIPT: table["partySize"] = 1
+DEBUG:SCRIPT: 1
+DEBUG:SCRIPT: table["ids"][1]["idSp2"] = 19740
+DEBUG:SCRIPT: table["ids"][1]["rangeid"] = 9412
+DEBUG:SCRIPT: table["ids"][1]["idSp1"] = 133
+DEBUG:SCRIPT: table["ids"][1]["attackid"] = 10837
+DEBUG:SCRIPT: table["altRes"][1] = 1
+DEBUG:SCRIPT: table["size"] = 1
+DEBUG:SCRIPT: table["val"] = 1
 DEBUG:SCRIPT: table[1]["idSp2"] = 19740
-DEBUG:SCRIPT: table[1]["defenseid"] = 12774
+DEBUG:SCRIPT: table[1]["rangeid"] = 9412
 DEBUG:SCRIPT: table[1]["idSp1"] = 133
 DEBUG:SCRIPT: table[1]["attackid"] = 10837
+DEBUG:SCRIPT: Turn 0
+DEBUG:SCRIPT: Tick 1
+DEBUG:SCRIPT: Turn 1
+DEBUG:SCRIPT: Tick 2
+DEBUG:SCRIPT: Turn 2
+DEBUG:SCRIPT: using ability Throw with chance 0.5 cast=2.5
+DEBUG:SCRIPT: Tick 3
 DEBUG:SCRIPT: Player 1 waiting
 DEBUG:SCRIPT: Turn Player 1
-DEBUG:SCRIPT: clicked Attack for P1
-DEBUG:SCRIPT: boss
-DEBUG:SCRIPT: table["stats"]["ap"] = 0
-DEBUG:SCRIPT: table["stats"]["basehp"] = 150
-DEBUG:SCRIPT: table["stats"]["battle"]["hitRecently"] = 0
-DEBUG:SCRIPT: table["stats"]["blockValue"] = 50
-DEBUG:SCRIPT: table["stats"]["armor"] = 5000
-DEBUG:SCRIPT: table["stats"]["resMax"] = 100
-DEBUG:SCRIPT: table["stats"]["level"] = 63
-DEBUG:SCRIPT: table["stats"]["attr"]["sta"] = 100
-DEBUG:SCRIPT: table["stats"]["attr"]["str"] = 20
-DEBUG:SCRIPT: table["stats"]["attr"]["agi"] = 0
-DEBUG:SCRIPT: table["stats"]["attr"]["spr"] = 0
-DEBUG:SCRIPT: table["stats"]["attr"]["int"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["phy"]["max"] = 100
-DEBUG:SCRIPT: table["stats"]["schools"]["phy"]["min"] = 100
-DEBUG:SCRIPT: table["stats"]["schools"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schools"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["crit"] = 5
-DEBUG:SCRIPT: table["stats"]["resist"]["holy"] = 100
-DEBUG:SCRIPT: table["stats"]["resist"]["frost"] = 250
-DEBUG:SCRIPT: table["stats"]["resist"]["shadow"] = 999
-DEBUG:SCRIPT: table["stats"]["resist"]["arcane"] = 200
-DEBUG:SCRIPT: table["stats"]["resist"]["fire"] = 0
-DEBUG:SCRIPT: table["stats"]["resist"]["nature"] = 150
-DEBUG:SCRIPT: table["stats"]["icon"] = "hws010"
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["holy"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["holy"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["shadow"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["shadow"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["frost"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["frost"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["phy"]["max"] = 100
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["phy"]["min"] = 100
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["arcane"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["arcane"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["fire"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["fire"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["nature"]["max"] = 0
-DEBUG:SCRIPT: table["stats"]["schoolsRanged"]["nature"]["min"] = 0
-DEBUG:SCRIPT: table["stats"]["mpRegen"] = 0
-DEBUG:SCRIPT: table["stats"]["hpRegen"] = 0
-DEBUG:SCRIPT: table["stats"]["avoidance"]["dodge"] = 5
-DEBUG:SCRIPT: table["stats"]["avoidance"]["block"] = 5
-DEBUG:SCRIPT: table["stats"]["avoidance"]["parry"] = 5
-DEBUG:SCRIPT: table["stats"]["sAp"] = 0
-DEBUG:SCRIPT: table["stats"]["rAp"] = 0
-DEBUG:SCRIPT: table["stats"]["race"] = "Mechanical"
-DEBUG:SCRIPT: table["stats"]["baseRes"] = 0
-DEBUG:SCRIPT: table["stats"]["hpCurrent"] = 150
-DEBUG:SCRIPT: table["stats"]["hpMax"] = 150
-DEBUG:SCRIPT: table["stats"]["resCurrent"] = 0
-DEBUG:SCRIPT: table["stats"]["name"] = "Dummy"
-DEBUG:SCRIPT: table["stats"]["sCrit"] = 5
-DEBUG:SCRIPT: table["abilities"][1]["attr"] = "STR"
-DEBUG:SCRIPT: table["abilities"][1]["id"] = 1
-DEBUG:SCRIPT: table["abilities"][1]["targets"] = "RANDOM:1:{2,4}"
-DEBUG:SCRIPT: table["abilities"][1]["element"] = "PHY"
-DEBUG:SCRIPT: table["abilities"][1]["cast"] = 5
-DEBUG:SCRIPT: table["abilities"][1]["mult"] = 100
-DEBUG:SCRIPT: table["abilities"][1]["type"] = "Melee"
-DEBUG:SCRIPT: table["abilities"][1]["name"] = "Punch"
-DEBUG:SCRIPT: table["abilities"][1]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["abilities"][2]["attr"] = "AGI"
-DEBUG:SCRIPT: table["abilities"][2]["id"] = 2
-DEBUG:SCRIPT: table["abilities"][2]["targets"] = "ALL"
-DEBUG:SCRIPT: table["abilities"][2]["element"] = "PHY"
-DEBUG:SCRIPT: table["abilities"][2]["cast"] = 4.5
-DEBUG:SCRIPT: table["abilities"][2]["mult"] = 200
-DEBUG:SCRIPT: table["abilities"][2]["type"] = "Melee"
-DEBUG:SCRIPT: table["abilities"][2]["name"] = "Kick"
-DEBUG:SCRIPT: table["abilities"][2]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["abilities"][3]["attr"] = "STR"
-DEBUG:SCRIPT: table["abilities"][3]["id"] = 3
-DEBUG:SCRIPT: table["abilities"][3]["targets"] = "RANDOM:5:{1,3,5}"
-DEBUG:SCRIPT: table["abilities"][3]["element"] = "PHY"
-DEBUG:SCRIPT: table["abilities"][3]["cast"] = 2.5
-DEBUG:SCRIPT: table["abilities"][3]["mult"] = 100
-DEBUG:SCRIPT: table["abilities"][3]["type"] = "Ranged"
-DEBUG:SCRIPT: table["abilities"][3]["name"] = "Throw"
-DEBUG:SCRIPT: table["abilities"][3]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["id"] = "testEnemy"
-DEBUG:SCRIPT: table["turnOrder"][1]["action"] = "Skip"
-DEBUG:SCRIPT: table["turnOrder"][1]["turn"] = 1
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["attr"] = "STR"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["id"] = 1
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["targets"] = "RANDOM:1:{2,4}"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["element"] = "PHY"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["cast"] = 5
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["mult"] = 100
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["type"] = "Melee"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["name"] = "Punch"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][1]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["attr"] = "AGI"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["id"] = 2
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["targets"] = "ALL"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["element"] = "PHY"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["cast"] = 4.5
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["mult"] = 200
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["type"] = "Melee"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["name"] = "Kick"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][2]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["attr"] = "STR"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["id"] = 3
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["targets"] = "RANDOM:5:{1,3,5}"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["element"] = "PHY"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["cast"] = 2.5
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["mult"] = 100
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["type"] = "Ranged"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["name"] = "Throw"
-DEBUG:SCRIPT: table["turnOrder"][2]["actionVal"][3]["elemtype"] = "NAT"
-DEBUG:SCRIPT: table["turnOrder"][2]["action"] = "Attack"
-DEBUG:SCRIPT: table["turnOrder"][2]["turn"] = 2
-DEBUG:SCRIPT: table["turnOrder"][2]["chance"][1] = 0.1
-DEBUG:SCRIPT: table["turnOrder"][2]["chance"][2] = 0.4
-DEBUG:SCRIPT: table["turnOrder"][2]["chance"][3] = 0.5
-DEBUG:SCRIPT: testEnemy	mob
-DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: source: Melee[AutoAttack] from Lexwin with Tooth of Eranikus against testEnemy
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["dodge"] = 0
-DEBUG:SCRIPT: table["hit"] = 0
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 100
-DEBUG:SCRIPT: table["glancingBlow"] = 0
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 0
-DEBUG:SCRIPT: hit: 0
-DEBUG:SCRIPT: result: miss [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 0, reduction: 0
-DEBUG:SCRIPT: damage before mitigation: 0, after: 0
-DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: ===================
-DEBUG:SCRIPT: ===================Combat Result
-DEBUG:SCRIPT: source: Melee[AutoAttack] from Lexwin with Dawn's Edge against testEnemy
-DEBUG:SCRIPT: table["crit"] = 0
-DEBUG:SCRIPT: table["dodge"] = 0
-DEBUG:SCRIPT: table["hit"] = 0
-DEBUG:SCRIPT: table["block"] = 0
-DEBUG:SCRIPT: table["miss"] = 100
-DEBUG:SCRIPT: table["glancingBlow"] = 0
-DEBUG:SCRIPT: table["crushingBlow"] = 0
-DEBUG:SCRIPT: table["parry"] = 0
-DEBUG:SCRIPT: hit: 0
-DEBUG:SCRIPT: result: miss [0/0 blocked]
-DEBUG:SCRIPT: multiplier: 0, reduction: 0
-DEBUG:SCRIPT: damage before mitigation: 0, after: 0
-DEBUG:SCRIPT: proc result: 0 [0 blocked]
-DEBUG:SCRIPT: ===================
-DEBUG:SCRIPT: table["attackTable"]["crit"] = 0
-DEBUG:SCRIPT: table["attackTable"]["dodge"] = 0
-DEBUG:SCRIPT: table["attackTable"]["hit"] = 0
-DEBUG:SCRIPT: table["attackTable"]["block"] = 0
-DEBUG:SCRIPT: table["attackTable"]["miss"] = 100
-DEBUG:SCRIPT: table["attackTable"]["glancingBlow"] = 0
-DEBUG:SCRIPT: table["attackTable"]["crushingBlow"] = 0
-DEBUG:SCRIPT: table["attackTable"]["parry"] = 0
-DEBUG:SCRIPT: table["hitChance"] = 0
-DEBUG:SCRIPT: table["damageBlocked"]["blocked"] = 0
-DEBUG:SCRIPT: table["damageBlocked"]["dmg"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["holy"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["shadow"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["frost"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["phy"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["arcane"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["fire"] = 0
-DEBUG:SCRIPT: table["damageReduction"]["nature"] = 0
-DEBUG:SCRIPT: table["procDamage"]["holy"] = 0
-DEBUG:SCRIPT: table["procDamage"]["shadow"] = 0
-DEBUG:SCRIPT: table["procDamage"]["frost"] = 0
-DEBUG:SCRIPT: table["procDamage"]["phy"] = 0
-DEBUG:SCRIPT: table["procDamage"]["arcane"] = 0
-DEBUG:SCRIPT: table["procDamage"]["fire"] = 0
-DEBUG:SCRIPT: table["procDamage"]["nature"] = 0
-DEBUG:SCRIPT: table["procResult"]["blocked"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["holy"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["shadow"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["frost"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["phy"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["arcane"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["fire"] = 0
-DEBUG:SCRIPT: table["procResult"]["damage"]["nature"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["holy"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["shadow"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["frost"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["phy"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["arcane"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["fire"] = 0
-DEBUG:SCRIPT: table["damageRolls"]["nature"] = 0
-DEBUG:SCRIPT: table["attackResult"] = "miss"
-DEBUG:SCRIPT: table["damageMult"] = 0
-DEBUG:SCRIPT: table["damageDone"]["holy"] = 0
-DEBUG:SCRIPT: table["damageDone"]["shadow"] = 0
-DEBUG:SCRIPT: table["damageDone"]["frost"] = 0
-DEBUG:SCRIPT: table["damageDone"]["phy"] = 0
-DEBUG:SCRIPT: table["damageDone"]["arcane"] = 0
-DEBUG:SCRIPT: table["damageDone"]["fire"] = 0
-DEBUG:SCRIPT: table["damageDone"]["nature"] = 0
-DEBUG:SCRIPT: table["procBlocked"] = 0
-DEBUG:SCRIPT: table["combatResult"] = 0
+DEBUG:SCRIPT: Tick 4
+DEBUG:SCRIPT: Tick 5
+DEBUG:SCRIPT: Tick 6
+DEBUG:SCRIPT: Tick 7
+DEBUG:SCRIPT: Tick 8
+DEBUG:SCRIPT: boss cast done
+ERROR:SCRIPT: /game/gameView/boss.script:73: attempt to concatenate a nil value
+stack traceback:
+	/game/gameView/boss.script:73: in function </game/gameView/boss.script:60>
+DEBUG:SCRIPT: Tick 9
+DEBUG:SCRIPT: Tick 10
+DEBUG:SCRIPT: Turn 3
+DEBUG:SCRIPT: using ability Throw with chance 0.5 cast=2.5
+DEBUG:SCRIPT: Tick 11
+DEBUG:SCRIPT: Tick 12
+DEBUG:SCRIPT: Tick 13
+DEBUG:SCRIPT: Tick 14
+DEBUG:SCRIPT: Tick 15
+DEBUG:SCRIPT: Tick 16
+DEBUG:SCRIPT: boss cast done
+ERROR:SCRIPT: /game/gameView/boss.script:73: attempt to concatenate a nil value
+stack traceback:
+	/game/gameView/boss.script:73: in function </game/gameView/boss.script:60>
+DEBUG:SCRIPT: Tick 17
+DEBUG:SCRIPT: Tick 18
+DEBUG:SCRIPT: Turn 4
+DEBUG:SCRIPT: using ability Punch with chance 0.1 cast=5
+DEBUG:SCRIPT: Tick 19
+DEBUG:SCRIPT: Tick 20
+DEBUG:SCRIPT: Tick 21
+DEBUG:SCRIPT: Tick 22
+DEBUG:SCRIPT: Tick 23
+DEBUG:SCRIPT: Tick 24
+DEBUG:SCRIPT: Tick 25
+DEBUG:SCRIPT: Tick 26
+DEBUG:SCRIPT: Tick 27
+DEBUG:SCRIPT: Tick 28
+DEBUG:SCRIPT: Tick 29
+DEBUG:SCRIPT: boss cast done
+ERROR:SCRIPT: /game/gameView/boss.script:73: attempt to concatenate a nil value
+stack traceback:
+	/game/gameView/boss.script:73: in function </game/gameView/boss.script:60>
+DEBUG:SCRIPT: Tick 30
+DEBUG:SCRIPT: Tick 31
+DEBUG:SCRIPT: Turn 5
+DEBUG:SCRIPT: using ability Kick with chance 0.4 cast=4.5
+DEBUG:SCRIPT: Tick 32
+DEBUG:SCRIPT: Tick 33
+DEBUG:SCRIPT: Tick 34
+DEBUG:SCRIPT: Tick 35
 DEBUG:SCRIPT: saving
 INFO:DLIB: SSDP: Done on address 192.168.0.8

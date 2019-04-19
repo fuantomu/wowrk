@@ -1,6 +1,7 @@
 local party = {"None", "None", "None", "None", "None"}
 local partySize = 0
 local aTimer = ""
+
 gameRunning = false
 currentTurn = 0
 alivePlayers = {}
@@ -9,7 +10,7 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	gameRunning = true
 
-	self.playerAttack = {}
+
 	math.random()
 end
 
@@ -19,6 +20,7 @@ end
 
 function update(self, dt)
 	if(gameRunning) then
+		--print(tickTimer.." game")
 		if(tickTimer <= 0) then
 			if(loadDone) then
 				for k, v in pairs(party) do
@@ -104,11 +106,13 @@ function on_message(self, message_id, message, sender)
 
 	
 	elseif(message_id == hash("sendGameData")) then
+		tprint(message)
 		partySize = message.partySize
 		
 		party = message.party
 		for k, v in pairs(party) do
 			local pHp = getCharacterStat(v, "hpCurrent")
+			print(pHp)
 			if(pHp > 0) then
 				table.insert(alivePlayers, k)
 			end
@@ -125,9 +129,9 @@ function on_message(self, message_id, message, sender)
 				local pLoadout = getCharacterLoadout(v)
 				local pWeapons = getCharacterWeapons(v)
 				
-				table.insert(spellIds, {attackid=pWeapons["weaponMH"]["id"],defenseid=pWeapons["weaponOH"]["id"],idSp1=pLoadout["spell1"],idSp2=pLoadout["spell2"]})
+				table.insert(spellIds, {attackid=pWeapons["weaponMH"]["id"],rangeid=pWeapons["weaponRanged"]["id"],idSp1=pLoadout["spell1"],idSp2=pLoadout["spell2"]})
 			end
-			msg.post("/GUI#gameViewGUI", hash("maxPlayers"), {val=#alivePlayers, altRes=classesAltRes, ids=spellIds})
+			msg.post("/GUI#gameViewGUI", hash("maxPlayers"), {val=#alivePlayers,size=partySize, altRes=classesAltRes, ids=spellIds})
 		end
 		msg.post("/game#boss", hash("loadBoss"), {id=1})
 		
@@ -162,33 +166,38 @@ function on_message(self, message_id, message, sender)
 			msg.post("/game#boss", hash("animDone"))
 		end
 	elseif(message_id == hash("doAction")) then
-		local character = party[message.player]
-		print(message.target)
-		tprint(bossData)
-		local enemy = bossData["id"]
-		local enemyType = "mob"
-		if(message.target ~= "boss") then
-			enemy = message.target
-			enemyType = "player"
-		end
-		print(enemy, enemyType)
-		if(message.type == "AutoAttack") then
-			--msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[message.player]["mainhand"]["id"], player=message.player})
-			local result = generateCombatResult({id=character,type="player"}, {id=enemy,type=enemyType}, message.source, message.type, "Front", false)
-			tprint(result)
-		elseif(message.type == "Ability") then
-			--msg.post("main:/game#main", hash("getProperties"), {type=message.type, id=self.playerStats[message.player]["sp"..message.slot.."id"], player=message.player})
-		end
+			if not(message.player == "boss") then
+				local character = party[message.player]
+				local characterType = "player"
+				local enemy = bossData["id"]
+				local enemyType = "mob"
+			else
+				local character = bossData["id"]
+				local characterType = "mob"
+				local enemy = party[message.player]
+				local enemyType = "player"
+			end
+			if(message.type == "AutoAttack") then
+				--msg.post("main:/game#main", hash("getProperties"), {type="Weapon", id=self.playerEquipment[message.player]["mainhand"]["id"], player=message.player})
+				local result = generateCombatResult({id=character,type=characterType}, {id=enemy,type=enemyType}, message.source, message.type, "Front", false)
+				msg.post("/spritePlayer#spriteP".. message.player, "play_animation", { id = hash("attack") })
+				tprint(result)
+			elseif(message.type == "Ability") then
+				--msg.post("main:/game#main", hash("getProperties"), {type=message.type, id=self.playerStats[message.player]["sp"..message.slot.."id"], player=message.player})
+			end
 		
-	elseif(message_id == hash("5bossDamage")) then
+	elseif(message_id == hash("bossDamage")) then
 		local i = 1
 		if(message.type == "ALL") then
 			for i = 1, #message.targets do
-				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
-				if(not self.playerStats[message.targets[i]]["dead"]) then
-					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
-					self.playerStats[message.targets[i]]["hpcurr"] = self.playerStats[message.targets[i]]["hpcurr"] - dmgDone
-					local newPlayerHP = (self.playerStats[message.targets[i]]["hpcurr"] / self.playerStats[message.targets[i]]["hpmax"]) * 100
+				if(message.targets[i] >  partySize) then message.targets[i] = alivePlayers[math.random(#alivePlayers)] end
+				if(not getCharacterBattleStatus(party[message.targets[i]], "dead")) then
+					local dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					local pHpCur = getCharacterStat(party[message.targets[i]], "hpCurrent")
+					local pHpMax = getCharacterStat(party[message.targets[i]], "hpMax")
+					setCharacterStat(party[message.targets[i]], "hpCurrent", pHpCur - dmgDone)
+					
+					local newPlayerHP = (( pHpCur - dmgDone) / pHpMax) * 100
 					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=message.targets[i], dmg=dmgDone})
 					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=message.targets[i], hp=newPlayerHP, val=hash("set")})
 					print("Boss hitting player "..message.targets[i].." for "..dmgDone)
@@ -196,24 +205,29 @@ function on_message(self, message_id, message, sender)
 			end
 		else
 			aTimer = delay.repeating(0.2, function(self, id)
-				if(#self.alivePlayers <= 0) then delay.cancel(id) end
-				if(message.targets[i] > self.maxPlayers) then message.targets[i] = self.alivePlayers[math.random(#self.alivePlayers)] end
-				if(not self.playerStats[message.targets[i]]["dead"]) then
-					print(self.playerStats[message.targets[i]]["armor"])
-					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
-					self.playerStats[message.targets[i]]["hpcurr"] = self.playerStats[message.targets[i]]["hpcurr"] - dmgDone
-					local newPlayerHP = (self.playerStats[message.targets[i]]["hpcurr"] / self.playerStats[message.targets[i]]["hpmax"]) * 100
+				if(#alivePlayers <= 0) then delay.cancel(id) end
+				if(message.targets[i] > partySize) then message.targets[i] = alivePlayers[math.random(#alivePlayers)] end
+				if(not getCharacterBattleStatus(party[message.targets[i]], "dead")) then
+					local dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					local pHpCur = getCharacterStat(party[message.targets[i]], "hpCurrent")
+					local pHpMax = getCharacterStat(party[message.targets[i]], "hpMax")
+					setCharacterStat(party[message.targets[i]], "hpCurrent", pHpCur - dmgDone)
+
+					local newPlayerHP = (( pHpCur - dmgDone) / pHpMax) * 100
 					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=message.targets[i], dmg=dmgDone})
 					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=message.targets[i], hp=newPlayerHP, val=hash("set")})
 					print("Boss hitting player "..message.targets[i].." for "..dmgDone)
 				else
-					player = self.alivePlayers[math.random(#self.alivePlayers)]
-					dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
-					self.playerStats[player]["hpcurr"] = self.playerStats[player]["hpcurr"] - dmgDone
-					local newPlayerHP = (self.playerStats[player]["hpcurr"] / self.playerStats[player]["hpmax"]) * 100
-					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=player, dmg=dmgDone})
-					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=player, hp=newPlayerHP, val=hash("set")})
-					print("Boss hitting random player "..player.." for "..dmgDone)
+					player = alivePlayers[math.random(#alivePlayers)]
+					local dmgDone = message.dmg + (math.floor(math.random() * (message.dmg/10))*100)/100
+					local pHpCur = getCharacterStat(party[message.targets[i]], "hpCurrent")
+					local pHpMax = getCharacterStat(party[message.targets[i]], "hpMax")
+					setCharacterStat(party[message.targets[i]], "hpCurrent", pHpCur - dmgDone)
+
+					local newPlayerHP = (( pHpCur - dmgDone) / pHpMax) * 100
+					msg.post("/GUI#gameViewGUI", hash("updateLabel"), {player=message.targets[i], dmg=dmgDone})
+					msg.post("/GUI#gameViewGUI", hash("setHP"), {player=message.targets[i], hp=newPlayerHP, val=hash("set")})
+					print("Boss hitting player "..message.targets[i].." for "..dmgDone)
 				end
 				i = i + 1
 				if(i > #message.targets) then

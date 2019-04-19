@@ -1,8 +1,9 @@
+currentTick = 0
+tickTime = 1
+tickTimer = 60 * tickTime
+
 function init(self)
 	math.randomseed(os.time())
-	currentTick = 0
-	tickTime = 1
-	tickTimer = 60 * tickTime
 end
 
 function final(self)
@@ -11,12 +12,16 @@ function final(self)
 end
 
 function update(self, dt)
-	if(testRuns >= 1) then
-		tickTimer = tickTimer - 1
-		if(tickTimer <= 0) then
-			currentTick = currentTick + 1 * tickTime
-			tickTimer = 60 * tickTime
-			--print("Tick "..currentTick)
+	if(gameRunning) then
+		if(loadDone) then
+			if(alivePlayers > 0) then
+				tickTimer = tickTimer - 1
+				if(tickTimer <= 0) then
+					currentTick = currentTick + 1 * tickTime
+					tickTimer = 60 * tickTime
+					print("Tick "..currentTick)
+				end
+			end
 		end
 	end
 end
